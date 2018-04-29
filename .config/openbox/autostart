@@ -1,0 +1,20 @@
+#!/bin/sh
+
+xrdb -l "$HOME/.Xresources" &
+xmodmap "$HOME/.Xmodmap" &
+xsetroot -solid rgb:03/03/33 &
+
+# battery monitor
+juiced -d
+
+# wallpaper
+nitrogen --restore &
+
+#for brightness keys on toshiba
+mate-power-manager &
+
+# number keys
+numlockx &
+
+# panel
+(sleep 2s && tint2 -c "$HOME/.config/tint2/tint2obxrc") &

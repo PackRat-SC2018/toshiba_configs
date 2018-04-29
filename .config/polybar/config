@@ -1,0 +1,61 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = /home/doug/.config/polybar/master.conf
+include-file = /home/doug/.config/polybar/modules.conf
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/openbox-bar]
+inherit = bar/obxbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+modules-left = jgmenu window_switch workspaces
+modules-center = uptime coreuse load battery wireless-network
+modules-right = clock
+
+; All available modules (some require configuration in modules.conf)
+; redshift github filesystem mpd wired-network wireless-network battery menu volume-bar bspwm
+; pkg keyboard memory temperature coreuse network clock volume i3-workspaces workspaces window_switch
+
+;tray-position = center
+;tray-detached = false
+;tray-maxsize = 18
+;tray-transparent = false
+;tray-background = ${colors.background}
+;;offset in pixels 10 or percent 10%
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-padding = 2
+;tray-scale = 1.0
+
+;=====================================================
+;     Fluxbox Bars
+;=====================================================
+
+[bar/fluxbox-bar]
+inherit = bar/fboxbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+modules-left = jgmenu window_switch
+modules-center = uptime coreuse load battery wireless-network
+modules-right = date
+
+; All available modules (some require configuration in modules.conf)
+; redshift github filesystem mpd wired-network wireless-network battery menu volume-bar bspwm
+; pkg keyboard memory temperature coreuse network clock volume i3-workspaces workspaces window_switch
+
+
+;;;;;; Tray is commented out ;;;;;;;;
+;tray-position = center
+;tray-padding = 10
+;tray-background = ${colors.background}
+;tray-offset-x = 20%

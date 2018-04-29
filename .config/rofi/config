@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------------------
+# ROFI  Options
+# ------------------------------------------------------------------------------
+rofi.location:         2
+rofi.fullscreen:       false
+rofi.hide-scrollbar:   true
+rofi.line-margin:      5
+rofi.padding:          10
+rofi.font:             Source Sans Pro Semibold 12
+rofi.bw:               4
+rofi.width:            700
+rofi.lines:            10
+rofi.modi:             run,window,drun
+rofi.separator-style:  dash
+rofi.yoffset:          28
+rofi.xoffset:          0
+rofi.terminal:         xterm
+rofi.run-command:      {cmd}
+rofi.run-shell-command:    {terminal} -e {cmd}
+rofi.sidebar-mode:     true
+rofi.case-sensitive:   true
+rofi.click-to-exit:    true
+rofi.color-enabled:    true
+rofi.color-window:     #BF1F1A24, #BF494C5F, #BF494C5F
+rofi.color-normal:     argb:BF1F1A24, argb:BFffeefc, argb:BF251F2B, argb:BF478061, argb:BFffeefc
+rofi.color-active:     #BF141021, #BFc05c47, #BF312842, #BFc05c47, #BFffeefc
+rofi.color-urgent:     #BF141021, #BFe4b226, #BF312842, #BFe4b226, #BFffeefc

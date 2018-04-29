@@ -1,0 +1,93 @@
+conky.config = {
+--#############################################
+-- Settings
+--#############################################
+	background = true,
+	use_xft = true,
+	font = 'Ubuntu:regular:size=10',	
+	xftalpha = 1.0,
+	update_interval = 1.0,
+--	update_interval_on_battery = 30.0,
+	total_run_times = 0,
+
+	own_window = true,
+	own_window_colour = '#141414',
+	own_window_transparent = true,
+	-- own_window_type = 'dock',
+	own_window_type = 'desktop' ,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_class = 'ConkyFB',
+	own_window_title = 'ConkyFB',
+--#############################################
+-- Compositing tips:
+-- Conky can play strangely when used with
+-- different compositors. I have found the
+-- following to work well, but your mileage
+-- may vary. Comment/uncomment to suit.
+--#############################################
+--#
+	-- own_window_argb_visual = true,
+	-- own_window_argb_value = 2,
+
+--# xcompmgr
+-- own_window_argb_visual yes
+-- own_window_argb_value 120
+
+--# cairo-compmgr
+--own_window_type desktop
+--own_window_argb_visual yes
+--#############################################
+
+	no_buffers = true,
+	uppercase = true,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+	short_units = true,
+	imlib_cache_size = 0,
+	pad_percents = 1,
+	max_user_text = 3200,
+	text_buffer_size = 1024,
+	if_up_strictness = 'address',
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	border_inner_margin = 1,
+	border_outer_margin = 1,
+
+	default_color = '#D1BF64',
+	default_shade_color = '#000000',
+	default_outline_color = '#828282',
+	color0 = '#FFFFFF',
+	color1 = '#000000',
+	color2 = '#FF0000',-- - red
+	color3 = '#FFFF00',-- - yellow
+	color4 = '#0000FF',-- - blue
+	color5 = '#00FF00',-- - green
+	color6 = '#FFA500',-- - orange
+	color7 = '#D1BF64',-- - cyan3
+	color8 = '#DAA520',-- - gold
+	color9 = '#F00A11',-- - reddish
+	
+	minimum_width = 256, minimum_height = 0,
+	maximum_width = 256,
+	alignment = 'top_left',
+	gap_x = 12,
+	gap_y = 12,
+
+--	lua_load = '~/conky/transbg.lua',
+--	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x1D1D11 0.03',
+
+-- ${voffset 8}Net:${goto 128}Up:${offset 10}${upspeedf enp2s0}${goto 160}Down:${offset 10}${downspeedf enp2s0}${color}${voffset 8}
+
+};
+
+conky.text = [[
+${voffset 16}${goto 12}Uptime:${goto 128}${uptime_short}
+${voffset 16}${goto 12}CPU:${goto 128}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}
+${voffset 8}${goto 128}${loadavg 1}${offset 10}${loadavg 2}${offset 10}${loadavg 3}
+${voffset 16}${goto 12}RAM:${goto 128}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
+${voffset 16}${goto 12}Core0:${goto 128}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}
+${voffset 16}${goto 12}Core1:${goto 128}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}${voffset 16}
+]];

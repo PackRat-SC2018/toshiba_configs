@@ -1,0 +1,260 @@
+# random change of wallpaper with desktop change
+# ChangeWorkspace :Exec fbsetbg -c -r "$HOME/wallpaper"
+#
+# more elabortate - run script for particular desktop
+# ChangeWorkspace :Exec "$HOME/.fluxbox/script_desk$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}').sh"
+
+# click on the desktop to get menus
+OnDesktop Mouse3 :HideMenus
+OnDesktop Mouse2 :WorkspaceMenu
+OnDesktop Mouse1 :RootMenu
+
+Mod4 space :RootMenu
+Mod4 m :Exec pmenu.py --x 36 --y 36
+Mod1 space :HideMenus
+
+# scroll on the desktop to change workspaces
+# OnDesktop Mouse4 :PrevWorkspace
+# OnDesktop Mouse5 :NextWorkspace
+
+# scroll on the toolbar to change current window
+# OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
+# OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
+# OnToolbar Mouse2 :Exec gsimplecal
+OnToolbar Mouse2 :Exec yad --class="fbox_cal" --title="Fbox_Calendar" --calendar --text ""
+
+# alt + left/right click to move/resize a window
+OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
+OnWindowBorder Move1 :StartMoving
+
+OnWindow Mod1 Mouse3 :MacroCmd {Raise} {Focus} {StartResizing NearestCorner}
+OnLeftGrip Move1 :StartResizing bottomleft
+OnRightGrip Move1 :StartResizing bottomright
+
+# alt + middle click to lower the window
+OnWindow Mod1 Mouse2 :Lower
+
+# control-click a window's titlebar and drag to attach windows
+OnTitlebar Control Mouse1 :StartTabbing
+OnTab Control Mouse1 :StartTabbing
+OnTitlebar Control Mouse2 :DetachClient
+OnTab Control Mouse2 :DetachClient
+
+# double click on the titlebar to shade
+OnTitlebar Double Mouse1 :Shade
+!OnTitlebar Mouse4 :Shade
+!OnTitlebar Mouse5 :Shade
+
+# left click on the titlebar to move the window
+OnTitlebar Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTitlebar Move1  :StartMoving
+
+OnTab Mouse1 :MacroCmd {Raise} {Focus} {ActivateTab}
+OnTab Move1  :StartMoving
+
+# middle click on the titlebar to lower
+OnTitlebar Mouse2 :Lower
+
+# right click on the titlebar for a menu of options
+OnTitlebar Mouse3 :WindowMenu
+OnTab Mouse3 :WindowMenu
+
+# alt-tab
+# Mod1 Tab :NextWindow {groups} (workspace=[current])
+# Mod1 Shift Tab :PrevWindow {groups} (workspace=[current])
+Mod1 Tab :NextWindow
+Mod1 Shift Tab :PrevWindow
+
+# cycle through tabs in the current window
+Mod4 Tab :NextTab
+Mod4 Shift Tab :PrevTab
+
+# go to a specific tab in the current window
+#Mod4 Shift 1 :Tab 1
+#Mod4 Shift 2 :Tab 2
+#Mod4 Shift 3 :Tab 3
+#Mod4 Shift 4 :Tab 4
+#Mod4 Shift 5 :Tab 5
+#Mod4 Shift 6 :Tab 6
+#Mod4 Shift 7 :Tab 7
+#Mod4 Shift 8 :Tab 8
+#Mod4 Shift 9 :Tab 9
+
+# open a terminal
+Mod1 F1 :Exec sakura
+
+# open a dialog to run programs
+Mod1 F2 :Exec fbrun
+Mod4 d :Exec rofi -show
+Mod4 x :Exec jgmenu
+
+# current window commands
+Mod1 F3 :Exec urxvt
+Mod1 F4 :Close
+Mod1 Shift F5 :MacroCmd {ResizeTo 80% 90%} {MoveTo 0 0 Center}
+Mod1 F5 :MoveTo 0 0 CENTER
+Mod1 F6 :Iconify
+Mod1 F7 :MaximizeVertical
+Mod1 F8 :MaximizeHorizontal
+Mod1 F9 :KillWindow
+Mod1 F10 :Maximize
+Mod1 Shift F10 :Macrocmd {ToggleDecor} {Maximize}
+Mod1 F11 :Fullscreen
+
+XF86AudioRaiseVolume :Exec amixer -q sset Master 5%+ unmute
+XF86AudioLowerVolume :Exec amixer -q sset Master 5%- unmute
+XF86AudioMute :Exec amixer sset Master,0 toggle
+
+#XF86AudioRaiseVolume :Exec pulseaudio-ctl up
+#XF86AudioLowerVolume :Exec pulseaudio-ctl down
+#XF86AudioMute :Exec pulseaudio-ctl mute
+
+XF86AudioPlay :Exec play
+XF86AudioPrev :Exec prev
+XF86AudioNext :Exec next
+
+Menu :Exec thunar
+Mod4 XF86HomePage :Exec wmctrl -a firefox || firefox
+Mod4 XF86Mail :Exec wmctrl -a thunderbird || thunderbird
+!XF86Tools :Exec urxvt -e tmux
+!XF86Calculator :Exec Exec wmctrl -a xcalc || xcalc
+Control Mod4 l :Exec wmctrl -a subl3 || subl3
+Control Mod4 g :Exec wmctrl -a gimp || gimp
+Control Mod4 p :Exec wmctrl -a libreoffice --calc || libreoffice --calc
+Control Mod4 o :Exec wmctrl -a libreoffice --writer || libreoffice --writer
+Mod4 q :Restart
+Mod4 Shift q :Exec /usr/local/bin/session-exit
+
+# open the window menu
+Control Mod1 space :WindowMenu
+
+# exit fluxbox
+Control Mod1 Delete :Exit
+
+# change to previous/next workspace
+Control Mod1 Left :PrevWorkspace
+Control Mod1 Right :NextWorkspace
+
+# send the current window to previous/next workspace
+Mod4 Left :SendToPrevWorkspace
+Mod4 Right :SendToNextWorkspace
+
+# send the current window and follow it to previous/next workspace
+Control Mod4 Left :TakeToPrevWorkspace
+Control Mod4 Right :TakeToNextWorkspace
+
+# change to a specific workspace
+Mod4 1 :Workspace 1
+Mod4 2 :Workspace 2
+Mod4 3 :Workspace 3
+Mod4 4 :Workspace 4
+
+Mod1 Shift F1 :MoveTo 0 0 UpperLeft
+Mod1 Shift F2 :MoveTo 0 0 UpperRight
+Mod1 Shift F3 :MoveTo 0 0 LowerLeft
+Mod1 Shift F4 :MoveTo 0 0 LowerRight
+Mod4 Shift Right :ResizeHorizontal 2
+Mod4 Shift Left :ResizeHorizontal -2
+Mod4 Shift Up :ResizeVertical -2
+Mod4 Shift Down :ResizeVertical 2
+Mod1 Shift Right :MoveRight 5
+Mod1 Shift Left :MoveLeft 5
+Mod1 Shift Up :MoveUp 5
+Mod1 Shift Down :MoveDown 5
+
+# send the current window to a specific workspace
+Control F1 :SendToWorkspace 1
+Control F2 :SendToWorkspace 2
+Control F3 :SendToWorkspace 3
+Control F4 :SendToWorkspace 4
+
+# send the current window and change to a specific workspace
+Control Mod4 F1 :TakeToWorkspace 1
+Control Mod4 F2 :TakeToWorkspace 2
+Control Mod4 F3 :TakeToWorkspace 3
+Control Mod4 F4 :TakeToWorkspace 4
+
+# toggledecor, show desktop
+
+Mod1 Shift F12 :ToggleCmd {ShowDesktop} {DeIconify all originquiet}
+Mod4 Shift d :ToggleDecor
+Ctrl a Mod4 d :MacroCmd {SetDecor 0x67f} {ResizeTo 75% 80%} {MoveTo 0 0 Center}
+
+
+## manual tiling with key chains
+##=================================================##
+
+# built-in tiling in fluxbox
+# these macros will tile tint2 panel
+
+# Mod1 Shift m :ArrangeWindowsHorizontal
+# Mod1 Shift n :ArrangeWindowsVertical
+
+# Quarter screen decorated
+#===================================================##
+
+Ctrl a Mod1 KP_1 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% LowerLeft}
+Ctrl a Mod1 KP_2 :MacroCmd {ResizeTo 100% 50%} {MoveTo 0% 0% Bottom}
+Ctrl a Mod1 KP_3 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% LowerRight}
+
+Ctrl a Mod1 KP_4 :MacroCmd {ResizeTo 50% 100%} {MoveTo 0% 0% Left}
+Ctrl a Mod1 KP_5 :Maximize
+Ctrl a Mod1 KP_6 :MacroCmd {ResizeTo 50% 100%} {MoveTo 0% 0% Right}
+
+Ctrl a Mod1 KP_7 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% UpperLeft}
+Ctrl a Mod1 KP_8 :MacroCmd {ResizeTo 100% 50%} {MoveTo 0% 0% Top}
+Ctrl a Mod1 KP_9 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% UpperRight}
+
+# Quarter screen undecorated
+##===================================================##
+
+Ctrl a Mod4 KP_1 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% LowerLeft}
+Ctrl a Mod4 KP_2 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 50%} {MoveTo 0% 0% Bottom}
+Ctrl a Mod4 KP_3 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% LowerRight}
+
+Ctrl a Mod4 KP_4 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 100%} {MoveTo 0% 0% Left}
+Ctrl a Mod4 KP_5 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 100%} {MoveTo 0% 0% Center}
+Ctrl a Mod4 KP_6 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 100%} {MoveTo 0% 0% Right}
+
+Ctrl a Mod4 KP_7 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% UpperLeft}
+Ctrl a Mod4 KP_8 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 50%} {MoveTo 0% 0% Top}
+Ctrl a Mod4 KP_9 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% UpperRight}
+
+Ctrl a Mod4 h :MacroCmd {ToggleDecor} {ResizeTo 85% 90%} {MoveTo 0 0 Center}
+
+# modes - use ESC to exit mode
+# MoveMode ===========================================##
+
+Mod4 w Mod4 m               :KeyMode MoveMode
+MoveMode: None Up           :MoveUp 5
+MoveMode: None Down         :MoveDown 5
+MoveMode: None Left         :MoveLeft 5
+MoveMode: None Right        :MoveRight 5
+MoveMode: Shift Up          :MoveUp 10
+MoveMode: Shift Down        :MoveDown 10
+MoveMode: Shift Left        :MoveLeft 10
+MoveMode: Shift Right       :MoveRight 10
+
+# ResizeMode
+##======================================================##
+
+Mod4 w Mod4 r               :KeyMode ResizeMode
+ResizeMode: None Up         :ResizeVertical -5
+ResizeMode: None Down       :ResizeVertical 5
+ResizeMode: None Left       :ResizeHorizontal -5
+ResizeMode: None Right      :ResizeHorizontal 5
+ResizeMode: Shift Up        :ResizeVertical -10
+ResizeMode: Shift Down      :ResizeVertical 10
+ResizeMode: Shift Left      :ResizeHorizontal -10
+ResizeMode: Shift Right     :ResizeHorizontal 10
+
+# EmacsMode
+##=======================================================##
+
+Mod4 w Mod4 e               :KeyMode EmacsMode
+EmacsMode: Mod1 F1          :Exec urxvt
+EmacsMode: Mod1 Shift F1    :Exec urxvt -e tmux
+EmacsMode: Mod1 F2          :Exec rofi -show
+EmacsMode: Mod1 F10         :MacroCmd {SetDecor TAB} {Maximize}
+
+#EOF

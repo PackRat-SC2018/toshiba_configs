@@ -1,0 +1,52 @@
+conky.config = {
+	out_to_console = true,
+	out_to_x = false,
+	background = false,
+	uppercase = false,
+	update_interval = 1,
+	total_run_times = 0,
+	use_spacer = 'none',
+
+};
+
+
+conky.text = [[
+# JSON for i3bar
+ 
+ [
+
+	{ "full_text" : "  Up: ${uptime_short}  " , "color" : "\#BBBBBB" },
+ 
+#        { "full_text" : "  CORE0: ${hwmon 0 temp 2} °C  " , "color" :
+#                ${if_match ${hwmon 0 temp 2}>=80}"\#FF2828"${else}${if_match ${hwmon 0 temp 2}>=50}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },	
+ 
+#        { "full_text" : "  CORE1: ${hwmon 0 temp 4} °C  " , "color" :
+#                ${if_match ${hwmon 0 temp 4}>=80}"\#FF2828"${else}${if_match ${hwmon 0 temp 4}>=50}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+
+        { "full_text" : "  CPU: ${cpu}%   ${loadavg} " , "color" :
+                ${if_match ${cpu}>33}"\#FF2828"${else}"\#BBBBBB"${endif} },
+
+        { "full_text" : "  MEM:  ${memperc}%  " , "color" :
+                ${if_match ${memperc}>=50}"\#FF2828"${else}${if_match ${memperc}>=25}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+ 
+	{ "full_text" : "  NET:  ${wireless_bitrate wlo1}  ${upspeed wl01}  ${downspeed wl01}  " , "color" : "\#BBBBBB" },
+
+#        { "full_text" : "  ${wireless_link_qual_perc wlo1}% " , "color" :
+#                ${if_match ${wireless_link_qual_perc wlo1}<25}"\#FF2828"${else}${if_match ${wireless_link_qual_perc wlo1}<33}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+		
+#	{ "full_text" : "  NET: U:  ${upspeedf wlo1} " , "color" :
+#                ${if_match ${upspeedf wlo1}<=500}"\#BBBBBB"${else}"\#00EEEE"${endif} },
+		
+#	{ "full_text" : "  D:  ${downspeedf wlo1} " , "color" :
+#                ${if_match ${downspeedf wlo1}<=500}"\#BBBBBB"${else}"\#00EEEE"${endif} },
+
+#        { "full_text" : " Net: U: ${upspeedf wlo1}   D: ${downspeedf} " , "color" : ${if_match ${downspeedf wlo1}<=500}"\#BBBBBB"${else}"\#00EEEE"${endif} },
+
+        { "full_text" : " BATT:  ${battery_percent BAT0}% ${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4} " , "color" :
+                ${if_match ${battery_percent BAT0}<=15}"\#FF2828"${else}${if_match ${battery_percent BAT0}<=33}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+
+	 { "full_text" : "  ${time %a %e %b  %k:%M}  " , "color" : "\#BBBBBB" }
+
+],
+
+]];

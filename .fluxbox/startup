@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "$HOME/.Xmodmap"
+xrdb -l "$HOME/.Xresources"
+fbsetroot -solid "#333366" &
+
+# number pad lock for toshiba
+numlockx &
+
+# battery monitor
+juiced -d
+
+# set wallpaper
+(sleep 2s && fbsetbg -c -r "$HOME/wallpaper/") &
+
+# 3rd party apps
+# (sleep 2s && conky -dc $HOME/.conky10fboxrc) &
+# (sleep 2s && connman-gtk --tray) &
+
+#for brightness keys on toshiba
+mate-power-manager &
+
+#(sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+# exec fluxbox
+# or if you want to keep a log:
+exec fluxbox -log "$HOME/.fluxbox/log"

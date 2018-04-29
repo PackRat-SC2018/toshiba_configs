@@ -1,0 +1,6 @@
+Web Browser,firefox,firefox
+Mail,thunderbird,thunderbird
+Terminal,urxvt,utilities-terminal
+Editor,subl3,accessories-text-editor
+File Manager,thunar,folder-open
+^sep()

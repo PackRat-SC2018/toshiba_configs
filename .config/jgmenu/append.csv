@@ -1,0 +1,4 @@
+^sep()
+Lock Screen,slock,/usr/share/pixmaps/slock.png
+Suspend,gksudo zzz,emblem-readonly.png
+Void Logout,void-logout,/usr/share/void-artwork/void-transparent.png
