@@ -1,0 +1,116 @@
+# openbox theme - Live Oak
+
+# created by PackRat
+# creation date - 10-17-2017
+#
+# This work is licensed under the Creative Commons 
+# Attribution-NonCommercial-ShareAlike License.
+
+window.handle.width: 2
+
+window.client.padding.width: 0
+window.client.padding.height: 0
+border.Width: 1
+padding.width: 2
+
+window.active.border.color: #1C1C1C
+window.inactive.border.color: #1C1C1C
+menu.border.color: #1C1C1C
+menu.overlap: 0
+window.frameColor: #eeeeee
+window.*.client.color: #eeeeee
+*.text.justify: left
+
+!! Menu
+menu.title.bg: flat gradient split
+menu.title.bg.color: #400606
+menu.title.bg.colorTo: #400606
+menu.title.text.color: #F7F7F7
+
+menu.items.bg: flat solid
+menu.items.bg.color: #E9E9E9
+
+menu.items.text.color: #1C1C1C
+menu.items.disabled.text.color: #737573
+
+menu.items.active.bg: flat gradient split
+menu.items.active.bg.color:  #400606
+menu.items.active.bg.colorTo:#400606
+menu.items.active.text.color: #E9E9E9
+
+!! Active Windows
+window.active.title.bg: raised gradient horizontal
+window.active.title.bg.color: #400606
+window.active.title.bg.colorTo: #D1BF64
+window.active.*.bg.border.color: #1C1C1C
+
+window.active.label.bg: parentrelative
+window.active.label.text.color: #E9E9E9
+
+window.active.button.*.bg: parentrelative
+window.active.button.*.image.color: #E9E9E9
+window.active.button.*.bg.border.color: #4e5860
+
+window.active.button.hover.bg.color: #576773
+window.active.button.hover.bg.border.color: #9aabb9
+window.active.button.pressed.bg.color: #343b40
+window.active.button.pressed.bg.colorTo: #1C1C1C
+window.active.button.pressed.image.color: #b6b6b6
+window.active.button.pressed.bg.border.color: #b1a19e
+
+window.active.button.disabled.bg: parentrelative
+window.active.button.disabled.image.color: #725e51
+
+window.active.handle.bg:  flat solid
+window.active.handle.bg.color:#E9E9E9
+
+window.*.grip.bg:  flat solid 
+window.*.grip.bg.color: #919191
+
+window.handle.width: 3
+
+!! Inactive Windows
+window.inactive.title.bg: raised gradient horizontal
+window.inactive.title.bg.color: #1C1C1C
+window.inactive.title.bg.colorTo: #1C1C1C
+window.inactive.*.border.color: #1C1C1C
+
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: #919191
+
+window.inactive.button.*.bg: parentrelative
+window.inactive.button.*.bg.color: #eeeeee
+window.inactive.button.*.image.color:  #b6b6b6
+window.inactive.button.*.bg.border.color: #c9c9c9
+
+window.inactive.button.pressed.bg.color: #c5c2c5
+window.inactive.button.pressed.bg.border.color: #7b7d7b
+window.inactive.button.pressed.image.color: #999999
+
+window.inactive.button.hover.bg.color: #afb1b2
+window.inactive.button.hover.bg.border.color: #d9dfe4
+window.inactive.button.hover.image.color: #a0a0a0
+window.inactive.button.disabled.bg: parentrelative
+window.inactive.button.disabled.image.color: #dddddd
+
+window.inactive.handle.bg: flat solid
+window.inactive.handle.bg.color: #1C1C1C
+window.inactive.grip.bg:  parentrelative
+
+!! Fonts
+window.active.label.text.font: shadow=n:shadowoffset=1:shadowtint=75
+window.inactive.label.text.font: shadow=n:shadowoffset=1:shadowtint=0
+menu.items.font: 
+menu.title.text.font: shadow=n:shadowoffset=1:shadowtint=75
+
+!! OSD
+osd.bg: flat
+osd.bg.color: #E9E9E9
+
+osd.label.bg: flat
+osd.label.bg.color: #CCCCCC
+osd.label.text.color: #1C1C1C
+
+osd.hilight.bg: raised
+osd.hilight.bg.color: #D1BF64
+osd.unhilight.bg: raised
