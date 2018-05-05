@@ -23,7 +23,7 @@ exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
 exec xrdb -l "$HOME/.Xresources"
 exec xmodmap "$HOME/.Xmodmap"
 exec xset s 300 -dpms
-exec numlockx &
+exec numlockx on &
 
 # stop trackpad when typing
 # exec syndaemon -i 1.0 -d
@@ -38,7 +38,7 @@ exec nitrogen --restore
 exec juiced -d
 
 #for brightness keys on toshiba
-mate-power-manager &
+exec mate-power-manager &
 
 # i3 configuration ================================================
 
@@ -81,23 +81,24 @@ floating_modifier $ALT
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $ALT+F1 exec urxvt
 
-# kill focused window
-bindsym $ALT+F4 kill
-
 # start dmenu (a program launcher)
 # bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CCCCCC" -sb "#387070" -sf "#F5F5FF" 
 bindsym $ALT+F2 exec rofi-gorice
 # bindsym $ALT+Shift+F2 exec jgmenu_run
 
-# touchpad
-bindsym $mod+Control+t exec "$HOME/bin/ktouchpad.sh"
+# xterm
+bindsym $ALT+F3 exec uxterm
 
+# kill focused window
+bindsym $ALT+F4 kill
+
+# touchpad
+# bindsym $mod+Control+t exec "$HOME/bin/ktouchpad.sh"
 bindsym $mod+XF86HomePage exec wmctrl -a firefox || firefox
 bindsym $mod+XF86Mail exec wmctrl -a thunderbird || thunderbird
 bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
-bindsym $ALT+F3 exec sakura
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
 bindsym $mod+x exec jgmenu_run
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
@@ -121,12 +122,13 @@ for_window [class="Gnome-mplayer"] floating enable
 for_window [class="Gcolor2"] floating enable
 #for_window [class="UXTerm"] floating enable, border pixel 2
 #for_window [class="XTerm"] floating enable, border pixel 2
+for_window [class="Sakura"] floating enable, border pixel 2
+for_window [class="Xfce4-terminal"] floating enable, border pixel 2
 for_window [class="XCalc"] floating enable, border pixel 2
 for_window [class="Galculator"] floating enable, border pixel 2
 for_window [class="XFontSel"] floating enable, border pixel 2
 for_window [class="Event Tester"] floating enable, border pixel 2
 for_window [class="Gxine"] floating enable, border pixel 2
-for_window [class="Xfce4-terminal"] floating enable, border pixel 2
 for_window [class="wm-exit"] floating enable, border pixel 2
 for_window [class="void-logout"] floating enable, border pixel 2
 for_window [class="void-session-manager"] floating enable, border pixel 2

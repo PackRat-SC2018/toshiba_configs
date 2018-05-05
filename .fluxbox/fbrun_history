@@ -2,12 +2,22 @@ numlockx
 firefox
 pcmanfm
 urxvt
-galculator
 subl3
 xcalc
-yad --font
-compton
 opera
 xterm
 uxterm
 hexchat
+emacs
+connman-gtk --tray
+gtk3-icon-browser
+yad --color
+compton
+xfontsel
+lxappearance
+gcolor2
+galculator
+spacefm
+yad --font
+sakura
+rxvtconf

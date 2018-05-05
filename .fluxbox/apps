@@ -242,8 +242,8 @@
   [Alpha]	{255}
 [end]
 [transient] (name=gimp) (class=Gimp)
-  [Dimensions]	{29% 23%}
-  [Position]	(UPPERLEFT)	{35% 38%}
+  [Dimensions]	{49% 62%}
+  [Position]	(UPPERLEFT)	{25% 19%}
   [Shaded]	{no}
   [Deco]	{0x5ff}
   [Sticky]	{no}
@@ -296,7 +296,11 @@
 [end]
 [app] (name=xfontsel) (class=XFontSel)
   [Position]	(UPPERLEFT)	{32% 38%}
+  [Shaded]	{no}
   [Deco]	{0x67f}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
 [end]
 [app] (name=xterm) (class=UXTerm)
   [Dimensions]	{75% 77%}
@@ -348,6 +352,149 @@
 [app] (name=thunar) (class=Thunar)
   [Dimensions]	{66% 78%}
   [Position]	(UPPERLEFT)	{3% 4%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad) (class=fbox_cal)
+  [Dimensions]	{21% 35%}
+  [Position]	(UPPERLEFT)	{74% 58%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=subl3) (class=Subl3) (role=GtkFileChooserDialog)
+  [Dimensions]	{59% 65%}
+  [Position]	(UPPERLEFT)	{20% 18%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad-icon-browser) (class=Yad-icon-browser)
+  [Dimensions]	{31% 49%}
+  [Position]	(UPPERLEFT)	{5% 3%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad) (class=Yad_Font)
+  [Dimensions]	{38% 60%}
+  [Position]	(UPPERLEFT)	{59% 28%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad) (class=Yad_Calendar)
+  [Dimensions]	{21% 36%}
+  [Position]	(UPPERLEFT)	{72% 3%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad) (class=Yad_Color)
+  [Dimensions]	{34% 34%}
+  [Position]	(UPPERLEFT)	{62% 54%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=Msgcompose) (class=Thunderbird) (role=Msgcompose)
+  [Dimensions]	{76% 85%}
+  [Position]	(UPPERLEFT)	{12% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=Dialog) (class=Thunderbird)
+  [Position]	(UPPERLEFT)	{36% 43%}
+  [Deco]	{0x66f}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gcolor2) (class=Gcolor2)
+  [Dimensions]	{35% 39%}
+  [Position]	(UPPERLEFT)	{63% 53%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=sublime_text) (class=Sublime_text)
+  [Dimensions]	{80% 90%}
+  [Position]	(UPPERLEFT)	{10% 5%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.8) (class=Gimp-2.8) (role=gimp-image-window)
+  [Deco]	{0x66f}
+  [Maximized]	{yes}
+[end]
+[app] (name=lxappearance) (class=Lxappearance)
+  [Position]	(UPPERLEFT)	{5% 21%}
+  [Shaded]	{no}
+  [Deco]	{0x66f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=spacefm) (class=Spacefm) (role=file_manager)
+  [Dimensions]	{65% 85%}
+  [Position]	(UPPERLEFT)	{6% 5%}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}

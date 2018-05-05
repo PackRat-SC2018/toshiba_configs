@@ -10,7 +10,7 @@ xrdb -l "$HOME/.Xresources"
 fbsetroot -solid "#333366" &
 
 # number pad lock for toshiba
-numlockx &
+numlockx on &
 
 # battery monitor
 juiced -d

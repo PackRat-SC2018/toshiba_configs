@@ -10,7 +10,7 @@
 		<separator/>
 		<item label="File Manager">
 			<action name="Execute">
-				<execute>pcmanfm</execute>
+				<execute>spacefm</execute>
 			</action>
 		</item>
 		<item label="URxvt">
@@ -190,7 +190,7 @@
 		<separator/>
 		<item label="System Logout">
 			<action name="Execute">
-				<execute>rofi-logout</execute>
+				<execute>void-logout</execute>
 			</action>
 		</item>
 	</menu>

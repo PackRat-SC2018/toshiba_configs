@@ -1,0 +1,326 @@
+"        _
+" __   _(_)_ __ ___  _ __ ___
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__
+"   \_/ |_|_| |_| |_|_|  \___|
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set history=500
+set nocompatible
+runtime! archlinux.vim
+filetype plugin on
+filetype indent on
+
+set autoread
+set clipboard=unnamedplus
+
+let mapleader = ","
+let g:mapleader = ","
+
+nmap <leader>w :w!<cr>
+command W w !sudo tee % > /dev/null
+
+set rtp+=/home/smoke/.local/lib/python3.6/site-packages/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256
+
+if has('mouse')
+  set mouse=a
+endif
+
+set so=8
+
+let $LANG='en'
+set langmenu=en
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+set wildmenu
+set wildignore=*.o,*~,*.pyc
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+
+set ruler
+set number
+set showcmd
+set cmdheight=1
+set hid
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set lazyredraw
+set magic
+set showmatch
+set mat=2
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+set foldcolumn=0
+
+colo Tomorrow-Night-Eighties
+syntax enable
+if has("gui_running")
+    set guioptions-=T
+    set guioptions-=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+set cursorline
+hi CursorLineNr ctermfg=LightBlue
+
+set encoding=utf8
+set ffs=unix,dos,mac
+set nobackup
+set nowb
+set noswapfile
+
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+map <space> ,
+"map <c-space> ?
+map <silent> <leader><cr> :noh<cr>
+
+ino <down> <Nop>
+ino <up> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>ba :bufdo bd<cr>
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
+
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+" Opens a new tab with the current buffer's path
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Specify the behavior when switching between buffers
+try
+  set switchbuf=useopen,usetab,newtab
+  set stal=2
+catch
+endtry
+
+" Return to last edit position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+set laststatus=2
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+
+map 0 ^
+
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+" Delete trailing white space on save
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+endif
+
+map <leader>ss :setlocal spell!<cr>
+
+" Shortcuts using <leader>
+map <leader>sn ]s
+map <leader>sp [s
+map <leader>sa zg
+map <leader>s? z=
+
+" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
+" Quickly open a buffer for scribble
+map <leader>t :e ~/buffer<cr>
+
+" Quickly open a markdown buffer for scribble
+map <leader>x :e ~/buffer.md<cr>
+
+" Toggle paste mode on and off
+map <leader>pp :setlocal paste!<cr>
+
+
+
+
+""" My Settings """
+
+" visual quote surround
+vnoremap ;' <esc>:call QuickWrap("'")<cr>
+vnoremap ;" <esc>:call QuickWrap('"')<cr>
+
+" visual quote strip
+vnoremap s <esc>:call StripWrap()<cr>
+
+" quote 'surround'
+nnoremap ;' ciW''<Esc>P
+nnoremap ;'' ciw''<Esc>P
+nnoremap ;" ciW""<Esc>P
+nnoremap ;"" ciw""<Esc>P
+
+" quick quitting
+map <leader>w :w<CR>
+map <leader>q :wq<CR>
+
+" 'jk' to escape insert
+imap jk <Esc>
+
+" Ctrl+Space Enter and Escape insert
+nnoremap <C-@> i
+imap <C-@> <Esc>
+
+" shell
+autocmd FileType bash,script,sh inoremap ;i if<Space>;<Space>then<Enter><Esc>0ifi<Esc>kf;i
+autocmd FileType bash,script,sh inoremap ;w while<Space>;<Space>do<Enter><Esc>0idone<Esc>kf;i
+autocmd FileType bash,script,sh inoremap ;f for<Space>i<Space>in<Space>;<Space>do<Enter><Esc>0idone<Esc>kf;i
+autocmd FileType bash,script,sh inoremap ;l for<Space>((i=0;<Space>i<=;<Space>i++));<Space>do<Enter><Esc>0idone<Esc>kf;f;i
+autocmd FileType bash,script,sh inoremap ;c case<Space><Space>in<Space><Enter>)<Enter>;;<Enter>*)<Enter>;;<Enter><Esc>0iesac<Enter><Esc>6kfihi
+
+" python 
+autocmd FileType python,py inoremap ''' '''<Space><Space>'''<Esc>3hi
+autocmd FileType python,py inoremap """ """<Enter><Enter>"""<Esc>ki
+
+" Smart Quotes
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+inoremap ''    '
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+inoremap ""    "
+
+" Smart Parens
+"inoremap <expr> <BS> strpart(getline('.'), col('.')-1, 1) == ")" | "}" ? "\<Right><BS><BS>" : "<BS>" 
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap (     ()<Left>
+inoremap (<CR> (<CR>)<Esc>O
+inoremap ((    (
+inoremap ()    ()
+
+" Smart Braces
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap {     {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {{    {
+inoremap {}    {}
+
+" Smart Brackets
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap [     []<Left>
+inoremap [<CR> [<CR>]<Esc>O
+inoremap [[    [
+inoremap []    []
+
+" Smart Brackets
+inoremap <expr> > strpart(getline('.'), col('.')-1, 1) == ">" ? "\<Right>" : ">"
+inoremap <     <><Left>
+inoremap </    </><Left>
+inoremap <<    <
+inoremap <>    <>
+
+" Quote wrapper function
+function! QuickWrap(wrapper)
+  let l:w = a:wrapper
+  let l:inside_or_around = (&selection == 'exclusive') ? ('i') : ('a')
+  normal `>
+  execute "normal " . inside_or_around . escape(w, '\')
+  normal `<
+  execute "normal i" . escape(w, '\')
+  normal `<
+endfunction
+
+" Quote stripper funstion
+function! StripWrap()
+  normal `>x`<x
+endfunction
+
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+
+" Don't close window, when deleting a buffer
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction

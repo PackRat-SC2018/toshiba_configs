@@ -1,11 +1,12 @@
 ! Xft settings ---------------------------------------------------------
 Xft.dpi: 96
-Xft.antialias: 1
-Xft.hinting: 1
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
 Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+!Xft.autohint: 0
 
 ! special
 *.foreground:   #EDEDED
@@ -18,7 +19,7 @@ Xft.autohint: 0
 
 ! red
 *.color1:       #cc0403
-*.color9:       #730b09
+*.color9:       #800C0A
 
 ! green
 *.color2:       #19cb00
@@ -54,8 +55,10 @@ URxvt*transparent:       false
 URxvt*depth:             32
 URxvt.background:        [90]#0F0F0F
 
-URxvt.font:              xft:Office Code Pro:size=11
-URxvt.boldFont:          xft:Office Code Pro:size=11
+!URxvt.font:              xft:Office Code Pro:size=11
+!URxvt.boldFont:          xft:Office Code Pro:size=11
+URxvt.font:              xft:IBM Plex Mono:medium:size=11:antialias=false
+URxvt.boldFont:          xft:IBM Plex Mono:medium:size=11:antialias=false
 URxvt.letterSpace: 1
 
 *antialias:              true

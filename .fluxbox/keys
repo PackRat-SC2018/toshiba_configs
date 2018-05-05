@@ -81,18 +81,18 @@ Mod4 Shift Tab :PrevTab
 #Mod4 Shift 9 :Tab 9
 
 # open a terminal
-Mod1 F1 :Exec sakura
+Mod1 F1 :Exec urxvt
 
 # open a dialog to run programs
 Mod1 F2 :Exec fbrun
 Mod4 d :Exec rofi -show
-Mod4 x :Exec jgmenu
+Mod4 x :Exec jgmenu_run
 
 # current window commands
-Mod1 F3 :Exec urxvt
+Mod1 F3 :Exec uxterm
 Mod1 F4 :Close
-Mod1 Shift F5 :MacroCmd {ResizeTo 80% 90%} {MoveTo 0 0 Center}
 Mod1 F5 :MoveTo 0 0 CENTER
+Mod1 Shift F5 :MacroCmd {ResizeTo 80% 90%} {MoveTo 0 0 Center}
 Mod1 F6 :Iconify
 Mod1 F7 :MaximizeVertical
 Mod1 F8 :MaximizeHorizontal
@@ -205,6 +205,8 @@ Ctrl a Mod1 KP_7 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% UpperLeft}
 Ctrl a Mod1 KP_8 :MacroCmd {ResizeTo 100% 50%} {MoveTo 0% 0% Top}
 Ctrl a Mod1 KP_9 :MacroCmd {ResizeTo 50% 50%} {MoveTo 0% 0% UpperRight}
 
+Ctrl a Mod1 KP_0 :MacroCmd {ResizeTo 85% 90%} {MoveTo 0 0 Center}
+
 # Quarter screen undecorated
 ##===================================================##
 
@@ -213,14 +215,14 @@ Ctrl a Mod4 KP_2 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 50%} {MoveTo 0% 0% B
 Ctrl a Mod4 KP_3 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% LowerRight}
 
 Ctrl a Mod4 KP_4 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 100%} {MoveTo 0% 0% Left}
-Ctrl a Mod4 KP_5 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 100%} {MoveTo 0% 0% Center}
+Ctrl a Mod4 KP_5 :Fullscreen
 Ctrl a Mod4 KP_6 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 100%} {MoveTo 0% 0% Right}
 
 Ctrl a Mod4 KP_7 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% UpperLeft}
 Ctrl a Mod4 KP_8 :MacroCmd {SetDecor BORDER} {ResizeTo 100% 50%} {MoveTo 0% 0% Top}
 Ctrl a Mod4 KP_9 :MacroCmd {SetDecor BORDER} {ResizeTo 50% 50%} {MoveTo 0% 0% UpperRight}
 
-Ctrl a Mod4 h :MacroCmd {ToggleDecor} {ResizeTo 85% 90%} {MoveTo 0 0 Center}
+Ctrl a Mod4 KP_0 :MacroCmd {ToggleDecor} {ResizeTo 85% 90%} {MoveTo 0 0 Center}
 
 # modes - use ESC to exit mode
 # MoveMode ===========================================##

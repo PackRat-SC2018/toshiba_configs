@@ -47,5 +47,8 @@ git
 .config/google-chrome
 .config/opera
 .config/vivaldi
+.config/transmission
 .conky
+*.iso
+
 

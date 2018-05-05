@@ -14,7 +14,7 @@ nitrogen --restore &
 mate-power-manager &
 
 # number keys
-numlockx &
+numlockx on &
 
 # panel
 (sleep 2s && tint2 -c "$HOME/.config/tint2/tint2obxrc") &

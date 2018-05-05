@@ -6,7 +6,7 @@
 # ID 1
 rounded = 0
 border_width = 0
-background_color = #212121 80
+background_color = #212121 90
 border_color = #2E2E2E 0
 
 # urgent background
@@ -23,61 +23,67 @@ border_width = 1
 background_color = #F7F7F7 66
 border_color = #F3F3F3 66
 
+# ID 4
+rounded = 2
+border_width = 1
+background_color = #3E3E3E 60
+border_color = #F3F3F3 15
+
 # separators define all used
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 1
+separator_size = 2
 separator_padding = 0 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 144
+separator_size = 40
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 144
+separator_size = 40
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 12
+separator_size = 8
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 12
+separator_size = 8
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 12
+separator_size = 8
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 12
+separator_size = 8
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 1
+separator_size = 2
 separator_padding = 0 0
 
 # executor cpu
@@ -126,7 +132,7 @@ panel_monitor = all
 panel_position = bottom center horizontal
 panel_size = 0 34
 panel_margin = 0 0
-panel_padding = 4 2 0
+panel_padding = 0 2 4
 panel_dock = 0
 wm_menu = 1
 panel_layer = normal
@@ -144,7 +150,7 @@ strut_policy = follow_size
 taskbar_mode = multi_desktop
 taskbar_padding = 0 0 12
 taskbar_background_id = 0
-taskbar_active_background_id = 0
+taskbar_active_background_id = 4
 
 # Tasks
 urgent_nb_of_blink = 7
