@@ -21,10 +21,11 @@
 [separator]
       [exec] (Terminal) {urxvt}
       [exec] (Sublime) {wmctrl -a subl3 || subl3}
-      [exec] (Emacs) {wmctrl -a emacs || emacs}
+      [exec] (Geany) {wmctrl -a geany || geany}
       [exec] (File Manager) {thunar}
 [submenu] (Terminals)
       [exec] (Sakura) {sakura}
+      [exec] (Simple Terminal) {st}
       [exec] (Xterm)  {xterm}
       [exec] (UXterm) {uxterm}
       [exec] (Tmux)   {xterm -e tmux}

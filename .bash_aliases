@@ -16,7 +16,7 @@ alias duh='du -hca'
 alias path='echo -e ${PATH//:/\\n}'
 alias cemacs='emacs -nw'
 alias listusb='ls -l /dev/disk/by-id/*usb*'
-alias sinfo='inxi -CSI -tcm2 -W 29803 --alt 31'
+alias sinfo='inxi -CSI -tcm2 -W 29803 --no-host'
 alias screenfetch='screenfetch -n'
 alias neoinfo='neofetch --backend off'
 # alias shotdate='date +%A_%s'
@@ -36,6 +36,7 @@ alias playmedia='mpv --player-operation-mode=pseudo-gui'
 alias esudo='sudo EDITOR=/usr/bin/emacs visudo'
 alias obxprop='obxprop | grep "^_OB_APP"'
 alias getmp3="youtube-dl -x --audio-format mp3"
+alias forecast="curl 'wttr.in/aiken,south_carolina'"
 
 # Functions
 # Extract archives

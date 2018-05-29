@@ -14,7 +14,7 @@ general {
         colors = true
         color_good = "#12AD7F"
         color_degraded = "#DBA723"
-        color_bad = "#CB0043"
+        color_bad = "#E6171E"
 }
 
 #order += "ipv6"

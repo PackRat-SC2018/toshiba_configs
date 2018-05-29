@@ -42,8 +42,8 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>neon_lights</name>
-    <titleLayout>NDLIMC</titleLayout>
+    <name>malta</name>
+    <titleLayout>ILMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -76,7 +76,7 @@
     </font>
     <font place="MenuHeader">
       <name>IBM Plex Sans</name>
-      <size>10</size>
+      <size>11</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -125,6 +125,8 @@
     <names>
       <name>1</name>
       <name>2</name>
+      <name>3</name>
+      <name>4</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -1103,7 +1105,7 @@
           <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
-      <mousebind button="Right" action="Press">
+      <mousebind button="Left" action="Press">
         <action name="ShowMenu">
           <menu>root-menu</menu>
         </action>

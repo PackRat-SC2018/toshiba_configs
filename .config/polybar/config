@@ -16,8 +16,8 @@ inherit = bar/obxbar
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor = LVDS
 
-modules-left = jgmenu window_switch workspaces
-modules-center = uptime coreuse load battery wireless-network
+modules-left = jgmenu workspaces
+modules-center = uptime coreuse load memory battery wireless-network
 modules-right = clock
 
 ; All available modules (some require configuration in modules.conf)
@@ -45,8 +45,8 @@ inherit = bar/fboxbar
 ; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor = LVDS
 
-modules-left = jgmenu window_switch
-modules-center = uptime coreuse load battery wireless-network
+modules-left = jgmenu
+modules-center = uptime coreuse load memory battery-00 wireless-network
 modules-right = date
 
 ; All available modules (some require configuration in modules.conf)

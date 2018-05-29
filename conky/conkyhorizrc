@@ -6,7 +6,7 @@ conky.config = {
 	use_xft = true,
 --	font = 'Office Code Pro:Medium:size=10',
 --	font = 'Ubuntu:Medium:size=10',
-	font = 'Inconsolata LGC:regular:size=10',
+	font = 'Inconsolata LGC Markup:regular:size=11',
 	xftalpha = 1.0,
 	update_interval = 3.0,
 	update_interval_on_battery = 30.0,
@@ -56,8 +56,9 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	default_color = '#DAC79C',
-	default_shade_color = '#000000',
+	-- default_color = '#B4B5AA',
+	default_color = '#B5B9BF',
+	default_shade_color = '#090909',
 	default_outline_color = '#828282',
 	color0 = '#FFFFFF',
 	color1 = '#000000',
@@ -66,7 +67,8 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
-	color7 = '#00CDCD',-- - cyan3
+	-- color7 = '#00CDCD',-- - cyan3
+	color7 = '#B5B9BF',
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
@@ -76,7 +78,7 @@ conky.config = {
 
 -- -- doesn't seem to work when docked in the slit --#
 	lua_load = '~/conky/transbg.lua',
-	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x131313 0.60',
+	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x191A1C 0.75',
 
 -- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 32}\
 
@@ -87,9 +89,9 @@ conky.config = {
 
 conky.text = [[
 ${goto 12}Uptime:${offset 8}${uptime_short} \
-${offset 144}Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color} \
-${offset 144}CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 16}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3} \
-${offset 144}Batt:${offset 8}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${offset 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color} \
-${offset 144}Net:${if_up wlp1s0}${offset 8}${wireless_bitrate wlp1s0}${endif}${offset 16}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}${offset 16}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${offset 24}D:${offset 8}${downspeedf wlp1s0}${endif}${color}\
-${alignr 12}${time %F}
+${offset 130}Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color} \
+${offset 130}CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 16}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3} \
+${offset 130}Batt:${offset 8}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${offset 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color} \
+${offset 130}Net:${if_up wlp1s0}${offset 8}${wireless_bitrate wlp1s0}${endif}${offset 16}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}${offset 16}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${offset 24}D:${offset 8}${downspeedf wlp1s0}${endif}${color}\
+${alignr 12}${time %a %e %b}
 ]];

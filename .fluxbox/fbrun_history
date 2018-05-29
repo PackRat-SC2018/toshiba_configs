@@ -12,12 +12,16 @@ emacs
 connman-gtk --tray
 gtk3-icon-browser
 yad --color
-compton
 xfontsel
-lxappearance
 gcolor2
 galculator
 spacefm
 yad --font
-sakura
 rxvtconf
+xfce4-terminal
+sakura
+lxappearance
+compton
+polybar fluxbox-bar
+geany
+st

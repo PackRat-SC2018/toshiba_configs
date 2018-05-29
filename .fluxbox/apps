@@ -109,7 +109,7 @@
   [Alpha]	{255}
 [end]
 [app] (name=galculator) (class=Galculator)
-  [Dimensions]	{35% 34%}
+  [Dimensions]	{39% 40%}
   [Position]	(UPPERLEFT)	{5% 12%}
   [Shaded]	{no}
   [Deco]	{0x67f}
@@ -208,6 +208,7 @@
   [Layer]	{8}
 [end]
 [transient] (name=gimp) (class=Gimp) (role=gimp-file-open)
+  [Dimensions]	{53% 74%}
   [Position]	(UPPERLEFT)	{23% 16%}
   [Shaded]	{no}
   [Deco]	{0x67f}
@@ -495,6 +496,30 @@
 [app] (name=spacefm) (class=Spacefm) (role=file_manager)
   [Dimensions]	{65% 85%}
   [Position]	(UPPERLEFT)	{6% 5%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=xfce4-terminal) (class=Xfce4-terminal)
+  [Dimensions]	{50% 55%}
+  [Position]	(UPPERLEFT)	{25% 22%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=st-256color) (class=st-256color)
+  [Dimensions]	{53% 63%}
+  [Position]	(UPPERLEFT)	{6% 11%}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}

@@ -61,9 +61,9 @@ new_window pixel 2
 new_float pixel 2
 
 # window colours:           border     background     text
-client.focused              #313131    #6B314B        #FEFEFE
+client.focused              #865662    #865662        #FEFEFE
 client.focused_inactive     #313131    #5C3B4A        #CCCCCC
-client.unfocused            #313131    #3C3C3C        #CCCCCC
+client.unfocused            #363636    #363636        #CCCCCC
 client.urgent               #313131    #FF2200        #FFFFFF
 
 # font for window titles. ISO 10646 = Unicode
@@ -100,7 +100,7 @@ bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
-bindsym $mod+x exec jgmenu_run
+bindsym $mod+x exec jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
@@ -266,11 +266,11 @@ bar {
        bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
        font pango: Roboto Mono Regular 11
        colors {
-          background #222222
-          statusline #B3B3AF
-          focused_workspace		#663D50	#663D50 #FCFCFF
-          active_workspace		#17191E #17191E	#B3B3AF
-          inactive_workspace	#222222	#222222 #B3B3AF
+          background #242424
+          statusline #CCCCCC
+          focused_workspace		#865662 #865662 #FEFEFE
+          active_workspace		#17191E #17191E	#CCCCCC
+          inactive_workspace	#363636	#363636 #CCCCCC
           urgent_workspace		#FF2200	#FF2200	#FFFFFF
      }
        # status_command "$HOME/.config/i3/i3conkybar.sh"

@@ -108,7 +108,7 @@ button_background_id = 0
 button_centered = 1
 button_padding = 1 1 2
 button_max_icon_size = 64
-button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/jgmenurc
+button_lclick_command = jgmenu_run
 button_mclick_command = rofi-apps
 button_rclick_command = void-logout
 #button_uwheel_command = text

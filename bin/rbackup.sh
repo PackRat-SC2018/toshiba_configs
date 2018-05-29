@@ -6,7 +6,7 @@
 #config
 OPT="-arPh"
 SRC="/home/doug/"
-DEST="/mnt/willow/zoe/"
+DEST="/mnt/willow/backups/"
 # DATE=`date "+%F_%s"`
 DATE=`date "+%Y_%B_%d_%s"`
 NAME="ZOE-01"

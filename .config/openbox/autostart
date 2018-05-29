@@ -4,6 +4,9 @@ xrdb -l "$HOME/.Xresources" &
 xmodmap "$HOME/.Xmodmap" &
 xsetroot -solid rgb:03/03/33 &
 
+# number keys
+numlockx on &
+
 # battery monitor
 juiced -d
 
@@ -13,8 +16,5 @@ nitrogen --restore &
 #for brightness keys on toshiba
 mate-power-manager &
 
-# number keys
-numlockx on &
-
 # panel
-(sleep 2s && tint2 -c "$HOME/.config/tint2/tint2obxrc") &
+(sleep 2s && tint2) &

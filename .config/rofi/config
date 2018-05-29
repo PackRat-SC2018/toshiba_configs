@@ -10,7 +10,7 @@ rofi.font:             Source Sans Pro Semibold 12
 rofi.bw:               4
 rofi.width:            700
 rofi.lines:            10
-rofi.modi:             run,window,drun
+rofi.modi:             run,drun,window
 rofi.separator-style:  dash
 rofi.yoffset:          28
 rofi.xoffset:          0
@@ -21,6 +21,7 @@ rofi.sidebar-mode:     true
 rofi.case-sensitive:   true
 rofi.click-to-exit:    true
 rofi.color-enabled:    true
+rofi.show-icons:       true
 
 # green
 #rofi.color-window:     #BF1F1A24, #BF494C5F, #BF494C5F
@@ -29,9 +30,12 @@ rofi.color-enabled:    true
 #rofi.color-urgent:     #BF141021, #BFe4b226, #BF312842, #BFe4b226, #BFffeefc
 
 # city lights
-rofi.color-window: argb:CC131920, #eceff4, 	   #eceff4
-rofi.color-normal: argb:00131920, #737783, argb:00eceff4, argb:00131920, #f9f9f9
-rofi.color-urgent: argb:00131920, #cc6666, argb:e54b5160, argb:00131920, #f9f9f9
-rofi.color-active: argb:00131920, #65acff, argb:e44b5160, argb:00131920, #f9f9f9
+#rofi.color-window: argb:CC131920, #eceff4, #eceff4
+#rofi.color-normal: argb:00131920, #737783, argb:00eceff4, argb:00131920, #f9f9f9
+#rofi.color-urgent: argb:00131920, #cc6666, argb:e54b5160, argb:00131920, #f9f9f9
+#rofi.color-active: argb:00131920, #65acff, argb:e44b5160, argb:00131920, #f9f9f9
 
-rofi.modi: run,drun,window
+# archlabs
+rofi.color-window: #F22B303B, #F21F2126, #F21F2126
+rofi.color-normal: #F2303440, #FFEFF1F5, #F2303440, #F28FA1B3, #FF1F2126
+

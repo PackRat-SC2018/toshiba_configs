@@ -8,42 +8,28 @@ Xft.antialias: 1
 Xft.rgba: rgb
 !Xft.autohint: 0
 
-! special
-*.foreground:   #EDEDED
-*.background:   #0F0F0F
-*.cursorColor:  #EDEDED
-
-! black
-*.color0:       #000000
-*.color8:       #4d4d4d
-
-! red
-*.color1:       #cc0403
-*.color9:       #800C0A
-
-! green
-*.color2:       #19cb00
-*.color10:      #23fd00
-
-! yellow
-*.color3:       #cecb00
-*.color11:      #fffd00
-
-! blue
-*.color4:       #001cd1
-*.color12:      #0026ff
-
-! magenta
-*.color5:       #cb1ed1
-*.color13:      #fd28ff
-
-! cyan
-*.color6:       #0dcdcd
-*.color14:      #14ffff
-
-! white
-*.color7:       #e5e5e5
-*.color15:      #ffffff
+*background:  #303030
+*colorUL:  #ffffef
+*cursorColor:  #b2e9ef
+*foreground:  #f5f5f5
+*underlineColor:  #ffffef
+*xtermbackground:  #126811
+*color0:  #22300f
+*color1:  #cf7d68
+*color2:  #92ff05
+*color3:  #cfff05
+*color4:  #737dbb
+*color5:  #cf7db9
+*color6:  #19ffbb
+*color7:  #c1c3be
+*color8:  #688466
+*color9:  #e0c676
+*color10:  #a2ff50
+*color11:  #e0ff4e
+*color12:  #82c6cc
+*color13:  #bbc6cc
+*color14:  #62ffa4
+*color15:  #ffffff
 
 ! URxvt -----------------------------------------------------------------------
 URxvt*termName:          rxvt-256color
@@ -55,10 +41,10 @@ URxvt*transparent:       false
 URxvt*depth:             32
 URxvt.background:        [90]#0F0F0F
 
-!URxvt.font:              xft:Office Code Pro:size=11
-!URxvt.boldFont:          xft:Office Code Pro:size=11
-URxvt.font:              xft:IBM Plex Mono:medium:size=11:antialias=false
-URxvt.boldFont:          xft:IBM Plex Mono:medium:size=11:antialias=false
+URxvt.font:              xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
+URxvt.boldFont:          xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
+!URxvt.font:              xft:Liberation Mono:size=11:antialias=true:autohint=true
+!URxvt.boldFont:          xft:Liberation Mono:size=11:antialias=true:autohint=true
 URxvt.letterSpace: 1
 
 *antialias:              true
@@ -77,7 +63,7 @@ URxvt.tabbed.tab-bg:    0
 
 ! XTerminals ------------------------------------------------------------
 UXterm*termName:            xterm-256color
-UXTerm*faceName:            xft:Hack:regular:size=11:antialias=false:autohint=true
+UXTerm*faceName:            xft:Liberation Mono:size=11:antialias=true:autohint=true
 UXTerm*utf8:                1
 !UXTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 !UXTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
@@ -93,7 +79,7 @@ XTerm*foreground:         #E5E5E5
 XTerm*cursorColor:        #E5E5E5
 !XTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 !XTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-XTerm*faceName:           xft:Hack:regular:size=11:antialias=false:autohint=true
+XTerm*faceName:          xft:Liberation Mono:size=11:antialias=true:autohint=true
 XTerm*utf8:               1
 XTerm*scrollBar:          false
 XTerm*rightScrollBar:     false
@@ -109,53 +95,56 @@ xpdf*textEncoding:  utf-8
 !source: https://wiki.archlinux.org/index.php/X_resources
 !XCalc-----------------------------------------------------------------------
 XCalc*geometry:                        200x275
-XCalc.ti.bevel.background:             #111111
-XCalc.ti.bevel.screen.background:      #000000
-XCalc.ti.bevel.screen.DEG.background:  #000000
-XCalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
-XCalc.ti.bevel.screen.GRAD.background: #000000
-XCalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
-XCalc.ti.bevel.screen.RAD.background:  #000000
-XCalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
-XCalc.ti.bevel.screen.INV.background:  #000000
-XCalc.ti.bevel.screen.INV.foreground:  Red
-XCalc.ti.bevel.screen.LCD.background:  #000000
-XCalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
-XCalc.ti.bevel.screen.LCD.shadowWidth: 0
-XCalc.ti.bevel.screen.M.background:    #000000
-XCalc.ti.bevel.screen.M.foreground:    LightSeaGreen
-XCalc.ti.bevel.screen.P.background:    #000000
-XCalc.ti.bevel.screen.P.foreground:    Yellow
-XCalc.ti.Command.foreground:  White
-XCalc.ti.Command.background:  #777777
-XCalc.ti.button5.background:  Orange3
-XCalc.ti.button19.background: #611161
-XCalc.ti.button18.background: #611161
-XCalc.ti.button20.background: #611111
-!uncomment to change label on division button
-XCalc.ti.button20.label:      /
-XCalc.ti.button25.background: #722222
-XCalc.ti.button30.background: #833333
-XCalc.ti.button35.background: #944444
-XCalc.ti.button40.background: #a55555
-XCalc.ti.button22.background: #222262
-XCalc.ti.button23.background: #222262
-XCalc.ti.button24.background: #222272
-XCalc.ti.button27.background: #333373
-XCalc.ti.button28.background: #333373
-XCalc.ti.button29.background: #333373
-XCalc.ti.button32.background: #444484
-XCalc.ti.button33.background: #444484
-XCalc.ti.button34.background: #444484
-XCalc.ti.button37.background: #555595
-XCalc.ti.button38.background: #555595
-XCalc.ti.button39.background: #555595
+XCalc*ti.bevel.background:             #111111
+XCalc*ti.bevel.screen.background:      #000000
+XCalc*ti.bevel.screen.DEG.background:  #000000
+XCalc*ti.bevel.screen.DEG.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.GRAD.background: #000000
+XCalc*ti.bevel.screen.GRAD.foreground: LightSeaGreen
+XCalc*ti.bevel.screen.RAD.background:  #000000
+XCalc*ti.bevel.screen.RAD.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.INV.background:  #000000
+XCalc*ti.bevel.screen.INV.foreground:  Red
+XCalc*ti.bevel.screen.LCD.background:  #000000
+XCalc*ti.bevel.screen.LCD.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.LCD.shadowWidth: 0
+XCalc*ti.bevel.screen.M.background:    #000000
+XCalc*ti.bevel.screen.M.foreground:    LightSeaGreen
+XCalc*ti.bevel.screen.P.background:    #000000
+XCalc*ti.bevel.screen.P.foreground:    Yellow
+XCalc*ti.Command.foreground:  White
+XCalc*ti.Command.background:  #777777
+XCalc*ti.button5.background:  Orange3
+XCalc*ti.button19.background: #611161
+XCalc*ti.button18.background: #611161
+XCalc*ti.button20.background: #611111
+!uncomment to change label on division and sqrt buttons
+XCalc*ti.button20.label:   /
+XCalc*ti.button3.label:    SQRT
+!
+XCalc*ti.button25.background: #722222
+XCalc*ti.button30.background: #833333
+XCalc*ti.button35.background: #944444
+XCalc*ti.button40.background: #a55555
+XCalc*ti.button22.background: #222262
+XCalc*ti.button23.background: #222262
+XCalc*ti.button24.background: #222272
+XCalc*ti.button27.background: #333373
+XCalc*ti.button28.background: #333373
+XCalc*ti.button29.background: #333373
+XCalc*ti.button32.background: #444484
+XCalc*ti.button33.background: #444484
+XCalc*ti.button34.background: #444484
+XCalc*ti.button37.background: #555595
+XCalc*ti.button38.background: #555595
+XCalc*ti.button39.background: #555595
 XCalc*Cursor:                 hand2
 XCalc*ShapeStyle:             rectangle
-!XCalc.font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
+!XCalc*Font:6x13
+XCalc*font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
 
-dzen2.font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
-!dzen2.font:	inconsolata:medium:pixelsize=14:antialias=true:hintstyle=slight
+!dzen2.font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
+dzen2.font:     Liberation Mono:size=11:antialias=true:autohint=true
 dzen2.foreground: #D2D2D2
 dzen2.background: #191919
 !

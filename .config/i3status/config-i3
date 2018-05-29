@@ -14,7 +14,7 @@ general {
         colors = true
         color_good = "#B3B3AF"
         color_degraded = "#DBA723"
-        color_bad = "#CB0043"
+        color_bad = "#E6171E"
 }
 
 #order += "ipv6"
@@ -88,7 +88,7 @@ wireless wlp1s0 {
 }
 
 tztime local {
-        format = " %F  %k:%M "
+        format = " %a %e %b  %k:%M "
         align = "center"
         min_width = "68"
 }

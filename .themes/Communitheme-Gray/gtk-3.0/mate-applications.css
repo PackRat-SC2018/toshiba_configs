@@ -1,0 +1,316 @@
+@define-color dark_bg_color #322F2F;
+@define-color dark_fg_color #BDBDBD;
+
+/**************
+ * Mate-Panel *
+ **************/
+
+/* the panel bar itself */
+#PanelPlug,
+.mate-panel-menu-bar,
+PanelToplevel.background {
+    background-color: @dark_bg_color;
+    background-image: none;
+    /* normal panel */
+    color: @dark_fg_color;
+    /* transparent panel, light desktop background*/
+    /* color: @fg_color; */
+    text-shadow: none;
+}
+
+/* workaround to avoid unwanted black frames behind menus if switching compositor on/off */
+.mate-panel-menu-bar .window-frame.csd.popup {
+    box-shadow: none;
+}
+
+/* hide buttons */
+PanelToplevel > widget > button {
+    border-image: none;
+    background-image: none;
+    background: transparent;
+    border-style: none;
+    border-radius: 0px;
+    padding: 0px;
+    box-shadow: none;
+    color: @dark_fg_color;
+}
+
+PanelToplevel > widget > button:hover,
+PanelToplevel > widget > button:hover:active {
+    border-radius: 0px;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 1.2)),
+                                     to (shade (@dark_bg_color, 1.1)));
+}
+
+#PanelApplet {
+    border-width: 0;
+}
+
+PanelWidget > PanelSeparator {
+    border-width: 0;
+    background-color: transparent;
+    color: shade (@dark_bg_color, 1.8);
+}
+
+/* the grid left from wnckpager and wncktasklist */
+MatePanelAppletFrameDBus > MatePanelAppletFrameDBus {
+    background-image: -gtk-scaled(url("assets/panel-grid.svg"));
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+/* this makes text readable with all kind of wallpapers if using a transparent panel */
+/*#PanelApplet label,
+.mate-panel-menu-bar menubar > menuitem {
+    color: @dark_fg_color;
+    text-shadow: 1px 1px alpha (#000000, 0.8);
+}*/
+
+/* outlines */
+window.background, /* selector where outlines are writen on GtkTrayIcon */
+.mate-panel-menu-bar menubar,
+.mate-panel-menu-bar button,
+.mate-panel-menu-bar PanelApplet {
+    outline-style: dotted;
+    outline-offset: -2px;
+    outline-color: shade (@theme_bg_color, 0.7);
+}
+
+PanelApplet.wnck-applet .wnck-pager {
+    outline-style: dotted;
+    outline-offset: -1px;
+    outline-color: shade (@theme_bg_color, 0.7);
+}
+
+/* main menu */
+/* set normal menubar menuitem */
+.mate-panel-menu-bar menubar > menuitem {
+    background-image: none;
+    box-shadow: none;
+}
+
+/* set selected menubar menuitem */
+.mate-panel-menu-bar menubar > menuitem:hover {
+    background-color: transparent;
+    background-clip: border-box;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 1.38)),
+                                     to (shade (@dark_bg_color, 1.11)));
+}
+
+/* set normal menubar menu menuitem */
+.mate-panel-menu-bar menubar > menuitem > .popup.csd > menu > menuitem {
+    padding: 4px 5px 4px 5px;
+    border-width: 0px;
+}
+
+/* set Mate menu menuitem */
+.mate-panel-menu-bar menu menuitem {
+    padding: 4px 5px 4px 5px;
+    border-width: 0px;
+}
+
+/* all applets */
+.mate-panel-menu-bar #PanelApplet button,
+.mate-panel-menu-bar #PanelApplet button.flat,
+.mate-panel-menu-bar #PanelApplet button.toggle,
+.mate-panel-menu-bar #PanelApplet button.flat.toggle {
+    background-image: none;
+    background-color: transparent;
+    /* normal panel */
+    color: @dark_fg_color;
+    /* transparent panel light desktop background*/
+    /* color: @fg_color; */
+    padding: 2px;
+    border-radius: 3px;
+    border-image: none;
+    text-shadow: 0 -1px shade (@dark_bg_color, 0.6);
+}
+
+.mate-panel-menu-bar #PanelApplet button:hover:active,
+.mate-panel-menu-bar #PanelApplet button.flat:hover:active,
+.mate-panel-menu-bar #PanelApplet button.toggle:hover:active,
+.mate-panel-menu-bar #PanelApplet button.flat.toggle:hover:active
+.mate-panel-menu-bar #PanelApplet button.flat:backdrop,
+.mate-panel-menu-bar #PanelApplet button:backdrop {
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 0.85)),
+                                     to (shade (@dark_bg_color, 1.0)));
+    border-color: shade (@dark_bg_color, 0.9);
+    border-radius: 3px;
+    border-image: none;
+    color: @dark_fg_color;
+}
+
+.mate-panel-menu-bar #PanelApplet button:hover,
+.mate-panel-menu-bar #PanelApplet button.flat:hover,
+.mate-panel-menu-bar #PanelApplet button.toggle:hover,
+.mate-panel-menu-bar #PanelApplet button.flat.toggle:hover {
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 1.7)),
+                                     to (shade (@dark_bg_color, 1.25)));
+    border-color: alpha (shade (@dark_bg_color, 1.0), 0.6);
+    border-left-color: alpha (shade (@dark_bg_color, 1.5), 0.4);
+    border-radius: 3px;
+    border-image: none;
+    color: @dark_fg_color;
+}
+
+.mate-panel-menu-bar #PanelApplet button:checked,
+.mate-panel-menu-bar #PanelApplet button.flat:checked,
+.mate-panel-menu-bar #PanelApplet button.toggle:checked,
+.mate-panel-menu-bar #PanelApplet button.flat.toggle:checked {
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 0.75)),
+                                     to (shade (@dark_bg_color, 0.9)));
+    color: @dark_fg_color;
+    border-radius: 3px;
+    border-image: none;
+}
+
+na-tray-applet {
+    -NaTrayApplet-icon-padding: 1px; /*any more and outlines get cut off*/
+}
+
+/* clock-applet */
+.mate-panel-menu-bar #PanelApplet #clock-applet-button.flat.toggle,
+.mate-panel-menu-bar #PanelApplet #clock-applet-button.flat.toggle:hover {
+    background-color: transparent;
+    background-image: none;
+    border-width: 0;
+    color: @dark_fg_color;
+    text-shadow: 0 -1px shade (@dark_bg_color, 0.6);
+    padding: 3px 5px 3px 5px;
+    border: 1px solid transparent;
+}
+
+.mate-panel-menu-bar #PanelApplet #clock-applet-button.flat.toggle:checked,
+.mate-panel-menu-bar #PanelApplet #clock-applet-button.flat.toggle:checked:hover {
+    background-color: transparent;
+    background-clip: border-box;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 1.38)),
+                                     to (shade (@dark_bg_color, 1.11)));
+    box-shadow: none;
+    color: shade (@dark_fg_color, 1.1);
+    text-shadow: 0 -1px shade (@dark_bg_color, 0.7);
+}
+
+/* clock window */
+#MatePanelPopupWindow {
+	border-radius: 3px;
+}
+
+/* Weird, this sets the border color of the clockmap */
+#MatePanelPopupWindow > frame > box > box > box > widget {
+    color: @borders;
+}
+
+/* volume applet */
+.mate-panel-applet-slider,
+.mate-panel-applet-slider.background {
+    background: transparent;
+}
+
+.mate-panel-applet-slider frame,
+.mate-panel-applet-slider.background frame {
+    background-color: @dark_bg_color;
+    padding: 0px;
+    margin: 0px;
+}
+
+.mate-panel-applet-slider frame border,
+.mate-panel-applet-slider.background frame border {
+    border-image: none;
+    border-style: none;
+    border-radius:2px;
+}
+
+.mate-panel-applet-slider frame frame,
+.mate-panel-applet-slider.background frame frame {
+    background-color:transparent;
+    padding: 3px;
+}
+
+/* brightness applet */
+.mate-panel-applet-slider frame button,
+.mate-panel-applet-slider.background frame button {
+    padding: 4px 5px 4px 0px;
+    background-image: none;
+    background-color: transparent;
+    border-style: none;
+    border-image: none;
+    color: @dark_fg_color;
+    margin: 0px;
+}
+
+/* mate-indicator-applet */
+/* needed for a transparent panel */
+#fast-user-switch-applet > #fast-user-switch-menubar {
+    background-color: transparent;
+}
+
+/* Classic icon style */
+.mate-panel-menu-bar {
+    -PanelMenuBar-icon-visible: true;
+}
+
+/* system-monitor-applet, kill light frame border */
+.multiload-applet > box.horizontal > box.vertical > frame > border {
+    border-color: transparent;
+}
+
+.multiload-applet > box.horizontal > box.vertical > frame {
+    box-shadow: inset  0px  1px shade (@dark_bg_color, 1.2),
+                inset  1px  0px shade (@dark_bg_color, 1.2),
+                inset -1px  0px shade (@dark_bg_color, 1.2),
+                inset  0px -1px shade (@dark_bg_color, 1.2);
+}
+
+/* brisk panel button */
+.mate-panel-menu-bar #PanelApplet button.flat.toggle.brisk-button,
+.mate-panel-menu-bar #PanelApplet button.flat.toggle.brisk-button:hover {
+    background-image: none;
+    background-color: transparent;
+    padding: 3px 5px;
+    border-width: 1px 1px 1px 0px;
+    border-radius: 4px 4px 0 0;
+    border-color: transparent;
+    border-image: none;
+    text-shadow: none;
+}
+
+.mate-panel-menu-bar #PanelApplet button.flat.toggle.brisk-button:checked {
+    background-color: transparent;
+    background-clip: border-box;
+    background-image: -gtk-gradient (linear, left top, left bottom,
+                                     from (shade (@dark_bg_color, 1.38)),
+                                     to (shade (@dark_bg_color, 1.11)));
+    box-shadow: inset 0 1px 1px 0 shade (@dark_bg_color, 1.8);
+    padding: 3px 5px;
+    border-width: 1px 1px 1px 0px;
+    border-radius: 4px 4px 0 0;
+    border-color: #2e2e2c;
+    border-image: none;
+    text-shadow: none;
+}
+
+/*****************
+ * Mate-terminal *
+ *****************/
+
+/* override for pavu-control */
+window.background.mate-terminal > box.vertical > notebook > header.top,
+window.background.mate-terminal > box.vertical > notebook > stack > box {
+    border-style: none;
+    border-width: 0px;
+}
+
+/* vte use hardcoded colors as upstream, ubuntu is patched */
+window.background.mate-terminal vte-terminal {
+    -TerminalScreen-background-darkness: 0.95;
+    background-color: @dark_bg_color;
+    color: @dark_fg_color;
+}

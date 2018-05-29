@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 	<menu id="root-menu" label="Openbox 3">
-		<separator label="Openbox Menu"/>
+		<separator label="Void Linux"/>
 		<item label="Run .....">
 			<action name="Execute">
 				<execute>rofi -show</execute>
@@ -10,7 +10,7 @@
 		<separator/>
 		<item label="File Manager">
 			<action name="Execute">
-				<execute>spacefm</execute>
+				<execute>pcmanfm</execute>
 			</action>
 		</item>
 		<item label="URxvt">
@@ -29,9 +29,9 @@
 			</action>
 		</item>
 		<menu id="root-menu-381743" label="Terminals">
-			<item label="Simple Terminal">
+			<item label="URxvt">
 				<action name="Execute">
-					<execute>st</execute>
+					<execute>urxvt</execute>
 				</action>
 			</item>
 			<item label="Sakura">
@@ -39,24 +39,14 @@
 					<execute>sakura</execute>
 				</action>
 			</item>
-			<item label="URxvt">
-				<action name="Execute">
-					<execute>urxvt</execute>
-				</action>
-			</item>
 			<item label="XTerm">
 				<action name="Execute">
 					<execute>xterm</execute>
 				</action>
 			</item>
-			<item label="Xfce4-terminal">
+			<item label="Simple Terminal">
 				<action name="Execute">
-					<execute>xfce4-terminal</execute>
-				</action>
-			</item>
-			<item label="Xfce4-terminal drop down">
-				<action name="Execute">
-					<execute>xfce4-terminal --drop-down</execute>
+					<execute>st</execute>
 				</action>
 			</item>
 		</menu>
@@ -88,9 +78,9 @@
 		</item>
 		<separator/>
 		<menu id="root-menu-165723" label="Internet">
-			<item label="Vivaldi">
+			<item label="Opera">
 				<action name="Execute">
-					<execute>vivaldi</execute>
+					<execute>opera</execute>
 				</action>
 			</item>
 			<item label="FileZilla">
@@ -104,7 +94,6 @@
 				</action>
 			</item>
 		</menu>
-		<separator/>
 		<menu id="root-menu-615420" label="Multimedia">
 			<item label="Geeqie">
 				<action name="Execute">
@@ -142,7 +131,6 @@
 				</action>
 			</item>
 		</menu>
-		<separator/>
 		<menu id="root-menu-2539" label="Office">
 			<item label="Document">
 				<action name="Execute">
@@ -154,14 +142,31 @@
 					<execute>libreoffice --calc</execute>
 				</action>
 			</item>
-			<item label="Xpdf">
+			<item label="Qpdfview">
 				<action name="Execute">
-					<execute>xpdf</execute>
+					<execute>qpdfview</execute>
 				</action>
 			</item>
 			<item label="Calculator">
 				<action name="Execute">
 					<execute>galculator</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-353439" label="Graphics">
+			<item label="Inkscape">
+				<action name="Execute">
+					<execute>inkscape</execute>
+				</action>
+			</item>
+			<item label="Appearance">
+				<action name="Execute">
+					<execute>lxappearance</execute>
+				</action>
+			</item>
+			<item label="Wallpaper">
+				<action name="Execute">
+					<execute>nitrogen</execute>
 				</action>
 			</item>
 		</menu>

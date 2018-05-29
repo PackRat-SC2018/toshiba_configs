@@ -1,0 +1,63 @@
+
+
+### the items below were added by 'jgmenu_run init'
+
+csv_cmd             = pmenu
+csv_name_format     = %n (%g)
+
+stay_alive          = 0
+hide_on_startup     = 0
+tint2_look          = 0
+at_pointer          = 0
+terminal_exec       = xterm
+terminal_args       = -e
+monitor             = 0
+
+menu_margin_x       = 8
+menu_margin_y       = 28
+menu_width          = 200
+menu_padding_top    = 2
+menu_padding_right  = 2
+menu_padding_bottom = 2
+menu_padding_left   = 2
+menu_radius         = 2 
+menu_border         = 0
+menu_halign         = left
+menu_valign         = top
+
+sub_spacing         = 1
+sub_padding_top     = 0
+sub_padding_right   = 0
+sub_padding_bottom  = 0
+sub_padding_left    = 0
+sub_hover_action    = 1
+item_margin_x       = 3
+item_margin_y       = 3
+item_height         = 32
+item_padding_x      = 8
+item_radius         = 0
+item_border         = 0
+item_halign         = left
+sep_height          = 5
+
+font                = FiraSans 14px
+font_fallback       = xtg
+icon_size           = 24
+icon_text_spacing   = 10
+# icon_theme          = Vibrantly-Simple-Dark-Graphite
+icon_theme          = Suru-Gray
+# icon_theme          = DarK
+icon_theme_fallback = xtg
+arrow_string        = ▸
+arrow_width         = 15
+
+color_menu_bg       = #262626 85
+color_menu_fg       = #E6E6E6 20
+color_menu_border   = #262626 8
+color_norm_bg       = #262626 00
+color_norm_fg       = #E6E6E6 100
+color_sel_bg        = #4E4E4E 20
+color_sel_fg        = #F7F7F7 100
+color_sel_border    = #4E4E4E 8
+color_sep_fg        = #ffffff 20
+

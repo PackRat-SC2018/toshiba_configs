@@ -125,6 +125,10 @@ Control Mod4 o :Exec wmctrl -a libreoffice --writer || libreoffice --writer
 Mod4 q :Restart
 Mod4 Shift q :Exec /usr/local/bin/session-exit
 
+Control Mod4 Pause :Exec $HOME/bin/ConkyFluxbox.sh
+Control Mod4 b :Exec $HOME/bin/ConkyTao.sh
+Control Mod4 Print :Exec import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png
+
 # open the window menu
 Control Mod1 space :WindowMenu
 

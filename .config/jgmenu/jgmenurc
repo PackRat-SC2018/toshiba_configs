@@ -1,61 +1,65 @@
+# jgmenurc
 
+stay_alive           = 0
+#hide_on_startup     = 0
+csv_cmd              = pmenu
+tint2_look           = 0
+at_pointer           = 0
+terminal_exec        = urxvt
+terminal_args        = -e
+#monitor             = 0
+#hover_delay	     = 100
 
-### the items below were added by 'jgmenu_run init'
+menu_margin_x        = 4
+menu_margin_y        = 40
+menu_width           = 200
+menu_padding_top     = 4
+menu_padding_right   = 2
+menu_padding_bottom  = 4
+menu_padding_left    = 2
+menu_radius          = 4
+menu_border          = 1
+menu_halign          = left
+menu_valign          = bottom
 
-csv_cmd             = pmenu
-csv_name_format     = %n (%g)
+#sub_spacing         = 1
+#sub_padding_top     = -1
+#sub_padding_right   = -1
+#sub_padding_bottom  = -1
+#sub_padding_left    = -1
+sub_hover_action     = 1
 
-stay_alive          = 0
-hide_on_startup     = 0
-tint2_look          = 0
-at_pointer          = 0
-terminal_exec       = xterm
-terminal_args       = -e
-monitor             = 0
-
-menu_margin_x       = 8
-menu_margin_y       = 28
-menu_width          = 200
-menu_padding_top    = 2
-menu_padding_right  = 2
-menu_padding_bottom = 2
-menu_padding_left   = 2
-menu_radius         = 2 
-menu_border         = 0
-menu_halign         = left
-menu_valign         = top
-
-sub_spacing         = 1
-sub_padding_top     = -1
-sub_padding_right   = -1
-sub_padding_bottom  = -1
-sub_padding_left    = -1
-sub_hover_action    = 1
-item_margin_x       = 3
-item_margin_y       = 3
-item_height         = 32
-item_padding_x      = 8
-item_radius         = 0
-item_border         = 0
+#item_margin_x       = 3
+item_margin_y        = 5
+item_height          = 30
+item_padding_x       = 8
+item_radius          = 0
+item_border          = 0
 item_halign         = left
-sep_height          = 5
 
-font                = FiraSans 14px
-font_fallback       = xtg
-icon_size           = 24
-icon_text_spacing   = 10
-icon_theme          = Vibrantly-Simple-Dark-Graphite
-icon_theme_fallback = xtg
+sep_height           = 5
+
+font                 = Ubuntu 12px
+#font_fallback       = xtg
+icon_size            = 24
+#icon_text_spacing   = 10
+icon_theme          = Suru-Gray 
+#icon_theme_fallback = xtg
+
 arrow_string        = ▸
 arrow_width         = 15
 
-color_menu_bg       = #262626 85
-color_menu_fg       = #E6E6E6 20
-color_menu_border   = #262626 8
-color_norm_bg       = #262626 00
-color_norm_fg       = #E6E6E6 100
-color_sel_bg        = #4E4E4E 20
-color_sel_fg        = #F7F7F7 100
-color_sel_border    = #4E4E4E 8
-color_sep_fg        = #ffffff 20
+color_menu_bg        = #2b2b2b 90
+color_menu_fg        = #8fa1b3 100
+#color_menu_border   = #eeeeee 8
 
+color_norm_bg        = #2b2b2b 0
+color_norm_fg        = #8fa1b3 100
+
+color_sel_bg         = #8fa1b3 60
+color_sel_fg         = #eeeeee 100
+#color_sel_border    = #eeeeee 8
+
+color_sep_fg         = #8fa1b3 40
+
+#csv_name_format     = %n (%g)

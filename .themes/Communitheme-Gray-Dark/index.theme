@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Communitheme-Gray-Dark
+Comment=Dark Grayed out version of Ubuntu community theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Communitheme-Gray-Dark
+MetacityTheme=Communitheme-Gray-Dark
+IconTheme=Suru-Gray
+CursorTheme=mate
+CursorSize=24
+ButtonLayout=close,minimize,maximize:

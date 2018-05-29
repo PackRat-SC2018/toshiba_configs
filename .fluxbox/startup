@@ -3,6 +3,8 @@
 # fluxbox startup-script:
 #
 # Lines starting with a '#' are ignored.
+pkill -x conky
+pkill -x polybar
 
 # Change your keymap:
 xmodmap "$HOME/.Xmodmap"
@@ -25,7 +27,8 @@ juiced -d
 #for brightness keys on toshiba
 mate-power-manager &
 
-#(sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
+# (sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
+(sleep 2s && polybar fluxbox-bar) &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
