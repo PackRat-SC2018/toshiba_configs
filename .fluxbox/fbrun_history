@@ -1,27 +1,5 @@
-numlockx
+juiced -d
 firefox
 pcmanfm
-urxvt
-subl3
-xcalc
-opera
-xterm
-uxterm
-hexchat
-emacs
-connman-gtk --tray
-gtk3-icon-browser
-yad --color
-xfontsel
-gcolor2
-galculator
-spacefm
 yad --font
-rxvtconf
-xfce4-terminal
-sakura
-lxappearance
-compton
-polybar fluxbox-bar
-geany
-st
+rofi-logout

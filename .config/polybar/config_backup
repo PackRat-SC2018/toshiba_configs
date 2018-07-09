@@ -1,0 +1,122 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = /home/doug/.config/polybar/master.conf
+include-file = /home/doug/.config/polybar/modules.conf
+
+;=====================================================
+;     Openbox Bars
+;=====================================================
+
+[bar/openbox-bar]
+inherit = bar/obxbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+modules-left = jgmenu workspaces
+modules-center = uptime coreuse load memory battery wireless-network
+modules-right = clock
+
+; All available modules (some require configuration in modules.conf)
+; redshift github filesystem mpd wired-network wireless-network battery menu volume-bar bspwm
+; pkg keyboard memory temperature coreuse network clock volume i3-workspaces workspaces window_switch
+
+;tray-position = center
+;tray-detached = false
+;tray-maxsize = 18
+;tray-transparent = false
+;tray-background = ${colors.background}
+;;offset in pixels 10 or percent 10%
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-padding = 2
+;tray-scale = 1.0
+
+;=====================================================
+;     Fluxbox Bars
+;=====================================================
+
+[bar/fluxbox-bar]
+inherit = bar/fboxbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+modules-left = jgmenu
+modules-center = uptime coreuse load CTemp03 memory battery-00 wireless-network
+modules-right = date
+
+; All available modules (some require configuration in modules.conf)
+; redshift github filesystem mpd wired-network wireless-network battery menu volume-bar bspwm
+; pkg keyboard memory temperature coreuse network clock volume i3-workspaces workspaces window_switch
+
+
+;;;;;; Tray is commented out ;;;;;;;;
+;tray-position = center
+;tray-padding = 10
+;tray-background = ${colors.background}
+;tray-offset-x = 20%
+
+;=====================================================
+;     Xfce Bars
+;=====================================================
+
+[bar/xfce-bar]
+inherit = bar/fboxbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+modules-left = uptime 
+modules-center = coreuse load CTemp03 memory battery-00 wireless-network
+modules-right = date
+
+; All available modules (some require configuration in modules.conf)
+; redshift github filesystem mpd wired-network wireless-network battery menu volume-bar bspwm
+; pkg keyboard memory temperature coreuse network clock volume i3-workspaces workspaces window_switch
+
+
+;;;;;; Tray is commented out ;;;;;;;;
+;tray-position = center
+;tray-padding = 10
+;tray-background = ${colors.background}
+;tray-offset-x = 20%
+
+;
+; bspwm bar
+;=========================;
+
+[bar/bspwm-bar]
+inherit = bar/bspwmbar
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor = LVDS
+
+wm-restack = bspwm
+
+modules-left = jgmenu bspwm
+modules-center = uptime coreuse load CTemp03 memory battery-00 wireless-network
+modules-right = clock
+
+;;;;;; Tray ;;;;;;;;
+tray-position = right
+
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+
+; Tray icon max size
+tray-maxsize = 16
+
+tray-transparent = false
+tray-background = ${colors.background}
+
+; offset pixels or 00%
+tray-offset-x = 0
+tray-offset-y = 0
+
+tray-padding = 1
+tray-scale = 1.0
