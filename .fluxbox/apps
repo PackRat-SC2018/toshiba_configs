@@ -35,8 +35,8 @@
   [Maximized]	{yes}
 [end]
 [app] (name=subl3) (class=Subl3)
-  [Dimensions]	{90% 93%}
-  [Position]	(UPPERLEFT)	{5% 3%}
+  [Dimensions]	{90% 95%}
+  [Position]	(CENTER)	{0 0}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}
@@ -47,7 +47,7 @@
   [Alpha]	{255}
 [end]
 [app] (name=geany) (class=Geany)
-  [Dimensions]	{88% 94%}
+  [Dimensions]	{89% 96%}
   [Position]	(UPPERLEFT)	{6% 3%}
   [Shaded]	{no}
   [Deco]	{0x67f}
@@ -59,7 +59,7 @@
   [Alpha]	{255}
 [end]
 [app] (name=thunar) (class=Thunar)
-  [Dimensions]	{55% 74%}
+  [Dimensions]	{65% 86%}
   [Position]	(UPPERLEFT)	{4% 4%}
   [Shaded]	{no}
   [Deco]	{0x67f}
@@ -108,13 +108,15 @@
   [Alpha]	{255}
 [end]
 [transient] (name=gimp) (class=Gimp) (role=gimp-file-open)
-  [Position]	(UPPERLEFT)	{13% 9%}
+  [Dimensions]	{60% 87%}
+  [Position]	(UPPERLEFT)	{5% 4%}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
   [Fullscreen]	{no}
+  [Layer]	{8}
   [Alpha]	{255}
 [end]
 [transient] (name=gimp) (class=Gimp) (role=gimp-file-export)
@@ -186,7 +188,7 @@
   [Dimensions]	{80% 90%}
   [Position]	(UPPERLEFT)	{10% 5%}
   [Shaded]	{no}
-  [Deco]	{NORMAL}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -198,7 +200,7 @@
   [Dimensions]	{64% 85%}
   [Position]	(UPPERLEFT)	{4% 6%}
   [Shaded]	{no}
-  [Deco]	{NORMAL}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -210,7 +212,7 @@
   [Dimensions]	{80% 90%}
   [Position]	(UPPERLEFT)	{10% 5%}
   [Shaded]	{no}
-  [Deco]	{NORMAL}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -222,7 +224,7 @@
   [Dimensions]	{89% 94%}
   [Position]	(UPPERLEFT)	{6% 3%}
   [Shaded]	{no}
-  [Deco]	{NORMAL}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -233,7 +235,7 @@
 [transient] (name=Dialog) (class=Thunderbird)
   [Position]	(UPPERLEFT)	{29% 41%}
   [Shaded]	{no}
-  [Deco]	{NORMAL}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -243,5 +245,288 @@
 [end]
 [transient] (name=thunar) (class=Thunar)
   [Position]	(UPPERLEFT)	{45% 29%}
+  [Deco]	{0x67f}
+[end]
+[app] (name=sublime_text) (class=Sublime_text)
+  [Dimensions]	{91% 96%}
+  [Position]	(UPPERLEFT)	{5% 2%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=hexchat) (class=Hexchat) (role=servlist)
+  [Position]	(UPPERLEFT)	{2% 4%}
+  [Deco]	{0x67f}
+[end]
+[app] (name=hexchat) (class=Hexchat)
+  [Dimensions]	{80% 90%}
+  [Position]	(UPPERLEFT)	{10% 5%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=hexchat) (class=Hexchat)
+  [Position]	(UPPERLEFT)	{35% 26%}
+  [Deco]	{0x5ff}
+[end]
+[app] (name=xcalc) (class=XCalc)
+  [Dimensions]	{23% 57%}
+  [Position]	(UPPERLEFT)	{75% 2%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=galculator) (class=Galculator)
+  [Dimensions]	{44% 49%}
+  [Position]	(UPPERLEFT)	{54% 15%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=transmission-gtk) (class=Transmission-gtk) (role=tr-main)
+  [Dimensions]	{70% 90%}
+  [Position]	(UPPERLEFT)	{3% 3%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=transmission-gtk) (class=Transmission-gtk) (role=GtkFileChooserDialog)
+  [Dimensions]	{80% 90%}
+  [Position]	(UPPERLEFT)	{11% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=audacious) (class=Audacious)
+  [Dimensions]	{58% 73%}
+  [Position]	(UPPERLEFT)	{5% 5%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=geeqie) (class=Geeqie) (role=geeqie)
+  [Dimensions]	{80% 90%}
+  [Position]	(UPPERLEFT)	{19% 8%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=xfce4-power-manager-settings) (class=Xfce4-power-manager-settings)
+  [Position]	(UPPERLEFT)	{38% 18%}
+  [Deco]	{0x67f}
+[end]
+[transient] (name=pcmanfm) (class=Pcmanfm)
+  [Position]	(UPPERLEFT)	{4% 8%}
+  [Deco]	{0x67f}
+[end]
+[app] (name=guvcview) (class=Guvcview)
+  [Dimensions]	{50% 81%}
+  [Position]	(UPPERLEFT)	{49% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=guvcview) (class=guvcview)
+  [Dimensions]	{40% 60%}
+  [Position]	(UPPERLEFT)	{8% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=guvcview) (class=Guvcview) (role=GtkFileChooserDialog)
+  [Dimensions]	{53% 79%}
+  [Position]	(UPPERLEFT)	{23% 11%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=YadColor) (class=ColorBox)
+  [Dimensions]	{34% 36%}
+  [Position]	(UPPERLEFT)	{62% 55%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=YadFont) (class=FontBox)
+  [Dimensions]	{27% 42%}
+  [Position]	(UPPERLEFT)	{67% 6%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=YadDate) (class=YadCal)
+  [Dimensions]	{23% 35%}
+  [Position]	(UPPERLEFT)	{69% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad) (class=fbox_cal)
+  [Dimensions]	{25% 38%}
+  [Position]	(UPPERLEFT)	{68% 57%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=yad-icon-browser) (class=Yad-icon-browser)
+  [Dimensions]	{31% 50%}
+  [Position]	(UPPERLEFT)	{2% 5%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-jpeg) (class=Gimp-2.10) (role=file-jpeg)
+  [Position]	(UPPERLEFT)	{9% 11%}
+  [Shaded]	{no}
+  [Deco]	{0x5ff}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-export)
+  [Dimensions]	{49% 72%}
+  [Position]	(UPPERLEFT)	{23% 11%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-window-1)
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Maximized]	{yes}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=xarchiver) (class=Xarchiver)
+  [Dimensions]	{57% 66%}
+  [Position]	(UPPERLEFT)	{38% 7%}
+  [Shaded]	{no}
   [Deco]	{NORMAL}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=lxappearance) (class=Lxappearance)
+  [Dimensions]	{45% 69%}
+  [Position]	(UPPERLEFT)	{6% 4%}
+  [Shaded]	{no}
+  [Deco]	{NORMAL}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-jpeg) (class=Gimp) (role=file-jpeg)
+  [Position]	(UPPERLEFT)	{8% 15%}
+  [Shaded]	{no}
+  [Deco]	{0x5ff}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=geany) (class=Geany)
+  [Position]	(UPPERLEFT)	{30% 15%}
+  [Shaded]	{no}
+  [Deco]	{NORMAL}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
 [end]

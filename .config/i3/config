@@ -10,11 +10,18 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # autostart ======================================================
-exec pgrep conky &>/dev/null; [ $? = 0 ] && killall -q conky
-exec pgrep compton &>/dev/null; [ $? = 0 ] && killall -q compton
-exec pgrep juiced &>/dev/null; [ $? = 0 ] && killall -q juiced
-exec pgrep slstatus &>/dev/null; [ $? = 0 ] && killall -q slstatus
-exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
+#exec pgrep conky &>/dev/null; [ $? = 0 ] && killall -q conky
+#exec pgrep compton &>/dev/null; [ $? = 0 ] && killall -q compton
+#exec pgrep juiced &>/dev/null; [ $? = 0 ] && killall -q juiced
+#exec pgrep i3status &>/dev/null; [ $? = 0 ] && killall -q i3status
+#exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
+#exec pgrep sxhkd &>/dev/null; [ $? = 0 ] && killall -q sxhkd
+
+exec pkill -x sxhkd
+exec pkill -x i3status
+exec pkill -x conky
+exec pkill -x juiced
+exec pkill -x slstatus
 
 # comment out if using the i3bar
 # exec_always "$HOME/.config/polybar/start-i3bar"
@@ -22,8 +29,18 @@ exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
 exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
 exec xrdb -l "$HOME/.Xresources"
 exec xmodmap "$HOME/.Xmodmap"
-exec xset s 300 -dpms
 exec numlockx on &
+
+# display timeout and sleep
+exec xset s 3600 3600
+exec xset dpms 3600 3700 4000
+
+# keyboard repeat rate
+execxset r rate 400 50
+exec kbdrate -d 400 -r 50
+
+# 1/1 mouse acceleration
+exec xset m 1/1
 
 # stop trackpad when typing
 # exec syndaemon -i 1.0 -d
@@ -38,7 +55,7 @@ exec nitrogen --restore
 exec juiced -d
 
 #for brightness keys on toshiba
-exec mate-power-manager &
+# exec xfce4-power-manager &
 
 # i3 configuration ================================================
 
@@ -70,7 +87,7 @@ client.urgent               #313131    #FF2200        #FFFFFF
 # font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
 # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 # font pango: DejaVu Sans Mono, Terminus Regular Semi-Condensed 10
-# font pango: Envy Code R Regular 11
+# font pango: AurulentSansMono Nerd Font 10
 font pango: Ubuntu Regular 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -83,7 +100,7 @@ bindsym $ALT+F1 exec urxvt
 
 # start dmenu (a program launcher)
 # bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CCCCCC" -sb "#387070" -sf "#F5F5FF" 
-bindsym $ALT+F2 exec rofi-gorice
+bindsym $ALT+F2 exec rofi -show
 # bindsym $ALT+Shift+F2 exec jgmenu_run
 
 # xterm
@@ -106,6 +123,8 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
 
 # assign [class="Navigator"] 2
 for_window [class="Navigator"] border pixel 2
@@ -261,16 +280,19 @@ bindsym $mod+r mode "resize"
 bar {
        position top
        workspace_buttons yes
-       tray_padding 0
+       tray_padding 1
        # separator_symbol ":|:"
        bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
-       font pango: Roboto Mono Regular 11
+       font pango:Office Code Pro 11
+       # font pango: mononoki Nerd Font 10
+       # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+       # font pango:DejaVu Sans Mono 10
        colors {
           background #242424
           statusline #CCCCCC
-          focused_workspace		#865662 #865662 #FEFEFE
-          active_workspace		#17191E #17191E	#CCCCCC
-          inactive_workspace	#363636	#363636 #CCCCCC
+          focused_workspace		#865662 #865662 #FFFFFF
+          active_workspace		#3C3C3C #3C3C3C	#CCCCCC
+          inactive_workspace	#313131	#313131 #CCCCCC
           urgent_workspace		#FF2200	#FF2200	#FFFFFF
      }
        # status_command "$HOME/.config/i3/i3conkybar.sh"

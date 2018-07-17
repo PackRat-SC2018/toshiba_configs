@@ -1,4 +1,4 @@
 ^sep()
 Lock Screen,slock,stock_lock
 Suspend,gksudo zzz,xscreensaver
-Void Logout,void-logout,void_trbw.png
+Void Logout,void-logout,gnome-logout

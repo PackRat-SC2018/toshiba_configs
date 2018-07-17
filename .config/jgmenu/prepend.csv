@@ -2,7 +2,7 @@
 #@search,action,10,10,180,25,3,left,top,#666666 90,#222222 3,Type to search...
 #^sep()
 Terminal,urxvt,utilities-terminal
-File manager,pcmanfm,system-file-manager
+File manager,thunar,system-file-manager
 Editor,subl3,accessories-text-editor
 Browser,firefox,firefox
 Mail,thunderbird,thunderbird

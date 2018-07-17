@@ -8,11 +8,13 @@ pkill -x polybar &
 pkill -x sxhkd &
 pkill -x conky &
 pkill -x juiced &
+pkill -x slstatus
 
 # Change your keymap:
 xmodmap "$HOME/.Xmodmap"
 xrdb -l "$HOME/.Xresources"
 fbsetroot -solid "#333366" &
+numlockx on &
 
 # battery monitor
 juiced -d

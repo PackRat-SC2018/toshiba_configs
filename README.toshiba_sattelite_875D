@@ -9,3 +9,14 @@ the i8042 items need to be added.
 
 # backlight keys
 xbacklight doesn't work. Install xfce4-power-manager or mate-power-manager and they work.
+
+# or blacklist toshiba_acpi
+
+# blacklist toshiba_acpi
+blacklist toshiba_acpi
+
+# blackkist webcam - "sudo modprobe uvcvideo" to restore
+blacklist uvcvideo
+
+# soundcard - sound.conf in /etc/modprobe.d
+options snd-hda-intel index=1,0

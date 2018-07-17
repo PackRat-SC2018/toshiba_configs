@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>malta</name>
+    <name>naxos</name>
     <titleLayout>ILMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>2</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>1</name>
@@ -154,7 +154,7 @@
      cases. -->
   <margins>
     <top>0</top>
-    <bottom>0</bottom>
+    <bottom>28</bottom>
     <left>0</left>
     <right>0</right>
   </margins>
@@ -352,6 +352,12 @@
         <y>center</y>
         <width>90%</width>
         <height>90%</height>
+      </action>
+    </keybind>
+    <keybind key="A-F5">
+      <action name="MoveResizeTo">
+        <x>center</x>
+        <y>center</y>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessUp">
@@ -735,15 +741,6 @@
         <command>uxterm</command>
       </action>
     </keybind>
-    <keybind key="C-W-t">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Toggle Keypad</name>
-        </startupnotify>
-        <command>/usr/local/bin/ktpad.sh</command>
-      </action>
-    </keybind>
     <keybind key="C-W-l">
       <action name="Execute">
         <startupnotify>
@@ -873,7 +870,7 @@
       <mousebind button="Left" action="DoubleClick">
         <action name="ToggleMaximizeFull"/>
       </mousebind>
-      <mousebind button="Up" action="Click">
+      <!--      <mousebind button="Up" action="Click">
         <action name="if">
           <shaded>no</shaded>
           <then>
@@ -892,7 +889,7 @@
             <action name="Raise"/>
           </then>
         </action>
-      </mousebind>
+      </mousebind> -->
     </context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
       <mousebind button="Left" action="Press">
@@ -1100,16 +1097,25 @@
     </context>
     <context name="Root">
       <!-- Menus -->
+      <mousebind button="Left" action="Press">
+        <action name="Execute">
+          <startupnotify>
+            <enabled>false</enabled>
+            <name>jgmenu</name>
+          </startupnotify>
+          <command>jgmenu --config-file="~/.config/jgmenu/obxrootrc"</command>
+        </action>
+      </mousebind>
       <mousebind button="Middle" action="Press">
         <action name="ShowMenu">
           <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
-      <mousebind button="Left" action="Press">
+      <!--      <mousebind button="Right" action="Press">
         <action name="ShowMenu">
           <menu>root-menu</menu>
         </action>
-      </mousebind>
+      </mousebind> -->
     </context>
     <context name="MoveResize">
       <mousebind button="Up" action="Click">

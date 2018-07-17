@@ -8,7 +8,7 @@
 ;=====================================================
 
 [colors]
-background = #D9212121
+background = #D9161717
 foreground = #B9B9B9
 border     = #525254
 blue       = #1F1F99
@@ -231,7 +231,7 @@ padding-left = 0
 ;separator = :
 
 ;click-right = jgmenu_run
-;click-middle = pkill -USR1 -x polybar
+click-middle = pkill -USR1 -x polybar
 ;click-left = rofi-show
 ;scroll-up =
 ;scroll-down =
@@ -442,7 +442,7 @@ label         = %output%
 label-padding = 2
 interval      = 10
 exec          = echo ""
-click-left    = jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc
+click-left    = jgmenu --config-file=/home/doug/.config/jgmenu/pbarmenurc
 
 ;;;;;;;;;
 ;; CPU ;;
@@ -513,7 +513,7 @@ type = internal/cpu
 
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 0.5
+interval = 3
 
 ; Available tags:
 ;   <label> (default)
@@ -530,7 +530,7 @@ format-foreground = ${colors.foreground}
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
-label = CPU: %percentage%%
+label = CPU: %percentage:3%%
 
 ramp-coreload-0 = 
 ramp-coreload-0-foreground = ${colors.foreground}
@@ -582,6 +582,9 @@ bar-load-empty-foreground = #444444
 ;; TEMPERATURE ;;
 ;;;;;;;;;;;;;;;;;
 
+;radeon: temp1 /sys/devices/pci0000:00/0000:00:01.0/hwmon/hwmon0/temp1_input
+;k10temp: temp1 /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+
 [module/core0temp]
 type = internal/temperature
 
@@ -593,14 +596,15 @@ interval = 3.0
 ; To list all the zone types, run 
 ; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
 ; Default: 0
-thermal-zone = acpitz
+thermal-zone = 0
 
 ; Full path of temperature sysfs path
 ; Use `sensors` to find preferred temperature source, then run
 ; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
 ; to find path to desired file
 ; Default reverts to thermal zone setting
-hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+#hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon0/temp1_input
 
 ; Threshold temperature to display warning label
 ; Default: 80
@@ -626,6 +630,58 @@ ramp-8 = ""
 ramp-9-foreground = ${colors.urgent}
 ramp-9 = ""
 
+format = "<ramp> <label>"
+format-padding = 1
+label = %{A1:urxvt -x 'watch sensors' & disown:} %temperature:3%%{A}
+
+format-warn = <label-warn>
+label-warn = " %temperature% "
+label-warn-padding = 1
+label-warn-foreground = ${colors.urgent}
+
+[module/gputemp]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Thermal zone to use
+; To list all the zone types, run 
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/pci0000:00/0000:00:01.0/hwmon/hwmon0/temp1_input
+
+; Threshold temperature to display warning label
+; Default: 80
+warn-temperature = 80
+
+ramp-0 = ""
+ramp-0-foreground = ${colors.foreground}
+ramp-1 = ""
+ramp-1-foreground = ${colors.foreground}
+ramp-2 = ""
+ramp-3-foreground = ${colors.foreground}
+ramp-3 = ""
+ramp-4-foreground = ${colors.foreground}
+ramp-4 = ""
+ramp-5-foreground = #576657
+ramp-5 = ""
+ramp-6-foreground = ${colors.green}
+ramp-6 = ""
+ramp-7-foreground = ${colors.dimyellow}
+ramp-7 = ""
+ramp-8-foreground = ${colors.yellow}
+ramp-8 = ""
+ramp-9-foreground = ${colors.urgent}
+ramp-9 = ""
 
 format = "<ramp> <label>"
 format-padding = 1
@@ -682,7 +738,7 @@ format = <label> <bar-used>
 ;   %gb_swap_free%
 ;   %gb_swap_used%
 
-label = " RAM: %percentage_used%% "
+label = " RAM: %percentage_used:3%% "
 
 ; Only applies if <bar-used> is used
 bar-used-indicator =
@@ -750,7 +806,7 @@ interface = wlp1s0
 ;format-connected = "<ramp-signal> <label-connected>"
 format-connected = " NET: <label-connected> "
 format-packetloss = <animation-packetloss>
-label-connected = %signal%% %upspeed:2% %downspeed:2%
+label-connected = %signal:3%% %upspeed:4% %downspeed:4%
 ;label-connected = %signal%%
 
 ramp-signal-0 = 
@@ -914,7 +970,7 @@ label-discharging = "BAT0 %percentage%%"
 
 ; Available tokens:
 ;   %percentage% (default)
-label-full = "BAT0 %percentage%%"
+label-full = "BAT0 %percentage:3%%"
 
 ; Only applies if <bar-capacity> is used
 bar-capacity-width = 6

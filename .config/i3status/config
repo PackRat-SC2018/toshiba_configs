@@ -27,6 +27,7 @@ general {
 #order +=  "cpu_temperature 1"
 order += "cpu_usage"
 order += "load"
+order +=  "cpu_temperature 2"
 order += "battery 0"
 order += "wireless wlp1s0"
 # order += "tztime local"
@@ -44,6 +45,16 @@ cpu_temperature 1 {
         max_threshold = 75
         #format_above_threshold = Warning T above threshold: %degrees °C
     path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp4_input
+}
+
+# toshiba
+cpu_temperature 2 {
+        format = " %degrees °C "
+        max_threshold = 75
+        #format_above_threshold = Warning T above threshold: %degrees °C
+        path = /sys/class/hwmon/hwmon1/temp1_input
+        align = "center"
+        min_width = "64"
 }
 
 cpu_usage {

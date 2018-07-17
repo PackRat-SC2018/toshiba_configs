@@ -7,12 +7,12 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        output_format = i3bar
-        # output_format = none
+        output_format = none
         interval = 3
         separator = ""
+        #colors = false
         colors = true
-        color_good = "#B3B3AF"
+        color_good = "#12AD7F"
         color_degraded = "#DBA723"
         color_bad = "#E6171E"
 }
@@ -22,38 +22,34 @@ general {
 #order += "wireless _first_"
 #order += "ethernet _first_"
 #order += "battery all"
-#
 
 #order +=  "cpu_temperature 0"
 #order +=  "cpu_temperature 1"
 order += "cpu_usage"
 order += "load"
-order += "cpu_temperature 2"
+order +=  "cpu_temperature 2"
 order += "battery 0"
 order += "wireless wlp1s0"
 order += "tztime local"
+# order += "time"
 
 cpu_temperature 0 {
-        format = "   %degrees °C "
+        format = " CORE0: %degrees °C "
         max_threshold = 75
         #format_above_threshold = Warning T above threshold: %degrees °C
-        path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp2_input
-        align = "center"
-        min_width = "64"
+    path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp2_input
 }
 
 cpu_temperature 1 {
-        format = "   %degrees °C "
+        format = " CORE1: %degrees °C "
         max_threshold = 75
         #format_above_threshold = Warning T above threshold: %degrees °C
-        path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp4_input
-        align = "center"
-        min_width = "64"
+    path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp4_input
 }
 
 # toshiba
 cpu_temperature 2 {
-        format = "  %degrees °C "
+        format = " %degrees °C "
         max_threshold = 75
         #format_above_threshold = Warning T above threshold: %degrees °C
         path = /sys/class/hwmon/hwmon1/temp1_input
@@ -62,47 +58,35 @@ cpu_temperature 2 {
 }
 
 cpu_usage {
-        format = "  %usage "
+        format = " CPU: %usage "
         max_threshold = 75
         degraded_threshold = 25
-        align = "center"
-        min_width = "64"
 }
 
 load {
         format = " %1min  %5min  %15min "
-        align = "center"
-        min_width = "64"
 }
 
 battery 0 {
-        format = "  %percentage %status "
+        format = " BATT: %percentage %remaining %status "
         hide_seconds = true
-        last_full_capacity = false
         integer_battery_capacity = true
         threshold_type = percent
         low_threshold = 15
-        status_chr = " "
-        status_bat = " "
+        status_chr = "C"
+        status_bat = "D"
         status_unk = "?"
         status_full = "F"
-        align = "center"
-        min_width = "64"
 }
 
 wireless wlp1s0 {
-        # format_up = "  (%quality at %essid) %ip "
-        format_up = "  %quality %bitrate "
-        format_down = "  down "
-        align = "center"
-        # low_threshold = 25
-        min_width = "64"
+        format_up = " NET: %quality %bitrate "
+        format_down = " NET: down "
 }
 
 tztime local {
-        format = " %a %e %b  %k:%M "
-        align = "center"
-        min_width = "68"
+        format = " %time "
+        format_time = "%a %e %b %k:%M"
 }
 
 ######################################################
@@ -112,10 +96,10 @@ ethernet _first_ {
         format_down = "E: down"
 }
 
+battery all {
+        format = "%status %percentage %remaining"
+}
+
 disk "/" {
         format = "%avail  "
 }
-
-
-
-
