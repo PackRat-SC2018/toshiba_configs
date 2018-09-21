@@ -1,0 +1,58 @@
+#! /bin/sh
+
+killall -q conky &
+killall -q juiced &
+killall -q slstatus &
+
+sxhkd &
+
+xrdb -l "$HOME/.Xresources" &
+xmodmap "$HOME/.Xmodmap" &
+xsetroot -solid darkblue &
+
+# battery monitor
+juiced -d
+
+numlockx on &
+
+# wallpaper
+nitrogen --restore &
+
+# system info
+#(sleep 2s && conky -dc "$HOME/conky/conkyhorizrc") &
+#(sleep 2s && "$HOME/.config/bspwm/bar.sh") &
+(sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
+
+bspc monitor -d 1 2 3 4
+
+bspc config border_width         2
+bspc config window_gap           3
+
+bspc config top_padding          20
+bspc config right_padding        0
+bspc config bottom_padding       0
+bspc config left_padding         0
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config normal_border_color "#3E3E3E"
+bspc config focused_border_color "#174A1F"
+bspc config active_border_color "#3E3E3E"
+
+bspc config pointer_modifier     mod1
+
+bspc rule -a Gimp desktop='^4' follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a XCalc state=floating
+bspc rule -a Galculator state=floating
+bspc rule -a XFontSel state=floating
+bspc rule -a Sakura state=floating
+bspc rule -a YadCal state=floating
+bspc rule -a ColorBox state=floating
+bspc rule -a FontBox state=floating
+bspc rule "Yad-icon-browser" state=floating

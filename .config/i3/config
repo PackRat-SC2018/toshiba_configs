@@ -10,21 +10,16 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # autostart ======================================================
-#exec pgrep conky &>/dev/null; [ $? = 0 ] && killall -q conky
-#exec pgrep compton &>/dev/null; [ $? = 0 ] && killall -q compton
-#exec pgrep juiced &>/dev/null; [ $? = 0 ] && killall -q juiced
-#exec pgrep i3status &>/dev/null; [ $? = 0 ] && killall -q i3status
-#exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
-#exec pgrep sxhkd &>/dev/null; [ $? = 0 ] && killall -q sxhkd
 
-exec pkill -x sxhkd
-exec pkill -x i3status
-exec pkill -x conky
-exec pkill -x juiced
-exec pkill -x slstatus
+# exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
+exec pkill -q sxhkd
+exec pkill -q i3status 
+exec pkill -q conky 
+exec pkill -q juiced 
+exec pkill -q slstatus 
 
 # comment out if using the i3bar
-# exec_always "$HOME/.config/polybar/start-i3bar"
+exec_always --no-startup-id "$HOME/.config/i3/i3polybar.sh"
 
 exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
 exec xrdb -l "$HOME/.Xresources"
@@ -64,24 +59,26 @@ set $ALT Mod1
 
 default_orientation horizontal
 workspace_layout tabbed
+# workspace_layout stacking
 focus_follows_mouse no
 
-#new_window normal|none|pixel normal=2px
-#new_window normal|pixel <px>
-#new_float normal|none|pixel
-#new_float normal|pixel <px>
+# for i3-gaps
+#gaps inner 3
+#gaps outer 3
 
-#new_window normal
-#new_float normal
+# default_border normal/none/pixel
+default_border pixel 1
 
-new_window pixel 2
-new_float pixel 2
+# default_floating_border normal/none/pixel
+default_floating_border pixel 1
+
+hide_edge_borders both
 
 # window colours:           border     background     text
-client.focused              #865662    #865662        #FEFEFE
-client.focused_inactive     #313131    #5C3B4A        #CCCCCC
-client.unfocused            #363636    #363636        #CCCCCC
-client.urgent               #313131    #FF2200        #FFFFFF
+client.focused              #913F53    #913F53        #FEFEFE
+client.focused_inactive     #3E3B5C    #3E3B5C        #CFCFCF
+client.unfocused            #2B2B2B    #2B2B2B        #CFCFCF
+client.urgent               #131313    #E03043        #FFFFFF
 
 # font for window titles. ISO 10646 = Unicode
 # font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
@@ -99,7 +96,7 @@ floating_modifier $ALT
 bindsym $ALT+F1 exec urxvt
 
 # start dmenu (a program launcher)
-# bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CCCCCC" -sb "#387070" -sf "#F5F5FF" 
+# bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CFCFCF" -sb "#387070" -sf "#F5F5FF" 
 bindsym $ALT+F2 exec rofi -show
 # bindsym $ALT+Shift+F2 exec jgmenu_run
 
@@ -117,14 +114,14 @@ bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
-bindsym $mod+x exec jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc
+bindsym $mod+x exec "jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp exec "acpilight -inc 5"
+bindsym XF86MonBrightnessDown exec "acpilight -dec 5"
 
 # assign [class="Navigator"] 2
 for_window [class="Navigator"] border pixel 2
@@ -141,7 +138,7 @@ for_window [class="Gnome-mplayer"] floating enable
 for_window [class="Gcolor2"] floating enable
 #for_window [class="UXTerm"] floating enable, border pixel 2
 #for_window [class="XTerm"] floating enable, border pixel 2
-for_window [class="Sakura"] floating enable, border pixel 2
+#for_window [class="Sakura"] floating enable, border pixel 2
 for_window [class="Xfce4-terminal"] floating enable, border pixel 2
 for_window [class="XCalc"] floating enable, border pixel 2
 for_window [class="Galculator"] floating enable, border pixel 2
@@ -155,6 +152,10 @@ for_window [class="Exit_Session"] floating enable, border pixel 2
 for_window [class="mpv"] floating enable, border pixel 2
 for_window [class="SThermal"] floating enable, border pixel 2
 for_window [class="PCalendar"] floating enable, border pixel 2
+for_window [class="ColorBox"] floating enable, border pixel 2
+for_window [class="YadCal"] floating enable, border pixel 2
+for_window [class="FontBox"] floating enable, border pixel 2
+for_window [class="Yad-icon-browser"] floating enable, border pixel 2
 
 # change focus
 #bindsym $mod+j focus left
@@ -277,25 +278,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-       position top
-       workspace_buttons yes
-       tray_padding 1
-       # separator_symbol ":|:"
-       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
-       font pango:Office Code Pro 11
-       # font pango: mononoki Nerd Font 10
-       # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-       # font pango:DejaVu Sans Mono 10
-       colors {
-          background #242424
-          statusline #CCCCCC
-          focused_workspace		#865662 #865662 #FFFFFF
-          active_workspace		#3C3C3C #3C3C3C	#CCCCCC
-          inactive_workspace	#313131	#313131 #CCCCCC
-          urgent_workspace		#FF2200	#FF2200	#FFFFFF
-     }
+#
+
+#bar {
+#       position top
+#       workspace_buttons yes
+#       tray_padding 1
+#       # separator_symbol ":|:"
+#       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
+#       font pango:Office Code Pro 11
+#       # font pango: mononoki Nerd Font 10
+#       # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+#       # font pango:DejaVu Sans Mono 10
+#       colors {
+#          background #222222
+#          statusline #CFCFCF
+#          focused_workspace    #865662 #865662 #FFFFFF
+#          active_workspace		#3C3C3C #3C3C3C	#CFCFCF
+#          inactive_workspace   #313131 #313131 #CFCFCF
+#          urgent_workspace		#E03043	#E03043	#FFFFFF
+#     }
        # status_command "$HOME/.config/i3/i3conkybar.sh"
-       # status_command conky
-       status_command "i3status -c $HOME/.config/i3status/config-i3"
-}
+       # status_command "i3status -c $HOME/.config/i3status/config-i3"
+#       status_command bumblebee-status -m uptime cpu load memory battery datetime -p time.format="%k:%M" date.format="%a %e %b" datetime.format="%a %e %b %k:%M" -t greyish-powerline
+#}

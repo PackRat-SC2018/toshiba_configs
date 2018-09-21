@@ -34,6 +34,9 @@
 .ICEauthority
 .Xauthority
 .xsession-errors
+'.moonchild productions'
+.moonchild*productions
+".moonchild productions"
 build
 temp
 pictures
@@ -41,14 +44,16 @@ images
 Pictures
 git
 .git
+.config/GIMP
 .config/libreoffice
 .config/vivaldi
 .config/xfce4
 .config/google-chrome
 .config/opera
-.config/vivaldi
 .config/transmission
 .conky
 *.iso
-
+# emacs backups
+*~
+.*~
 

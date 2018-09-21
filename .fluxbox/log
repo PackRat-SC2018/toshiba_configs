@@ -2,9 +2,9 @@
 Log File: /home/doug/.fluxbox/log
 Fluxbox version: 1.3.7
 GIT Revision: unknown
-Compiled: May 14 2015 07:44:31
+Compiled: Jul 19 2018 19:51:44
 Compiler: GCC
-Compiler version: 4.9.2
+Compiler version: 7.3.0
 
 Defaults: 
        menu: /usr/share/fluxbox/menu

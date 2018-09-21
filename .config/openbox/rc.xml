@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>naxos</name>
+    <name>Sicily</name>
     <titleLayout>ILMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -154,7 +154,7 @@
      cases. -->
   <margins>
     <top>0</top>
-    <bottom>28</bottom>
+    <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
   </margins>
@@ -362,12 +362,12 @@
     </keybind>
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command>xbacklight +10</command>
+        <command>acpilight +10</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command>xbacklight -10</command>
+        <command>acpilight -10</command>
       </action>
     </keybind>
     <keybind key="C-W-Print">
@@ -423,6 +423,9 @@
         <height>100%</height>
       </action>
     </keybind>
+    <!--    <keybind key="W-KP_5">
+      <action name="ToggleMaximize"/>
+    </keybind> -->
     <keybind key="W-KP_6">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">

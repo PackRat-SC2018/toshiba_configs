@@ -1,0 +1,8 @@
+# needed for keyboard sometimes.
+
+at grub splash screen press "e"
+
+add to linux  line -
+
+i8042.numux=1 i8042.reset
+

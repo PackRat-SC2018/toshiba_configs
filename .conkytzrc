@@ -1,0 +1,84 @@
+conky.config = {
+--#############################################
+-- Settings
+--#############################################
+	background = true,
+	use_xft = true,
+	font = 'Ubuntu:regular:size=10',	
+	xftalpha = 1.0,
+	update_interval = 1.0,
+--	update_interval_on_battery = 30.0,
+	total_run_times = 0,
+
+	own_window = false,
+	own_window_colour = '#141414',
+	own_window_transparent = true,
+	-- own_window_type = 'dock',
+	own_window_type = 'desktop' ,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_class = 'ConkyFB',
+	own_window_title = 'ConkyFB',
+--#############################################
+-- Compositing tips:
+-- Conky can play strangely when used with
+-- different compositors. I have found the
+-- following to work well, but your mileage
+-- may vary. Comment/uncomment to suit.
+--#############################################
+--#
+	-- own_window_argb_visual = true,
+	-- own_window_argb_value = 2,
+
+--# xcompmgr
+-- own_window_argb_visual yes
+-- own_window_argb_value 120
+
+--# cairo-compmgr
+--own_window_type desktop
+--own_window_argb_visual yes
+--#############################################
+
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+	short_units = true,
+	imlib_cache_size = 0,
+	pad_percents = 1,
+	max_user_text = 3200,
+	text_buffer_size = 1024,
+	if_up_strictness = 'address',
+	double_buffer = true,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	border_inner_margin = 1,
+	border_outer_margin = 1,
+
+	default_color = '#E6E6E6',
+	default_shade_color = '#000000',
+	default_outline_color = '#828282',
+	color0 = '#FFFFFF',
+	color1 = '#000000',
+	color2 = '#FF0000',-- - red
+	color3 = '#FFFF00',-- - yellow
+	color4 = '#0000FF',-- - blue
+	color5 = '#00FF00',-- - green
+	color6 = '#FFA500',-- - orange
+	color7 = '#00CDCD',-- - cyan3
+	color8 = '#FFD700',-- - gold
+	color9 = '#F00F16',-- - reddish
+	
+	minimum_width = 300, minimum_height = 0,
+	maximum_width = 300,
+	alignment = 'bl',
+	gap_x = 18,
+	gap_y = 36,
+
+};
+
+conky.text = [[
+${font Inconsolata LGC Markup:regular:size=32}${time %R}
+${voffset -18}${font Inconsolata LGC Markup:regular:size=16}${time %A %e %B}
+]];

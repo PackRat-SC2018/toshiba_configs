@@ -49,12 +49,12 @@ icon_theme_fallback = Adwaita
 arrow_string        = ▸
 arrow_width         = 15
 
-color_menu_bg        = #F5F5FA 75
-color_menu_fg        = #242424 100
+color_menu_bg        = #212121 90
+color_menu_fg        = #F5F5FA 100
 #color_menu_border   = #171717 8
 
-color_norm_bg        = #F5F5FA 2
-color_norm_fg        = #242424 100
+color_norm_bg        = #212121 2
+color_norm_fg        = #F5F5FA 100
 
 color_sel_bg         = #918C87 75
 color_sel_fg         = #171717 100

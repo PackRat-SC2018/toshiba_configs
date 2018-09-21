@@ -8,12 +8,15 @@ pkill -x polybar &
 pkill -x sxhkd &
 pkill -x conky &
 pkill -x juiced &
-pkill -x slstatus
+pkill -x slstatus &
 
 # Change your keymap:
 xmodmap "$HOME/.Xmodmap"
 xrdb -l "$HOME/.Xresources"
 fbsetroot -solid "#333366" &
+fbsetbg -c -r "$HOME/wallpaper/" &
+
+# number pad
 numlockx on &
 
 # battery monitor
@@ -22,16 +25,15 @@ juiced -d
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
-# set wallpaper
-# (sleep 2s && fbsetbg -c $HOME/wallpaper/falcon.jpg) &
-(sleep 2s && fbsetbg -c -r "$HOME/wallpaper/") &
 
 # 3rd party apps
 # (sleep 2s && conky -dc $HOME/.conky10fboxrc) &
+# "$HOME/bin/ConkyFluxbox.sh" &
 # (sleep 2s && connman-gtk --tray) &
 
 # panels
-(sleep 2s && polybar fboxbar) &
+#(sleep 2s && polybar fboxbar) &
+(sleep 2s && "$HOME/bin/fboxbar.sh") &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

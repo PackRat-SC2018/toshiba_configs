@@ -3,13 +3,23 @@ firefox
 pcmanfm
 yad --font
 rofi-logout
-galculator
 st
 xfce4-power-manager
 yad --notebook
 yad --print
 yad --entry
 yad --icons
-xcalc
 lxappearance
+galculator
+oomox
+oomox-gui
 compton
+kitty
+xfce4-terminal
+commpton
+sakura
+xcalc
+xterm
+slock
+geany
+leafpad

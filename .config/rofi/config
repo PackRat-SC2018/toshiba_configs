@@ -10,7 +10,7 @@ rofi.font:             Source Sans Pro Semibold 12
 rofi.bw:               4
 rofi.width:            700
 rofi.lines:            10
-rofi.modi:             run,drun,window
+rofi.modi:             run,drun,window,combi
 rofi.separator-style:  dash
 rofi.yoffset:          28
 rofi.xoffset:          0
@@ -36,6 +36,6 @@ rofi.show-icons:       true
 #rofi.color-active: argb:00131920, #65acff, argb:e44b5160, argb:00131920, #f9f9f9
 
 # archlabs
-rofi.color-window: #F22B303B, #F21F2126, #F21F2126
-rofi.color-normal: #F2303440, #FFEFF1F5, #F2303440, #F28FA1B3, #FF1F2126
+rofi.color-window: #E62B303B, #E61F2126, #E61F2126
+rofi.color-normal: #E6303440, #E6EFF1F5, #E6303440, #E68FA1B3, #FF1F2126
 

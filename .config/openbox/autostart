@@ -16,14 +16,21 @@
 #
 #xfce-mcs-manager &
 
+pkill -x tint2 &
+pkill -x juiced &
+pkill -x polybar &
+pkill -x sxhkd &
+
 xrdb -l "$HOME/.Xresources" &
 xmodmap "$HOME/.Xmodmap" &
 numlockx on &
 xsetroot -solid darkblue &
+fbsetbg -c -r "$HOME/wallpaper/" &
 
 juiced -d
 
-(sleep 2s && nitrogen --restore) &
+# panel system info
+# (sleep 4s && conky -dc "$HOME/conky/conkyhorizrc") &
+# (sleep 2s && tint2) &
+(sleep 2s && "$HOME/bin/obxbar.sh") &
 
-# (sleep 2s && tint2 -c /home/doug/.config/tint2/tint2obxrc) &
-(sleep 2s && tint2) &

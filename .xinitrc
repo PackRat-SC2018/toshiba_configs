@@ -16,4 +16,8 @@ fi
 # exec startxfce4
 # ...or the Window Manager of your choice
 
-exec /usr/bin/startfluxbox
+# exec ck-launch-session dbus-launch --sh-syntax --exit-with-session awesome
+
+# exec /usr/bin/startfluxbox
+
+exec i3

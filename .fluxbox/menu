@@ -16,8 +16,7 @@
 #     session.menuFile: ~/.fluxbox/my-menu
 [begin] (Fluxbox-1.3.7)
 [encoding] {UTF-8}
-      [exec] (Run) {dmenu_run}
-      [exec] (Menu) {rofi -show}
+      [exec] (Run) {rofi -show}
 [separator]
       [exec] (File Manager) {thunar}
       [exec] (Terminal) {urxvt}
