@@ -1,0 +1,354 @@
+
+##########	Chrono FVWM Script
+##########	Digital clock with alarm & date
+##########	by sebaro
+##########
+##########	rev.2012-08-07
+
+WindowTitle {Chrono}
+WindowSize 320 100
+WindowPosition 953 917
+
+##### Global Style
+Colorset 17
+Font "xft:DejaVu Sans:size=24:bold"
+
+Init
+Begin
+  ##### Widgets Style
+  Set $hoursFormatFont = {xft:DejaVu Sans:size=14:bold}
+  Set $dayFont = {xft:DejaVu Sans:size=12:bold}
+  Set $dateFont = {xft:DejaVu Sans:size=12:bold}
+
+  ##### Settings
+  Set $homeDir = (GetOutput {echo $HOME} 1 -1) {/.fvwm/scripts/Chrono/}
+  Set $setHoursFormat = {24}
+  Set $setAlarmState = {off}
+  Set $setAlarmTime = {10:25}
+
+  ##### Variables
+  Set $hoursFormat = $setHoursFormat
+  Set $alarmState= $setAlarmState
+
+  ##### Widgets
+  Set $clockIcon = $homeDir {icons/clock.png}
+  Set $alarmIcon = $homeDir {icons/alarm.png}
+  If $alarmState == {on} Then
+  Begin
+    Set $currClock = {alarmOn}
+    ChangeIcon 1 $alarmIcon
+  End
+  Else
+  Begin
+    Set $currClock = {alarmOff}
+    ChangeIcon 1 $clockIcon
+  End
+  Set $dateIcon = $homeDir {icons/date.png}
+  ChangeIcon 6 $dateIcon
+  Set $quitButton = $homeDir {icons/quit.png}
+  ChangeIcon 9 $quitButton
+
+  ##### Alarm
+  Set $getAlarmHour = {exec echo } $setAlarmTime { | cut -d ":" -f 1}
+  Set $alarmHour = (GetOutput $getAlarmHour 1 -1)
+  Set $getAlarmMinutes = {exec echo } $setAlarmTime { | cut -d ":" -f 2}
+  Set $alarmMinutes = (GetOutput $getAlarmMinutes 1 -1)
+  Set $alarmTime = $alarmHour {:} $alarmMinutes
+  Set $alarmStarted = {false} 
+
+  ##### Set Time & Date
+  ChangeFont 5 $hoursFormatFont
+  If $hoursFormat == {12} Then
+  Begin
+    ChangeTitle 2 (GetOutput {date "+%l"} 1 -1)
+    ChangeTitle 5 (GetOutput {date "+%p"} 1 -1)
+  End
+  Else
+  Begin
+    ChangeTitle 2 (GetOutput {date "+%k"} 1 -1)
+    ChangeTitle 5 {}
+  End
+  ChangeTitle 3 {:}
+  ChangeTitle 4 (GetOutput {date "+%M"} 1 -1)
+  ChangeFont 7 $dayFont
+  ChangeTitle 7 (GetOutput {date "+%A"} 1 -1)
+  ChangeFont 8 $dateFont
+  ChangeTitle 8 (GetOutput {date "+%d %B %Y"} 1 -1)
+
+  ##### Curly Brackets
+  Set $leftCB = (GetOutput {printf "\173"} 1 -1)
+  Set $rightCB = (GetOutput {printf "\175"} 1 -1)
+End
+
+PeriodicTasks
+Begin
+  ##### Refresh Hours, Minutes & Date
+  If $currClock <> {alarmSet} Then
+  Begin
+    If (RemainderOfDiv (GetTime) 60) == 0 Then
+    Begin
+      ChangeTitle 4 (GetOutput {date "+%M"} 1 -1)
+      If (GetOutput {date "+%M"} 1 -1) == {00} Then
+        Set $refreshHours = {true}
+      If $hoursFormat == {12} Then
+      Begin
+        If (GetOutput {date "+%l"} 1 -1) <> (GetTitle 2) Then
+          Set $refreshHours = {true}
+      End
+      Else
+      Begin
+        If (GetOutput {date "+%k"} 1 -1) <> (GetTitle 2) Then
+          Set $refreshHours = {true}
+      End
+      If $refreshHours == {true} Then
+      Begin
+        If $hoursFormat == {12} Then
+        Begin
+          ChangeTitle 2 (GetOutput {date "+%l"} 1 -1)
+          ChangeTitle 5 (GetOutput {date "+%p"} 1 -1)
+          If (GetOutput {date "+%l"} 1 -1) == {12} Then
+          Begin
+            If (GetOutput {date "+%p"} 1 -1) == {AM} Then
+              Set $refreshDate = {true}
+          End
+        End
+        Else
+        Begin
+          ChangeTitle 2 (GetOutput {date "+%k"} 1 -1)
+          ChangeTitle 5 {}
+          If (GetOutput {date "+%k"} 1 -1) == { 0} Then
+            Set $refreshDate = {true}
+        End
+        Set $refreshHours = {false}
+      End
+      If (GetOutput {date "+%A"} 1 -1) <> (GetTitle 7) Then
+        Set $refreshDate = {true}
+      If $refreshDate == {true} Then
+      Begin
+        ChangeTitle 7 (GetOutput {date "+%A"} 1 -1)
+        ChangeTitle 8 (GetOutput {date "+%d %B %Y"} 1 -1)
+        Set $refreshDate = {false}
+      End
+    End
+  End
+
+  ##### Change Hours
+  If $changeHours == {true} Then
+  Begin
+    If $currClock == {alarmSet} Then
+    Begin
+      Set $alarmHour = (Add $alarmHour 1)
+      If $alarmHour == {24} Then
+        Set $alarmHour = {0}
+      ChangeTitle 2 $alarmHour
+    End
+    Else
+    Begin
+      If $hoursFormat == {12} Then
+        Set $hoursFormat = {24}
+      Else
+        Set $hoursFormat = {12}
+      Set $resetMinutes = {false}
+      Set $resetHours = {true}
+      Do {exec sed -i -e "s/^.*Set \$setHoursFormat.*$/  Set \$setHoursFormat = } $leftCB $hoursFormat $rightCB {/" } $homeDir {Chrono}
+    End
+    Set $changeHours = {false}
+  End
+
+  ##### Change Minutes
+  If $changeMinutes == {true} Then
+  Begin
+    If $currClock == {alarmSet} Then
+    Begin
+      Set $alarmMinutes = (Add (Mult (Div $alarmMinutes 5) 5) 5)
+      If $alarmMinutes == {60} Then
+        Set $alarmMinutes = {0}
+      If $alarmMinutes < 10 Then
+        Set $alarmMinutes = {0} $alarmMinutes
+      ChangeTitle 4 $alarmMinutes
+    End
+    Set $changeMinutes = {false}
+  End
+
+  ##### Change Alarm
+  If $changeAlarm == {true} Then
+  Begin
+    If $currClock == {alarmOff} Then
+    Begin
+      ChangeTitle 5 {}
+      If $alarmHour <> {} Then
+        ChangeTitle 2 $alarmHour
+      Else
+        ChangeTitle 2 {0}
+      If $alarmMinutes <> {} Then
+        ChangeTitle 4 $alarmMinutes
+      Else
+        ChangeTitle 4 {0}
+      Set $currClock = {alarmSet}
+    End
+    Else
+    Begin
+      If $currClock == {alarmSet} Then
+      Begin
+        ChangeIcon 1 $alarmIcon
+        Set $currClock = {alarmOn}
+        Set $alarmState = {on}
+        Set $alarmTime = $alarmHour {:} $alarmMinutes
+        Do {exec sed -i -e "s/^.*Set \$setAlarmState.*$/  Set \$setAlarmState = } $leftCB $alarmState $rightCB {/" -e "s/^.*Set \$setAlarmTime.*$/  Set \$setAlarmTime = } $leftCB $alarmTime $rightCB {/" } $homeDir {Chrono}
+        Set $resetMinutes = {true}
+        Set $resetHours = {true}
+      End
+      Else
+      Begin
+        ChangeIcon 1 $clockIcon
+        Set $currClock = {alarmOff}
+        Set $alarmState = {off}
+        Do {exec sed -i -e "s/^.*Set \$setAlarmState.*$/  Set \$setAlarmState = } $leftCB $alarmState $rightCB {/" } $homeDir {Chrono}
+      End
+    End
+    Set $changeAlarm = {false}
+  End
+
+  ##### Start Alarm
+  If $alarmState == {on} Then
+  Begin
+    If $alarmTime == (GetOutput {date "+%k:%M" | sed -e "s/ //g"} 1 -1) Then
+    Begin
+      If $alarmStarted == {false} Then
+      Begin
+        Do {exec aplay } $homeDir {sounds/alarm.wav}
+        Set $alarmStarted = {true}
+      End
+    End
+    Else
+      Set $alarmStarted = {false}
+  End
+
+  ##### Reset Hours & Minutes
+  If $resetHours == {true} Then
+  Begin
+    If $hoursFormat == {12} Then
+    Begin
+      ChangeTitle 2 (GetOutput {date "+%l"} 1 -1)
+      ChangeTitle 5 (GetOutput {date "+%p"} 1 -1)
+    End
+    Else
+    Begin
+      ChangeTitle 2 (GetOutput {date "+%k"} 1 -1)
+      ChangeTitle 5 {}
+    End
+    If $resetMinutes == {true} Then
+      ChangeTitle 4 (GetOutput {date "+%M"} 1 -1)
+    Set $resetHours = {false}
+  End
+End
+
+Widget		1
+Property
+  Type		ItemDraw
+  Size		32 32
+  Position		75 10
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Set $changeAlarm = {true}
+    End
+  End
+
+Widget		2
+Property
+  Type		ItemDraw
+  Size		50 30
+  Position		110 10
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Set $changeHours = {true}
+    End
+  End
+
+Widget		3
+Property
+  Type		ItemDraw
+  Size		10 30
+  Position		160 10
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		4
+Property
+  Type		ItemDraw
+  Size		50 30
+  Position		170 10
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Set $changeMinutes = {true}
+    End
+  End
+
+Widget		5
+Property
+  Type		ItemDraw
+  Size		40 30
+  Position		220 15
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		6
+Property
+  Type		ItemDraw
+  Size		32 32
+  Position		40 55
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Do {FvwmScript Kalende/Kalende}
+    End
+  End
+
+Widget		7
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		70 50
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		8
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		70 70
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		9
+Property
+  Type		ItemDraw
+  Size		16 16
+  Position		303 1
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Quit
+    End
+  End

@@ -1,5 +1,5 @@
 [global]
-    font = Sans 11
+    font = Ubuntu 11 regular
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -50,8 +50,7 @@
     
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
-    
-    
+     
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
     # The geometry of the message window.
@@ -64,7 +63,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x144-64+64"
+    geometry = "0x200-16+32"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -73,12 +72,12 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 12
+    transparency = 33
     
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
-    idle_threshold = 120
+    idle_threshold = 60
     
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -117,7 +116,7 @@
     separator_height = 1
     
     # Padding between text and separator.
-    padding = 8
+    padding = 4
     
     # Horizontal padding.
     horizontal_padding = 4
@@ -142,7 +141,7 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
@@ -167,7 +166,7 @@
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1".
-    history = ctrl+grave
+    history = ctrl+shift+m
     
     # Context menu.
     context = ctrl+shift+period

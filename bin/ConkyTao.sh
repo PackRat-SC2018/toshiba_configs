@@ -4,4 +4,4 @@
 #
 conky -d -c /home/doug/conky/taoconky10rc &
 
-exit 0
+exit 0;

@@ -22,7 +22,7 @@ super + shift + w
      thunderbird
 
 Menu
-   thunar
+   pcmanfm
      
 super + ctrl + l
     subl3
@@ -39,6 +39,9 @@ super + ctrl + o
 super + shift + q
     rofi-logout
 
+super + ctrl + Pause
+    /home/doug/bin/conkybspwm.sh
+
 # program launcher
 super + @space
 	jgmenu_run
@@ -46,6 +49,15 @@ super + @space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+XF86AudioRaiseVolume
+        amixer -q sset Master 5%+ unmute
+	
+XF86AudioLowerVolume
+        amixer -q sset Master 5%- unmute
+	
+XF86AudioMute
+        amixer sset Master,0 toggle
 
 #
 # bspwm hotkeys

@@ -30,7 +30,7 @@ order += "load"
 order +=  "cpu_temperature 2"
 order += "battery 0"
 order += "wireless wlp1s0"
-# order += "tztime local"
+order += "tztime local"
 # order += "time"
 
 cpu_temperature 0 {
@@ -86,7 +86,7 @@ wireless wlp1s0 {
 
 tztime local {
         format = " %time "
-        format_time = "%A %e %b %k:%M"
+        format_time = "%a %e %b %k:%M"
 }
 
 ######################################################

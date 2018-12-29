@@ -9,10 +9,15 @@ terminal_exec        = urxvt
 terminal_args        = -e
 #monitor             = 0
 #hover_delay	     = 100
+#columns              = 3
+csv_no_dirs          = 0
 
 menu_margin_x        = 4
 menu_margin_y        = 40
 menu_width           = 200
+#menu_height_min      = 256
+#menu_height_max      = 256
+menu_height_mode     = static
 menu_padding_top     = 4
 menu_padding_right   = 2
 menu_padding_bottom  = 4

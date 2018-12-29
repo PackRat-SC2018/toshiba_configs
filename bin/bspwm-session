@@ -1,0 +1,5 @@
+#!/bin/sh
+
+exec startx $HOME/.xinitrc bspwm
+
+exit 0;

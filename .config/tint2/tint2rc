@@ -7,118 +7,61 @@
 rounded = 0
 border_width = 0
 border_sides = T
-background_color = #212121 95
-border_color = #4B6EB3 95
+background_color = #212121 100
+border_color = #4B6EB3 100
 
 # urgent background
 # ID 2
 rounded = 1
 border_width = 1
-background_color = #A43949 75
-border_color = #000000 66
+background_color = #A43949 100
+border_color = #000000 100
 
 # tooltip background
 # ID 3
 rounded = 4
 border_width = 1
-background_color = #F7F7F7 75
-border_color = #F3F3F3 66
+background_color = #F7F7F7 100
+border_color = #F3F3F3 100
 
 # ID 4
 rounded = 2
 border_width = 1
-background_color = #3E3E3E 70
-border_color = #F3F3F3 15
+background_color = #3E3E3E 100
+border_color = #424242 100
 
 # separators define all used
 separator=new
 separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 2
-separator_padding = 0 0
+separator_color = #0D0D0D
+separator_style = line
+separator_size = 1
+separator_padding = 2 0
 
 separator=new
 separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 16
+separator_color = #0D0D0D
+separator_style = line
+separator_size = 1
 separator_padding = 1 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
-separator_size = 16
+separator_size = 1
 separator_padding = 1 0
 
-separator=new
-separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 8
-separator_padding = 1 0
-
-separator=new
-separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 8
-separator_padding = 1 0
-
-separator=new
-separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 8
-separator_padding = 1 0
-
-separator=new
-separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 8
-separator_padding = 1 0
-
-separator=new
-separator_background_id = 0
-separator_color = 0
-separator_style = empty
-separator_size = 2
-separator_padding = 0 0
-
-# executor uptime
+# executor sysinfo
 execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #9063E0 100
+execp_font = Fira Code Regular 10
+execp_font_color = #CF9A34 100
 execp_background_id = 0
 execp_centered = 1
 execp_padding = 12 0 0
-execp_command = uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
-execp_interval = 3
-execp_lclick_command = urxvt -e htop -s PERCENT_CPU
-
-# executor cpu
-execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #81B35D 100
-execp_background_id = 0
-execp_centered = 1
-execp_padding = 12 0 0
-execp_command = mpstat 1 1 | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%",100 - $field) }'
-execp_interval = 3
-execp_lclick_command = urxvt -e htop -s PERCENT_CPU
-
-# executor load
-execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #B38C5D 100
-execp_background_id = 0
-execp_centered = 1
-execp_padding = 12 0 0
-execp_command = awk '{print $1" "$2" "$3}' < /proc/loadavg
-execp_interval = 3
-execp_lclick_command = urxvt -e htop -s PERCENT_CPU
+execp_command = psuinfo -Cuack -N -S3
+execp_interval = 2
+execp_rclick_command = urxvt -e htop --sort-key PERCENT_MEM
 
 # buttons P
 button = new
@@ -129,7 +72,7 @@ button_tooltip = Application Menu
 button_font_color = #FFFFFF 100
 button_background_id = 0
 button_centered = 1
-button_padding = 12 1 1
+button_padding = 6 1 1
 button_max_icon_size = 64
 button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/obxmenurc
 # button_lclick_command = jgmenu_run
@@ -139,12 +82,12 @@ button_rclick_command = session-exit
 #button_dwheel_command = text
 
 # Panel
-panel_items = PTSEEEBC
+panel_items = PT:EB:SC:
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_size = 0 34
+panel_size = 0 30
 panel_margin = 0 0
-panel_padding = 0 2 4
+panel_padding = 1 2 1
 panel_dock = 0
 wm_menu = 1
 panel_layer = normal
@@ -160,7 +103,7 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = multi_desktop
-taskbar_padding = 0 0 12
+taskbar_padding = 4 1 8
 taskbar_background_id = 0
 taskbar_active_background_id = 4
 
@@ -169,7 +112,7 @@ urgent_nb_of_blink = 7
 task_icon = 1
 task_text = 0
 task_centered = 1
-task_maximum_size = 32 32
+task_maximum_size = 24 24
 task_padding = 1 1 2
 task_background_id = 0
 task_iconified_background_id = 0
@@ -196,7 +139,7 @@ systray = 1
 systray_padding = 1 0 4
 systray_sort = ascending
 systray_background_id = 0
-systray_icon_size = 24
+systray_icon_size = 20
 systray_icon_asb = 100 0 0
 
 # Clock
@@ -208,7 +151,7 @@ clock_font_color = #ECECEC 100
 clock_tooltip = 
 clock_padding = 12 0
 clock_background_id = 0
-clock_rclick_command = yad --calendar --title=Calendar --skip-taskbar --width=256 --height=256 --posx=-100 --posy=-100 --class=Yad_Calendar --timeout=60 --timeout-indicator=bottom --text ""
+clock_rclick_command = zenity --class="fbox_cal" --title="Fbox_Calendar" --width 320 --calendar --text ""
 time1_timezone = :US/Eastern
 time2_timezone = 
 
@@ -230,12 +173,12 @@ mouse_scroll_down = iconify
 # Battery
 battery = 1
 battery_hide = never
-battery_low_status = 25
+battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
 # battery_full_cmd = notify-send "battery full"
 bat1_font = Office Code Pro Regular 11
 bat2_font = Sans Regular 0
-battery_font_color = #FFFFFF 100
+battery_font_color = #3C96F0 100
 #
 #==============================================#
 #
@@ -245,9 +188,9 @@ battery_font_color = #FFFFFF 100
 # %t: Time left. Shows "hrs:mins" when charging/discharging, or "Ful\" when full.
 # %p: Percentage. Includes the % sign.
 
-bat1_format = %p
+bat1_format = BAT0: %p
 bat2_format = 
-battery_padding = 12 0
+battery_padding = 8 0
 battery_background_id = 0
 battery_tooltip_enabled = 0
 # these options don't seem to work ======================================#

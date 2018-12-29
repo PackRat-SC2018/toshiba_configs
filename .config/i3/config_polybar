@@ -10,18 +10,32 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # autostart ======================================================
-exec pgrep conky &>/dev/null; [ $? = 0 ] && killall -q conky
-exec pgrep compton &>/dev/null; [ $? = 0 ] && killall -q compton
-exec pgrep juiced &>/dev/null; [ $? = 0 ] && killall -q juiced
+
+# exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
+exec pkill -q sxhkd
+exec pkill -q i3status 
+exec pkill -q conky 
+exec pkill -q juiced 
+exec pkill -q slstatus 
 
 # comment out if using the i3bar
-exec_always "$HOME/.config/polybar/start-i3bar"
+exec_always --no-startup-id "$HOME/.config/i3/i3polybar.sh"
 
 exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
 exec xrdb -l "$HOME/.Xresources"
 exec xmodmap "$HOME/.Xmodmap"
-exec xset s 300 -dpms
-exec ktpad.sh
+exec numlockx on &
+
+# display timeout and sleep
+exec xset s 3600 3600
+exec xset dpms 3600 3700 4000
+
+# keyboard repeat rate
+execxset r rate 400 50
+exec kbdrate -d 400 -r 50
+
+# 1/1 mouse acceleration
+exec xset m 1/1
 
 # stop trackpad when typing
 # exec syndaemon -i 1.0 -d
@@ -35,6 +49,9 @@ exec nitrogen --restore
 # battery monitor
 exec juiced -d
 
+#for brightness keys on toshiba
+# exec xfce4-power-manager &
+
 # i3 configuration ================================================
 
 set $mod Mod4
@@ -42,22 +59,33 @@ set $ALT Mod1
 
 default_orientation horizontal
 workspace_layout tabbed
-new_window 1pixel
+# workspace_layout stacking
 focus_follows_mouse no
-new_float 1pixel
 
-# window colours:		border		background	text
-client.focused			#292929        #2F4F4F          #FCFCFF
-client.focused_inactive		#292929        #193333	        #CCCCCC
-client.unfocused		#292929        #17191E		#CCCCCC
-client.urgent			#292929        #FF2200		#FFFFFF
+# for i3-gaps
+#gaps inner 3
+#gaps outer 3
+
+# default_border normal/none/pixel
+default_border pixel 1
+
+# default_floating_border normal/none/pixel
+default_floating_border pixel 1
+
+hide_edge_borders both
+
+# window colours:           border     background     text
+client.focused              #913F53    #913F53        #FEFEFE
+client.focused_inactive     #3E3B5C    #3E3B5C        #CFCFCF
+client.unfocused            #2B2B2B    #2B2B2B        #CFCFCF
+client.urgent               #131313    #E03043        #FFFFFF
 
 # font for window titles. ISO 10646 = Unicode
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
-# font pango: Nouveau IBM Regular 12
+# font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 # font pango: DejaVu Sans Mono, Terminus Regular Semi-Condensed 10
-font pango: Roboto Mono Regular 10
+# font pango: AurulentSansMono Nerd Font 10
+font pango: Ubuntu Regular 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 # floating_modifier $mod
@@ -67,59 +95,71 @@ floating_modifier $ALT
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $ALT+F1 exec urxvt
 
+# start dmenu (a program launcher)
+# bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CFCFCF" -sb "#387070" -sf "#F5F5FF" 
+bindsym $ALT+F2 exec rofi -show
+# bindsym $ALT+Shift+F2 exec jgmenu_run
+
+# xterm
+bindsym $ALT+F3 exec uxterm
+
 # kill focused window
 bindsym $ALT+F4 kill
 
-# start dmenu (a program launcher)
-bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CCCCCC" -sb "#387070" -sf "#F5F5FF" 
-bindsym $mod+d exec rofi -show
-
 # touchpad
-bindsym $mod+Control+t exec "$HOME/bin/ktouchpad.sh"
-
-bindsym XF86HomePage exec wmctrl -a firefox || firefox
-#bindsym XF86Mail exec wmctrl -a thunderbird || thunderbird
-#bindsym $mod+F14 exec wmctrl -a firefox || firefox
-bindsym $mod+F13 exec wmctrl -a thunderbird || thunderbird
+# bindsym $mod+Control+t exec "$HOME/bin/ktouchpad.sh"
+bindsym $mod+XF86HomePage exec wmctrl -a firefox || firefox
+bindsym $mod+XF86Mail exec wmctrl -a thunderbird || thunderbird
 bindsym $mod+Control+l exec subl3
-bindsym Menu exec thunar
+bindsym Menu exec pcmanfm
 bindsym $mod+Control+g exec gimp
-bindsym $ALT+F3 exec sakura
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
-
+bindsym $mod+x exec "jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
+bindsym XF86MonBrightnessUp exec "acpilight -inc 5"
+bindsym XF86MonBrightnessDown exec "acpilight -dec 5"
+
+# scratchpad
+bindsym $mod+z move scratchpad
+bindsym mod4+Shift+z scratchpad show
 
 # assign [class="Navigator"] 2
-for_window [class="Navigator"] border 1pixel
+for_window [class="Navigator"] border pixel 2
 # assign [class="Firefox"] 2
-for_window [class="Firefox"] border 1pixel
+for_window [class="Firefox"] border pixel 2
 assign [class="Chromium"] 2
-for_window [class="Chromium"] border 1pixel
+for_window [class="Chromium"] border pixel 2
 # assign [class="Thunderbird"] 2
-for_window [class="Thunderbird"] border 1pixel
+for_window [class="Thunderbird"] border pixel 2
 assign [class="Gimp"] 3
-for_window [class="Gimp"] border normal
+for_window [class="Gimp"] border pixel 2
 assign [class="Gnome-mplayer"] 4
 for_window [class="Gnome-mplayer"] floating enable
 for_window [class="Gcolor2"] floating enable
-#for_window [class="UXTerm"] floating enable, border 1pixel
-#for_window [class="XTerm"] floating enable, border 1pixel
-for_window [class="XCalc"] floating enable, border 1pixel
-for_window [class="XFontSel"] floating enable, border 1pixel
-for_window [class="Event Tester"] floating enable, border 1pixel
-for_window [class="Gxine"] floating enable, border 1pixel
-for_window [class="Xfce4-terminal"] floating enable, border 1pixel
-for_window [class="wm-exit"] floating enable, border 1pixel
-for_window [class="void-logout"] floating enable, border 1pixel
-for_window [class="void-session-manager"] floating enable, border 1pixel
-for_window [class="Exit_Session"] floating enable, border 1pixel
-for_window [class="mpv"] floating enable, border 1pixel
-for_window [class="SThermal"] floating enable, border 1pixel
-for_window [class="PCalendar"] floating enable, border 1pixel
+#for_window [class="UXTerm"] floating enable, border pixel 2
+#for_window [class="XTerm"] floating enable, border pixel 2
+for_window [class="Sakura"] floating enable, border pixel 2
+for_window [class="Xfce4-terminal"] floating enable, border pixel 2
+for_window [class="XCalc"] floating enable, border pixel 2
+for_window [class="Galculator"] floating enable, border pixel 2
+for_window [class="XFontSel"] floating enable, border pixel 2
+for_window [class="Event Tester"] floating enable, border pixel 2
+for_window [class="Gxine"] floating enable, border pixel 2
+for_window [class="wm-exit"] floating enable, border pixel 2
+for_window [class="void-logout"] floating enable, border pixel 2
+for_window [class="void-session-manager"] floating enable, border pixel 2
+for_window [class="Exit_Session"] floating enable, border pixel 2
+for_window [class="mpv"] floating enable, border pixel 2
+for_window [class="SThermal"] floating enable, border pixel 2
+for_window [class="PCalendar"] floating enable, border pixel 2
+for_window [class="ColorBox"] floating enable, border pixel 2
+for_window [class="YadCal"] floating enable, border pixel 2
+for_window [class="FontBox"] floating enable, border pixel 2
+for_window [class="Yad-icon-browser"] floating enable, border pixel 2
 
 # change focus
 #bindsym $mod+j focus left
@@ -205,7 +245,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Q exec void-logout
+bindsym $mod+Shift+Q exec rofi-logout
 bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
@@ -242,17 +282,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-##bar {
-##       position top
-##       workspace_buttons yes
-##       colors {
-##          background #171717
-##          statusline #A0A0A0
-##          focused_workspace		#484F4F	#484F4F #FCFCFF
-##          active_workspace		#17191E #17191E	#A0A0A0
-##          inactive_workspace	#171717	#171717 #A0A0A0
-##          urgent_workspace		#FF2200	#FF2200	#FFFFFF
-##     }
-##       status_command "$HOME/.config/i3/i3conkybar.sh"
-##       # status_command conky
-##}
+#
+
+#bar {
+#       position top
+#       workspace_buttons yes
+#       tray_padding 1
+#       # separator_symbol ":|:"
+#       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
+#       font pango:Office Code Pro 11
+#       # font pango: mononoki Nerd Font 10
+#       # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+#       # font pango:DejaVu Sans Mono 10
+#       colors {
+#          background #222222
+#          statusline #CFCFCF
+#          focused_workspace    #865662 #865662 #FFFFFF
+#          active_workspace		#3C3C3C #3C3C3C	#CFCFCF
+#          inactive_workspace   #313131 #313131 #CFCFCF
+#          urgent_workspace		#E03043	#E03043	#FFFFFF
+#     }
+       # status_command "$HOME/.config/i3/i3conkybar.sh"
+       # status_command "i3status -c $HOME/.config/i3status/config-i3"
+#       status_command bumblebee-status -m uptime cpu load memory battery datetime -p time.format="%k:%M" date.format="%a %e %b" datetime.format="%a %e %b %k:%M" -t greyish-powerline
+#}

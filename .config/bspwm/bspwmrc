@@ -4,7 +4,11 @@ killall -q conky &
 killall -q juiced &
 killall -q slstatus &
 
-sxhkd &
+xsetroot -cursor_name left_ptr
+
+# key grabber
+#sxhkd &
+"$HOME/bin/keybinds.sh"
 
 xrdb -l "$HOME/.Xresources" &
 xmodmap "$HOME/.Xmodmap" &
@@ -16,19 +20,20 @@ juiced -d
 numlockx on &
 
 # wallpaper
-nitrogen --restore &
+# nitrogen --restore &
+"$HOME/.fehbg" &
 
 # system info
-#(sleep 2s && conky -dc "$HOME/conky/conkyhorizrc") &
-#(sleep 2s && "$HOME/.config/bspwm/bar.sh") &
-(sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
+# "$HOME/bin/conkybspwm.sh"
+# "$HOME/bin/bspwmbar.sh"
+"$HOME/.config/bspwm/tint2start.sh"
 
-bspc monitor -d 1 2 3 4
+bspc monitor -d 1: 2: 3: 4:
 
 bspc config border_width         2
-bspc config window_gap           3
+bspc config window_gap           0
 
-bspc config top_padding          20
+bspc config top_padding          24
 bspc config right_padding        0
 bspc config bottom_padding       0
 bspc config left_padding         0
@@ -37,8 +42,8 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc config normal_border_color "#3E3E3E"
-bspc config focused_border_color "#174A1F"
+bspc config normal_border_color "#1B1B1C"
+bspc config focused_border_color "#494C4A"
 bspc config active_border_color "#3E3E3E"
 
 bspc config pointer_modifier     mod1
@@ -56,3 +61,5 @@ bspc rule -a YadCal state=floating
 bspc rule -a ColorBox state=floating
 bspc rule -a FontBox state=floating
 bspc rule "Yad-icon-browser" state=floating
+bspc rule "Yad_Calendar" state=floating
+bspc rule "Gcolor2" state=floating

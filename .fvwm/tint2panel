@@ -1,0 +1,31 @@
+#Style TintPanel !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, Layer 6
+#Style Tint2* !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus, Layer 6
+
+Style TintPanel !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnBottom
+Style TaskPanel !Title, BorderWidth 1, !Handles, Sticky, WindowListSkip, CirculateSkip, NeverFocus, StaysOnBottom
+Style Tint2* !Title, !Borders, !Handles, Sticky, WindowListSkip, CirculateSkip, NeverFocus, StaysOnBottom
+
+DestroyModuleConfig TintPanel:*
+*TintPanel: Geometry 1598x28+0-0
+*TintPanel: Colorset 15
+*TintPanel: Rows 1
+*TintPanel: Columns 16
+*TintPanel: Frame 0
+*TintPanel: Font "xft:Sans:Bold:size=10:antialias=True"
+#Test (x stalonetray) *TintPanel: (120x20, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray --config "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
+#Test (x stalonetray) PipeRead 'echo "*TintPanel: (120x$(($[vp.height]-225)), Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+#Test (!x stalonetray) PipeRead 'echo "*TintPanel: (120x$(($[vp.height]-205)),Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+#*TintPanel: (120x45, Swallow DateTime 'Module FvwmScript FvwmScript-DateTime', Frame 0)
+Test (x tint2) *TintPanel: (16x1, Swallow(NoClose,UseOld) tint2 'Exec exec tint2', Frame 0)
+
+DestroyModuleConfig TaskPanel:*
+*TaskPanel: Geometry 1598x28+0-0
+*TaskPanel: Colorset 22
+*TaskPanel: Rows 1
+*TaskPanel: Columns $[vp.width]
+*TaskPanel: Frame 2
+*TaskPanel: Font "xft:Sans:Bold:size=10:antialias=True"
+*TaskPanel: (40x1, Title "", Icon "$[FVWM_USERDIR]/icons/find-location.png", Action `Exec jgmenu --config-file=/home/doug/.config/jgmenu/obxmenurc`, Frame 0)
+*TaskPanel: (1350x1, Swallow(NoClose,UseOld) FvwmIconMan 'Module FvwmIconMan', Frame 0)
+*TaskPanel: (110x1, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray', Frame 0)
+*TaskPanel: (100x1, Swallow DateTime 'Module FvwmScript $[FVWM_USERDIR]/FvwmScript-DateTime', Action Mouse 1 'Module FvwmScript $[FVWM_USERDIR]/scripts/Kalende/Kalende', Frame 0)

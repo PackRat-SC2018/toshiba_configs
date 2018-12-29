@@ -1,0 +1,438 @@
+
+##########	StaTux FVWM Script
+##########	Hardware usage status
+##########	by sebaro
+##########
+##########	rev.2012-08-15
+
+WindowTitle {StaTux}
+WindowSize 320 160
+WindowPosition 12 198
+
+##### Global Style
+Colorset 17
+Font "xft:DejaVu Sans:size=8:bold"
+
+Init
+Begin
+  ##### Widgets Style
+  Set $kernelFont = {xft:DejaVu Sans:size=9:bold}
+  Set $infoFont = {xft:DejaVu Sans:size=7:bold}
+  Set $usageFont = {xft:DejaVu Sans:size=8:bold}
+  Set $probarColor = {#cccccc}
+
+  ##### Settings
+  Set $homeDir = (GetOutput {echo $HOME} 1 -1) {/.fvwm/scripts/StaTux/}
+  Set $Disk1Dev = {/dev/sda2}
+  Set $Disk2Dev = {/dev/sda3}
+  Set $CPUMemUpdate = {3}
+  Set $HDDUpdate = {60}
+
+  ##### Hardware Info
+  Set $kernel = (GetOutput {uname -r} 1 -1)
+  Set $CPUType = {CPU: } (GetOutput {uname -p} 1 -1)
+  Set $MemRAM = {RAM: } (Div (GetOutput {free | grep "Mem"} 1 2) 1024) { MB}
+  Set $Disk1Stats = {df -m | grep } $Disk1Dev
+  Set $Disk1Size = (Div (GetOutput $Disk1Stats 1 2) 1024)
+  Set $Disk1Mou = (GetOutput $Disk1Stats 1 6)
+  Set $Disk1Info = {Disk1: } $Disk1Dev { @ } $Disk1Mou { } $Disk1Size { GB}
+  Set $Disk2Stats = {df -m | grep } $Disk2Dev
+  Set $Disk2Size = (Div (GetOutput $Disk2Stats 1 2) 1024)
+  Set $Disk2Mou = (GetOutput $Disk2Stats 1 6)
+  Set $Disk2Info = {Disk2: } $Disk2Dev { @ } $Disk2Mou { } $Disk2Size { GB}
+
+  ##### Widgets
+  Set $tuxIcon = $homeDir {icons/tux.png}
+  ChangeIcon 1 $tuxIcon
+  ChangeFont 2 $kernelFont
+  ChangeTitle 2 $kernel
+  Set $CPUIcon = $homeDir {icons/cpu.png}
+  ChangeIcon 3 $CPUIcon
+  ChangeFont 4 $infoFont
+  ChangeTitle 4 $CPUType
+  ChangeBackColor 5 $probarColor
+  ChangeBackColor 7 $probarColor
+  Set $MemIcon = $homeDir {icons/ram.png}
+  ChangeFont 8 $usageFont
+  ChangeIcon 9 $MemIcon
+  ChangeFont 10 $infoFont
+  ChangeTitle 10 $MemRAM
+  ChangeBackColor 11 $probarColor
+  ChangeBackColor 13 $probarColor
+  ChangeFont 14 $usageFont
+  Set $Disk1Icon = $homeDir {icons/hdd.png}
+  ChangeIcon 15 $Disk1Icon
+  ChangeFont 16 $infoFont
+  ChangeTitle 16 $Disk1Info
+  ChangeBackColor 17 $probarColor
+  ChangeBackColor 19 $probarColor
+  ChangeFont 20 $usageFont
+  Set $Disk2Icon = $homeDir {icons/hdd.png}
+  ChangeIcon 21 $Disk2Icon
+  ChangeFont 22 $infoFont
+  ChangeTitle 22 $Disk2Info
+  ChangeBackColor 23 $probarColor
+  ChangeBackColor 25 $probarColor
+  ChangeFont 26 $usageFont
+  Set $quitButton = $homeDir {icons/quit.png}
+  ChangeIcon 27 $quitButton
+
+  ##### Variables
+  Set $firstTime = {true}
+End
+
+PeriodicTasks
+Begin
+  ##### Init
+  If $firstTime == {true} Then
+  Begin
+    Set $CPUMemUp = {1}
+    Set $HDDUp = {1}
+    Set $firstTime = {false}
+  End
+  Else
+  Begin
+    Set $CPUMemUp = $CPUMemUpdate
+    Set $HDDUp = $HDDUpdate
+  End
+
+  ##### CPU & Memory Statuses
+  If (RemainderOfDiv (GetTime) $CPUMemUp) == 0 Then
+  Begin
+    ## CPU Status
+    Set $CPUStats = {cat /proc/stat | grep "cpu "}
+    Set $CPUTotal = (GetOutput $CPUStats 1 2)
+    Set $CPUTotal = (Add $CPUTotal (GetOutput $CPUStats 1 3))
+    Set $CPUTotal = (Add $CPUTotal (GetOutput $CPUStats 1 4))
+    Set $CPUTotal = (Add $CPUTotal (GetOutput $CPUStats 1 5))
+    Set $CPUTotalDiff = (Add $CPUTotal (Mult $CPUTotalPrev -1))
+    Set $CPUIdle = (GetOutput $CPUStats 1 5)
+    Set $CPUIdleDiff = (Add $CPUIdle (Mult $CPUIdlePrev -1))
+    Set $CPUTotalPart = (Add $CPUTotalDiff (Mult $CPUIdleDiff -1))
+    If $CPUTotalDiff == 0 Then
+      Set $CPUTotalDiff = 1
+    Set $CPUUsage = (Div (Mult 100 $CPUTotalPart) $CPUTotalDiff)
+    Set $CPUTotalPrev = $CPUTotal
+    Set $CPUIdlePrev = $CPUIdle
+    Set $CPUUsagePerc = $CPUUsage {%}
+    If $CPUUsage <> $CPUUsagePrev Then
+    Begin
+      ChangeTitle 8 $CPUUsagePerc
+      ChangeSize 7 (Mult $CPUUsage 2) 2
+    End
+    Set $CPUUsagePrev = $CPUUsage
+
+    ## Memory Status
+    Set $MemStats = {free | grep "Mem"}
+    Set $MemTotal = (GetOutput $MemStats 1 2)
+    Set $MemUsed = (GetOutput $MemStats 1 3)
+    Set $MemUsage = (Div (Mult 100 $MemUsed) $MemTotal)
+    Set $MemUsagePerc = $MemUsage {%}
+    If $MemUsage <> $MemUsagePrev Then
+    Begin
+      ChangeTitle 14 $MemUsagePerc
+      ChangeSize 13 (Mult $MemUsage 2) 2
+    End
+    Set $MemUsagePrev = $MemUsage
+  End
+
+  ##### Hard Drives Statuses
+  If (RemainderOfDiv (GetTime) $HDDUp) == 0 Then
+  Begin
+    ## Disk 1 Status
+    Set $Disk1Stats = {df -m | grep } $Disk1Dev { | sed -e 's/%//g'}
+    Set $Disk1Usage = (GetOutput $Disk1Stats 1 5)
+    Set $Disk1UsagePerc = $Disk1Usage {%}
+    If $Disk1Usage <> $Disk1UsagePrev Then
+    Begin
+      ChangeTitle 20 $Disk1UsagePerc
+      ChangeSize 19 (Mult $Disk1Usage 2) 2
+    End
+    Set $Disk1UsagePrev = $Disk1Usage
+
+    ## Disk 2 Status
+    Set $Disk2Stats = {df -m | grep } $Disk2Dev { | sed -e 's/%//g'}
+    Set $Disk2Usage = (GetOutput $Disk2Stats 1 5)
+    Set $Disk2UsagePerc = $Disk2Usage {%}
+    If $Disk2Usage <> $Disk2UsagePrev Then
+    Begin
+      ChangeTitle 26 $Disk2UsagePerc
+      ChangeSize 25 (Mult $Disk2Usage 2) 2
+    End
+    Set $Disk2UsagePrev = $Disk2Usage
+  End
+End
+
+Widget		1
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		20 10
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		2
+Property
+  Type		ItemDraw
+  Size		300 20
+  Position		45 10
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		3
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		20 45
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		4
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		50 38
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		5
+Property
+  Type		ItemDraw
+  Size		202 4
+  Position		50 58
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		6
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 59
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		7
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 59
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		8
+Property
+  Type		ItemDraw
+  Size		35 15
+  Position		270 50
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+  End
+
+Widget		9
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		20 70
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		10
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		50 63
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		11
+Property
+  Type		ItemDraw
+  Size		202 4
+  Position		50 83
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		12
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 84
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		13
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 84
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		14
+Property
+  Type		ItemDraw
+  Size		35 15
+  Position		270 75
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+  End
+
+Widget		15
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		20 100
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		16
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		50 93
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		17
+Property
+  Type		ItemDraw
+  Size		202 4
+  Position		50 113
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		18
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 114
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		19
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 114
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		20
+Property
+  Type		ItemDraw
+  Size		35 15
+  Position		270 105
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+  End
+
+Widget		21
+Property
+  Type		ItemDraw
+  Size		22 22
+  Position		20 125
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		22
+Property
+  Type		ItemDraw
+  Size		200 20
+  Position		50 117
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		23
+Property
+  Type		ItemDraw
+  Size		202 4
+  Position		50 137
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		24
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 138
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		25
+Property
+  Type		ItemDraw
+  Size		200 2
+  Position		51 138
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		26
+Property
+  Type		ItemDraw
+  Size		35 15
+  Position		270 129
+  Flags		NoFocus NoReliefString Right
+Main
+  Case message of
+  End
+
+Widget		27
+Property
+  Type		ItemDraw
+  Size		16 16
+  Position		303 1
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Quit
+    End
+  End

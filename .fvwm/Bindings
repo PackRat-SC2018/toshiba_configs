@@ -1,0 +1,192 @@
+# fvwm keys file 10-07-2013
+#=============================#
+
+Key	Space	A	4	Menu MenuFvwmRoot Nop
+# Key	Space	A	4	Exec exec jgmenu_run
+Key	Space	A	CM	Menu WindowOptionsMenu Close
+
+#Key	r	A	CM	RaiseToTop
+#Key	l	A	CM	LowerToBottom
+Key	F1	A	M	Exec exec urxvt
+Key	F2	A	M	Exec exec rofi -show
+Key	F3	A	M	Exec exec st
+Key Return A 4  Exec exec uxterm
+Key	F4	A	M	Close
+Key	F5	A	M	Move 50-50w 50-50w
+Key	F5	A	MS	ResizeCenter
+Key	F6	A	M	Iconify
+# Key	F6	A	M	IconThumb
+# Key	F6	A	M	Thumbnail
+Key	F6	A	MS	RaiseLower
+Key	F7	A	M	Maximize 0 100
+Key	F8	A	M	Maximize 100 0
+Key	F9	A	M	Destroy
+Key	F10	A	M	Maximize 100 100
+Key F11 A   M   Maximize Fullscreen
+Key F12 A   M   ShowDesktop
+
+Key	F1	A	SM	AnimatedMove +0 +0
+Key	F2	A	SM	AnimatedMove -0 +0
+Key	F3	A	SM	AnimatedMove +0 -0
+Key	F4	A	SM	AnimatedMove -0 -0
+
+Key	Right	A	SM	MoveRight
+Key	Left	A	SM	MoveLeft
+Key	Up		A	SM	MoveUp
+Key	Down	A	SM	MoveDown
+
+Key	Right	A	S4	GrowEast
+Key	Left	A	S4	ShrinkEast
+Key	Up	A	S4	ShrinkSouth
+Key	Down	A	S4	GrowSouth
+Key T       A   S4  ToggleTitle
+
+# faux tiling
+
+#Key	KP_7	A	SM	TileUpperLeft
+#Key	KP_9	A	SM	TileUpperRight
+#Key	KP_1	A	SM	TileLowerLeft
+#Key	KP_3	A	SM	TileLowerRight
+#Key KP_5    A   SM  MaxTile
+#Key KP_4    A   SM  HalfMaxLeft
+#Key KP_6    A   SM  HalfMaxRight
+#Key KP_8    A   SM  MaxTop
+#Key KP_2    A   SM  MaxBottom
+
+Key	KP_7	A	SM	TileTopLeft
+Key	KP_9	A	SM	TileTopRight
+Key	KP_1	A	SM	TileBottomLeft
+Key	KP_3	A	SM	TileBottomRight
+Key KP_5    A   SM  Maximize
+Key KP_4    A   SM  TileLeft
+Key KP_6    A   SM  TileRight
+Key KP_8    A   SM  TileTop
+Key KP_2    A   SM  TileBottom
+Key KP_0    A   SM  MoveToCenter
+
+# typical alt-tab window switching behaviors
+# fluxbox style
+Key	Tab	A	M	FuncFvwmNextWindow
+Key	Tab	A	MS	FuncFvwmPrevWindow
+
+# openbox/xfce style
+# Silent Key Tab A M WindowList Root c c NoDeskSort, SelectOnRelease Meta_L
+
+# Scroll Pages
+#Key	Right	A	CM	Scroll +100 0
+#Key	Left	A	CM	Scroll -100 0
+#Key	Up	A	CM	Scroll +0 -100
+#Key	Down	A	CM	Scroll +0 +100
+
+# 3x3
+#Key	KP_1	A	4	GotoPage 0 0
+#Key	KP_2	A	4	GotoPage 1 0
+#Key	KP_3	A	4	GotoPage 2 0
+#Key	KP_4	A	4	GotoPage 0 1
+#Key	KP_5	A	4	GotoPage 1 1
+#Key	KP_6	A	4	GotoPage 2 1
+#Key	KP_7	A	4	GotoPage 0 2
+#Key	KP_8	A	4	GotoPage 1 2
+#Key	KP_9	A	4	GotoPage 2 2
+
+# 2x2
+#Key	KP_1	A	S4	GotoPage 0 0
+#Key	KP_2	A	S4	GotoPage 1 0
+#Key	KP_3	A	S4	GotoPage 0 1
+#Key	KP_4	A	S4	GotoPage 1 1
+
+# Scroll Desktops
+Key	Right	A	CM	GotoDesk	1 0
+Key	Left	A	CM	GotoDesk	-1 0
+
+Key 1		A	4 GotoDesk 0 0
+Key 2		A	4 GotoDesk 0 1
+Key 3		A	4 GotoDesk 0 2
+Key 4		A	4 GotoDesk 0 3
+
+Key	q	A	4	Restart
+Key	q	A	S4	Exec exec bl-exit
+
+Key	Menu					A	A	Exec exec $[infostore.filemanager]
+Key	XF86HomePage			A	A	Exec exec $[infostore.browser]
+Key	XF86Mail				A	4	Exec exec $[infostore.mail]
+# Key XF86Calculator	        A	A	Exec exec galculator
+
+## alsa
+Key	XF86AudioMute			A	A	Exec exec amixer set Master toggle -q &
+Key	XF86AudioRaiseVolume	A	A	Exec exec amixer -q sset Master 5%+ unmute
+Key	XF86AudioLowerVolume	A	A	Exec exec amixer -q sset Master 5%- unmute
+
+## pulseaudio
+#Key	XF86AudioMute			A	A	Exec exec pamixer -t
+#Key	XF86AudioRaiseVolume	A	A	Exec exec pamixer -i 2
+#Key	XF86AudioLowerVolume	A	A	Exec exec pamixer -d 2
+
+Key XF86AudioPlay A    A  Exec exec playerctl play-pause
+Key XF86AudioPrev A    A  Exec exec playerctl previous
+Key XF86AudioNext A    A  Exec exec playerctl next
+
+Key	l	A	C4	Exec exec $[infostore.editor]
+Key	g	A	C4	Exec exec gimp
+Key	p	A	C4	Exec exec libreoffice --calc
+Key	o	A	C4	Exec exec libreoffice --writer
+#key d   A   4   Exec exec rofi -show
+key x   A   4   Exec exec jgmenu_run
+Key	Print	A	C4	Exec exec "$HOME/bin/scrnshot"
+Key	Pause	A	C4	Exec exec "$HOME/bin/ConkyFvwm.sh"
+Key	b	A	C4	Exec exec "$HOME/bin/ConkyTao.sh"
+
+#Key n A M Next (AcceptsFocus, CurrentDesk, !Iconic) Focus
+#Key p A M Prev (AcceptsFocus, CurrentDesk, !Iconic) Focus
+
+Key XF86MonBrightnessDown	A	4	Exec `sudo acpilight -dec 5`
+Key XF86MonBrightnessUp	A	A	Exec `sudo acpilight -inc 5`
+
+## mouse bindings
+
+# screen is divided up into the following parts: R - the root window, I - Icon, F - frame corners, S - frame sides, 
+# T - title bar, W - application window and 0-9 - buttons. Note that A will stand for anywhere
+
+# Mouse
+# Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
+#   1 - Open the WindowOps menu.
+#   2 - Close on single click, Destory on double click.
+#   4 - Maximize (right/middle button will only maximize vertical/horizontal)
+#   6 - Iconify (minimize)
+Mouse 1 1 A Menu MenuWindowOps Delete
+Mouse 1 2 A Close
+Mouse 1 4 A Maximize 100 100
+Mouse 1 6 A Iconify
+# Mouse 1 6 A Thumbnail
+
+Mouse 2 4 A Maximize 0 100
+Mouse 3 4 A Maximize 100 0
+
+
+#   TitleBar: Click to Raise, Move, Double Click to Maximize
+#             Mouse Wheel Up/Down to WindowShade On/Off
+#   Borders: Click to raise, Move to Resize
+#   Root Window: Left Click - Main Menu
+#                Right Click - WindowOps Menu
+#                Middle Click - Window List Menu
+#   Right click TitleBar/Borders for WindowOps Menu
+Mouse 1	T    A RaiseMoveX Move Maximize
+Mouse 1	FS   A RaiseMove Resize
+Mouse 4	T    A WindowShade True
+Mouse 5	T    A WindowShade False
+Mouse 1	R    A Menu MenuFvwmRoot
+Mouse 1	R    M Exec exec jgmenu --config-file="$HOME/.config/jgmenu/jgmouserc"
+Mouse 2	R    A WindowList
+Mouse 3	R    A Menu MenuWindowOpsLong
+# Mouse 1	I    A RaiseMoveX Move "Iconify off"
+Mouse 1 I    A DeiconifyAndRearrange
+Mouse 3	T    A Menu MenuWindowOps
+Mouse 3 I    A Menu MenuIconOps
+
+Mouse 1 R    4 Exec exec jgmenu --config-file="$HOME/.config/jgmenu/jgmouserc"
+
+Mouse 1 W   M Move
+Mouse 3 W   M Resize
+
+# EOF
+

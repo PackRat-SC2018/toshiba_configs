@@ -1,0 +1,16 @@
+Terminal,st
+File Manager,pcmanfm
+Editor,subl3
+Firefox,firefox
+Thunderbird,thunderbird
+Gimp,gimp
+# Wallpaper,^pipe(jgmenu_run ob --cmd=~/.config/jgmenu/bmenu-1.0.py)
+# Wallpaper,^pipe(feh ~/wallpaper/ --thumbnails --index-info "%n")
+Wallpaper,^pipe(feh ~/wallpaper/ -g 800x450 --scale-down && killall -q jgmenu &&)
+^sep()
+Applications,^pipe(jgmenu_run pmenu)
+Settings,^checkout(settings)
+
+^tag(settings)
+Lxappearance,lxappearance
+

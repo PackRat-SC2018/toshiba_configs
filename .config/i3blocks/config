@@ -1,0 +1,149 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+command=/usr/libexec/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Uptime
+#
+[uptime]
+label=UP:
+interval=3
+min_width=80
+align=center
+command=/home/doug/bin/Uptime
+separator=false
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[cpu_usage]
+label=CPU
+interval=3
+min_width=100
+align=center
+separator=false
+
+#[cpu_usage]
+#label=CPU
+#interval=3
+#min_width=80
+#command=/home/doug/bin/Cpuperc
+#align=center
+#separator=false
+
+[loadavg2]
+interval=3
+separator=false
+min_width=100
+align=center
+
+#[load_average]
+#interval=3
+#min_width=80
+#align=center
+#separator=false
+#command=/home/doug/bin/Loadavg
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+#[temperature]
+#label=TEMP
+#interval=3
+#separator=false
+#min_width=80
+#align=center
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+#[memory]
+#label=MEM
+#instance=mem
+#separator=false
+#interval=3
+
+[RAM]
+label=MEM
+separator=false
+interval=3
+command=/home/doug/bin/Memperc
+min_width=80
+align=center
+
+# Battery indicator
+#
+# The battery instance defaults to 0.
+[battery]
+label=BAT
+#label=⚡
+instance=0
+separator=false
+interval=10
+min_width=80
+align=center
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+#[iface]
+#instance=wlp1s0
+#color=#00FF00
+#interval=10
+#separator=false
+
+[wifi]
+label=NET
+instance=wlp1s0
+interval=10
+separator=false
+interval=10
+min_width=80
+align=center
+
+[bandwidth]
+instance=wlp1s0
+interval=5
+separator=false
+interval=10
+min_width=80
+align=center
+
+# Date Time
+#
+[time]
+command=date '+%a %e %b %k:%M'
+interval=3
+separator=false
+interval=10
+min_width=164
+align=center

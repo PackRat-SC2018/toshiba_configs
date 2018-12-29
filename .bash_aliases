@@ -14,7 +14,6 @@ alias dfk='df -kT'
 alias du='du -h'
 alias duh='du -hca'
 alias path='echo -e ${PATH//:/\\n}'
-alias cemacs='emacs -nw'
 alias listusb='ls -l /dev/disk/by-id/*usb*'
 alias sinfo='inxi -CSI -tcm2 -W 29803 --no-host'
 alias screenfetch='screenfetch -n'
@@ -36,6 +35,12 @@ alias esudo='sudo EDITOR=/usr/bin/emacs visudo'
 alias obxprop='obxprop | grep "^_OB_APP"'
 alias getmp3="youtube-dl -x --audio-format mp3"
 alias forecast="curl 'wttr.in/aiken,south_carolina'"
+
+# sshfs mounts - get port correct
+alias mntdata="sshfs -p 2410 doug@BANDIT-01:/mnt/data01 /home/doug/bandit/data01"
+alias mntpublic="sshfs -p 2410 doug@BANDIT-01:/mnt/public /home/doug/bandit/public"
+alias umntdata="fusermount -u /home/doug/bandit/data01"
+alias umntpublic="fusermount -u /home/doug/bandit/public"
 
 # Functions
 # Extract archives

@@ -39,12 +39,11 @@ item_halign         = left
 
 sep_height           = 5
 
-font                 = Ubuntu 12px
-#font_fallback       = xtg
+font                 = FiraSans 11
 icon_size            = 24
-#icon_text_spacing   = 10
-icon_theme          = Suru-Gray 
-#icon_theme_fallback = xtg
+icon_text_spacing    = 10
+icon_theme           = Paper
+icon_theme_fallback  = xtg
 
 arrow_string        = ▸
 arrow_width         = 15

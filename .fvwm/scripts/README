@@ -1,0 +1,154 @@
+
+##########	Minimoids FVWM Script
+##########	Applets for Minim Theme
+##########	by sebaro
+##########
+##########	README
+
+
+##########	Scripts
+
+##### Chrono - Digital clock with alarm & date
+
+Click on hour to toggle hours format.
+lClick the clock icon, click on hours or/and minutes to set the alarm, then click the clock icon to turn the alarm on.
+To turn alarm off, click the clock icon again.
+ 
+##### Kalende - Calendar
+
+Click on first day of the week to toggle between sunday and monday as first day.
+Click on the month and then the arrows  to change the month.
+Click on the year and then the arrows to change the year.
+
+##### AlterState - Computer state manager
+
+Two buttons for restarting or closing FVWM.
+Two buttons for rebooting or shuting down the computer.
+
+##### GMail - Google mail checker
+
+Set the google account user and password from script's file.
+Refresh time and email client can also be set from script's file.
+Click applet's icon to refetch messages.
+The applet will show the newest 20 messages only.
+
+##### Meteo - Weather forecast
+
+Uses Wunderground API for showing weather forecast for today and the next three days.
+Click the applet's title to change the city. Include the country or state for cities like Paris: "Paris, France"; "Paris, Texas".
+Click on current temperature to toggle between celsius and fahrenheit scales.
+Click on wind speed to toggle between metric and english standards.
+Weather icons theme can be set from script's file.
+Refresh time can be set from script's file.
+If you use the script often, get a free key from Wunderground, mine is limited to 500 accesses.
+ 
+##### Monetor - Network traffic monitor
+
+Set the network interface from script's file. Default is ppp0.
+ 
+##### Yard - Desktop icons
+
+Six pack desktop icons.
+Set the icon themes path, the icon theme and the icon size from script's file.
+Set item's type, application or directory, title, path and icon from script's file.
+If the icon is left blank the script will try to find it in the icon theme using its title.
+
+##### DriveInn - Storage drives manager
+
+Click on drive's icon to mount or unmount it.
+Click on drive's mount point to browse its files.
+Refresh time and file manager can be set from script's file.
+Excluded mount points can be set from script's file.
+
+##### Cinema - Now playing in US theatres
+
+Click the title arrows to toggle between "In Theaters" and "Coming Soon" movies.
+ 
+##### Tapet - Wallpaper changer
+
+First, set the wallpapers directory from script's file.
+Auto browse or auto set can be set from script's file too.
+ 
+##### StaTux - Hardware usage status
+ 
+First, set disk partitions from script's file.
+CPU/memory and hard drives useage refresh time can be set from script's file.
+
+##### Empidy - Mini MPD client
+
+First, set the music files directory and cover file name from script's file.
+Scrolling for long titles, artists or/and albums can also be set.
+Previous, play/stop, pause/play and next buttons available.
+
+##### Translexis - Short text translator
+
+First, set the languages to translate from and to from script's file.
+Default from and to language can be set also, if is not set the first language from the list is used.
+Click on text item to enter the text to translate, choose from and to languages, press return or arrow icon. Use escape to cancel.
+
+##### Memento - Notes & task reminder
+
+Click on "plus" icon to add tasks.
+Click on "minus" icon to delete tasks.
+
+---------------------------------------------------------------
+ Requirements:
+ - standard tools: bash/dash, sed, awk, perl
+ - system tools: udev, udisks, net-tools
+ - media tools: imagemagick, mpd, mpc
+---------------------------------------------------------------
+
+
+==================================
+-> For use with other FVWM configs than Minim
+==================================
+
+##########	Settings
+
+InfoStoreAdd mHome "$[HOME]/.fvwm"
+InfoStoreAdd mScripts "$[infostore.mHome]/scripts"
+
+DestroyModuleConfig FvwmScript: *
+*FvwmScript: Path $[infostore.mScripts]
+
+##########	Style
+
+Style "FvwmScript" NoTitle, !Handles, Borderwidth 0, Sticky, WindowListSkip, CirculateSkip, !FixedPosition, FixedSize, !Iconifiable, StaysOnBottom
+
+# AlterState script does not have window position set. To start it centered, use:
+Style "AlterState" PositionPlacement Center
+
+##########	Colorsets
+
+Colorset 10 fg #EEEEEE, bg $[fvwm_bgcolor], hi #EEEEEE, sh #EEEEEE, RootTransparent, Tint $[fvwm_colorstyle] $[fvwm_tintstyle]
+Colorset 11 fg #dddddd, bg $[fvwm_bgcolor], RootTransparent, Tint $[fvwm_colorstyle] $[fvwm_tintstyle]
+Colorset 12 fg #e78787, bg $[fvwm_bgcolor], RootTransparent, Tint $[fvwm_colorstyle] $[fvwm_tintstyle]
+Colorset 13 fg #89d5d7, bg $[fvwm_bgcolor], RootTransparent, Tint $[fvwm_colorstyle] $[fvwm_tintstyle]
+
+##########	Functions
+
+DestroyFunc FvwmMoveScript
+AddToFunc   FvwmMoveScript
++ M ThisWindow (!FvwmPager, !Iconic, !Iconifiable) Move
+
+DestroyFunc SaveScriptPosition
+AddToFunc   SaveScriptPosition
++ I ThisWindow (FvwmScript) Exec exec sed -i -e 's/^.*WindowPosition.*$/WindowPosition $[w.x] $[w.y]/' $[fvwm_scripts]/$[w.name]/$[w.name]
+
+DestroyFunc SaveAllScriptsPosition
+AddToFunc   SaveAllScriptsPosition
++ I All (FvwmScript) Exec exec sed -i -e 's/^.*WindowPosition.*$/WindowPosition $[w.x] $[w.y]/' $[fvwm_scripts]/$[w.name]/$[w.name]
+
+DestroyFunc ExitFunction
+AddToFunc   ExitFunction
++ I SaveAllScriptsPosition
+
+##########	Event
+
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: destroy_window SaveScriptPosition
+
+##########	Bindings
+
+Mouse 1  W  M   FvwmMoveScript
+

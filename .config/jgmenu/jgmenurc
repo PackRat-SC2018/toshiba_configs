@@ -9,15 +9,16 @@ terminal_exec        = xterm
 terminal_args        = -e
 #monitor             = 0
 #hover_delay	     = 100
+#columns              = 3
 
-menu_margin_x        = 4
-menu_margin_y        = 40
+menu_margin_x        = 12
+menu_margin_y        = 32
 menu_width           = 200
 menu_padding_top     = 4
 menu_padding_right   = 2
 menu_padding_bottom  = 4
 menu_padding_left    = 2
-menu_radius          = 4
+menu_radius          = 2
 menu_border          = 1
 menu_halign          = left
 menu_valign          = top
@@ -39,26 +40,25 @@ item_halign         = left
 
 sep_height           = 5
 
-font                 = Ubuntu 12px
-#font_fallback       = xtg
+font                 = FiraSans 11
 icon_size            = 24
-#icon_text_spacing   = 10
-icon_theme          = Vibrantly-Simple-Dark
-icon_theme_fallback = Papirus
+icon_text_spacing   = 10
+icon_theme          = Papirus
+icon_theme_fallback = Vibrantly-Simple-Dark
 
 arrow_string        = ▸
 arrow_width         = 15
 
 color_menu_bg        = #2b2b2b 90
 color_menu_fg        = #8fa1b3 100
-#color_menu_border   = #eeeeee 8
+color_menu_border    = #191919 8
 
 color_norm_bg        = #2b2b2b 0
 color_norm_fg        = #8fa1b3 100
 
 color_sel_bg         = #8fa1b3 60
 color_sel_fg         = #eeeeee 100
-#color_sel_border    = #eeeeee 8
+color_sel_border     = #191919 8
 
 color_sep_fg         = #8fa1b3 40
 

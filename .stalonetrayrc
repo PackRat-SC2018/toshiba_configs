@@ -1,0 +1,10 @@
+decorations none
+geometry 4x1
+icon_size 22
+slot_size 24
+max_geometry 4x1
+parent_bg true
+# background yellow
+transparent false
+icon_gravity SE
+no_shrink true

@@ -82,7 +82,8 @@ tray-scale = 1.0
 inherit = bar/master
 
 modules-left = jgmenu i3 
-modules-center = uptime coreavg load core0temp memory battery wireless-network
+;modules-center = uptime coreavg load core0temp memory battery wireless-network
+modules-center = uptime coreavg load memory battery wireless-network
 modules-right = clock
 
 ; Position of the system tray window
@@ -130,7 +131,7 @@ tray-scale = 1.0
 [bar/bspwm-bar]
 inherit = bar/master
 
-modules-left = jgmenu workspaces
+modules-left = jgmenu bspwm
 modules-center = uptime coreavg load core0temp memory battery wireless-network 
 modules-right = clock
 

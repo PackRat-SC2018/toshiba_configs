@@ -19,7 +19,7 @@ exec pkill -q juiced
 exec pkill -q slstatus 
 
 # comment out if using the i3bar
-exec_always --no-startup-id "$HOME/.config/i3/i3polybar.sh"
+# exec_always --no-startup-id "$HOME/.config/i3/i3polybar.sh"
 
 exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
 exec xrdb -l "$HOME/.Xresources"
@@ -27,8 +27,8 @@ exec xmodmap "$HOME/.Xmodmap"
 exec numlockx on &
 
 # display timeout and sleep
-exec xset s 3600 3600
-exec xset dpms 3600 3700 4000
+exec xset s 600 600
+exec xset dpms 1200 1600 4000
 
 # keyboard repeat rate
 execxset r rate 400 50
@@ -44,7 +44,8 @@ exec xset m 1/1
 # exec urxvtd -q -o -f &
 
 # exec fbsetbg -c -r "$HOME/wallpaper/"
-exec nitrogen --restore
+# exec nitrogen --restore
+exec "$HOME/.fehbg"
 
 # battery monitor
 exec juiced -d
@@ -111,7 +112,7 @@ bindsym $ALT+F4 kill
 bindsym $mod+XF86HomePage exec wmctrl -a firefox || firefox
 bindsym $mod+XF86Mail exec wmctrl -a thunderbird || thunderbird
 bindsym $mod+Control+l exec subl3
-bindsym Menu exec thunar
+bindsym Menu exec pcmanfm
 bindsym $mod+Control+g exec gimp
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
 bindsym $mod+x exec "jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc"
@@ -122,6 +123,10 @@ bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
 bindsym XF86MonBrightnessUp exec "acpilight -inc 5"
 bindsym XF86MonBrightnessDown exec "acpilight -dec 5"
+
+# scratchpad
+bindsym $mod+z move scratchpad
+bindsym mod4+Shift+z scratchpad show
 
 # assign [class="Navigator"] 2
 for_window [class="Navigator"] border pixel 2
@@ -138,7 +143,7 @@ for_window [class="Gnome-mplayer"] floating enable
 for_window [class="Gcolor2"] floating enable
 #for_window [class="UXTerm"] floating enable, border pixel 2
 #for_window [class="XTerm"] floating enable, border pixel 2
-#for_window [class="Sakura"] floating enable, border pixel 2
+for_window [class="Sakura"] floating enable, border pixel 2
 for_window [class="Xfce4-terminal"] floating enable, border pixel 2
 for_window [class="XCalc"] floating enable, border pixel 2
 for_window [class="Galculator"] floating enable, border pixel 2
@@ -155,6 +160,7 @@ for_window [class="PCalendar"] floating enable, border pixel 2
 for_window [class="ColorBox"] floating enable, border pixel 2
 for_window [class="YadCal"] floating enable, border pixel 2
 for_window [class="FontBox"] floating enable, border pixel 2
+for_window [class="Connman-gtk"] floating enable, border pixel 2
 for_window [class="Yad-icon-browser"] floating enable, border pixel 2
 
 # change focus
@@ -280,25 +286,28 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 #
 
-#bar {
-#       position top
-#       workspace_buttons yes
-#       tray_padding 1
-#       # separator_symbol ":|:"
-#       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
-#       font pango:Office Code Pro 11
-#       # font pango: mononoki Nerd Font 10
-#       # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-#       # font pango:DejaVu Sans Mono 10
-#       colors {
-#          background #222222
-#          statusline #CFCFCF
-#          focused_workspace    #865662 #865662 #FFFFFF
-#          active_workspace		#3C3C3C #3C3C3C	#CFCFCF
-#          inactive_workspace   #313131 #313131 #CFCFCF
-#          urgent_workspace		#E03043	#E03043	#FFFFFF
-#     }
-       # status_command "$HOME/.config/i3/i3conkybar.sh"
-       # status_command "i3status -c $HOME/.config/i3status/config-i3"
-#       status_command bumblebee-status -m uptime cpu load memory battery datetime -p time.format="%k:%M" date.format="%a %e %b" datetime.format="%a %e %b %k:%M" -t greyish-powerline
-#}
+bar {
+       position top
+       output LVDS
+       workspace_buttons yes
+#      tray_output none|primary|<output>
+       tray_output primary
+       tray_padding 1
+       separator_symbol "  "
+       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
+       font pango:Office Code Pro 11
+#       font pango: mononoki Nerd Font 10
+#       font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+#       font pango:DejaVu Sans Mono 10
+       colors {
+          background #222222
+          statusline #CFCFCF
+          focused_workspace    #865662 #865662 #FFFFFF
+          active_workspace		#3C3C3C #3C3C3C	#CFCFCF
+          inactive_workspace   #313131 #313131 #CFCFCF
+          urgent_workspace		#E03043	#E03043	#FFFFFF
+     }
+#      status_command "$HOME/.config/i3/i3conkybar.sh"
+#      status_command "i3status"
+       status_command i3blocks
+}

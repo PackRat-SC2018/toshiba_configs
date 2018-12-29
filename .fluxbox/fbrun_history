@@ -1,25 +1,34 @@
 juiced -d
-firefox
 pcmanfm
 yad --font
-rofi-logout
 st
 xfce4-power-manager
 yad --notebook
 yad --print
 yad --entry
 yad --icons
-lxappearance
-galculator
 oomox
 oomox-gui
-compton
 kitty
 xfce4-terminal
 commpton
-sakura
-xcalc
 xterm
 slock
-geany
+emacs
+xcalc
+urxvtd
+thunar
+firefox
+compton
+basilisk
+basilisk --browser
+spacefm
+rofi-logout
 leafpad
+connman-gtk
+filezilla
+galculator
+sakura
+lxappearance
+geany
+tint2

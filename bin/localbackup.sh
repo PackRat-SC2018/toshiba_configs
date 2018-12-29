@@ -7,7 +7,8 @@
 OPT="-arPh"
 SRC="/home/doug/"
 # DEST="/mnt/willow/zoe/"
-DATE=`date "+%Y_%B_%d_%s"`
+# DATE=`date "+%Y_%B_%d_%s"`
+DATE=`date "+%F_%s"`
 NAME="ZOE-01"
 SPACE="."
 LOCALDEST="/mnt/bandit/usb01/backups/"

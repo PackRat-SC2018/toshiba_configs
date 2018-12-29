@@ -13,14 +13,14 @@
 				<execute>pcmanfm</execute>
 			</action>
 		</item>
+		<item label="Sakura">
+			<action name="Execute">
+				<execute>sakura</execute>
+			</action>
+		</item>
 		<item label="URxvt">
 			<action name="Execute">
 				<execute>urxvt</execute>
-			</action>
-		</item>
-		<item label="Xterm">
-			<action name="Execute">
-				<execute>xterm</execute>
 			</action>
 		</item>
 		<item label="Text Editor">
@@ -29,14 +29,14 @@
 			</action>
 		</item>
 		<menu id="root-menu-381743" label="Terminals">
+			<item label="Simple Terminal">
+				<action name="Execute">
+					<execute>st</execute>
+				</action>
+			</item>
 			<item label="URxvt">
 				<action name="Execute">
 					<execute>urxvt</execute>
-				</action>
-			</item>
-			<item label="Sakura">
-				<action name="Execute">
-					<execute>sakura</execute>
 				</action>
 			</item>
 			<item label="XTerm">
@@ -44,9 +44,19 @@
 					<execute>xterm</execute>
 				</action>
 			</item>
-			<item label="Simple Terminal">
+			<item label="sakura">
 				<action name="Execute">
-					<execute>st</execute>
+					<execute>sakura</execute>
+				</action>
+			</item>
+			<item label="sakura drop down">
+				<action name="Execute">
+					<execute>sakura --drop-down</execute>
+				</action>
+			</item>
+			<item label="Sakura">
+				<action name="Execute">
+					<execute>sakura</execute>
 				</action>
 			</item>
 		</menu>
@@ -78,9 +88,9 @@
 		</item>
 		<separator/>
 		<menu id="root-menu-165723" label="Internet">
-			<item label="Opera">
+			<item label="Basilisk">
 				<action name="Execute">
-					<execute>opera</execute>
+					<execute>basilisk</execute>
 				</action>
 			</item>
 			<item label="FileZilla">

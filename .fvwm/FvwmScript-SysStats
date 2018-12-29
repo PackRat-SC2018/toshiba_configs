@@ -1,0 +1,134 @@
+WindowTitle {System Information}
+WindowSize  280 144
+Font "xft:Fira Code:style=Retina:size=12"
+Colorset 24
+
+Init
+ Begin
+#  Set $Time = (GetOutput {exec date "+%k:%M"} 1 -1)
+#  Set $Date = (GetOutput {exec date "+%a %b %d"} 1 -1)
+  Set $Uptime = (GetOutput {exec psuinfo -Cu N} 1 -1)
+  Set $Memory = (GetOutput {exec psuinfo -Cc -N} 1 -1)
+  Set $CPU = (GetOutput {exec psuinfo -Ca -N} 1 -1)
+  Set $Load = {Load: }(GetOutput {exec ~/bin/Loadavg} 1 -1)
+  Set $Network = (GetOutput {exec psuinfo -Ck -N} 1 -1)
+  Set $BAT0 = {BAT0: }(GetOutput {exec ~/bin/FvwmBatt.sh} 1 -1)
+
+  ChangeTitle 1 $Uptime
+  ChangeTitle 2 $Memory
+  ChangeTitle 3 $CPU
+  ChangeTitle 4 $Load
+  ChangeTitle 5 $Network
+  ChangeTitle 6 $BAT0
+End
+
+PeriodicTasks
+ Begin 
+  If (RemainderOfDiv (GetTime) 3)==0 Then
+  Begin
+   Set $Uptime = (GetOutput {exec psuinfo -Cu -N} 1 -1)
+   Set $Memory = (GetOutput {exec psuinfo -Cc -N} 1 -1)
+   Set $CPU = (GetOutput {exec psuinfo -Ca -N} 1 -1)
+   Set $Load = {Load: }(GetOutput {exec ~/bin/Loadavg} 1 -1)
+   Set $Network = (GetOutput {exec psuinfo -Ck -N} 1 -1)
+   Set $BAT0 = {BAT0: }(GetOutput {exec ~/bin/FvwmBatt.sh} 1 -1)
+
+   ChangeTitle 1 $Uptime
+   ChangeTitle 2 $Memory
+   ChangeTitle 3 $CPU
+   ChangeTitle 4 $Load
+   ChangeTitle 5 $Network
+   ChangeTitle 6 $BAT0
+
+  End
+End
+
+Widget 1
+Property
+ Position 0 0
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
+
+Widget 2
+Property
+ Position 0 24
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
+
+Widget 3
+Property
+ Position 0 48
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
+
+Widget 4
+Property
+ Position 0 72
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
+
+Widget 5
+Property
+ Position 0 96
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
+
+Widget 6
+Property
+ Position 0 120
+ Size 280 20
+ Font "xft:Fira Code:style=Retina:size=12"
+ Type ItemDraw
+ Flags NoReliefString Left
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End

@@ -15,20 +15,20 @@ conky.text = [[
  
  [
 
-	{ "full_text" : "  Up: ${uptime_short}  " , "color" : "\#BBBBBB" },
+	{ "full_text" : "Up: ${uptime_short}" , "color" : "\#C5C5C5" },
 
-	{ "full_text" : "  CPU: ${cpu}%   ${loadavg}   ${hwmon 1 temp 1}°C " , "color" :
-		${if_match ${cpu}>33}"\#FF2828"${else}"\#BBBBBB"${endif} },
+	{ "full_text" : "CPU: ${cpu}%   ${loadavg}" , "color" :
+		${if_match ${cpu}>=50}"\#F20C0C"${else}${if_match ${cpu}>=25}"\#F2DF0C"${else}"\#C5C5C5"${endif}${endif} },
 
-	{ "full_text" : "  MEM:  ${memperc}%  " , "color" :
-		${if_match ${memperc}>=50}"\#FF2828"${else}${if_match ${memperc}>=25}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+	{ "full_text" : "MEM:  ${memperc}%" , "color" :
+		${if_match ${memperc}>=50}"\#F20C0C"${else}${if_match ${memperc}>=25}"\#F2DF0C"${else}"\#C5C5C5"${endif}${endif} },
  
-	{ "full_text" : "  NET:  ${wireless_bitrate wlp1s0}  ${upspeed wlp1s0}  ${downspeed wlp1s0}  " , "color" : "\#BBBBBB" },
+	{ "full_text" : "BATT:  ${battery_percent BAT0}% ${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}" , "color" :
+		${if_match ${battery_percent BAT0}<=15}"\#F20C0C"${else}${if_match ${battery_percent BAT0}<=33}"\#F2DF0C"${else}"\#C5C5C5"${endif}${endif} },
 
-	{ "full_text" : " BATT:  ${battery_percent BAT0}% ${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4} " , "color" :
-		${if_match ${battery_percent BAT0}<=15}"\#FF2828"${else}${if_match ${battery_percent BAT0}<=33}"\#E0DC8C"${else}"\#BBBBBB"${endif}${endif} },
+	{ "full_text" : "NET:  ${wireless_bitrate wlp1s0}  ${upspeedf wlp1s0}  ${downspeedf wlp1s0}" , "color" : "\#C5C5C5" },
 
-	{ "full_text" : "  ${time %a %e %b  %k:%M}  " , "color" : "\#BBBBBB" }
+	{ "full_text" : "${time %a %e %b  %k:%M}  " , "color" : "\#C5C5C5" }
 
 ],
 

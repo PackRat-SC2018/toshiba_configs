@@ -9,9 +9,13 @@ conky.config = {
 	update_interval = 1.0,
 	uppercase = false,
 	use_spacer = 'none',
+	uppercase = true,
+	update_interval = 1.0,
+	update_interval_on_battery = 30.0,
+	-- detect_battery = true,
 
 };
 
 conky.text = [[
-Uptime:  ${uptime_short}    CPU%:  ${cpu cpu0}%  ${loadavg}    Mem:  ${memperc}%    Net U/D:    ${upspeedf wlp1s0} kb/s    ${downspeedf wlp1s0} kb/s
+Uptime:  ${uptime_short}    CPU%:  ${cpu cpu0}%  ${loadavg}    MEM:  ${memperc}%    BAT0:  ${battery_percent BAT0}%    NET U/D:    ${upspeedf wlp1s0} kb/s    ${downspeedf wlp1s0} kb/s
 ]];

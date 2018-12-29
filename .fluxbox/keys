@@ -20,7 +20,7 @@ Mod1 space :HideMenus
 # OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
 # OnToolbar Mouse5 :NextWindow {static groups} (iconhidden=no)
 # OnToolbar Mouse2 :Exec gsimplecal
-OnToolbar Mouse2 :Exec yad --class="fbox_cal" --title="Fbox_Calendar" --calendar --text ""
+OnToolbar Mouse2 :Exec yad --class="fbox_cal" --title="Fbox_Calendar" --width 320 --calendar --text ""
 
 # alt + left/right click to move/resize a window
 OnWindow Mod1 Mouse1 :MacroCmd {Raise} {Focus} {StartMoving}
@@ -112,10 +112,10 @@ XF86AudioPlay :Exec play
 XF86AudioPrev :Exec prev
 XF86AudioNext :Exec next
 
-XF86MonBrightnessUp :Exec acpilight -inc 5
-XF86MonBrightnessDown :Exec acpilight -dec 5
+XF86MonBrightnessUp :Exec `sudo acpilight -inc 5`
+XF86MonBrightnessDown :Exec `sudo acpilight -dec 5`
 
-Menu :Exec thunar
+Menu :Exec pcmanfm
 Mod4 XF86HomePage :Exec wmctrl -a firefox || firefox
 Mod4 XF86Mail :Exec wmctrl -a thunderbird || thunderbird
 XF86Tools :Exec urxvt -e tmux
@@ -127,7 +127,8 @@ Control Mod4 o :Exec wmctrl -a libreoffice --writer || libreoffice --writer
 Mod4 q :Restart
 Mod4 Shift q :Exec /usr/local/bin/void-logout
 
-Control Mod4 Print :Exec scrot -q 100 -cd 5 'sshot-%T_%F.png' -e 'mv $f /home/doug/images/'
+# Control Mod4 Print :Exec scrot -q 100 -cd 5 'sshot-%T_%F.png' -e 'mv $f /home/doug/images/'
+Control Mod4 Print :Exec /home/doug/bin/scrnshot
 Control Mod4 Pause :Exec /home/doug/bin/ConkyFluxbox.sh
 Control Mod4 b :Exec /home/doug/bin/ConkyTao.sh
 

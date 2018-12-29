@@ -14,23 +14,36 @@
 
 # If you want to use XFCE config tools...
 #
-#xfce-mcs-manager &
+# xsettingsd &
+# xfdesktop &
 
-pkill -x tint2 &
-pkill -x juiced &
-pkill -x polybar &
-pkill -x sxhkd &
+killall -q sxhkd
+killall -q juiced
+
+killall -q tint2
+while pgrep -u $UID -x tint2 >/dev/null; do sleep 1; done
+
+# battery monitor
+juiced -d
 
 xrdb -l "$HOME/.Xresources" &
 xmodmap "$HOME/.Xmodmap" &
 numlockx on &
-xsetroot -solid darkblue &
-fbsetbg -c -r "$HOME/wallpaper/" &
 
-juiced -d
+# background and wallpaper
+xsetroot -solid darkblue &
+# fbsetbg -c -r "$HOME/wallpaper/" &
+"$HOME/.fehbg" &
 
 # panel system info
+# conky
 # (sleep 4s && conky -dc "$HOME/conky/conkyhorizrc") &
-# (sleep 2s && tint2) &
-(sleep 2s && "$HOME/bin/obxbar.sh") &
+
+#polybar
+#(sleep 2s && "$HOME/bin/obxbar.sh") &
+
+# tint2
+(sleep 2s && "$HOME/bin/startpanel.sh") &
+
+exit 0;
 

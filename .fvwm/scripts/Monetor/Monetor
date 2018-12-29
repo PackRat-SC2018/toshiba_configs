@@ -1,0 +1,341 @@
+
+##########	Monetor FVWM Script
+##########	Network traffic monitor
+##########	by sebaro
+##########
+##########	rev.2012-08-19
+
+WindowTitle {Monetor}
+WindowSize 320 160
+WindowPosition 12 364
+
+##### Global Style
+Colorset 17
+Font "xft:DejaVu Sans:size=8:bold"
+
+Init
+Begin
+  ##### Widgets Style
+  Set $upColorset = {13}
+  Set $downColorset = {12}
+  Set $titleFont = {xft:DejaVu Sans:size=11:bold}
+
+  ##### Settings
+  Set $homeDir = (GetOutput {echo $HOME} 1 -1) {/.fvwm/scripts/Monetor/}
+  Set $netInterface = {wlp1s0}
+
+  ##### Widgets
+  Set $netIcon = $homeDir {icons/monetor.png}
+  ChangeIcon 1 $netIcon
+  ChangeTitle 2 {Status:}
+  ChangeFont 2 $titleFont
+  ChangeFont 3 $titleFont
+  ChangeTitle 4 {IP:}
+  ChangeTitle 5 {Received Bytes:}
+  ChangeTitle 6 {Trasmitted Bytes:}
+  ChangeTitle 7 {Download Speed:}
+  ChangeTitle 8 {Upload Speed:}
+  Set $quitButton = $homeDir {icons/quit.png}
+  ChangeIcon 14 $quitButton
+
+  ##### Variables
+  Set $isConnected = {false}
+  Set $isDisconnected = {false}
+  Set $putRecBytes = {0 B}
+  Set $putTraBytes = {0 B}
+  Set $putDownSpeed = {0 B/s}
+  Set $putUpSpeed = {0 B/s}
+
+  ##### Curly Brackets
+  Set $leftCB = (GetOutput {printf "\173"} 1 -1)
+  Set $rightCB = (GetOutput {printf "\175"} 1 -1)
+End
+
+PeriodicTasks
+Begin
+  ##### Network Status & IP Address
+  Set $getNetStatus = {/sbin/ifconfig | grep "} $netInterface {"}
+  Set $netStatus = (GetOutput $getNetStatus 1 -1)
+  If $netStatus <> {} Then
+  Begin
+    Set $isDisconnected = {false}
+    If $isConnected == {false} Then
+    Begin
+      ChangeColorset 3 $upColorset
+      ChangeTitle 3 {Connected}
+      Set $isIPset = {false}
+      Set $isConnected = {true}
+    End
+    If $isIPset == {false} Then
+    Begin
+      ChangeTitle 9 {Getting IP...}
+      Set $getnetIP = {/sbin/ifconfig | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '} $leftCB { print $1 } $rightCB {'}
+      Set $netIP = (GetOutput $getnetIP 1 -1)
+      If $netIP <> {} Then
+      Begin
+        ChangeTitle 9 $netIP
+        Set $isIPset = {true}
+      End
+    End
+  End
+  Else
+  Begin
+    Set $isConnected = {false}
+    If $isDisconnected == {false} Then
+    Begin
+      ChangeTitle 3 {Disconnected}
+      ChangeColorset 3 $downColorset
+      Set $netIP = {N/A}
+      ChangeTitle 9 $netIP
+      Set $isDisconnected = {true}
+    End
+  End
+
+  ##### Received/Trasmitted Bytes & Download/Upload Speed
+  Set $getRecBytes = {cat /proc/net/dev | grep "} $netInterface {" | cut -d ':' -f 2 | awk '} $leftCB { print $1 } $rightCB {'}
+  Set $getTraBytes = {cat /proc/net/dev | grep "} $netInterface {" | cut -d ':' -f 2 | awk '} $leftCB { print $9 } $rightCB {'}
+  Set $recBytes = (GetOutput $getRecBytes 1 -1)
+  Set $traBytes = (GetOutput $getTraBytes 1 -1)
+
+  ## Received Bytes
+  Set $kRecBytes = (Div $recBytes 1024)
+  Set $mRecBytes = (Div $recBytes 1048576)
+  If $mRecBytes > 0 Then
+  Begin
+    Set $putRecBytes = $mRecBytes { MiB}
+  End
+  Else
+  Begin
+    If $kRecBytes > 0 Then
+    Begin
+      Set $putRecBytes = $kRecBytes { KiB}
+    End
+    Else
+    Begin
+      Set $putRecBytes = $recBytes { B}
+    End
+  End
+  If $putRecBytes <> $oldPutRecBytes Then
+    ChangeTitle 10 $putRecBytes
+  Set $oldPutRecBytes = $putRecBytes
+
+  ## Trasmitted Bytes
+  Set $kTraBytes = (Div $traBytes 1024)
+  Set $mTraBytes = (Div $traBytes 1048576)
+  If $mTraBytes > 0 Then
+  Begin
+    Set $putTraBytes = $mTraBytes { MiB}
+  End
+  Else
+  Begin
+    If $kTraBytes > 0 Then
+    Begin
+      Set $putTraBytes = $kTraBytes { KiB}
+    End
+    Else
+    Begin
+      Set $putTraBytes = $traBytes { B}
+     End
+  End
+  If $putTraBytes <> $oldPutTraBytes Then
+    ChangeTitle 11 $putTraBytes
+  Set $oldPutTraBytes = $putTraBytes
+
+  ## Download Speed
+  Set $difRecBytes = (Add $recBytes (Mult $oldRecBytes -1))
+  If $difRecBytes == $recBytes Then
+    Set $difRecBytes = 0
+  Set $kDownSpeed = (Div $difRecBytes 1024)
+  Set $mDownSpeed = (Div $difRecBytes 1048576)
+  If $mDownSpeed > 0 Then
+  Begin
+    Set $putDownSpeed = $mDownSpeed { MiB/s}
+  End
+  Else
+  Begin
+    If $kDownSpeed > 0 Then
+    Begin
+      Set $putDownSpeed = $kDownSpeed { KiB/s}
+    End
+    Else
+    Begin
+      Set $putDownSpeed = $difRecBytes { B/s}
+    End
+  End
+  If $putDownSpeed <> $oldPutDownSpeed Then
+    ChangeTitle 12 $putDownSpeed
+  Set $oldPutDownSpeed = $putDownSpeed
+
+  ## Upload Speed
+  Set $difTraBytes = (Add $traBytes (Mult $oldTraBytes -1))
+  If $difTraBytes == $traBytes Then
+    Set $difTraBytes = 0
+  Set $kUpSpeed = (Div $difTraBytes 1024)
+  Set $mUpSpeed = (Div $difTraBytes 1048576)
+  If $mUpSpeed > 0 Then
+  Begin
+    Set $putUpSpeed = $mUpSpeed { MiB/s}
+  End
+  Else
+  Begin
+    If $kUpSpeed > 0 Then
+    Begin
+      Set $putUpSpeed = $kUpSpeed { KiB/s}
+    End
+    Else
+    Begin
+      Set $putUpSpeed = $difTraBytes { B/s}
+    End
+  End
+  If $putUpSpeed <> $oldPutUpSpeed Then
+    ChangeTitle 13 $putUpSpeed
+  Set $oldPutUpSpeed = $putUpSpeed
+
+  ## Old Values
+  Set $oldRecBytes = $recBytes
+  Set $oldTraBytes = $traBytes
+End
+
+Widget		1
+Property
+  Type		ItemDraw
+  Size		32 32
+  Position		20 10
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+  End
+
+Widget		2
+Property
+  Type		ItemDraw
+  Size		60 20
+  Position		60 10
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		3
+Property
+  Type		ItemDraw
+  Size		150 20
+  Position		130 10
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		4
+Property
+  Type		ItemDraw
+  Size		120 20
+  Position		30 45
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		5
+Property
+  Type		ItemDraw
+  Size		120 20
+  Position		30 65
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		6
+Property
+  Type		ItemDraw
+  Size		120 20
+  Position		30 85
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		7
+Property
+  Type		ItemDraw
+  Size		120 20
+  Position		30 105
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		8
+Property
+  Type		ItemDraw
+  Size		120 20
+  Position		30 125
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		9
+Property
+  Type		ItemDraw
+  Size		140 20
+  Position		160 45
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		10
+Property
+  Type		ItemDraw
+  Size		140 20
+  Position		160 65
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		11
+Property
+  Type		ItemDraw
+  Size		140 20
+  Position		160 85
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		12
+Property
+  Type		ItemDraw
+  Size		140 20
+  Position		160 105
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		13
+Property
+  Type		ItemDraw
+  Size		140 20
+  Position		160 125
+  Flags		NoFocus NoReliefString Left
+Main
+  Case message of
+  End
+
+Widget		14
+Property
+  Type		ItemDraw
+  Size		16 16
+  Position		303 1
+  Flags		NoFocus NoReliefString
+Main
+  Case message of
+    SingleClic :
+    Begin
+      Quit
+    End
+  End
