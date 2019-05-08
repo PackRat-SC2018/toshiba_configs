@@ -40,6 +40,8 @@ temp
 pictures
 images
 Pictures
+Downloads
+archlabs
 .config/GIMP
 .config/Thunar
 .config/asunder

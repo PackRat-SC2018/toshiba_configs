@@ -4,21 +4,22 @@ conky.config = {
 --#############################################
 	background = true,
 	use_xft = true,
-	font = 'Inconsolata LGC Markup:regular:size=11',
+	font = 'Fira Code:Retina:size=10',
+--	font = 'Ubuntu:Medium:size=10',
+--	font = 'Inconsolata LGC:regular:size=10',
 	xftalpha = 1.0,
-	update_interval = 3.0,
-	update_interval_on_battery = 30.0,
+	update_interval = 1.0,
+	update_interval_on_battery = 3.0,
 	total_run_times = 0,
 
 	own_window = true,
-	own_window_colour = '#131313',
+	own_window_colour = '#070707',
 	own_window_transparent = true,
-	-- own_window_type = 'normal/desktop/override/panel/dock'
     own_window_type = 'desktop',
-    -- own_window_type = 'dock',
+--    own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	own_window_class = 'Conky',
-	own_window_title = 'Conky',
+	own_window_class = 'Conkyfbox',
+	own_window_title = 'Conkyfbox',
 --#############################################
 -- Compositing tips:
 -- Conky can play strangely when used with
@@ -30,10 +31,17 @@ conky.config = {
  -- own_window_argb_visual = true,
  --own_window_argb_value 2
 
+--# xcompmgr
+-- own_window_argb_visual yes
+-- own_window_argb_value 120
+
+--# cairo-compmgr
+--own_window_type desktop
+--own_window_argb_visual yes
 --#############################################
 
 	no_buffers = true,
-	uppercase = false,
+	uppercase = true,
 	cpu_avg_samples = 2,
 	override_utf8_locale = true,
 	short_units = true,
@@ -52,9 +60,8 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	-- default_color = '#B4B5AA',
 	default_color = '#DAC79C',
-	default_shade_color = '#090909',
+	default_shade_color = '#000000',
 	default_outline_color = '#828282',
 	color0 = '#FFFFFF',
 	color1 = '#000000',
@@ -63,35 +70,30 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
-	-- color7 = '#00CDCD',-- - cyan3
-	color7 = '#DAC79C',
+	color7 = '#DAC79C',-- - cyan3
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
-	minimum_width = 400, minimum_height = 0,
-	maximum_width = 400,
-	alignment = 'top_left',
-	gap_x = 16,
-	gap_y = 8,
+	minimum_width = 1600, minimum_height = 20,
+	maximum_width = 1600,
+	alignment = 'top_middle',
+	gap_x = 0,
+	gap_y = 0,
 
--- -- doesn't seem to work when docked in the slit --#
---	lua_load = '~/conky/transbg.lua',
---	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x191A1C 0.75',
+-- -- doesn't seem to work when docked in the slit or as panel --#
+	lua_load = '~/conky/transbg.lua',
+	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x070707 0.70',
 
--- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 32}\
-
--- ${goto 264}Core0:${offset 8}${if_match ${hwmon 0 temp1}<=50}${color7}${else}${if_match ${hwmon 0 temp1}<=70}${color8}${else}${if_match ${hwmon 0 temp1}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp1}${offset 2}°C${color}${offset 16} \
--- Core1:${offset 8}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}${offset 16} \
+-- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \
 
 };
 
 conky.text = [[
-Uptime:${offset 8}${uptime_short}
-${voffset 3}Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
-${voffset 3}CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 16}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}
-${voffset 3}Batt:${offset 8}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${offset 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
-${voffset 3}Net:${if_up wlp1s0}${offset 8}${wireless_bitrate wlp1s0}${endif}${offset 16}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}${offset 16}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${offset 24}D:${offset 8}${downspeedf wlp1s0}${endif}${color}
-${voffset 690}
-${font Inconsolata LGC Markup:regular:size=24}${time %R}${font}
-${voffset 4}${font Inconsolata LGC Markup:regular:size=11}${time %A %e %B}${font}
+${voffset 2}${goto 20}Uptime:${offset 8}${uptime_short}\
+${goto 360}Core0:${offset 8}${if_match ${hwmon 1 temp 1}<=50}${color7}${else}${if_match ${hwmon 1 temp 1}<=70}${color8}${else}${if_match ${hwmon 1 temp 1}>70}${color9}${endif}${endif}${endif}${hwmon 1 temp 1}${offset 2}°C${color}${offset 24} \
+CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 24}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}${offset 24} \
+Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \
+Batt:${offset 8}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${offset 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}${offset 24} \
+Net:${if_up wlp1s0}${offset 8}${wireless_bitrate wlp1s0}${endif}${offset 24}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}${offset 24}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${offset 24}D:${offset 8}${downspeedf wlp1s0}${endif}${color}\
+${alignr 40}${time %a %e %b}${offset 24}${time %k:%M}
 ]];

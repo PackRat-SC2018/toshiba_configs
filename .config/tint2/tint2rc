@@ -15,7 +15,7 @@ border_color = #4B6EB3 100
 rounded = 1
 border_width = 1
 background_color = #A43949 100
-border_color = #000000 100
+border_color = #DDDDDD 100
 
 # tooltip background
 # ID 3
@@ -25,42 +25,55 @@ background_color = #F7F7F7 100
 border_color = #F3F3F3 100
 
 # ID 4
-rounded = 2
-border_width = 1
-background_color = #3E3E3E 100
-border_color = #424242 100
+rounded = 1
+border_width = 0
+background_color = #34393B 100
+border_color = #171717 100
 
 # separators define all used
-separator=new
-separator_background_id = 0
-separator_color = #0D0D0D
-separator_style = line
-separator_size = 1
-separator_padding = 2 0
 
 separator=new
 separator_background_id = 0
-separator_color = #0D0D0D
+separator_color = #101010
 separator_style = line
 separator_size = 1
-separator_padding = 1 0
+separator_padding = 0 0
+
+separator=new
+separator_background_id = 0
+separator_color = #101010
+separator_style = line
+separator_size = 1
+separator_padding = 0 0
 
 separator=new
 separator_background_id = 0
 separator_color = 0
 separator_style = empty
 separator_size = 1
-separator_padding = 1 0
+separator_padding = 0 0
 
 # executor sysinfo
 execp = new
-execp_font = Fira Code Regular 10
+execp_font = Roboto Mono Regular 11
 execp_font_color = #CF9A34 100
 execp_background_id = 0
 execp_centered = 1
 execp_padding = 12 0 0
-execp_command = psuinfo -Cuack -N -S3
-execp_interval = 2
+execp_command = psuinfo -Cukca -N -S3
+# execp_command = psuinfo -Cuac -N -S3
+execp_interval = 3
+execp_rclick_command = urxvt -e htop --sort-key PERCENT_MEM
+
+# executor loadavg
+execp = new
+execp_font = Roboto Mono Regular 11
+execp_font_color = #CF9A34 100
+execp_background_id = 0
+execp_centered = 1
+execp_padding = 12 0 0
+execp_command = awk '{print $1" "$2" "$3}' < /proc/loadavg
+execp_interval = 3
 execp_rclick_command = urxvt -e htop --sort-key PERCENT_MEM
 
 # buttons P
@@ -74,7 +87,7 @@ button_background_id = 0
 button_centered = 1
 button_padding = 6 1 1
 button_max_icon_size = 64
-button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/obxmenurc
+button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/tint2menurc
 # button_lclick_command = jgmenu_run
 # button_mclick_command = text
 button_rclick_command = session-exit
@@ -82,12 +95,12 @@ button_rclick_command = session-exit
 #button_dwheel_command = text
 
 # Panel
-panel_items = PT:EB:SC:
+panel_items = PFEEBFSC
 panel_monitor = all
 panel_position = bottom center horizontal
 panel_size = 0 30
 panel_margin = 0 0
-panel_padding = 1 2 1
+panel_padding = 0 2 0
 panel_dock = 0
 wm_menu = 1
 panel_layer = normal
@@ -103,22 +116,43 @@ strut_policy = follow_size
 
 # Taskbar
 taskbar_mode = multi_desktop
-taskbar_padding = 4 1 8
+taskbar_hide_if_empty = 0
+taskbar_padding = 1 1 8
 taskbar_background_id = 0
 taskbar_active_background_id = 4
+taskbar_name = 0
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_name_padding = 4 2
+taskbar_name_background_id = 0
+taskbar_name_active_background_id = 0
+taskbar_name_font_color = #e3e3e3 100
+taskbar_name_active_font_color = #ffffff 100
+taskbar_distribute_size = 0
+taskbar_sort_order = none
+task_align = left
 
 # Tasks
-urgent_nb_of_blink = 7
-task_icon = 1
 task_text = 0
+task_icon = 1
 task_centered = 1
-task_maximum_size = 24 24
-task_padding = 1 1 2
+urgent_nb_of_blink = 100000
+task_maximum_size = 36 36
+task_padding = 4 1
+task_tooltip = 1
+task_thumbnail = 0
+task_thumbnail_size = 210
 task_background_id = 0
-task_iconified_background_id = 0
 task_active_background_id = 0
 task_urgent_background_id = 2
-task_tooltip = 1
+task_iconified_background_id = 0
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify
 
 # Task Icons
 task_icon_asb = 100 0 0
@@ -128,10 +162,10 @@ task_iconified_icon_asb = 70 0 0
 
 # Fonts
 task_font = Roboto Regular 10
-task_font_color = #191919 80
-task_active_font_color = #070707 80
-task_urgent_font_color = #D42727 100
-task_iconified_font_color = #191919 80
+task_font_color = #DFDFDF 80
+task_active_font_color = #DFDFDF 80
+task_urgent_font_color = #DFDFDF 100
+task_iconified_font_color = #999999 80
 font_shadow = 0
 
 # System Tray
@@ -144,14 +178,14 @@ systray_icon_asb = 100 0 0
 
 # Clock
 time1_format = %k:%M
-time1_font = Office Code Pro Regular 11
+time1_font = Roboto Mono Regular 11
 time2_format =
 time2_font =
-clock_font_color = #ECECEC 100
+clock_font_color = #DDDDDD 100
 clock_tooltip = 
 clock_padding = 12 0
 clock_background_id = 0
-clock_rclick_command = zenity --class="fbox_cal" --title="Fbox_Calendar" --width 320 --calendar --text ""
+clock_rclick_command = yad --calendar --class="fbox_cal" --title="`date "+%A %e %B %Y   %k:%M"`" --width=368 --height=240 --skip-taskbar --sticky --text ""
 time1_timezone = :US/Eastern
 time2_timezone = 
 
@@ -163,22 +197,15 @@ tooltip_background_id = 3
 tooltip_font = Monospace 11
 tooltip_font_color = #050314 100
 
-# Mouse
-mouse_left = toggle_iconify
-mouse_middle = none
-mouse_right = close
-mouse_scroll_up = toggle
-mouse_scroll_down = iconify
-
 # Battery
 battery = 1
 battery_hide = never
 battery_low_status = 20
 battery_low_cmd = notify-send "battery low"
 # battery_full_cmd = notify-send "battery full"
-bat1_font = Office Code Pro Regular 11
+bat1_font = Roboto Mono Regular 11
 bat2_font = Sans Regular 0
-battery_font_color = #3C96F0 100
+battery_font_color = #CF9A34 100
 #
 #==============================================#
 #

@@ -9,6 +9,6 @@ killall -q conky
 while pgrep -u $UID -x conky >/dev/null; do sleep 1; done
 
 # start conky
-conky -p 2 -dc "$HOME/conky/conkyvertrc" &
+conky -p 2 -dc "$HOME/conky/conkyhorizrc" &
 
 exit 0;

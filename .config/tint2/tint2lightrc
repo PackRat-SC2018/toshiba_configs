@@ -7,25 +7,25 @@
 # Backgrounds
 # Background 1: Panel
 rounded = 0
-border_width = 2
+border_width = 1
 border_sides = T
-background_color = #D4D4D4 90
-border_color =  #2C2C2C 90
-background_color_hover = #D4D4D4 90
-border_color_hover = #bbbbbb 30
-background_color_pressed = #D4D4D4 30
-border_color_pressed = #bbbbbb 30
+background_color = #D6CFC7 100
+border_color =  #202020 100
+background_color_hover = #D6CFC7 100
+border_color_hover = #202020 100
+background_color_pressed = #D6CFC7 100
+border_color_pressed = #202020 100
 
 # Background 2: active taskbar
-rounded = 0
+rounded = 2
 border_width = 1
-border_sides = LR
-background_color = #B5AFAA 80
-border_color = #3E3E3E 45
-background_color_hover = #B5AFAA 45
-border_color_hover = #3E3E3E 45
-background_color_pressed = #B5AFAA 45
-border_color_pressed = #3E3E3E 45
+border_sides = LRTB
+background_color = #D0D2D9 100
+border_color = #202020 60
+background_color_hover = #D0D2D9 100
+border_color_hover = #202020 60
+background_color_pressed = #D0D2D9 100 
+border_color_pressed = #202020 60
 
 # Background 3: Active task
 rounded = 1
@@ -62,14 +62,14 @@ border_color_pressed = #999999 100
 
 # Background 6: Inactive desktop name
 rounded = 0
-border_width = 0
+border_width = 1
 border_sides = TBLR
-background_color = #B1A1D4 80
-border_color = #3E3E3E 45
-background_color_hover = #B1A1D4 80
-border_color_hover = #3E3E3E 45
-background_color_pressed = #D4B8A1 80
-border_color_pressed = #3E3E3E 45
+background_color = #D6CFC7 100
+border_color = #202020 60
+background_color_hover = #D6CFC7 100
+border_color_hover = #202020 60
+background_color_pressed = #D6CFC7 100
+border_color_pressed = #202020 60
 
 # Background 7: Active desktop name
 rounded = 0
@@ -83,30 +83,42 @@ background_color_pressed = #1B1B75 80
 border_color_pressed = #3E3E3E 45
 
 # executor uptime
-execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #171717 100
-execp_background_id = 0
-execp_centered = 1
-execp_padding = 12 0 0
-execp_command = uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
-execp_interval = 3
-execp_lclick_command = urxvt -e htop -s PERCENT_CPU
+#execp = new
+#execp_font = Office Code Pro Regular 11
+#execp_font_color = #171717 100
+#execp_background_id = 0
+#execp_centered = 1
+#execp_padding = 12 0 0
+#execp_command = uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
+#execp_interval = 3
+#execp_lclick_command = urxvt -e htop -s PERCENT_CPU
 
 # executor cpu
+#execp = new
+#execp_font = Office Code Pro Regular 11
+#execp_font_color = #1F3140 100
+#execp_background_id = 0
+#execp_centered = 1
+#execp_padding = 12 0 0
+#execp_command = mpstat 1 1 | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%",100 - $field) }'
+#execp_interval = 3
+#execp_lclick_command = urxvt -e htop -s PERCENT_CPU
+
+# executor sysinfo
 execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #1F3140 100
+execp_font = Office Code Pro 11
+execp_font_color = #202020 100
 execp_background_id = 0
 execp_centered = 1
 execp_padding = 12 0 0
-execp_command = mpstat 1 1 | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { printf("%d%",100 - $field) }'
-execp_interval = 3
-execp_lclick_command = urxvt -e htop -s PERCENT_CPU
+# execp_command = psuinfo -Cuack -N -S3
+execp_command = psuinfo -Cuca -N -S3
+execp_interval = 2
+execp_rclick_command = xterm -e htop --sort-key PERCENT_MEM
 
 # executor load
 execp = new
-execp_font = Office Code Pro Regular 11
+execp_font = Office Code Pro 11
 execp_font_color = #1F3140 100
 execp_background_id = 0
 execp_centered = 1
@@ -126,7 +138,7 @@ button_background_id = 0
 button_centered = 1
 button_padding = 4 0 0
 button_max_icon_size = 64
-button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/obxmenurc
+button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/jgmlightrc
 # button_lclick_command = jgmenu_run
 # button_mclick_command = text
 button_rclick_command = /usr/local/bin/void-logout
@@ -198,10 +210,10 @@ separator_padding = 0 0
 
 #-------------------------------------
 # Panel
-panel_items = P:T:S:EEEB:C
+panel_items = P:T:S:EEB:C
 panel_size = 0 32
 panel_margin = 0 0
-panel_padding = 4 0 0
+panel_padding = 1 1 4
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
@@ -226,7 +238,7 @@ mouse_pressed_icon_asb = 100 0 0
 taskbar_mode = multi_desktop
 taskbar_hide_if_empty = 0
 taskbar_padding = 0 2 4
-taskbar_background_id = 0
+taskbar_background_id = 6
 taskbar_active_background_id = 2
 taskbar_name = 0
 taskbar_hide_inactive_tasks = 0
@@ -302,12 +314,12 @@ time1_font = Office Code Pro 11
 time1_timezone = 
 time2_timezone = 
 time2_font = sans 0
-clock_font_color = #171717 100
+clock_font_color = #202020 100
 clock_padding = 6 0
 clock_background_id = 0
 clock_tooltip = 
 clock_tooltip_timezone = 
-clock_lclick_command = yad --class obxcal --name Calendar --width 360 --height 320 --calendar --text ""
+clock_lclick_command = yad --calendar --class="fbox_cal" --title="`date "+%A %e %B %Y   %k:%M"`" --width=368 --height=240 --skip-taskbar --sticky --text ""
 clock_rclick_command = orage
 clock_mclick_command = 
 clock_uwheel_command = 
@@ -322,10 +334,10 @@ battery_low_cmd = notify-send "battery is at low capacity"
 battery_full_cmd = notify-send "battery is now full"
 bat1_font = Office Code Pro 11
 bat2_font = sans 0
-battery_font_color = #171717 100
+battery_font_color = #202020 100
 bat1_format = 
 bat2_format = 
-battery_padding = 8 0
+battery_padding = 4 0
 battery_background_id = 0
 battery_lclick_command = 
 battery_rclick_command = 

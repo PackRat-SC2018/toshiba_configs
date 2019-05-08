@@ -18,8 +18,8 @@
 [encoding] {UTF-8}
       [exec] (Run) {rofi-apps}
 [separator]
-      [exec] (File Manager) {pcmanfm}
-      [exec] (Terminal) {urxvt}
+      [exec] (File Manager) {thunar}
+      [exec] (Terminal) {st}
       [exec] (Sublime) {subl3}
 [submenu] (Terminals)
       [exec] (XTerm) {xterm}
@@ -44,7 +44,7 @@
       [exec] (FileZilla) {filezilla}
       [exec] (Transmission) {transmission-gtk}
       [exec] (HexChat) {hexchat}
-      [exec] (Connman) {connman-gtk --tray}
+      [exec] (Connman) {cmst -i Vibrantly-Simple-Dark}
 [separator]
 [submenu] (Office)
       [exec] (Writer) {libreoffice --writer}
@@ -64,6 +64,7 @@
 [end]
 [submenu] (Media)
       [exec] (Audacious) {audacious}
+      [exec] (Gnome-mpv) {gnome-mpv}
       [exec] (mpv) {mpv --player-operation-mode=pseudo-gui}
       [exec] (Asunder) {asunder}
       [exec] (Xfburn) {xfburn}

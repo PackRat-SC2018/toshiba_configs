@@ -1,7 +1,7 @@
 WindowTitle {DateTime}
-WindowSize  100 28
+WindowSize  90 28
 Font "xft:Fira Code:style=Retina:size=12"
-Colorset 22 
+Colorset 22
 
 Init
  Begin
@@ -27,7 +27,7 @@ End
 Widget 1
 Property
  Position 0 0
- Size 100 28
+ Size 90 28
  Font "xft:Fira Code:style=Retina:size=12"
  Type ItemDraw
  Flags NoReliefString

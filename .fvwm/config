@@ -29,7 +29,7 @@
 #
 # The following is used in various menus and also sets the terminal
 # that FvwmConsole uses. Change this to your terminal of choice
-InfoStoreAdd terminal urxvt
+InfoStoreAdd terminal xterm
 InfoStoreAdd filemanager thunar
 InfoStoreAdd browser firefox
 InfoStoreAdd mail thunderbird
@@ -50,18 +50,6 @@ InfoStoreAdd art gimp
 #   + H [Action to do on a Mouse Hold]
 #   + M [Action to do on a Mouse Motion]
 ###########
-
-# do not edit this
-# Function: ChangeDesk
-#
-# This function is called by FvwmEvent every time the Desk is changed.
-DestroyFunc ChangeDesk
-AddToFunc   ChangeDesk
-+ I SendToModule FvwmButtons ChangeButton desk0 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk1 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk2 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk3 Colorset 10
-+ I SendToModule FvwmButtons ChangeButton desk$0 Colorset 11
 
 ###########
 # 1: Functions
@@ -222,18 +210,6 @@ AddToFunc 	PrevWindow
 
 ## Tiling functions
 
-DestroyFunc CenterWindow
-AddToFunc   CenterWindow
-+ I ThisWindow Piperead "echo Move \
-    $(( $[vp.width]/2-$[w.width]/2 ))p \
-    $(( $[vp.height]/2-$[w.height]/2 ))p"
-
-DestroyFunc ResizeCenter
-AddToFunc ResizeCenter
-+ I Resize $*
-+ I ThisWindow WindowStyle CenterPlacement
-+ I UpdateStyles
-
 DestroyFunc FvwmCenterWindow
 AddToFunc FVwmCenterWindow
 + I Resize 60 60
@@ -309,54 +285,6 @@ AddToFunc MaxBottom
 + I ThisWindow
 + I Focus
 + I Current Raise
-
-# Function: Window Tiling
-#
-# This function tiles active windows with specified keybindings.
-DestroyFunc TileLeft
-AddToFunc TileLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileRight
-AddToFunc TileRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
-
-DestroyFunc TileTop
-AddToFunc TileTop
-+ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileBottom
-AddToFunc TileBottom
-+ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
-
-DestroyFunc TileTopLeft
-AddToFunc TileTopLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileTopRight
-AddToFunc TileTopRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
-
-DestroyFunc TileBottomLeft
-AddToFunc TileBottomLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
-
-DestroyFunc TileBottomRight
-AddToFunc TileBottomRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
-
-DestroyFunc MoveToCenter
-AddToFunc MoveToCenter
-+ I ThisWindow (!Shaded, !Iconic) Maximize 80 80
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move 50-50w 50-50w
 
 #-----------------------------------------------------------------------
 # Wallpaper Browser by Taviso.
@@ -544,7 +472,9 @@ DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
 # DesktopSize 2x2
+
 DesktopSize 1x1
+EwmhNumberOfDesktops 4
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -582,7 +512,8 @@ Style * MinOverlapPlacement, GrabFocusOn, !UsePPosition
 
 # Sets all windows to OpaqueMove (vs a wired frame) and  windows will
 # snap to each other and the edge of the screen.
-OpaqueMoveSize unlimited
+# OpaqueMoveSize unlimited
+OpaqueMoveSize 0
 Style * ResizeOpaque, SnapAttraction 2 SameType ScreenAll, SnapGrid
 
 # Transient Windows (such as open file windows)
@@ -627,23 +558,23 @@ Style FvwmIdent WindowListSkip
 #      13 - FvwmPager Active Page
 #      14 - FvwmIconMan Iconified Button
 ###########
-Colorset 0  fg #F0F0F0, bg #853232, hi, sh, Plain, NoShape
-Colorset 1  fg #F0F0F0, bg #2F302F, hi, sh, Plain, NoShape
-Colorset 2  fg #F0F0F0, bg #A84040, hi, sh, Plain, NoShape
-Colorset 3  fg #0D0D0D, bg #2F302F, hi #474747, sh #303030, Plain, NoShape
+Colorset 0  fg #DFDFDF, bg #853232, hi, sh, Plain, NoShape
+Colorset 1  fg #DFDFDF, bg #2F302F, hi, sh, Plain, NoShape
+Colorset 2  fg #DFDFDF, bg #4D5085, hi, sh, Plain, NoShape
+Colorset 3  fg #DFDFDF, bg #2F302F, hi #333333, sh #333333, Plain, NoShape
 Colorset 4  fg #0D0D0D, bg #2D2D2D, hi #474747, sh #101010, Plain, NoShape
-Colorset 5  fg #171717, bg #F0F0F0, hi, sh, Plain, NoShape
-Colorset 6  fg #F0F0F0, bg #2d2d2d, hi, sh, Plain, NoShape
-Colorset 7  fg grey30, bg #F0F0F0, hi, sh, Plain, NoShape
-Colorset 8  fg #F0F0F0, bg #3A7373, hi, sh, Plain, NoShape
-Colorset 10 fg #F0F0F0, bg #853232, hi #aaaaaa, sh #999999, Plain, NoShape
-Colorset 11 fg #F0F0F0, bg #1a6e99, hi #F0F0F0, sh #F0F0F0, Plain, NoShape
-Colorset 12 fg #2d2d2d, bg #F0F0F0, hi, sh, Plain, NoShape
-Colorset 13 fg #F0F0F0, bg #006c6c, hi, sh, Plain, NoShape
+Colorset 5  fg #171717, bg #DFDFDF, hi, sh, Plain, NoShape
+Colorset 6  fg #DFDFDF, bg #2d2d2d, hi, sh, Plain, NoShape
+Colorset 7  fg grey30, bg #DFDFDF, hi, sh, Plain, NoShape
+Colorset 8  fg #DFDFDF, bg #3A7373, hi, sh, Plain, NoShape
+Colorset 10 fg #DFDFDF, bg #853232, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 11 fg #DFDFDF, bg #1a6e99, hi #DFDFDF, sh #DFDFDF, Plain, NoShape
+Colorset 12 fg #2d2d2d, bg #DFDFDF, hi, sh, Plain, NoShape
+Colorset 13 fg #DFDFDF, bg #006c6c, hi, sh, Plain, NoShape
 Colorset 14 fg #555555, bg #853232, hi #aaaaaa, sh #999999, Plain, NoShape
 Colorset 15 fg #DDDDDD, bg #242424, hi #242424, sh #242424, Plain, NoShape, RootTransparent, Buffer, Tint #242424 10
-Colorset 16 fg #F0F0F0, bg #3B4987, hi #242424, sh #242424, Plain, NoShape, RootTransparent, Buffer, Tint #3E4667 80
-Colorset 17 fg #F0F0F0, bg #292922, hi #292922, sh #171717, Plain, NoShape
+Colorset 16 fg #DFDFDF, bg #3B4987, hi #242424, sh #242424, Plain, NoShape, RootTransparent, Buffer, Tint #3E4667 80
+Colorset 17 fg #DFDFDF, bg #292922, hi #292922, sh #171717, Plain, NoShape
 
 # Colorsets 18-23 in PagerIcons for FvwmPager and IconMan
 
@@ -671,7 +602,7 @@ DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "FVWM" Title
 + "Run:"    Module FvwmForm FvwmForm-RunCommand
 + "" Nop
-Test (x urxvt) + "Terminal" Exec exec $[infostore.terminal]
+Test (x xterm) + "Terminal" Exec exec $[infostore.terminal]
 Test (x subl3) + "Editor" Exec exec $[infostore.editor]
 Test (x thunar) + "File Manager" Exec exec thunar
 Test (x firefox) + "Firefox" Exec exec $[infostore.browser]
@@ -811,7 +742,6 @@ AddToMenu   MenuSendToPage
 + "Page (0,1)"	MoveToPage 0 1
 + "Page (1,0)"	MoveToPage 1 0
 + "Page (1,1)"	MoveToPage 1 1
-
 
 # Fvwm Man Pages (Help) Menu
 DestroyMenu MenuFvwmManPages
@@ -1069,7 +999,7 @@ Style FvwmScript-Clock* !Title, !Borders, !Handles, Sticky, WindowListSkip, Neve
 Style FvwmScript-ConfirmQuit* BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, StaysOnTop, CirculateSkip, !Iconifiable, PositionPlacement Center
 Style Kalende* !Title, !Borders, !Handles, Sticky, WindowListSkip, StaysOnBottom, NeverFocus, !Iconifiable,CirculateSkip, PositionPlacement -10px -36px
 Style FvwmForm-RunCommand* BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, StaysOnTop, CirculateSkip, PositionPlacement Center
-
+Style Vivaldi* !Title, ResizeHintOverride, PositionPlacement Center
 Style FvwmButtons* !Title, !Iconifiable, BorderWidth 1, HandleWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom
 
 ############
@@ -1104,6 +1034,16 @@ DestroyModuleConfig FvwmBanner:*
 DestroyModuleConfig FvwmScript:*
 *FvwmScript: DefaultColorset 17
 
+# FvwmForm
+#
+# FvwmForm is a module that can be used to build a GUI
+# form. Used with fvwm-menu-desktop-config.fpl.
+# This sets the default colorsets.
+*FvwmFormDefault: Colorset 1
+*FvwmFormDefault: ItemColorset 17
+
+# functions for DesktopID in panels
+
 # FvwmEvent
 #
 # FvwmEvent is a module that can run an action or function
@@ -1113,20 +1053,25 @@ DestroyModuleConfig EventNewDesk:*
 *EventNewDesk: PassID
 *EventNewDesk: new_desk ChangeDesk
 
-# FvwmForm
+# do not edit this
+# Function: ChangeDesk
 #
-# FvwmForm is a module that can be used to build a GUI
-# form. Used with fvwm-menu-desktop-config.fpl.
-# This sets the default colorsets.
-*FvwmFormDefault: Colorset 1
-*FvwmFormDefault: ItemColorset 17
+# This function is called by FvwmEvent every time the Desk is changed.
+DestroyFunc ChangeDesk
+AddToFunc   ChangeDesk
++ I SendToModule FvwmButtons ChangeButton desk0 Colorset 1
++ I SendToModule FvwmButtons ChangeButton desk1 Colorset 1
++ I SendToModule FvwmButtons ChangeButton desk2 Colorset 1
++ I SendToModule FvwmButtons ChangeButton desk3 Colorset 1
++ I SendToModule FvwmButtons ChangeButton desk$0 Colorset 2
 
 # Start and Exit functions
 ##########################################################
 
+Read SpecialFunctions
 Read PagerIcons
 Read Bindings
-Read tint2panel
+Read Panels
 
 # Start Function
 #
@@ -1143,12 +1088,13 @@ AddToFunc   StartFunction
 # + I Test (Init) Module FvwmBanner
 
 + I Module FvwmEvent EventNewDesk
-+ I Module FvwmPager 0 3
+# + I Module FvwmPager 0 3
 # + I Module FvwmIconMan
 # + I Module FvwmButtons RightPanel
-# + I Module FvwmButtons TintPanel
-+ I Module FvwmButtons TaskPanel
-+ I Module FvwmScript $[FVWM_USERDIR]/FvwmScript-SysStats
++ I Module FvwmButtons TintPanel
+# + I Module FvwmButtons TaskPanel
+# + I Module FvwmScript $[FVWM_USERDIR]/FvwmScript-SysStats
+# + I Module FvwmButtons DesktopID
 
 # + I Test (Init) /home/doug/bin/ConkyFvwm.sh
 # + I Test (Restart) /home/doug/bin/ConkyFvwm.sh

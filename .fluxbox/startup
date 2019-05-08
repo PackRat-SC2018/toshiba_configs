@@ -4,24 +4,16 @@
 #
 # Lines starting with a '#' are ignored.
 
-pkill -x sxhkd &
-pkill -x conky &
-pkill -x juiced &
-pkill -x slstatus &
-
 # Change your keymap:
-xmodmap "$HOME/.Xmodmap"
-xrdb -l "$HOME/.Xresources"
+#xmodmap "$HOME/.Xmodmap"
+#xrdb -l "$HOME/.Xresources"
 
 # background and wallpaper
-fbsetroot -solid "#333366" &
-fbsetbg -c -r "$HOME/wallpaper/" &
-
-# number pad
-numlockx on &
+#fbsetroot -solid "#333366" &
+#fbsetbg -c -r "$HOME/wallpaper/" &
 
 # battery monitor
-juiced -d
+#juiced -d
 
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
@@ -35,6 +27,7 @@ juiced -d
 # (sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
 
 # (sleep 2s && connman-gtk --tray) &
+# (sleep 2s && cmst -m -i Vibrantly-Simple-Dark) &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

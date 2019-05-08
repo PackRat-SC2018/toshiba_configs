@@ -11,8 +11,6 @@ DATE=`date "+%F_%s"`
 # DATE=`date "+%Y_%B_%d_%s"`
 NAME="ZOE-01"
 SPACE="."
-#LOCALDEST="/mnt/public/backups/"
-LOCALDEST="/mnt/bandit/usb01/backups/"
 
 # rsync to backup
 rsync $OPT --exclude-from='/home/doug/bin/rexcludes.txt' $SRC ${DEST}$NAME$SPACE$DATE

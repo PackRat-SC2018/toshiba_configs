@@ -3,44 +3,43 @@
 #==================================================#
 alias ll='ls -lh -F --group-directories-first'
 alias la='ls -A --group-directories-first'
-alias ls='ls -CF --color --group-directories-first'
+alias ls='ls -hNCF --color=auto --group-directories-first'
 alias rm='rm -vi'
 alias cp='cp -vi'
 alias mv='mv -vi'
-alias nano='nano -BSwl'
-alias emacs='emacs -nw'
 alias dfh='df -hT'
 alias dfk='df -kT'
 alias du='du -h'
 alias duh='du -hca'
 alias path='echo -e ${PATH//:/\\n}'
+alias emacs='emacs -nw'
+alias joe='joe --wordwrap'
 alias listusb='ls -l /dev/disk/by-id/*usb*'
-alias sinfo='inxi -CSI -tcm2 -W 29803 --no-host'
+alias sinfo='inxi -CSI -tcm3 -W 29803 --no-host'
 alias screenfetch='screenfetch -n'
-alias neoinfo='neofetch --backend off'
-alias xbacklight='sudo xbacklight'
-alias sshot='import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png'
-alias scrotpng='scrot -q 100 -cd 5 ~/pictures/sshot-%T_%F.png'
-alias scrotjpg='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%T_%F.jpg'
-alias kconky='pkill -USR1 -x conky'
+alias shotdate='date +%A_%s'
+alias sshot='import -window root -quality 100 ~/pictures/screen-import-$(shotdate).png'
+alias scrotpng='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%B_%e_%s.png'
+alias scrotjpg='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%a_%e_%s.jpg'
+alias kconky='killall -SIGUSR1 conky'
 alias ktint2='killall -SIGUSR1 tint2'
-alias kpolybar='pkill -USR1 -x polybar'
+alias kpolybar='killall -SIGUSR1 polybar'
 alias ufont='fc-cache -f -v'
-alias prmount='sudo mount -o rw,umask=000'
 alias rufont='sudo fc-cache -f -v'
-alias hpcam='sudo modprobe uvcvideo'
-alias playdvd='mpv dvd:// --sub=no'
-alias playmedia='mpv --player-operation-mode=pseudo-gui'
-alias esudo='sudo EDITOR=/usr/bin/emacs visudo'
-alias obxprop='obxprop | grep "^_OB_APP"'
-alias getmp3="youtube-dl -x --audio-format mp3"
-alias forecast="curl 'wttr.in/aiken,south_carolina'"
-
-# sshfs mounts - get port correct
-alias mntdata="sshfs -p 2410 doug@BANDIT-01:/mnt/data01 /home/doug/bandit/data01"
-alias mntpublic="sshfs -p 2410 doug@BANDIT-01:/mnt/public /home/doug/bandit/public"
-alias umntdata="fusermount -u /home/doug/bandit/data01"
-alias umntpublic="fusermount -u /home/doug/bandit/public"
+alias prmount='sudo mount -o rw,umask=000'
+alias usbmnt='sudo mount -o rw,umask=000 /dev/sdc1 /media/usbhd'
+alias win7mnt='sudo mount -o rw,umask=000 /dev/sda5 /mnt/Win7'
+alias takeshot='neofetch ; scrotpng'
+alias neoinfo='neofetch --backend off --color_blocks off'
+alias getmp3='youtube-dl -x  --no-mtime --audio-format mp3'
+alias mntarch='sshfs -p 9742 doug@WILLOW-01:/mnt/public /home/doug/archlabs'
+alias umntarch='fusermount -u /home/doug/archlabs'
+alias aura='aura -n 'user''
+alias wget='wget -c'
+alias mntpublic='sshfs -p 2410 doug@BANDIT-01:/mnt/public /home/doug/bandit/public'
+alias mntdata='sshfs -p 2410 doug@BANDIT-01:/mnt/data01 /home/doug/bandit/data01'
+alias umntpublic='fusermount -u /home/doug/bandit/public'
+alias umntdata='fusermount -u /home/doug/bandit/data01'
 
 # Functions
 # Extract archives

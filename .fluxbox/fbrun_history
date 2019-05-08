@@ -1,5 +1,4 @@
 juiced -d
-pcmanfm
 yad --font
 st
 xfce4-power-manager
@@ -10,25 +9,42 @@ yad --icons
 oomox
 oomox-gui
 kitty
-xfce4-terminal
 commpton
-xterm
-slock
 emacs
-xcalc
 urxvtd
-thunar
-firefox
-compton
 basilisk
 basilisk --browser
 spacefm
 rofi-logout
-leafpad
 connman-gtk
 filezilla
-galculator
 sakura
-lxappearance
 geany
+lxappearance
+thunderbird
+xfce4-terminal --drop-down
+xfc4-terminal
+connman-gtk --tray
+qutebrowser
+thunar
+wmexit.sh
+xfce4-terminal
+compton
+jgmneu_run
+jgmenu_run
+vala-panel
+xterm
+firefox
+pcmanfm
+cmst
+xkill
+vivaldi
+gnome-mpv
+smplayer
+vlc
+leafpad
+gcolor2
+galculator
+xcalc
+slock
 tint2

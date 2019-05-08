@@ -7,10 +7,10 @@ Key	Space	A	CM	Menu WindowOptionsMenu Close
 
 #Key	r	A	CM	RaiseToTop
 #Key	l	A	CM	LowerToBottom
-Key	F1	A	M	Exec exec urxvt
+Key	F1	A	M	Exec exec uxterm
 Key	F2	A	M	Exec exec rofi -show
-Key	F3	A	M	Exec exec st
-Key Return A 4  Exec exec uxterm
+Key	F3	A	M	Exec exec uxterm
+Key Return A 4  Exec exec xterm -e tmux
 Key	F4	A	M	Close
 Key	F5	A	M	Move 50-50w 50-50w
 Key	F5	A	MS	ResizeCenter
@@ -53,16 +53,16 @@ Key T       A   S4  ToggleTitle
 #Key KP_8    A   SM  MaxTop
 #Key KP_2    A   SM  MaxBottom
 
-Key	KP_7	A	SM	TileTopLeft
-Key	KP_9	A	SM	TileTopRight
-Key	KP_1	A	SM	TileBottomLeft
-Key	KP_3	A	SM	TileBottomRight
-Key KP_5    A   SM  Maximize
-Key KP_4    A   SM  TileLeft
-Key KP_6    A   SM  TileRight
-Key KP_8    A   SM  TileTop
-Key KP_2    A   SM  TileBottom
-Key KP_0    A   SM  MoveToCenter
+#Key	KP_7	A	SM	TileTopLeft
+#Key	KP_9	A	SM	TileTopRight
+#Key	KP_1	A	SM	TileBottomLeft
+#Key	KP_3	A	SM	TileBottomRight
+#Key KP_5    A   SM  Maximize
+#Key KP_4    A   SM  TileLeft
+#Key KP_6    A   SM  TileRight
+#Key KP_8    A   SM  TileTop
+#Key KP_2    A   SM  TileBottom
+#Key KP_0    A   SM  MoveToCenter
 
 # typical alt-tab window switching behaviors
 # fluxbox style
@@ -108,9 +108,9 @@ Key	q	A	4	Restart
 Key	q	A	S4	Exec exec bl-exit
 
 Key	Menu					A	A	Exec exec $[infostore.filemanager]
-Key	XF86HomePage			A	A	Exec exec $[infostore.browser]
-Key	XF86Mail				A	4	Exec exec $[infostore.mail]
-# Key XF86Calculator	        A	A	Exec exec galculator
+Key	w                       A	4	Exec exec $[infostore.browser]
+Key	t				        A	4	Exec exec $[infostore.mail]
+Key XF86Calculator	        A	A	Exec exec galculator
 
 ## alsa
 Key	XF86AudioMute			A	A	Exec exec amixer set Master toggle -q &
@@ -122,16 +122,16 @@ Key	XF86AudioLowerVolume	A	A	Exec exec amixer -q sset Master 5%- unmute
 #Key	XF86AudioRaiseVolume	A	A	Exec exec pamixer -i 2
 #Key	XF86AudioLowerVolume	A	A	Exec exec pamixer -d 2
 
-Key XF86AudioPlay A    A  Exec exec playerctl play-pause
-Key XF86AudioPrev A    A  Exec exec playerctl previous
-Key XF86AudioNext A    A  Exec exec playerctl next
+Key XF86AudioPlay A    A  Exec exec $[infostore.mail]
+# Key XF86AudioPrev A    A  Exec exec playerctl previous
+Key XF86AudioNext A    A  Exec exec $[infostore.browser]
 
 Key	l	A	C4	Exec exec $[infostore.editor]
 Key	g	A	C4	Exec exec gimp
 Key	p	A	C4	Exec exec libreoffice --calc
 Key	o	A	C4	Exec exec libreoffice --writer
 #key d   A   4   Exec exec rofi -show
-key x   A   4   Exec exec jgmenu_run
+key p   A   4   Exec exec jgmenu_run
 Key	Print	A	C4	Exec exec "$HOME/bin/scrnshot"
 Key	Pause	A	C4	Exec exec "$HOME/bin/ConkyFvwm.sh"
 Key	b	A	C4	Exec exec "$HOME/bin/ConkyTao.sh"
@@ -156,8 +156,8 @@ Key XF86MonBrightnessUp	A	A	Exec `sudo acpilight -inc 5`
 Mouse 1 1 A Menu MenuWindowOps Delete
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize 100 100
-Mouse 1 6 A Iconify
-# Mouse 1 6 A Thumbnail
+# Mouse 1 6 A Iconify
+Mouse 1 6 A Thumbnail
 
 Mouse 2 4 A Maximize 0 100
 Mouse 3 4 A Maximize 100 0

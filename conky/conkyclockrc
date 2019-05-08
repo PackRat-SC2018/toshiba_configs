@@ -48,6 +48,7 @@ conky.config = {
 	max_user_text = 3200,
 	text_buffer_size = 1024,
 	if_up_strictness = 'address',
+	-- if_up_strictness = 'up',
 	double_buffer = true,
 	draw_shades = false,
 	draw_outline = false,
@@ -56,7 +57,8 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	default_color = '#DAC79C',
+	-- default_color = '#DAC79C',
+	default_color = '#010101',
 	default_shade_color = '#000000',
 	default_outline_color = '#828282',
 	color0 = '#FFFFFF',
@@ -72,13 +74,15 @@ conky.config = {
 	
 	minimum_width = 400, minimum_height = 0,
 	maximum_width = 400,
-	alignment = 'bl',
+	alignment = 'tr',
 	gap_x = 16,
-	gap_y = 8,
+	gap_y = 64,
 
 };
 
 conky.text = [[
 ${font Inconsolata LGC Markup:regular:size=32}${time %R}${font}
 ${font Inconsolata LGC Markup:regular:size=16}${time %A %e %B}${font}
+${if_up enp2s0}ETH0:${offset 10}${upspeedf}${offset 10}${downspeedf}${endif}
+${if_up wlp1s0}Wifi:${offset 10}${wireless_bitrate wlp1s0}${offset 10}${wireless_link_qual_perc wlp1s0}%${endif}
 ]];

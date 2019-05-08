@@ -1,0 +1,29 @@
+# .xprofile
+# sourced by .xinitrc
+# common items to start with window manager
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+killall -q conky &
+killall -q i3status &
+killall -q slstatus &
+killall -q sxhkd &
+
+killall -q polybar &
+killall -q juiced &
+
+numlockx on &
+
+xset s 3600 3600 &
+xset b 33
+xset dpms 3600 3700 4000
+xset m 1/1
+
+# battery monitor
+(sleep 2s && juiced -d) &
+
+# background
+xsetroot -solid darkblue &
+fbsetbg -c -r "$HOME/wallpaper/" &
+
+PATH=$PATH:~/conky:./

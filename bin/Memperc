@@ -13,13 +13,13 @@
 
 #cat /proc/meminfo | awk '/MemAvailable/{avail=$2} /MemTotal/{total=$2} END{print 100-((avail*100)/total)}' | cut -c1-2
 
-cat /proc/meminfo | awk '/MemAvailable/{avail=$2} /MemTotal/{total=$2} END{printf("%.0f%"), 100-((avail*100)/total) "%"}'
+# cat /proc/meminfo | awk '/MemAvailable/{avail=$2} /MemTotal/{total=$2} END{printf("%.0f%"), 100-((avail*100)/total) "%"}'
 
 # % memory used amd swap usage:
 #free | awk '/Mem/{printf("used: %.2f%"), $3/$2*100} /Swap/{printf(", swap: %.2f%"), $3/$2*100}' 
 
 # percent used
 #free | awk '/Mem/{printf("used: %.2f%"), $3/$2*100}'
-#free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
+free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
 
  exit 0;

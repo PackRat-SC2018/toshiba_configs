@@ -1,21 +1,3 @@
-KillModule FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-KillModule FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-KillModule FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-KillModule FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
-Style FvwmScript-SysInfo !Title
-Style FvwmScript-SysInfo BorderWidth 2 HandleWidth 2
-Style FvwmScript-SysInfo BorderWidth 1 HandleWidth 1
-Style * FvwmScript-SysInfo BorderWidth 1 HandleWidth 1
-Style FvwmScript-SysInfo BorderWidth 1 !Handles
-Style FvwmScript-SysInfo BorderWidth 1 !Handels
-Style FvwmScript-SysInfo !Borders
-KillModule FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
 Module FvwmScript /home/doug/.fvwm/FvwmScript-SysInfo
 Module FvwmScript FvwmScript-SysStats
 KillModule FvwmScript FvwmScript-SysStats
@@ -98,3 +80,21 @@ Module FvwmScript $[FVWM_USERDIR]/scripts/Chrono/Chrono
 Module FvwmScript $[FVWM_USERDIR]/scripts/Chrono/Chrono
 Module FvwmScript $[FVWM_USERDIR]/scripts/Monetor/Monetor
 Module FvwmScript $[FVWM_USERDIR]/scripts/StaTux/StaTux
+Module FvwmScript FvwmScript-battery
+KillModule FvwmScript FvwmScript-battery
+Module FvwmScript FvwmScript-Battery
+KillModule FvwmButtons*
+KillModule FvwmIconMan
+Module FvwmButtons PagerPanel
+Module FvwmButtons PagerPanel
+KillModule FvwmButtons PagerPanel
+Read Panels
+Module FvwmButtons PagerPanel
+Module FvwmButtons PagerPanel
+Module FvwmButtons DesktopID
+Module FvwmButtons DesktopID
+Module FvwmButtons Rightpanel
+KillModule FvwmButtons Rightpanel
+Read 4DwmDecor
+Read AltDecor
+Style Vivaldi* !Title
