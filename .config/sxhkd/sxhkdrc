@@ -4,16 +4,16 @@
 
 # terminal emulator
 alt + F1
-	urxvt
+	st
 
 alt + F2
     rofi -show run
 
-alt + F3
-    uxterm
+super + p
+	jgmenu_run
 
 super + @Return
-    st
+    uxterm
 
 super + w
      firefox
@@ -21,8 +21,17 @@ super + w
 super + shift + w
      thunderbird
 
+XF86AudioNext
+	firefox
+
+XF86AudioPrev
+	thunderbird
+
+XF86AudioPlay
+	vivaldi
+
 Menu
-   pcmanfm
+   thunar
      
 super + ctrl + l
     subl3
@@ -40,7 +49,7 @@ super + shift + q
     rofi-logout
 
 super + ctrl + Pause
-    /home/doug/bin/conkybspwm.sh
+    pkill -USR1 -x polybar
 
 # program launcher
 super + @space
@@ -114,9 +123,9 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-#super + {_,shift + }{h,j,k,l}
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+super + {_,shift + }{h,j,k,l}
+#super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,north,south,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}

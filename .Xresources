@@ -9,32 +9,32 @@ Xft.rgba: rgb
 !Xft.autohint: 0
 
 ! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
+*.foreground:   #dbdcd9
+*.background:   #0d0e0f
+*.cursorColor:  #dbdcd9
 
 ! black
-*.color0:       #282a2e
+*.color0:       #1c1d1e
 *.color8:       #373b41
 
 ! red
-*.color1:       #a54242
+*.color1:       #c13333
 *.color9:       #cc6666
 
 ! green
-*.color2:       #8c9440
+*.color2:       #4f9440
 *.color10:      #b5bd68
 
 ! yellow
-*.color3:       #de935f
+*.color3:       #deb940
 *.color11:      #f0c674
 
 ! blue
-*.color4:       #445798
+*.color4:       #17578b
 *.color12:      #81a2be
 
 ! magenta
-*.color5:       #6d4e88
+*.color5:       #85678f
 *.color13:      #b294bb
 
 ! cyan
@@ -42,8 +42,8 @@ Xft.rgba: rgb
 *.color14:      #8abeb7
 
 ! white
-*.color7:       #707880
-*.color15:      #c5c8c6
+*.color7:       #a9abae
+*.color15:      #e2e5e9
 
 ! URxvt -----------------------------------------------------------------------
 URxvt*termName:          rxvt-256color
@@ -53,7 +53,7 @@ URxvt*scrollBar_right:   false
 URxvt*transparent:       false
 
 URxvt*depth:             32
-URxvt.background:        [90]#0F0F0F
+URxvt.background:        [90]#111112
 
 !URxvt.font:              xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
 !URxvt.boldFont:          xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
@@ -77,23 +77,24 @@ URxvt.tabbed.tab-bg:    0
 
 ! XTerminals ------------------------------------------------------------
 UXterm*termName:            xterm-256color
-UXTerm*faceName:            xft:Hack:size=11:antialias=true:autohint=true
+!UXTerm*faceName:            xft:Hack:size=11:antialias=true:autohint=true
+UXTerm*faceName:            xft:Roboto Mono:size=11:antialias=true:autohint=true
 UXTerm*utf8:                1
 !UXTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 !UXTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-!UXTerm*background:         #171717
+!UXTerm*background:         #101012
 !UXTerm*foreground:         #E5E5E5
 !UXTerm*cursorColor:        #E5E5E5
 UXTerm*scrollBar:          false
 UXTerm*rightScrollBar:     false
 
 XTerm*termName:           xterm-256color
-!XTerm*background:         #171717
+!XTerm*background:         #101012
 !XTerm*foreground:         #E5E5E5
 !XTerm*cursorColor:        #E5E5E5
 !XTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 !XTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-XTerm*faceName:          xft:Hack:size=11:antialias=true:autohint=true
+XTerm*faceName:          xft:Roboto Mono:size=11:antialias=true:autohint=true
 XTerm*utf8:               1
 XTerm*scrollBar:          false
 XTerm*rightScrollBar:     false
@@ -162,3 +163,65 @@ dzen2.font:     Liberation Mono:size=11:antialias=true:autohint=true
 dzen2.foreground: #D2D2D2
 dzen2.background: #191919
 !
+
+! xosview
+xosview*geometry: 300x210+2+2
+xosview*font: -xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
+xosview*background: #E5E5EE
+xosview*foreground: #202020
+xosview*meterLabelColor: #202020
+xosview*usedlabels: true
+xosview*usedLabelColor: #202020
+xosview*enableStipple: false
+!xosview*graphNumCols:
+xosview*load: true
+xosview*loadIdleColor: #BBBBBB
+xosview*loadProcColor: #2A296D
+xosview*loadWarnColor: #D7AE2E
+xosview*loadCritColor: #DA1613
+!xosview*loadIdleColor:
+xosview*loadPriority: 30
+xosview*cpu: true
+xosview*cpuPriority: 30
+xosview*cpuUsedFormat: percent
+xosview*cpuFormat: single
+xosview*cpuFreeColor: #BBBBBB
+xosview*mem: true
+xosview*memPriority: 30
+xosview*memFreeColor: #BBBBBB
+!
+xosview*swap: false
+xosview*page: false
+xosview*gfx: false
+xosview*disk: false
+!
+xosview*acpitemp: true
+xosview*battery: true
+xosview*batteryLeftColor: #2A296D
+xosview*batteryUsedColor: #4e4e4e
+!xosview*batteryChargeColor:
+xosview*batteryFullColor: #2A296D
+xosview*batteryLowColor: #D7AE2E
+xosview*batteryCritColor: #DA1613
+xosview*batteryUsedFormat: percent
+xosview*batteryPriority: 30
+xosview*wireless: true
+xosview*PoorQualityColor: #DA1613
+xosview*FairQualityColor: #D7AE2E
+xosview*GoodQualityColor: #2A296D
+xosview*wirelessPriority: 30
+xosview*net: true
+xosview*netIface: wlp1s0
+xosview*netPriority: 30
+
+xosview*cpuGraph: false
+xosview*loadGraph: false
+
+
+
+
+
+
+
+
+

@@ -13,29 +13,29 @@
 
 # exec pgrep polybar &>/dev/null; [ $? = 0 ] && killall -q polybar
 exec pkill -q sxhkd
-exec pkill -q i3status 
-exec pkill -q conky 
-exec pkill -q juiced 
-exec pkill -q slstatus 
+#exec pkill -q i3status 
+#exec pkill -q conky 
+#exec pkill -q juiced 
+#exec pkill -q slstatus 
 
 # comment out if using the i3bar
 # exec_always --no-startup-id "$HOME/.config/i3/i3polybar.sh"
 
-exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
-exec xrdb -l "$HOME/.Xresources"
-exec xmodmap "$HOME/.Xmodmap"
-exec numlockx on &
+#exec xsetroot -mod 1 1 -fg mediumslateblue -bg lightslategray
+#exec xrdb -l "$HOME/.Xresources"
+#exec xmodmap "$HOME/.Xmodmap"
+#exec numlockx on &
 
 # display timeout and sleep
-exec xset s 600 600
-exec xset dpms 1200 1600 4000
+#exec xset s 600 600
+#exec xset dpms 1200 1600 4000
 
 # keyboard repeat rate
-execxset r rate 400 50
-exec kbdrate -d 400 -r 50
+#execxset r rate 400 50
+#exec kbdrate -d 400 -r 50
 
 # 1/1 mouse acceleration
-exec xset m 1/1
+#exec xset m 1/1
 
 # stop trackpad when typing
 # exec syndaemon -i 1.0 -d
@@ -43,15 +43,18 @@ exec xset m 1/1
 # load urxvtd
 # exec urxvtd -q -o -f &
 
-# exec fbsetbg -c -r "$HOME/wallpaper/"
+#exec fbsetbg -c -r "$HOME/wallpaper/"
 # exec nitrogen --restore
-exec "$HOME/.fehbg"
+# exec "$HOME/.fehbg"
 
 # battery monitor
-exec juiced -d
+#exec juiced -d
 
 #for brightness keys on toshiba
 # exec xfce4-power-manager &
+
+# connman network gui
+#exec cmst -m -i Adwaita &
 
 # i3 configuration ================================================
 
@@ -67,12 +70,18 @@ focus_follows_mouse no
 #gaps inner 3
 #gaps outer 3
 
+#default_border normal|none|pixel
+#default_border normal|pixel <px>
+#default_floating_border normal|none|pixel
+#default_floating_border normal|pixel <px>
+
 # default_border normal/none/pixel
 default_border pixel 1
 
 # default_floating_border normal/none/pixel
 default_floating_border pixel 1
 
+# hide_edge_borders none|vertical|horizontal|both|smart
 hide_edge_borders both
 
 # window colours:           border     background     text
@@ -86,36 +95,37 @@ client.urgent               #131313    #E03043        #FFFFFF
 # font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
 # font pango: DejaVu Sans Mono, Terminus Regular Semi-Condensed 10
 # font pango: AurulentSansMono Nerd Font 10
-font pango: Ubuntu Regular 10
+# font pango: Iosevka Regular 11
+font pango: SF Pro Display Regular 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 # floating_modifier $mod
 floating_modifier $ALT
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $ALT+F1 exec urxvt
+bindsym $mod+Return exec xterm
+bindsym $ALT+F1 exec st
 
 # start dmenu (a program launcher)
 # bindsym $ALT+F2 exec dmenu_run -nb "#2E2E2E" -nf "#CFCFCF" -sb "#387070" -sf "#F5F5FF" 
 bindsym $ALT+F2 exec rofi -show
-# bindsym $ALT+Shift+F2 exec jgmenu_run
-
-# xterm
-bindsym $ALT+F3 exec uxterm
 
 # kill focused window
 bindsym $ALT+F4 kill
 
-# touchpad
-# bindsym $mod+Control+t exec "$HOME/bin/ktouchpad.sh"
-bindsym $mod+XF86HomePage exec wmctrl -a firefox || firefox
-bindsym $mod+XF86Mail exec wmctrl -a thunderbird || thunderbird
-bindsym $mod+Control+l exec subl3
-bindsym Menu exec pcmanfm
+bindsym XF86HomePage exec wmctrl -a firefox || firefox
+bindsym $mod+F14 exec wmctrl -a firefox || firefox
+bindsym XF86AudioNext exec wmctrl -a firefox || firefox
+
+bindsym XF86Mail exec wmctrl -a thunderbird || thunderbird
+bindsym $mod+F13 exec wmctrl -a thunderbird || thunderbird
+bindsym XF86AudioPrev exec wmctrl -a thunderbird || thunderbird
+
+bindsym $mod+Control+l exec wmctrl -a subl3 || subl3
+bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
 bindsym $mod+Control+Print exec "scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%e_%b_%s.jpg"
-bindsym $mod+x exec "jgmenu --config-file=/home/doug/.config/jgmenu/jgtilerrc"
+bindsym $mod+x exec "jgmenu_run"
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
@@ -162,6 +172,7 @@ for_window [class="YadCal"] floating enable, border pixel 2
 for_window [class="FontBox"] floating enable, border pixel 2
 for_window [class="Connman-gtk"] floating enable, border pixel 2
 for_window [class="Yad-icon-browser"] floating enable, border pixel 2
+for_window [class="xst-256color"] floating enable, border pixel 2
 
 # change focus
 #bindsym $mod+j focus left
@@ -294,11 +305,11 @@ bar {
        tray_output primary
        tray_padding 1
        separator_symbol "  "
-       bindsym --release button3 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
-       font pango:Office Code Pro 11
+       bindsym --release button2 exec --no-startup-id import -window root -quality 100 ~/pictures/i3screen-import-`date +%F_%s`.png
+       bindsym --release button3 exec jgmenu_run
 #       font pango: mononoki Nerd Font 10
 #       font -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-#       font pango:DejaVu Sans Mono 10
+       font pango: SF Mono Regular 11
        colors {
           background #222222
           statusline #CFCFCF

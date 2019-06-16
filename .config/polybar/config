@@ -32,8 +32,8 @@ modules-right = date
 [bar/obxbar]
 inherit = bar/master
 
-modules-left = jgmenu workspaces
-modules-center = uptime coreavg load core0temp memory battery wireless-network
+modules-left = uptime coreavg load core0temp memory battery wireless-network
+modules-center =
 modules-right = date
 
 ; Position of the system tray window
@@ -44,35 +44,35 @@ modules-right = date
 ;   left
 ;   center
 ;   right
-tray-position = right
+; tray-position = right
 
 ; If true, the bar will not shift its
 ; contents when the tray changes
-tray-detached = false
+; tray-detached = false
 
 ; Tray icon max size
-tray-maxsize = 16
+; tray-maxsize = 16
 
 ; Enable pseudo transparency
 ; Will automatically be enabled if a fully transparent
 ; background color is defined using `tray-background`
-tray-transparent = false
+; tray-transparent = false
 
 ; Background color for the tray container
 ; By default the tray container will use the bar
 ; background color.
 ; Note: 32 bit alpha blending is not supported.
-tray-background = ${colors.background}
+; tray-background = ${colors.background}
 
 ; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
-tray-offset-x = 0
-tray-offset-y = 0
+; tray-offset-x = 0
+; tray-offset-y = 0
 
 ; Pad the sides of each tray icon
-tray-padding = 1
+; tray-padding = 1
 
 ; Scale factor for tray clients
-tray-scale = 1.0
+; tray-scale = 1.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; i3 bar

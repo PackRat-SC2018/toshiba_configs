@@ -9,22 +9,22 @@
 rounded = 0
 border_width = 1
 border_sides = T
-background_color = #D6CFC7 100
-border_color =  #202020 100
-background_color_hover = #D6CFC7 100
-border_color_hover = #202020 100
-background_color_pressed = #D6CFC7 100
-border_color_pressed = #202020 100
+background_color = #D6CFC7 90
+border_color =  #202020 90
+background_color_hover = #D6CFC7 90
+border_color_hover = #202020 90
+background_color_pressed = #D6CFC7 90
+border_color_pressed = #202020 90
 
 # Background 2: active taskbar
 rounded = 2
 border_width = 1
 border_sides = LRTB
-background_color = #D0D2D9 100
+background_color = #D0D2D9 90
 border_color = #202020 60
-background_color_hover = #D0D2D9 100
+background_color_hover = #D0D2D9 90
 border_color_hover = #202020 60
-background_color_pressed = #D0D2D9 100 
+background_color_pressed = #D0D2D9 90 
 border_color_pressed = #202020 60
 
 # Background 3: Active task
@@ -34,41 +34,41 @@ border_sides = BTLR
 background_color = #B5AFAA 8
 border_color = #78726C 90
 background_color_hover = #B5AFAA 80
-border_color_hover = #78726C 100
+border_color_hover = #78726C 90
 background_color_pressed = #B5AFAA 80
-border_color_pressed = #78726C 100
+border_color_pressed = #78726C 90
 
 # Background 4: Urgent task
 rounded = 2
 border_width = 1
 border_sides = TBLR
-background_color = #AA0022 100
-border_color = #AA0022 100
-background_color_hover = #AA0022 100
-border_color_hover = #AA0022 100
-background_color_pressed = #AA0022 100
-border_color_pressed = #AA0022 100
+background_color = #AA0022 90
+border_color = #AA0022 90
+background_color_hover = #AA0022 90
+border_color_hover = #AA0022 90
+background_color_pressed = #AA0022 90
+border_color_pressed = #AA0022 90
 
 # Background 5: Tooltip
 rounded = 2
 border_width = 1
 border_sides = TBLR
-background_color = #ffffaa 100
-border_color = #999999 100
-background_color_hover = #ffffaa 100
-border_color_hover = #999999 100
-background_color_pressed = #ffffaa 100
-border_color_pressed = #999999 100
+background_color = #ffffaa 90
+border_color = #999999 90
+background_color_hover = #ffffaa 90
+border_color_hover = #999999 90
+background_color_pressed = #ffffaa 90
+border_color_pressed = #999999 90
 
 # Background 6: Inactive desktop name
 rounded = 0
 border_width = 1
 border_sides = TBLR
-background_color = #D6CFC7 100
+background_color = #D6CFC7 90
 border_color = #202020 60
-background_color_hover = #D6CFC7 100
+background_color_hover = #D6CFC7 90
 border_color_hover = #202020 60
-background_color_pressed = #D6CFC7 100
+background_color_pressed = #D6CFC7 90
 border_color_pressed = #202020 60
 
 # Background 7: Active desktop name

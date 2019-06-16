@@ -35,7 +35,7 @@ label=UP:
 interval=3
 min_width=80
 align=center
-command=/home/doug/bin/Uptime
+command=uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
 separator=false
 
 # CPU usage
@@ -57,18 +57,18 @@ separator=false
 #align=center
 #separator=false
 
-[loadavg2]
-interval=3
-separator=false
-min_width=100
-align=center
-
-#[load_average]
+#[loadavg2]
 #interval=3
-#min_width=80
-#align=center
 #separator=false
-#command=/home/doug/bin/Loadavg
+#min_width=100
+#align=center
+
+[load_average]
+interval=3
+min_width=80
+align=center
+separator=false
+command=awk '{print $1" "$2" "$3}' < /proc/loadavg
 
 # Temperature
 #
@@ -95,7 +95,7 @@ align=center
 label=MEM
 separator=false
 interval=3
-command=/home/doug/bin/Memperc
+command=free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
 min_width=80
 align=center
 

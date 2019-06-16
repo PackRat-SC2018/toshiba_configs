@@ -1,269 +1,94 @@
-# zshrc - mostly from grml .zshrc
-# and archlabs .zshrc
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-autoload -Uz compinit promptinit
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+
+autoload -Uz compinit
 compinit
-promptinit
 
-typeset -U path
-path=(~/bin ~/conky $path[@])
+setopt AUTO_CD # No cd needed to change directories
+setopt BANG_HIST # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_IGNORE_DUPS # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_SPACE # Don't record an entry starting with a space.
+setopt HIST_REDUCE_BLANKS # Remove superfluous blanks before recording entry.
+setopt HIST_SAVE_NO_DUPS # Don't write duplicate entries in the history file.
+setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY # Share history between all sessions.
 
-for var in LANG LC_ALL LC_MESSAGES ; do
-    [[ -n ${(P)var} ]] && export $var
+for c in cp rm chmod chown rename; do
+    alias $c="$c -v"
 done
-builtin unset -v var
 
-#v#
-# export PATH=$HOME/bin:$PATH
-export PAGER=${PAGER:-less}
-export EDITOR=${EDITOR:-vim}
+# aliases and functions
 
-## Settings for umask
-if (( EUID == 0 )); then
-    umask 002
+# Test and then source alias definitions.
+if [ -f ~/.zsh/zshaliases ]; then
+        source ~/.zsh/zshaliases
 else
-    umask 022
+        print "Note: ~/.zsh/zshaliases is unavailable."
 fi
 
-## ZLE tweaks ##
-
-## set command prediction from history, see 'man 1 zshcontrib'
-# is4 && zrcautoload predict-on && \
-zle -N predict-on         && \
-zle -N predict-off        && \
-bindkey "^X^Z" predict-on && \
-bindkey "^Z" predict-off
-
-## define word separators (for stuff like backward-word, forward-word, backward-kill-word,..)
-WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>' # the default
-WORDCHARS=.
-WORDCHARS='*?_[]~=&;!#$%^(){}'
-WORDCHARS='${WORDCHARS:s@/@}'
-
-# just type '...' to get '../..'
-rationalise-dot() {
-local MATCH
-if [[ $LBUFFER =~ '(^|/| |	|'$'\n''|\||;|&)\.\.$' ]]; then
-  LBUFFER+=/
-  zle self-insert
-  zle self-insert
+# Test and then source the functions.
+if [ -f ~/.zsh/zshfunctions ]; then
+        source ~/.zsh/zshfunctions
 else
-  zle self-insert
-fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
-## without this, typing a . aborts incremental history search
-bindkey -M isearch . self-insert
-
-bindkey '\eq' push-line-or-edit
-
-## some popular options ##
-
-## add `|' to output redirections in the history
-setopt histallowclobber
-
-## try to avoid the 'zsh: no matches found...'
-setopt nonomatch
-
-## warning if file exists ('cat /dev/null > ~/.zshrc')
-setopt NO_clobber
-
-## don't warn me about bg processes when exiting
-#setopt nocheckjobs
-
-## alert me if something failed
-setopt printexitvalue
-
-## with spelling correction, assume dvorak kb
-#setopt dvorak
-
-## Allow comments even in interactive shells
-#setopt interactivecomments
-
-
-## compsys related snippets ##
-
-## changed completer settings
-zstyle ':completion:*' completer _complete _correct _approximate
-zstyle ':completion:*' expand prefix suffix
-
-## another different completer setting: expand shell aliases
-zstyle ':completion:*' completer _expand_alias _complete _approximate
-
-## telnet on non-default ports? ...well:
-## specify specific port/service settings:
-#telnet_users_hosts_ports=(
-#  user1@host1:
-#  user2@host2:
-#  @mail-server:{smtp,pop3}
-#  @news-server:nntp
-#  @proxy-server:8000
-#)
-#zstyle ':completion:*:*:telnet:*' users-hosts-ports $telnet_users_hosts_ports
-
-## the default grml setup provides '..' as a completion. it does not provide
-## '.' though. If you want that too, use the following line:
-zstyle ':completion:*' special-dirs true
-
-## aliases ##
-
-if [ -f $HOME/.bash_aliases ] ; then
-. $HOME/.bash_aliases
+        print "Note: ~/.zsh/zshfunctions is unavailable."
 fi
 
-## translate
-#alias u='translate -i'
+alias ll='ls -lh -F --group-directories-first'
+alias la='ls -A --group-directories-first'
+alias ls='ls -hNCF --color=auto --group-directories-first'
+alias rm='rm -vi'
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias mkdir='mkdir -pv'
+alias dfh='df -hT'
+alias dfk='df -kT'
+alias du='du -h'
+alias duh='du -hca'
+alias path='echo -e ${PATH//:/\\n}'
+alias emacs='emacs -nw'
+alias joe='joe --wordwrap'
+alias listusb='ls -l /dev/disk/by-id/*usb*'
+alias sinfo='inxi -CSI -tcm3 -W 29803 --no-host'
+alias screenfetch='screenfetch -n'
+alias shotdate='date +%A_%s'
+alias sshot='import -window root -quality 100 ~/pictures/screen-import-$(shotdate).png'
+alias scrotpng='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%B_%e_%s.png'
+alias scrotjpg='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%a_%e_%s.jpg'
+alias kconky='killall -SIGUSR1 conky'
+alias ktint2='killall -SIGUSR1 tint2'
+alias kpolybar='killall -SIGUSR1 polybar'
+alias ufont='fc-cache -f -v'
+alias rufont='sudo fc-cache -f -v'
+alias prmount='sudo mount -o rw,umask=000'
+alias usbmnt='sudo mount -o rw,umask=000 /dev/sdc1 /media/usbhd'
+alias win7mnt='sudo mount -o rw,umask=000 /dev/sda5 /mnt/Win7'
+alias takeshot='neofetch ; scrotpng'
+alias neoinfo='neofetch --backend off --color_blocks off'
+alias getmp3='youtube-dl -x  --no-mtime --audio-format mp3'
+alias mntarch='sshfs -p 1456 doug@WILLOW-01:/mnt/public /home/doug/archlabs'
+alias umntarch='fusermount -u /home/doug/archlabs'
+alias aura='aura -n 'user''
+alias wget='wget -c'
+alias mntpublic='sshfs -p 2410 doug@BANDIT-01:/mnt/public /home/doug/bandit/public'
+alias mntdata='sshfs -p 2410 doug@BANDIT-01:/mnt/data01 /home/doug/bandit/data01'
+alias umntpublic='fusermount -u /home/doug/bandit/public'
+alias umntdata='fusermount -u /home/doug/bandit/data01'
 
-## ignore ~/.ssh/known_hosts entries
-#alias insecssh='ssh -o "StrictHostKeyChecking=no" -o "UserKnownHostsFile=/dev/null" -o "PreferredAuthentications=keyboard-interactive"'
-
-
-## global aliases (for those who like them) ##
-
-alias -g '...'='../..'
-alias -g '....'='../../..'
-alias -g BG='& exit'
-alias -g C='|wc -l'
-alias -g G='|grep'
-alias -g H='|head'
-alias -g Hl=' --help |& less -r'
-alias -g K='|keep'
-alias -g L='|less'
-alias -g LL='|& less -r'
-alias -g M='|most'
-alias -g N='&>/dev/null'
-alias -g R='| tr A-z N-za-m'
-alias -g SL='| sort | less'
-alias -g S='| sort'
-alias -g T='|tail'
-alias -g V='| vim -'
-
-## instead of global aliase it might be better to use grmls $abk assoc array, whose contents are expanded after pressing ,.
-#$abk[SnL]="| sort -n | less"
-
-## get top 10 shell commands:
-#alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-
-## Execute \kbd{./configure}
-#alias CO="./configure"
-
-## Execute \kbd{./configure --help}
-#alias CH="./configure --help"
-
-## miscellaneous code ##
-
-## Use a default width of 80 for manpages for more convenient reading
-export MANWIDTH=${MANWIDTH:-80}
-
-## Set a search path for the cd builtin
-cdpath=(.. ~)
-
-## variation of our manzsh() function; pick you poison:
-#manzsh()  { /usr/bin/man zshall |  most +/"$1" ; }
-
-## Switching shell safely and efficiently? http://www.zsh.org/mla/workers/2001/msg02410.html
-bash() {
-    NO_SWITCH="yes" command bash "$@"
-}
-restart () {
-    exec $SHELL $SHELL_ARGS "$@"
-}
-
-## Handy functions for use with the (e::) globbing qualifier (like nt)
-contains() { grep -q "$*" $REPLY }
-sameas() { diff -q "$*" $REPLY &>/dev/null }
-ot () { [[ $REPLY -ot ${~1} ]] }
-
-get_ic()
-ic_get() {
-    emulate -L zsh
-    local port
-    if [[ ! -z $1 ]] ; then
-        port=${2:-143}
-        print "querying imap server on $1:${port}...\n";
-        print "a1 capability\na2 logout\n" | nc $1 ${port}
-    else
-        print "usage:\n  $0 <imap-server> [port]"
-    fi
-}
-
-## List all occurrences of programm in current PATH
-plap() {
-    emulate -L zsh
-    if [[ $# = 0 ]] ; then
-        echo "Usage:    $0 program"
-        echo "Example:  $0 zsh"
-        echo "Lists all occurrences of program in the current PATH."
-    else
-        ls -l ${^path}/*$1*(*N)
-    fi
-}
-
-## Find out which libs define a symbol
-lcheck() {
-    if [[ -n "$1" ]] ; then
-        nm -go /usr/lib/lib*.a 2>/dev/null | grep ":[[:xdigit:]]\{8\} . .*$1"
-    else
-        echo "Usage: lcheck <function>" >&2
-    fi
-}
-
-## Download a file and display it locally
-uopen() {
-    emulate -L zsh
-    if ! [[ -n "$1" ]] ; then
-        print "Usage: uopen \$URL/\$file">&2
-        return 1
-    else
-        FILE=$1
-        MIME=$(curl --head $FILE | \
-               grep Content-Type | \
-               cut -d ' ' -f 2 | \
-               cut -d\; -f 1)
-        MIME=${MIME%$'\r'}
-        curl $FILE | see ${MIME}:-
-    fi
-}
-
-## Memory overview
-memusage() {
-    ps aux | awk '{if (NR > 1) print $5;
-                   if (NR > 2) print "+"}
-                   END { print "p" }' | dc
-}
-
-## print hex value of a number
-hex() {
-    emulate -L zsh
-    if [[ -n "$1" ]]; then
-        printf "%x\n" $1
-    else
-        print 'Usage: hex <number-to-convert>'
-        return 1
-    fi
-}
-
-## log out? set timeout in seconds...
-## ...and do not log out in some specific terminals:
-#if [[ "${TERM}" == ([Exa]term*|rxvt|dtterm|screen*) ]] ; then
-#    unset TMOUT
-#else
-#    TMOUT=1800
-#fi
-
-## associate types and extensions (be aware with perl scripts and anwanted behaviour!)
-#check_com zsh-mime-setup || { autoload zsh-mime-setup && zsh-mime-setup }
-#alias -s pl='perl -S'
-
-## ctrl-s will no longer freeze the terminal.
-#stty erase "^?"
-
-## you want to automatically use a bigger font on big terminals?
-#if [[ "$TERM" == "xterm" ]] && [[ "$LINES" -ge 50 ]] && [[ "$COLUMNS" -ge 100 ]] && [[ -z "$SSH_CONNECTION" ]] ; then
-#    large
-#fi
-
+alias doy="date '+%j'"
+alias ydoy="date '+%j%y'"
+alias yydoy="date '+%j%Y'"
+alias vdt="date '+%v'"
 alias dt="date '+%D %r'"
 alias dt0="date '+%D'"
 alias isodate="date '+%G-%m-%d'"
@@ -312,40 +137,43 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-# support colors in less
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+#------------------------------
+# Variables
+#------------------------------
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'vim'; fi)"
+export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'vim'; fi)"
 
-# report about cpu-/system-/user-time of command if running longer than
-# 5 seconds
-REPORTTIME=5
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=firefox
+else 
+    export BROWSER=w3m
+fi
 
-# watch for everyone but me and root
-watch=(notme root)
+typeset -U path
+# path=(~/bin /other/things/in/path $path[@])
+path=(~/bin ~/conky $path[@])
 
-# automatically remove duplicates from these arrays
-typeset -U path PATH cdpath CDPATH fpath FPATH manpath MANPATH
+#-----------------------------
+# Dircolors
+#-----------------------------
+LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+export LS_COLORS
 
-## Some quick Perl-hacks aka /useful/ oneliner
-#bew() { perl -le 'print unpack "B*","'$1'"' }
-#web() { perl -le 'print pack "B*","'$1'"' }
-#hew() { perl -le 'print unpack "H*","'$1'"' }
-#weh() { perl -le 'print pack "H*","'$1'"' }
-#pversion()    { perl -M$1 -le "print $1->VERSION" } # i. e."pversion LWP -> 5.79"
-#getlinks ()   { perl -ne 'while ( m/"((www|ftp|http):\/\/.*?)"/gc ) { print $1, "\n"; }' $* }
-#gethrefs ()   { perl -ne 'while ( m/href="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-#getanames ()  { perl -ne 'while ( m/a name="([^"]*)"/gc ) { print $1, "\n"; }' $* }
-#getforms ()   { perl -ne 'while ( m:(\</?(input|form|select|option).*?\>):gic ) { print $1, "\n"; }' $* }
-#getstrings () { perl -ne 'while ( m/"(.*?)"/gc ) { print $1, "\n"; }' $*}
-#getanchors () { perl -ne 'while ( m/«([^«»\n]+)»/gc ) { print $1, "\n"; }' $* }
-#showINC ()    { perl -e 'for (@INC) { printf "%d %s\n", $i++, $_ }' }
-#vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
-#vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
+#------------------------------
+# ShellFuncs
+#------------------------------
+# -- coloured manuals
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
 
 #------------------------------
 # Prompt
@@ -390,4 +218,4 @@ setprompt
 
 #prompt=[%l]-[%d]-%#
 
-## END OF FILE #################################################################
+# neofetch
