@@ -1,50 +1,17 @@
-juiced -d
+thunar
+firefox
+yad color
 yad --font
 st
-xfce4-power-manager
-yad --notebook
-yad --print
-yad --entry
-yad --icons
-oomox
-oomox-gui
-kitty
-commpton
 emacs
-urxvtd
-basilisk
-basilisk --browser
-spacefm
-rofi-logout
-connman-gtk
-filezilla
-sakura
-geany
-lxappearance
-thunderbird
-xfce4-terminal --drop-down
-xfc4-terminal
-connman-gtk --tray
-qutebrowser
-thunar
-wmexit.sh
-xfce4-terminal
-compton
-jgmneu_run
-jgmenu_run
-vala-panel
-xterm
-firefox
-pcmanfm
-cmst
-xkill
-vivaldi
-gnome-mpv
-smplayer
-vlc
-leafpad
-gcolor2
-galculator
-xcalc
-slock
 tint2
+compton
+sakura
+gcolor2
+slock
+xcalc
+xtern -e tmux
+xterm
+yad --calendar
+lxappearance
+vlc

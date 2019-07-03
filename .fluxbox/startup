@@ -4,13 +4,23 @@
 #
 # Lines starting with a '#' are ignored.
 
+# moved to ~/.xprofile
+#
+pkill -x sxhkd &
+#pkill -x conky &
+#pkill -x juiced &
+#pkill -x slstatus &
+
 # Change your keymap:
 #xmodmap "$HOME/.Xmodmap"
 #xrdb -l "$HOME/.Xresources"
 
 # background and wallpaper
 #fbsetroot -solid "#333366" &
-#fbsetbg -c -r "$HOME/wallpaper/" &
+fbsetbg -c -r "$HOME/wallpaper/" &
+
+# number pad
+#numlockx on &
 
 # battery monitor
 #juiced -d
@@ -21,13 +31,14 @@
 
 # panels
 (sleep 2s && "$HOME/bin/fboxbar.sh") &
-# (sleep 2s && "$HOME/bin/tint2bar.sh") &
+#(sleep 2s && tint2) &
 
+# conky
 # (sleep 2s && conky -dc "$HOME/.conky10fboxrc") &
 # (sleep 2s && "$HOME/bin/ConkyFluxbox.sh") &
 
-# (sleep 2s && connman-gtk --tray) &
-# (sleep 2s && cmst -m -i Vibrantly-Simple-Dark) &
+# network setup
+# (sleep 2s && cmst -m -i Adwaita) &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

@@ -14,36 +14,37 @@
 
 # If you want to use XFCE config tools...
 #
-# xsettingsd &
-# xfdesktop &
+#xfce-mcs-manager &
 
-killall -q sxhkd
-killall -q juiced
+pkill -x sxhkd &
+pkill -x poybar &
 
+# wallpaper
+# "$HOME/.fehbg" &
+fbsetbg -c -r /mnt/public/images/dark_wallpaper/ &
+
+
+# conky system information
+# Terminate already running conky instances
+killall -q conky
+
+# Wait until the processes have been shut down
+# while pgrep -u $UID -x conky >/dev/null; do sleep 1; done
+
+# conky -d -c "$HOME/conky/conkyclockrc" &
+conky -p2 -d -c "$HOME/.conky10wifirc"
+
+# tint2 panel
+# Terminate already running tint2 instances
 killall -q tint2
+
+# Wait until the processes have been shut down
 while pgrep -u $UID -x tint2 >/dev/null; do sleep 1; done
 
-# battery monitor
-juiced -d
+# tint2 &
+tint2 -c "$HOME/.config/tint2/tint2obxrc"
 
-xrdb -l "$HOME/.Xresources" &
-xmodmap "$HOME/.Xmodmap" &
-numlockx on &
-
-# background and wallpaper
-xsetroot -solid darkblue &
-# fbsetbg -c -r "$HOME/wallpaper/" &
-"$HOME/.fehbg" &
-
-# panel system info
-# conky
-# (sleep 4s && conky -dc "$HOME/conky/conkyhorizrc") &
-
-#polybar
-#(sleep 2s && "$HOME/bin/obxbar.sh") &
-
-# tint2
-(sleep 2s && "$HOME/bin/startpanel.sh") &
+# psutil as system info
+# tint2 -c "$HOME/.config/tint2/tint2darkrc" &
 
 exit 0;
-

@@ -81,15 +81,15 @@ conky.config = {
 	gap_y = 0,
 
 -- -- doesn't seem to work when docked in the slit or as panel --#
-	-- lua_load = '~/conky/transbg.lua',
-	-- lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x070707 0.55',
+	lua_load = '~/conky/transbg.lua',
+	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x070707 0.55',
 
 -- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \
 
 };
 
 conky.text = [[
-${goto 20}Uptime:${offset 8}${uptime_short}\
+${goto 12}Uptime:${offset 8}${uptime_short}\
 ${goto 360}Core0:${offset 8}${if_match ${hwmon 1 temp 1}<=50}${color7}${else}${if_match ${hwmon 1 temp 1}<=70}${color8}${else}${if_match ${hwmon 1 temp 1}>70}${color9}${endif}${endif}${endif}${hwmon 1 temp 1}${offset 2}°C${color}${offset 24} \
 CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 24}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}${offset 24} \
 Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \

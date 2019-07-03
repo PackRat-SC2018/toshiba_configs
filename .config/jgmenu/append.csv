@@ -1,4 +1,9 @@
 ^sep()
-Lock Screen,slock,stock_lock
-Suspend,gksudo zzz,xscreensaver
-Void Logout,void-logout,gnome-logout
+Lock Screen,slock,system-lock-screen
+Exit,^checkout(exit),system-shutdown
+
+exit,^tag(exit)
+Exit to prompt,session-logout || pkill -15 -t tty"$XDG_VTNR" Xorg,system-log-out
+Suspend,`sudo zzz`,system-log-out
+Reboot,`sudo reboot`,system-reboot
+Poweroff,`sudo poweroff`,system-shutdown

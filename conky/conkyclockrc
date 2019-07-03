@@ -4,20 +4,21 @@ conky.config = {
 --#############################################
 	background = true,
 	use_xft = true,
-	font = 'Ubuntu:regular:size=12',	
+	font = 'Fira Code:regular:size=11',
 	xftalpha = 1.0,
-	update_interval = 1.0,
---	update_interval_on_battery = 30.0,
+	update_interval = 3.0,
+	update_interval_on_battery = 30.0,
 	total_run_times = 0,
 
 	own_window = true,
-	own_window_colour = '#141414',
+	own_window_colour = '#131313',
 	own_window_transparent = true,
-	-- own_window_type = 'dock',
-	own_window_type = 'desktop' ,
+	-- own_window_type = 'normal/desktop/override/panel/dock'
+    own_window_type = 'desktop',
+    -- own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-	own_window_class = 'Conkytzdata',
-	own_window_title = 'Conkytzdata',
+	own_window_class = 'Conky',
+	own_window_title = 'Conky',
 --#############################################
 -- Compositing tips:
 -- Conky can play strangely when used with
@@ -25,17 +26,10 @@ conky.config = {
 -- following to work well, but your mileage
 -- may vary. Comment/uncomment to suit.
 --#############################################
---#
-	-- own_window_argb_visual = true,
-	-- own_window_argb_value = 2,
 
---# xcompmgr
--- own_window_argb_visual yes
--- own_window_argb_value 120
+ -- own_window_argb_visual = true,
+ --own_window_argb_value 2
 
---# cairo-compmgr
---own_window_type desktop
---own_window_argb_visual yes
 --#############################################
 
 	no_buffers = true,
@@ -45,21 +39,22 @@ conky.config = {
 	short_units = true,
 	imlib_cache_size = 0,
 	pad_percents = 1,
+	-- max_specials = '2048',
 	max_user_text = 3200,
 	text_buffer_size = 1024,
+	no_buffers = true,
 	if_up_strictness = 'address',
-	-- if_up_strictness = 'up',
 	double_buffer = true,
 	draw_shades = false,
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = false,
-	border_inner_margin = 1,
+	border_inner_margin = 10,
 	border_outer_margin = 1,
 
+	default_color = '#C3C4B8',
 	-- default_color = '#DAC79C',
-	default_color = '#010101',
-	default_shade_color = '#000000',
+	default_shade_color = '#090909',
 	default_outline_color = '#828282',
 	color0 = '#FFFFFF',
 	color1 = '#000000',
@@ -68,21 +63,37 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
-	color7 = '#00CDCD',-- - cyan3
+	-- color7 = '#00CDCD',-- - cyan3
+	color7 = '#C3C4B8',
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
-	
-	minimum_width = 400, minimum_height = 0,
-	maximum_width = 400,
-	alignment = 'tr',
-	gap_x = 16,
-	gap_y = 64,
+
+	minimum_width = 240, minimum_height = 0,
+	maximum_width = 240,
+	alignment = 'top_right',
+	gap_x = 20,
+	gap_y = 20,
+
+-- -- doesn't seem to work when docked in the slit --#
+	-- lua_load = '~/conky/transbg.lua',
+	-- lua_draw_hook_pre = 'draw_bg 8 0 0 0 0 0x151617 0.22',
+
+-- Mem:${offset 10}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 32}\
+
+-- ${goto 264}Core0:${offset 10}${if_match ${hwmon 0 temp1}<=50}${color7}${else}${if_match ${hwmon 0 temp1}<=70}${color8}${else}${if_match ${hwmon 0 temp1}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp1}${offset 2}°C${color}${offset 16} \
+-- Core1:${offset 10}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}${offset 16} \
 
 };
 
 conky.text = [[
-${font Inconsolata LGC Markup:regular:size=32}${time %R}${font}
-${font Inconsolata LGC Markup:regular:size=16}${time %A %e %B}${font}
-${if_up enp2s0}ETH0:${offset 10}${upspeedf}${offset 10}${downspeedf}${endif}
-${if_up wlp1s0}Wifi:${offset 10}${wireless_bitrate wlp1s0}${offset 10}${wireless_link_qual_perc wlp1s0}%${endif}
+${alignc}${font Fira Code:regular:size=20}${time %k}${font Fira Code:regular:size=16}${time :%M}
+${goto 85}${font Fira Code:regular:size=12}${time %a %e %b}${font}${voffset 24}${font}
+Uptime:${alignr}${uptime_short}
+${voffset 10}Mem:${alignr}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
+${voffset 10}CPU:${alignr}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}
+${alignr}${loadavg}
+${voffset 10}Batt:${goto 100}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${alignr}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
+${voffset 10}Net:${goto 100}${if_up wlp1s0}${wireless_bitrate wlp1s0}${endif}${alignr}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}
+${goto 100}${if_up wlp1s0}U:${alignr}${upspeedf wlp1s0}
+${goto 100}D:${alignr}${downspeedf wlp1s0}${endif}${color}
 ]];

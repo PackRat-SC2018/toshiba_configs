@@ -16,7 +16,7 @@
 #     session.menuFile: ~/.fluxbox/my-menu
 [begin] (Fluxbox-1.3.7)
 [encoding] {UTF-8}
-      [exec] (Run) {rofi-apps}
+      [exec] (Run) {rofi -show run}
 [separator]
       [exec] (File Manager) {thunar}
       [exec] (Terminal) {st}
@@ -44,7 +44,7 @@
       [exec] (FileZilla) {filezilla}
       [exec] (Transmission) {transmission-gtk}
       [exec] (HexChat) {hexchat}
-      [exec] (Connman) {cmst -i Vibrantly-Simple-Dark}
+      [exec] (Connman) {cmst -i Adwaita}
 [separator]
 [submenu] (Office)
       [exec] (Writer) {libreoffice --writer}
@@ -59,12 +59,13 @@
       [exec] (Geeqie) {geeqie}
       [exec] (Zathura) {zathura %U}
       [exec] (LXappearance) {lxappearance}
+      [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down ~/wallpaper}
       [exec] (Screenshot JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
       [exec] (Screenshot PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}      
 [end]
 [submenu] (Media)
       [exec] (Audacious) {audacious}
-      [exec] (Gnome-mpv) {gnome-mpv}
+      [exec] (Vlc) {vlc}
       [exec] (mpv) {mpv --player-operation-mode=pseudo-gui}
       [exec] (Asunder) {asunder}
       [exec] (Xfburn) {xfburn}

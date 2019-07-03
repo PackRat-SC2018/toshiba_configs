@@ -140,8 +140,8 @@ SAVEHIST=1000
 #------------------------------
 # Variables
 #------------------------------
-export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'vim'; fi)"
-export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'vim'; fi)"
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'jmacs'; fi)"
+export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'jmacs'; fi)"
 
 if [ -n "$DISPLAY" ]; then
     export BROWSER=firefox

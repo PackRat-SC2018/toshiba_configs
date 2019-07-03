@@ -1,66 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 	<menu id="root-menu" label="Openbox 3">
-		<separator label="Void Linux"/>
-		<item label="Run .....">
+		<separator label="Openbox" />
+		<item label="Run Application .....">
 			<action name="Execute">
-				<execute>rofi -show</execute>
+				<execute>rofi -show run</execute>
 			</action>
 		</item>
 		<separator/>
-		<item label="File Manager">
-			<action name="Execute">
-				<execute>pcmanfm</execute>
-			</action>
-		</item>
-		<item label="Sakura">
+		<item label="Terminal">
 			<action name="Execute">
 				<execute>sakura</execute>
 			</action>
 		</item>
-		<item label="URxvt">
+		<item label="File Manager">
 			<action name="Execute">
-				<execute>urxvt</execute>
+				<execute>thunar</execute>
 			</action>
 		</item>
-		<item label="Text Editor">
+		<item label="Sublime">
 			<action name="Execute">
 				<execute>subl3</execute>
 			</action>
 		</item>
-		<menu id="root-menu-381743" label="Terminals">
-			<item label="Simple Terminal">
-				<action name="Execute">
-					<execute>st</execute>
-				</action>
-			</item>
-			<item label="URxvt">
-				<action name="Execute">
-					<execute>urxvt</execute>
-				</action>
-			</item>
-			<item label="XTerm">
-				<action name="Execute">
-					<execute>xterm</execute>
-				</action>
-			</item>
-			<item label="sakura">
-				<action name="Execute">
-					<execute>sakura</execute>
-				</action>
-			</item>
-			<item label="sakura drop down">
-				<action name="Execute">
-					<execute>sakura --drop-down</execute>
-				</action>
-			</item>
-			<item label="Sakura">
-				<action name="Execute">
-					<execute>sakura</execute>
-				</action>
-			</item>
-		</menu>
-		<separator/>
 		<item label="Firefox">
 			<action name="Execute">
 				<execute>firefox</execute>
@@ -76,21 +38,50 @@
 				<execute>gimp</execute>
 			</action>
 		</item>
-		<item label="Screenshot - png">
-			<action name="Execute">
-				<execute>scrot -q 100 -cd 5 ~/pictures/sshot-%T_%F.png</execute>
-			</action>
-		</item>
-		<item label="Screenshot - jpg">
-			<action name="Execute">
-				<execute>scrot -q 100 -cd 5 ~/pictures/sshot-%T_%F.jpg</execute>
-			</action>
-		</item>
 		<separator/>
-		<menu id="root-menu-165723" label="Internet">
-			<item label="Basilisk">
+		<menu id="root-menu-882017" label="Terminals">
+			<item label="Sakura">
 				<action name="Execute">
-					<execute>basilisk</execute>
+					<execute>sakura</execute>
+				</action>
+			</item>
+			<item label="Simple Terminal">
+				<action name="Execute">
+					<execute>st</execute>
+				</action>
+			</item>
+			<item label="Uxterm">
+				<action name="Execute">
+					<execute>uxterm</execute>
+				</action>
+			</item>
+			<item label="Xterm">
+				<action name="Execute">
+					<execute>xterm</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-491956" label="Editors">
+			<item label="Sublime">
+				<action name="Execute">
+					<execute>subl3</execute>
+				</action>
+			</item>
+			<item label="Emacs">
+				<action name="Execute">
+					<execute>emacs</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-81850" label="Internet">
+			<item label="Firefox">
+				<action name="Execute">
+					<execute>firefox</execute>
+				</action>
+			</item>
+			<item label="Thunderbird">
+				<action name="Execute">
+					<execute>thunderbird</execute>
 				</action>
 			</item>
 			<item label="FileZilla">
@@ -104,10 +95,69 @@
 				</action>
 			</item>
 		</menu>
-		<menu id="root-menu-615420" label="Multimedia">
-			<item label="Geeqie">
+		<menu id="root-menu-841655" label="Office">
+			<item label="LibreOffice Writer">
 				<action name="Execute">
-					<execute>geeqie</execute>
+					<execute>libreoffice --writer</execute>
+				</action>
+			</item>
+			<item label="LibreOffice Calc">
+				<action name="Execute">
+					<execute>libreoffice --calc</execute>
+				</action>
+			</item>
+			<item label="LibreOffice Draw">
+				<action name="Execute">
+					<execute>libreoffice --draw</execute>
+				</action>
+			</item>
+			<item label="LibreOffice Impress">
+				<action name="Execute">
+					<execute>libreoffice --impress</execute>
+				</action>
+			</item>
+			<item label="Xcalc">
+				<action name="Execute">
+					<execute>xcalc</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-571515" label="Graphics">
+			<item label="Gimp">
+				<action name="Execute">
+					<execute>gimp</execute>
+				</action>
+			</item>
+			<item label="Gcolor2">
+				<action name="Execute">
+					<execute>gcolor2</execute>
+				</action>
+			</item>
+			<item label="Feh Wallpaper">
+				<action name="Execute">
+					<execute>feh -g 800x450 --scale-down ~/wallpaper</execute>
+				</action>
+			</item>
+			<item label="Zathura">
+				<action name="Execute">
+					<execute>zathura</execute>
+				</action>
+			</item>
+			<item label="Guvcview">
+				<action name="Execute">
+					<execute>guvcview</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-171418" label="Multimedia">
+			<item label="Audacious">
+				<action name="Execute">
+					<execute>audacious</execute>
+				</action>
+			</item>
+			<item label="Asunder">
+				<action name="Execute">
+					<execute>asunder</execute>
 				</action>
 			</item>
 			<item label="Vlc">
@@ -115,68 +165,9 @@
 					<execute>vlc</execute>
 				</action>
 			</item>
-			<item label="Mpv">
-				<action name="Execute">
-					<execute>mpv --player-operation-mode=pseudo-gui</execute>
-				</action>
-			</item>
-			<item label="Audacious">
-				<action name="Execute">
-					<execute>audacious</execute>
-				</action>
-			</item>
 			<item label="Xfburn">
 				<action name="Execute">
 					<execute>xfburn</execute>
-				</action>
-			</item>
-			<item label="Wallpaper">
-				<action name="Execute">
-					<execute>nitrogen</execute>
-				</action>
-			</item>
-			<item label="Appearance">
-				<action name="Execute">
-					<execute>lxappearance</execute>
-				</action>
-			</item>
-		</menu>
-		<menu id="root-menu-2539" label="Office">
-			<item label="Document">
-				<action name="Execute">
-					<execute>libreoffice --writer</execute>
-				</action>
-			</item>
-			<item label="Spreadsheet">
-				<action name="Execute">
-					<execute>libreoffice --calc</execute>
-				</action>
-			</item>
-			<item label="Qpdfview">
-				<action name="Execute">
-					<execute>qpdfview</execute>
-				</action>
-			</item>
-			<item label="Calculator">
-				<action name="Execute">
-					<execute>galculator</execute>
-				</action>
-			</item>
-		</menu>
-		<menu id="root-menu-353439" label="Graphics">
-			<item label="Inkscape">
-				<action name="Execute">
-					<execute>inkscape</execute>
-				</action>
-			</item>
-			<item label="Appearance">
-				<action name="Execute">
-					<execute>lxappearance</execute>
-				</action>
-			</item>
-			<item label="Wallpaper">
-				<action name="Execute">
-					<execute>nitrogen</execute>
 				</action>
 			</item>
 		</menu>
@@ -191,6 +182,7 @@
 				<execute>obmenu</execute>
 			</action>
 		</item>
+		<separator/>
 		<item label="Reconfigure">
 			<action name="Reconfigure"/>
 		</item>
@@ -200,12 +192,6 @@
 		<item label="Log Out">
 			<action name="Exit">
 				<prompt>yes</prompt>
-			</action>
-		</item>
-		<separator/>
-		<item label="System Logout">
-			<action name="Execute">
-				<execute>void-logout</execute>
 			</action>
 		</item>
 	</menu>

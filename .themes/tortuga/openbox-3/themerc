@@ -1,0 +1,145 @@
+#
+# openbox theme - tortuga
+# created by PackRat
+# creation date - 06-24-2019
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details see <http://www.gnu.org/licenses/>.
+#
+#----------------------------------------------------------------------------------------
+
+# Window geometry
+padding.width: 2
+padding.height: 2
+border.width: 1
+window.client.padding.width: 0
+window.client.padding.height: 0
+window.handle.width: 3
+
+#Menu geometry
+menu.border.width: 1
+menu.overlap.x: 9
+menu.overlap.y: 9
+
+### Fonts
+window.active.label.text.font:shadow=n:shadowtint=70:shadowoffset=1
+window.inactive.label.text.font:shadow=n:shadowtint=20:shadowoffset=1
+menu.items.font:shadow=n:shadowtint=70
+menu.title.text.font:shadow=n:shadowtint=70
+
+# Border colors
+window.active.border.color: #121212
+window.inactive.border.color: #121212
+menu.border.color: #121212
+window.active.client.color: #E8E8E8
+window.inactive.client.color: #E8E8E8
+
+# Menu settings
+menu.title.bg: Raised
+menu.title.bg.color: #60801F
+menu.title.bg.colorTo: #60801F
+menu.title.text.color: #F0F0FF
+menu.title.text.justify: Center
+
+menu.items.bg: Raised
+menu.items.bg.color: #F0F0FF
+menu.items.text.color: #292929
+menu.items.disabled.text.color: #517A50
+menu.items.active.disabled.text.color: #517A50
+
+menu.items.active.bg: Raised
+menu.items.active.bg.color: #60801F
+menu.items.active.bg.colorTo: #60801F
+menu.items.active.bg.border.color: #60801F
+menu.items.active.text.color: #F0F0FF
+
+
+# Window title justification
+window.label.text.justify: Left
+
+# Window settings (focused)
+window.active.title.bg: Raised Splitvertical Gradient
+window.active.title.bg.color: #739925
+window.active.title.bg.colorTo: #60801F
+
+window.active.label.bg: Parentrelative
+window.active.label.text.color: #F0F0FF
+
+window.active.handle.bg: Flat
+window.active.handle.bg.color: #D4D4D4
+window.active.handle.bg.colorTo: #7d925d
+
+window.active.grip.bg: Flat
+window.active.grip.bg.color: #4D6619
+window.active.grip.bg.colorTo: #4D6619
+
+window.active.button.unpressed.bg: Parentrelative Border
+window.active.button.unpressed.bg.color: #65744e
+window.active.button.unpressed.bg.colorTo: #5b6846
+window.active.button.unpressed.bg.border.color: #434343
+window.active.button.unpressed.image.color: #F0F0FF
+
+window.active.button.pressed.bg: Sunken Border
+window.active.button.pressed.bg.color: #839461
+window.active.button.pressed.bg.colorTo: #839461
+window.active.button.pressed.bg.border.color: #839461
+window.active.button.pressed.image.color: #F0F0FF
+
+window.active.button.disabled.bg: Parentrelative Border
+window.active.button.disabled.bg.color: #373d2b
+window.active.button.disabled.bg.colorTo: #333828
+window.active.button.disabled.bg.border.color: #434343
+window.active.button.disabled.image.color: #AFB89E
+
+window.active.button.toggled.bg: Parentrelative Border
+window.active.button.toggled.bg.color: #65744e
+window.active.button.toggled.bg.colorTo: #5b6846
+window.active.button.toggled.bg.border.color: #434343
+window.active.button.toggled.image.color: #AFB89E
+
+# Window settings (unfocused)
+window.inactive.title.bg: Raised Splitvertical Gradient
+window.inactive.title.bg.color: #201F1F
+window.inactive.title.bg.colorTo: #1A1919
+
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #A0A0A0
+
+window.inactive.handle.bg: Flat
+window.inactive.handle.bg.color: #202020
+window.inactive.handle.bg.colorTo: #202020
+
+window.inactive.grip.bg: Flat
+window.inactive.grip.bg.color: #202020
+window.inactive.grip.bg.colorTo: #202020
+
+window.inactive.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.bg.color: #201F1F
+window.inactive.button.unpressed.bg.colorTo: #1A1919
+window.inactive.button.unpressed.bg.border.color: #8f8173
+window.inactive.button.unpressed.image.color: #A0A0A0
+
+window.inactive.button.pressed.bg: Parentrelative
+window.inactive.button.pressed.bg.color: #201F1F
+window.inactive.button.pressed.bg.colorTo: #1A1919
+window.inactive.button.pressed.bg.border.color: #8f8173
+window.inactive.button.pressed.image.color: #A0A0A0
+
+window.inactive.button.disabled.bg: Parentrelative
+window.inactive.button.disabled.bg.color: #201F1F
+window.inactive.button.disabled.bg.colorTo: #1A1919
+window.inactive.button.disabled.bg.border.color: #8f8173
+window.inactive.button.disabled.image.color: #A0A0A0
+
+window.inactive.button.toggled.bg: Parentrelative
+window.inactive.button.toggled.bg.color: #201F1F
+window.inactive.button.toggled.bg.colorTo: #1A1919
+window.inactive.button.toggled.bg.border.color: #8f8173
+window.inactive.button.toggled.image.color: #A0A0A0

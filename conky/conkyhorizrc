@@ -4,9 +4,9 @@ conky.config = {
 --#############################################
 	background = true,
 	use_xft = true,
-	font = 'Fira Code:Retina:size=10',
+--	font = 'Office Code Pro:Medium:size=10',
 --	font = 'Ubuntu:Medium:size=10',
---	font = 'Inconsolata LGC:regular:size=10',
+	font = 'Inconsolata LGC:regular:size=10',
 	xftalpha = 1.0,
 	update_interval = 1.0,
 	update_interval_on_battery = 3.0,
@@ -70,11 +70,12 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
-	color7 = '#DAC79C',-- - cyan3
+	-- color7 = '#00CDCD',-- - cyan3
+	color7 = '#DAC79C',
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
-	minimum_width = 1600, minimum_height = 20,
+	minimum_width = 1600, minimum_height = 18,
 	maximum_width = 1600,
 	alignment = 'top_middle',
 	gap_x = 0,
@@ -82,14 +83,14 @@ conky.config = {
 
 -- -- doesn't seem to work when docked in the slit or as panel --#
 	lua_load = '~/conky/transbg.lua',
-	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x070707 0.70',
+	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x070707 0.60',
 
 -- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \
 
 };
 
 conky.text = [[
-${voffset 2}${goto 20}Uptime:${offset 8}${uptime_short}\
+${goto 20}[${desktop}]${offset 12}Uptime:${offset 8}${uptime_short}\
 ${goto 360}Core0:${offset 8}${if_match ${hwmon 1 temp 1}<=50}${color7}${else}${if_match ${hwmon 1 temp 1}<=70}${color8}${else}${if_match ${hwmon 1 temp 1}>70}${color9}${endif}${endif}${endif}${hwmon 1 temp 1}${offset 2}°C${color}${offset 24} \
 CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 24}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}${offset 24} \
 Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \

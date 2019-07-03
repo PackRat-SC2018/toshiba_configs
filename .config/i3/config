@@ -43,7 +43,7 @@ exec pkill -q sxhkd
 # load urxvtd
 # exec urxvtd -q -o -f &
 
-#exec fbsetbg -c -r "$HOME/wallpaper/"
+exec fbsetbg -c -r "$HOME/wallpaper/"
 # exec nitrogen --restore
 # exec "$HOME/.fehbg"
 
@@ -85,9 +85,9 @@ default_floating_border pixel 1
 hide_edge_borders both
 
 # window colours:           border     background     text
-client.focused              #913F53    #913F53        #FEFEFE
-client.focused_inactive     #3E3B5C    #3E3B5C        #CFCFCF
-client.unfocused            #2B2B2B    #2B2B2B        #CFCFCF
+client.focused              #913F53    #913F53        #CECECE 
+client.focused_inactive     #3E3B5C    #3E3B5C        #CECECE
+client.unfocused            #2B2B2B    #2B2B2B        #CECECE
 client.urgent               #131313    #E03043        #FFFFFF
 
 # font for window titles. ISO 10646 = Unicode
@@ -312,13 +312,13 @@ bar {
        font pango: SF Mono Regular 11
        colors {
           background #222222
-          statusline #CFCFCF
-          focused_workspace    #865662 #865662 #FFFFFF
-          active_workspace		#3C3C3C #3C3C3C	#CFCFCF
-          inactive_workspace   #313131 #313131 #CFCFCF
-          urgent_workspace		#E03043	#E03043	#FFFFFF
+          statusline #CECECE
+          focused_workspace	#865662 #865662 #CECECE
+          active_workspace	#3C3C3C #3C3C3C	#CECECE
+          inactive_workspace	#313131 #313131 #CECECE
+          urgent_workspace	#E03043 #E03043	#FFFFFF
      }
 #      status_command "$HOME/.config/i3/i3conkybar.sh"
-#      status_command "i3status"
+#      status_command "slstatus -s"
        status_command i3blocks
 }

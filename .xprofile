@@ -12,18 +12,43 @@ killall -q sxhkd &
 killall -q polybar &
 killall -q juiced &
 
+# turn on numblock/numberpad by default
 numlockx on &
 
+# screen blanking
+# examples from void wiki
+#xset s off 	#Disable screen saver blanking
+#xset s 3600 3600 	#Change blank time to 1 hour
+#xset -dpms 	#Turn off DPMS
+#xset s off -dpms 	#Disable DPMS and prevent screen from blanking
+#xset dpms force off 	#Turn off screen immediately
+#xset dpms force standby 	#Standby screen
+#xset dpms force suspend 	#Suspend screen 
+#
+
+# bell volume
+xset b 50
+
+# blank screen after an hour
 xset s 3600 3600 &
-xset b 33
-xset dpms 3600 3700 4000
+
+# dpms - seconds to standby/suspend/off
+# xset -dpms
+xset dpms 5400 6300 7200
+
+# mouse acceleration
 xset m 1/1
 
 # battery monitor
 (sleep 2s && juiced -d) &
 
 # background
-xsetroot -solid darkblue &
-fbsetbg -c -r "$HOME/wallpaper/" &
+xsetroot -solid "#130F4B" &
 
-PATH=$PATH:~/conky:./
+# uncomment to set wallpaper for all window manager logins 
+# fbsetbg -c -r "$HOME/wallpaper/" &
+# "$HOME/.behbg" &
+# nitrogen --restore &
+
+# PATH set in .profile when logging in; uncomment if using display manager
+#PATH=$PATH:~/conky:./

@@ -11,7 +11,7 @@ print_info() {
     info "Kernel" kernel
     info "Uptime" uptime
     info "Packages" packages
-    info "Shell" shell
+#    info "Shell" shell
 #    info "Resolution" resolution
     info "DE" de
     info "WM" wm
@@ -745,7 +745,7 @@ scrot="off"
 # Default: 'auto'
 # Values:  'auto' 'cmd -flags'
 # Flag:    --scrot_cmd
-scrot_cmd="auto"
+scrot_cmd="scrot -b -c -d 5 -q 100 ~/pictures/"%m-%d-%s_scrot.png""
 
 # Screenshot Filename
 # What to name the screenshots
