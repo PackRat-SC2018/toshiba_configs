@@ -7,7 +7,7 @@
 # moved to ~/.xprofile
 #
 pkill -x sxhkd &
-#pkill -x conky &
+pkill -x conky &
 #pkill -x juiced &
 #pkill -x slstatus &
 

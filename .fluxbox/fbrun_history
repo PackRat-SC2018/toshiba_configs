@@ -5,13 +5,28 @@ yad --font
 st
 emacs
 tint2
-compton
-sakura
-gcolor2
-slock
-xcalc
 xtern -e tmux
 xterm
 yad --calendar
-lxappearance
 vlc
+gcolor2
+mate-terminal
+urxvt
+xfce4-screenshooter
+galculator
+pavucontrol
+sxiv -t ~/wallpaper
+pcmanfm-qt
+filezilla
+xfce4-terminal --drop-down
+xfce4-panel
+pcmanfm
+rofi-logout
+lxterminal
+sakura
+slock
+asunder
+compton
+audacious
+lxappearance
+xcalc

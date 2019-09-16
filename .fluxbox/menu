@@ -19,7 +19,7 @@
       [exec] (Run) {rofi -show run}
 [separator]
       [exec] (File Manager) {thunar}
-      [exec] (Terminal) {st}
+      [exec] (Terminal) {uxterm}
       [exec] (Sublime) {subl3}
 [submenu] (Terminals)
       [exec] (XTerm) {xterm}
@@ -36,7 +36,6 @@
       [exec] (Sublime) {subl3}
       [exec] (Emacs) {emacs}
       [exec] (Geany) {wmctrl -a geany || geany}
-      [exec] (Leafpad) {leafpad}
 [end]
 [separator]      
       [exec] (Firefox) {wmctrl -a firefox || firefox}
@@ -59,6 +58,7 @@
       [exec] (Geeqie) {geeqie}
       [exec] (Zathura) {zathura %U}
       [exec] (LXappearance) {lxappearance}
+      [exec] (Wallpaper) {sxiv -t "$HOME/wallpaper/"}
       [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down ~/wallpaper}
       [exec] (Screenshot JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
       [exec] (Screenshot PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}      
