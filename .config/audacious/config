@@ -1,0 +1,20 @@
+
+[alsa]
+mixer-element=Master
+
+[audgui]
+filebrowser_win=784,357,800,480
+filesel_path=/mnt/public/music/Cowboy Junkies - Black Eyed Man
+playlist_export_win=16,29,768,612
+playlist_path=file:///mnt/public/music/Tab_Benoit-Nice_and_Warm
+
+[gtkui]
+column_widths=10,275,175,10,175,175,10,100,36,10,275,275,275,10,275
+player_width=800
+player_x=784
+player_y=357
+
+[gtkui-layout]
+item0_name=Playlist Manager
+item0_pos=-1,16,29,764,608
+item_count=1

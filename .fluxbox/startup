@@ -4,10 +4,10 @@
 #
 # Lines starting with a '#' are ignored.
 
-# moved to ~/.xprofile
+# moved to ~/.Xprofile
 #
-pkill -x sxhkd &
-pkill -x conky &
+#pkill -x sxhkd &
+#pkill -x conky &
 #pkill -x juiced &
 #pkill -x slstatus &
 
@@ -16,22 +16,24 @@ pkill -x conky &
 #xrdb -l "$HOME/.Xresources"
 
 # background and wallpaper
-#fbsetroot -solid "#333366" &
 fbsetbg -c -r "$HOME/wallpaper/" &
 
 # number pad
 #numlockx on &
 
 # battery monitor
-#juiced -d
+# juiced -d
+# xfce4-power-manager &
+# cbatticon &
+conky -p 3 -d -c $HOME/conky/conkybatteryrc &
 
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
 
 # panels
-(sleep 2s && "$HOME/bin/fboxbar.sh") &
-#(sleep 2s && tint2) &
+# (sleep 2s && "$HOME/bin/fboxbar.sh") &
+# (sleep 2s && tint2) &
 
 # conky
 # (sleep 2s && conky -dc "$HOME/.conky10fboxrc") &

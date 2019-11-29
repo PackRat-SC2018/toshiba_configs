@@ -16,25 +16,20 @@
 #
 #xfce-mcs-manager &
 
-pkill -x sxhkd &
-pkill -x poybar &
+# set wallpaper
+fbsetbg -c -r "$HOME/wallpaper/" &
 
-# wallpaper
-# "$HOME/.fehbg" &
-fbsetbg -c -r /mnt/public/images/dark_wallpaper/ &
-
-
-# conky system information
+# conky system information ================
 # Terminate already running conky instances
 killall -q conky
 
 # Wait until the processes have been shut down
 # while pgrep -u $UID -x conky >/dev/null; do sleep 1; done
 
-# conky -d -c "$HOME/conky/conkyclockrc" &
-conky -p2 -d -c "$HOME/.conky10wifirc"
+# start conky
+# (sleep 2s && conky -d -c "$HOME/.conky10wifirc") &
 
-# tint2 panel
+# tint2 panel ============================
 # Terminate already running tint2 instances
 killall -q tint2
 
@@ -42,9 +37,9 @@ killall -q tint2
 while pgrep -u $UID -x tint2 >/dev/null; do sleep 1; done
 
 # tint2 &
-tint2 -c "$HOME/.config/tint2/tint2obxrc"
+(sleep 2s && tint2 -c "$HOME/.config/tint2/tint2obxrc") &
 
-# psutil as system info
+# or psutil as system info
 # tint2 -c "$HOME/.config/tint2/tint2darkrc" &
 
 exit 0;

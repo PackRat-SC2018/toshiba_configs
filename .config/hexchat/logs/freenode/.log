@@ -1,0 +1,22 @@
+**** BEGIN LOGGING AT Wed Jun 26 18:28:10 2019
+
+Jun 26 18:28:10 *	Connecting to chat.freenode.net (130.239.18.119:6697)
+Jun 26 18:28:11 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 26 18:28:11 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 26 18:28:11 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Jun 26 18:28:11 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Jun 26 18:28:11 *	* Subject: /CN=leguin.freenode.net
+Jun 26 18:28:11 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Jun 26 18:28:12 *	* Certification info:
+Jun 26 18:28:12 *	  Subject:
+Jun 26 18:28:12 *	    CN=leguin.freenode.net
+Jun 26 18:28:12 *	  Issuer:
+Jun 26 18:28:12 *	    C=US
+Jun 26 18:28:12 *	    O=Let's Encrypt
+Jun 26 18:28:12 *	    CN=Let's Encrypt Authority X3
+Jun 26 18:28:12 *	  Public key algorithm: rsaEncryption (4096 bits)
+Jun 26 18:28:12 *	  Sign algorithm sha256WithRSAEncryption
+Jun 26 18:28:12 *	  Valid since Jun 24 05:03:09 2019 GM to Sep 22 05:03:09 2019 GM
+Jun 26 18:28:12 *	* Cipher info:
+Jun 26 18:28:12 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
+Jun 26 18:28:12 *	Connected. Now logging in.

@@ -84,6 +84,8 @@ editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=darkfar
 
+filepos_max_saved_entries=1024
+
 [Layout]
 message_visible=1
 keybar_visible=1
@@ -94,7 +96,7 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=79
+left_panel_size=45
 horizontal_equal=1
 top_panel_size=1
 
@@ -113,6 +115,8 @@ clipboard_paste=
 base_color=
 st-256color=
 color_terminals=
+
+linux=
 
 rxvt-256color=
 

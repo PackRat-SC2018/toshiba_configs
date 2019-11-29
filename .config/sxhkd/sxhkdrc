@@ -4,7 +4,10 @@
 
 # terminal emulator
 alt + F1
-	st
+    urxvt
+
+super + @Return
+     st
 
 alt + F2
     rofi -show run
@@ -12,7 +15,7 @@ alt + F2
 super + p
 	jgmenu_run
 
-super + @Return
+super + shift + @Return
     uxterm
 
 super + w
@@ -21,14 +24,26 @@ super + w
 super + shift + w
      thunderbird
 
-XF86AudioNext
+super + XF86HomePage
 	firefox
 
-XF86AudioPrev
+super + XF86Mail
 	thunderbird
 
-XF86AudioPlay
+super + shift + XF86HomePage
 	vivaldi
+
+XF86AudioPrev
+	#mpc prev
+	mocp -r
+
+XF86AudioPlay
+	#mpc toggle
+	mocp -G
+
+XF86AudioNext
+	#mpc next
+	mocp -f
 
 Menu
    thunar
@@ -60,13 +75,16 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 XF86AudioRaiseVolume
-        amixer -q sset Master 5%+ unmute
+        amixer -q sset PCM 2%+ unmute
+        #pmixer -i 5
 	
 XF86AudioLowerVolume
-        amixer -q sset Master 5%- unmute
+        amixer -q sset PCM 2%- unmute
+        #pmixer -d 5
 	
 XF86AudioMute
         amixer sset Master,0 toggle
+        #pmixer -t
 
 #
 # bspwm hotkeys
@@ -182,11 +200,13 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+# alt + shift + {h,j,k,l}
+alt + {Left, Down, Up, Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+ctrl + {Left, Down, Up, Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window

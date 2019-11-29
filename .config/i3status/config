@@ -26,11 +26,11 @@ general {
 #order +=  "cpu_temperature 0"
 #order +=  "cpu_temperature 1"
 order += "cpu_usage"
-order += "load"
-order +=  "cpu_temperature 2"
+# order += "load"
+# order +=  "cpu_temperature 2"
 order += "battery 0"
 order += "wireless wlp1s0"
-order += "tztime local"
+# order += "tztime local"
 # order += "time"
 
 cpu_temperature 0 {
@@ -58,9 +58,9 @@ cpu_temperature 2 {
 }
 
 cpu_usage {
-        format = " CPU: %usage "
-        max_threshold = 75
-        degraded_threshold = 25
+        format = "CPU: %usage  "
+        max_threshold = 90
+        degraded_threshold = 65
 }
 
 load {
@@ -68,7 +68,7 @@ load {
 }
 
 battery 0 {
-        format = " BATT: %percentage %remaining %status "
+        format = "BATT: %percentage %remaining %status  "
         hide_seconds = true
         integer_battery_capacity = true
         threshold_type = percent
@@ -80,7 +80,7 @@ battery 0 {
 }
 
 wireless wlp1s0 {
-        format_up = " NET: %quality %bitrate "
+        format_up = "NET: %quality %bitrate  "
         format_down = " NET: down "
 }
 

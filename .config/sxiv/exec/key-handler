@@ -1,0 +1,16 @@
+#!/bin/sh
+while read file
+do
+        case "$1" in
+        "C-g")
+                gimp "$file" ;;
+        "C-r")
+                convert -rotate 90 "$file" "$file" ;;
+        "C-c")
+                echo -n "$file" | xclip -selection clipboard ;;
+        "C-h")
+                hsetroot -center "$file" ;;
+        "C-d")
+                display -window root "$file" ;;
+        esac
+done

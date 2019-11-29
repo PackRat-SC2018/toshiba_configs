@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 	<menu id="root-menu" label="Openbox 3">
-		<separator label="Openbox" />
+		<separator label="Openbox"/>
 		<item label="Run Application .....">
 			<action name="Execute">
 				<execute>rofi -show run</execute>
@@ -10,7 +10,7 @@
 		<separator/>
 		<item label="Terminal">
 			<action name="Execute">
-				<execute>sakura</execute>
+				<execute>sakura -c 90 -r 34</execute>
 			</action>
 		</item>
 		<item label="File Manager">
@@ -48,6 +48,11 @@
 			<item label="Simple Terminal">
 				<action name="Execute">
 					<execute>st</execute>
+				</action>
+			</item>
+			<item label="Urxvt">
+				<action name="Execute">
+					<execute>urxvt</execute>
 				</action>
 			</item>
 			<item label="Uxterm">

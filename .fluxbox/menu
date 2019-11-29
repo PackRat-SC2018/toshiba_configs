@@ -16,59 +16,69 @@
 #     session.menuFile: ~/.fluxbox/my-menu
 [begin] (Fluxbox-1.3.7)
 [encoding] {UTF-8}
-      [exec] (Run) {rofi -show run}
+      [exec] (Run) {rofi -modi run,drun,window,combi -sidebar-mode -show run}
 [separator]
+      [exec] (Terminal) {urxvt}
+      [exec] (Sublime) {wmctrl -a subl3 || subl3}
       [exec] (File Manager) {thunar}
-      [exec] (Terminal) {uxterm}
-      [exec] (Sublime) {subl3}
+      [exec] (Firefox) {wmctrl -a firefox || firefox}
+      [exec] (Thunderbird) {wmctrl -a thunderbird || thunderbird}
+      [exec] (Gimp) {gimp}
+[separator]
 [submenu] (Terminals)
-      [exec] (XTerm) {xterm}
       [exec] (UXTerm) {uxterm}
+      [exec] (XTerm) {xterm}
       [exec] (Simple Terminal) {st}
       [exec] (URxvt) {urxvt}
-      [exec] (URxvt Tabbed) {urxvt -pe tabbed}
-      [exec] (Tmux Session) {xterm -e tmux}
+      [exec] (Tmux) {urxvt -e tmux}
       [exec] (Sakura) {sakura}
-      [exec] (Xfce4-terminal) {xfce4-terminal}
-      [exec] (Xfce4-terminal drop-down) {xfce4-terminal --drop-down}
+      [exec] (Xfce4 Terminal) {xfce4-terminal}
+      [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
 [end]
 [submenu] (Editors)
-      [exec] (Sublime) {subl3}
-      [exec] (Emacs) {emacs}
       [exec] (Geany) {wmctrl -a geany || geany}
+      [exec] (Emacs) {emacs}
+      [exec] (Mousepad) {mousepad}
 [end]
-[separator]      
+[submenu] (Network)      
       [exec] (Firefox) {wmctrl -a firefox || firefox}
       [exec] (Thunderbird) {wmctrl -a thunderbird || thunderbird}
       [exec] (FileZilla) {filezilla}
       [exec] (Transmission) {transmission-gtk}
       [exec] (HexChat) {hexchat}
-      [exec] (Connman) {cmst -i Adwaita}
-[separator]
+      [exec] (Connman) {cmst -m -i Adwaita}
+[end]
 [submenu] (Office)
       [exec] (Writer) {libreoffice --writer}
       [exec] (Calc) {libreoffice --calc}
-      [exec] (Impress) {libreoffice --Impress}
+      [exec] (Impress) {libreoffice --impress}
       [exec] (Draw) {libreoffice --draw}
       [exec] (Math) {libreoffice --math}
       [exec] (Xcalc) {xcalc}
 [end]
 [submenu] (Graphics)
+###[submenu] (Wallpaper)
+###      [wallpapers] (~/wallpaper) {fbsetbg}
+###[end]
       [exec] (Gimp) {gimp}
       [exec] (Geeqie) {geeqie}
-      [exec] (Zathura) {zathura %U}
+      [exec] (Wallpaper) {sxiv -t "$HOME/wallpaper"}
       [exec] (LXappearance) {lxappearance}
-      [exec] (Wallpaper) {sxiv -t "$HOME/wallpaper/"}
-      [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down ~/wallpaper}
-      [exec] (Screenshot JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
-      [exec] (Screenshot PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}      
+      ![exec] (Screenshot JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
+      ![exec] (Screenshot PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}
+      [exec] (Screenshot JPG) {scrot -q 100 '%B_%s_$wx$h.jpg' -e 'mv $f ~/Pictures/'}
+      [exec] (Screenshot PNG) {scrot -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Screenshot PNG 5 sec.) {scrot -q 100 -cd 5 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Screenshot PNG select) {scrot -s -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Screenshot PNG multidisp) {scrot -m -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
+
 [end]
 [submenu] (Media)
       [exec] (Audacious) {audacious}
       [exec] (Vlc) {vlc}
-      [exec] (mpv) {mpv --player-operation-mode=pseudo-gui}
       [exec] (Asunder) {asunder}
-      [exec] (Xfburn) {xfburn}
+      [exec] (Brasero) {brasero}
+      [exec] (Guvcview) {guvcview}
 [end]
 [separator]
 [submenu] (Fluxbox menu)
@@ -87,7 +97,6 @@
       [separator]
       [exit] (Exit)
 [end]
-[separator]
       [reconfig] (Reload config)
       [restart] (Restart)
       [exec] (End Session) {void-logout}

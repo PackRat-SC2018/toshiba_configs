@@ -1,6 +1,6 @@
 configuration {
   location: 2;
-  yoffset: 40;
+  yoffset: 32;
   xoffset: 0;
   lines: 10;
   fixed-num-lines: false;
@@ -38,7 +38,7 @@ configuration {
   spacing:                     2px;
 }
 #window {
-  font:          "Source Sans Pro 11";
+  font:          "Source Sans Pro 12";
   border:        3px;
   border-radius: 0px;
   border-color:  @window-border;

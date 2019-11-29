@@ -30,22 +30,22 @@ markup=none
 
 # Uptime
 #
-[uptime]
-label=UP:
-interval=3
-min_width=80
-align=center
-command=uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
-separator=false
+#[uptime]
+#label=UP:
+#interval=3
+#min_width=80
+#align=center
+#command=uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
+#separator=false
 
 # CPU usage
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU
+label=CPU:
 interval=3
-min_width=100
+min_width=90
 align=center
 separator=false
 
@@ -63,12 +63,12 @@ separator=false
 #min_width=100
 #align=center
 
-[load_average]
-interval=3
-min_width=80
-align=center
-separator=false
-command=awk '{print $1" "$2" "$3}' < /proc/loadavg
+#[load_average]
+#interval=3
+#min_width=80
+#align=center
+#separator=false
+#command=awk '{print $1" "$2" "$3}' < /proc/loadavg
 
 # Temperature
 #
@@ -85,30 +85,48 @@ command=awk '{print $1" "$2" "$3}' < /proc/loadavg
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
+# displays mem available in G
 #[memory]
 #label=MEM
 #instance=mem
 #separator=false
 #interval=3
+#min_width=90
+#align=center
 
-[RAM]
-label=MEM
-separator=false
-interval=3
-command=free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
-min_width=80
-align=center
+#[RAM]
+#label=MEM
+#separator=false
+#interval=3
+#command=free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
+#min_width=90
+#align=center
+
+# same as above, but script/hack in /usr/libexec/i3blocks
+#[mem_perc]
+#label=MEM:
+#separator=false
+#interval=3
+#min_width=90
+#align=center
+
+#[mem_usage]
+#label=MEM:
+#separator=false
+#interval=3
+#min_width=90
+#align=center
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT
+label=BATT:
 #label=⚡
 instance=0
 separator=false
-interval=10
-min_width=80
+interval=3
+min_width=90
 align=center
 
 # Network interface monitoring
@@ -122,21 +140,21 @@ align=center
 #separator=false
 
 [wifi]
-label=NET
+label=NET:
 instance=wlp1s0
 interval=10
 separator=false
-interval=10
-min_width=80
+interval=3
+min_width=90
 align=center
 
-[bandwidth]
-instance=wlp1s0
-interval=5
-separator=false
-interval=10
-min_width=80
-align=center
+#[bandwidth]
+#instance=wlp1s0
+#interval=5
+#separator=false
+#interval=10
+#min_width=80
+#align=center
 
 # Date Time
 #
@@ -144,6 +162,6 @@ align=center
 command=date '+%a %e %b %k:%M'
 interval=3
 separator=false
-interval=10
-min_width=164
+interval=3
+min_width=160
 align=center

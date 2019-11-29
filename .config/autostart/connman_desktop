@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Connman GUI
+GenericName=Network information
+Comment=Displays network information
+Exec=cmst -i Adwaita
+Terminal=false
+Icon=jgmenu
+Categories=
+Type=Application
+StartupNotify=false
+# OnlyShowIn=MATE;
+# X-MATE-Autostart-Notify=false

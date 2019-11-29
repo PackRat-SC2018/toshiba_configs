@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<FileZilla3 version="3.45.1" platform="*nix">
+	<Layout Builddate="2019-11-09" Buildtime="17:21:49">
+		<Resources>
+			<xrc file="storj.xrc" date="1573320109" />
+			<xrc file="netconfwizard.xrc" date="1573320109" />
+			<xrc file="sitemanager.xrc" date="1561743129" />
+			<xrc file="inputdialog.xrc" date="1561743129" />
+			<xrc file="update.xrc" date="1561743129" />
+			<xrc file="settings.xrc" date="1573320109" />
+			<xrc file="dialogs.xrc" date="1573320109" />
+			<xrc file="certificate.xrc" date="1573320109" />
+		</Resources>
+		<Language id="en_US" date="">
+			<Font font="Sans 10" width="796" height="19" />
+		</Language>
+	</Layout>
+</FileZilla3>

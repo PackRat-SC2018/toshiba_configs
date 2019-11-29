@@ -1,0 +1,44 @@
+T 1566310096 19*	Now talking on 22#voidlinux
+T 1566310096 22*	Topic for 22#voidlinux is: The Void Linux distribution http://www.voidlinux.org || images: http://alpha.de.repo.voidlinux.org/live/current || Getting started: http://www.voidlinux.org/usage/xbps/ && http://www.voidlinux.org/usage/runit
+T 1566310096 22*	Topic for 22#voidlinux set by 26maldridge (24Mon Nov 12 23:13:20 2018)
+T 1566310098 18<TheAnachron18>	that was hard to find (for me) :D
+T 1566310112 18<aedinius[w]18>	I didn't even find it
+T 1566310133 18<aedinius[w]18>	Go is weird.
+T 1566310184 18<TheAnachron18>	haha that's true.
+T 1566310196 18<TheAnachron18>	Sadly go is important for me because I use quite a few go tools (daily)
+T 1566310249 18<aedinius[w]18>	Oh don't get me wrong, go is pretty neat and seems like a good language.
+T 1566310254 18<aedinius[w]18>	It's just weird. ;]
+T 1566310256 24*	sseneca has quit (Remote host closed the connection)
+T 1566310257 18*	aedinius[w] says the ObjC guy
+T 1566310300 24*	thePiGrepper has quit (Ping timeout: 258 seconds)
+T 1566310326 18<TheAnachron18>	I hope my PR can be merged soon because I need the new lego version
+T 1566310343 18<TheAnachron18>	https://github.com/void-linux/void-packages/pull/13799
+T 1566310364 18<TheAnachron18>	the acme renewal broke on my DNS provider.
+T 1566310374 18<TheAnachron18>	and the latest version fixes it.
+T 1566310413 18<TheAnachron18>	sadly KDE is taking 90% of the build time these days >.>
+T 1566310557 18<john5518>	aedinius[w], I also hear the crack 6 seconds after I do pulseaudio --start
+T 1566310566 18<TheAnachron18>	dang, I still have other issues :( no module named pygments
+T 1566310605 23*	thePiGrepper (~nagato@132.191.3.3023) has joined
+T 1566310660 18<TheAnachron18>	this is weird. seriously. go requires python modules? o.O
+T 1566310669 18<john5518>	This is what pulseaudio -v tells me roughly half a second before I hear the crack [pulseaudio] core.c: All sinks and sources are suspended, vacuuming memory
+T 1566310702 18<steinex18>	TheAnachron: why would you need to wait on the PR to be merged for that?
+T 1566310711 18<john5518>	The crack can also be heard a second or two after running pulseaudio -k
+T 1566310719 18<TheAnachron18>	steinex I like to use the official source.
+T 1566310728 18<TheAnachron18>	yeah I could build it locally and push it to the VPS too ... you're right
+T 1566310809 18<john5518>	The state also changes from (none) to IDLE, then to SUSPENDED
+T 1566310811 18<TheAnachron18>	wth. why would it build gtkdoc when I try to build lego? why is this stuff so weird. I dont get it.
+T 1566311124 18<TheAnachron18>	ok it seems like when trying to build lego it pulls in git-2.22.0_4 and that needs libglib-devel2.60.5_1 which cant be found. >.>
+T 1566311175 18<aedinius[w]18>	make sure you're rebased up the latest?
+T 1566311182 18<aedinius[w]18>	s/up/on/
+T 1566311213 24*	porky11 has quit (Read error: Connection reset by peer)
+T 1566311239 23*	porky11 (~porky11@p200300F843C6AB6EB6D5BDFFFE20A28D.dip0.t-ipconnect.de23) has joined
+T 1566311243 18<TheAnachron18>	yeah, that will be it.
+T 1566311262 23*	jack_rabbit (~jack_rabb@192-241-55-66.ip.ctc.biz23) has joined
+T 1566311275 18<john5518>	The issue seems to be with module-suspend-on-idle. It said that it will timeout in 5 seconds after pausing the video, which roughly (if we add the previous messages it spews out) equals the 6 seconds I counted.
+T 1567615559 19*	Now talking on 22#voidlinux
+T 1567615559 22*	Topic for 22#voidlinux is: The Void Linux distribution http://www.voidlinux.org || images: http://alpha.de.repo.voidlinux.org/live/current || Getting started: http://www.voidlinux.org/usage/xbps/ && http://www.voidlinux.org/usage/runit
+T 1567615559 22*	Topic for 22#voidlinux set by 26maldridge (24Mon Nov 12 23:13:20 2018)
+T 1567615587 18<aedinius[w]18>	Do you have kbd-data installed?
+T 1567615606 18<aedinius[w]18>	You should, if you have base-system installed.
+T 1567615613 18<noob865018>	Nvm, it is there -.- sorry, but thanks for the info, I just got the path wrong. But now I know what to install if it isn´t there!
+T 1567615662 FiSHLiM plugin unloaded

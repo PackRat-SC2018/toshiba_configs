@@ -4,7 +4,7 @@ stay_alive           = 0
 #hide_on_startup     = 0
 csv_cmd              = pmenu
 tint2_look           = 0
-at_pointer           = 0
+# position_mode        = pointer
 terminal_exec        = uxterm
 terminal_args        = -e
 #monitor             = 0
@@ -29,13 +29,13 @@ menu_valign          = bottom
 #sub_padding_left    = -1
 sub_hover_action     = 1
 
-#item_margin_x       = 3
+item_margin_x        = 5
 item_margin_y        = 5
 item_height          = 30
 item_padding_x       = 8
 item_radius          = 1
 item_border          = 0
-item_halign         = left
+item_halign          = left
 
 sep_height           = 5
 
