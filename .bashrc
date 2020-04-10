@@ -1,13 +1,21 @@
 # .bashrc
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+# [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-# PS1='[\u@\h \W]\$ '
-export PS1='\[\033[0;36m\] ┌ ─ [\l] ─ \[\033[1;34m\][\w]\n \[\033[0;36m\]└ ─ > \[\033[0;37m\]$ \[\033[0;37m\]'
+# Place your readable configs in /etc/bash/bashrc.d/*.sh 
 
-# user added
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+if [ -d /etc/bash/bashrc.d/ ]; then
+	for f in /etc/bash/bashrc.d/*.sh; do
+		[ -r "$f" ] && . "$f"
+	done
+	unset f
+fi
 
 shopt -s histappend
 shopt -s cmdhist
@@ -35,6 +43,10 @@ if [ -f $HOME/.bash_aliases ] ; then
 . $HOME/.bash_aliases
 fi
 
+if [ -f $HOME/.shell_aliases ] ; then
+. $HOME/.shell_aliases
+fi
+
 # colored man pages
 export PAGER="less"
 
@@ -52,14 +64,17 @@ export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
-# PATH=$PATH:$HOME/bin:$HOME/conky:./
+# prompt
+# PS1='[\u@\h \W]\$ '
+export PS1='\[\033[0;36m\] ┌ ─ [\l] ─ \[\033[1;34m\][\w]\n \[\033[0;36m\]└ ─ > \[\033[0;37m\]$ \[\033[0;37m\]'
 
-# If user ID is greater than or equal to 1000 & if ~/bin exists and is a directory & if ~/bin is not already in your $PATH
-# then export ~/bin to your $PATH.
-#if [[ $UID -ge 1000 && -d $HOME/bin && -z $(echo $PATH | grep -o $HOME/bin) ]]
-#then
-#    export PATH=$HOME/bin:$HOME/conky:${PATH}
-#fi
+# set editor
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'jmacs'; fi)"
+export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'jmacs'; fi)"
 
-# export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'geany'; else echo 'nano'; fi)"
+if [ -n "$DISPLAY" ]; then
+    export BROWSER=firefox
+else 
+    export BROWSER=w3m
+fi
 

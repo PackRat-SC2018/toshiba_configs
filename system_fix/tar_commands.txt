@@ -1,0 +1,13 @@
+tar commands:
+
+1.    compress directory: tar cvfz archive.tar.gz directory/
+
+2.   list contents: tar tvfz archive.tar.gz
+
+3.    decompress archive: tar xvfz archive.tar.gz
+
+v can be omitted if you don't like verbose output.
+
+z can be omitted if you don't want compression.
+
+j can be used instead of z if you want bzip2 compression instead of gzip

@@ -31,6 +31,12 @@ done
 # aliases and functions
 
 # Test and then source alias definitions.
+if [ -f ~/.shell_aliases ]; then
+        source ~/.shell_aliases
+else
+        print "Note: ~/.zsh/zshaliases is unavailable."
+fi
+
 if [ -f ~/.zsh/zshaliases ]; then
         source ~/.zsh/zshaliases
 else
@@ -43,92 +49,6 @@ if [ -f ~/.zsh/zshfunctions ]; then
 else
         print "Note: ~/.zsh/zshfunctions is unavailable."
 fi
-
-alias ll='ls -lh -F --group-directories-first'
-alias la='ls -A --group-directories-first'
-alias ls='ls -hNCF --color=auto --group-directories-first'
-alias rm='rm -vi'
-alias cp='cp -vi'
-alias mv='mv -vi'
-alias mkdir='mkdir -pv'
-alias dfh='df -hT'
-alias dfk='df -kT'
-alias du='du -h'
-alias duh='du -hca'
-alias path='echo -e ${PATH//:/\\n}'
-alias emacs='emacs -nw'
-alias joe='joe --wordwrap'
-alias listusb='ls -l /dev/disk/by-id/*usb*'
-alias sinfo='inxi -CSI -tcm3 -W 29803 --no-host'
-alias screenfetch='screenfetch -n'
-alias shotdate='date +%A_%s'
-alias sshot='import -window root -quality 100 ~/pictures/screen-import-$(shotdate).png'
-alias scrotpng='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%B_%e_%s.png'
-alias scrotjpg='scrot -q 100 -c -d 5 ~/pictures/scrot-shot-%a_%e_%s.jpg'
-alias kconky='killall -SIGUSR1 conky'
-alias ktint2='killall -SIGUSR1 tint2'
-alias kpolybar='killall -SIGUSR1 polybar'
-alias ufont='fc-cache -f -v'
-alias rufont='sudo fc-cache -f -v'
-alias prmount='sudo mount -o rw,umask=000'
-alias usbmnt='sudo mount -o rw,umask=000 /dev/sdc1 /media/usbhd'
-alias win7mnt='sudo mount -o rw,umask=000 /dev/sda5 /mnt/Win7'
-alias takeshot='neofetch ; scrotpng'
-alias neoinfo='neofetch --backend off --color_blocks off'
-alias getmp3='youtube-dl -x  --no-mtime --audio-format mp3'
-alias mntarch='sshfs -p 1456 doug@WILLOW-01:/mnt/public /home/doug/archlabs'
-alias umntarch='fusermount -u /home/doug/archlabs'
-alias aura='aura -n 'user''
-alias wget='wget -c'
-alias mntpublic='sshfs -p 2410 doug@BANDIT-01:/mnt/public /home/doug/bandit/public'
-alias mntdata='sshfs -p 2410 doug@BANDIT-01:/mnt/data01 /home/doug/bandit/data01'
-alias umntpublic='fusermount -u /home/doug/bandit/public'
-alias umntdata='fusermount -u /home/doug/bandit/data01'
-
-alias doy="date '+%j'"
-alias ydoy="date '+%j%y'"
-alias yydoy="date '+%j%Y'"
-alias vdt="date '+%v'"
-alias dt="date '+%D %r'"
-alias dt0="date '+%D'"
-alias isodate="date '+%G-%m-%d'"
-alias isodt="date '+%G-%m-%d %H:%M'"
-alias isodts="date '+%G-%m-%d %H:%M:%S'"
-
-alias d="ls -1p | sed -n '/\/$/s/^/    /p;'"
-alias dl="ls -lhp | grep '^d'"
-alias DL="ls -lTthp | grep '^d'"
-
-alias x='ls -xF'
-alias r='ls -1RF'
-alias rr='ls -lRF'  
-alias R='BLOCKSIZE=1m ls -s1R'
-# alias ll='ls -Llh'
-alias lm='BLOCKSIZE=1m ls -sF'
-alias lmm='BLOCKSIZE=1m ls -1sSF'
-#alias Lz="stat -f '%Lz' "
-#alias Z="stat -f '%z' "
-##### Z=bytes
-alias dirs="ls -1Ap | grep '/$' | column"
-alias files="ls -1AF | sed  '/[@/]$/d;s/\*$//' |column" 
-alias files1="ls -1AF | sed  '/[@/]$/d;s/\*$//'"
-alias syms="ls -1AF | grep '@$'"
-#alias 2cd='pbcopy <<< $PWD'
-#alias cd2='cd $(pbpaste <<< $PWD)'
-alias aux='ps aux'
-alias vax='ps vax'
-alias jax='ps jax'
-alias lax='ps lax'
-alias axl='ps axl'
-alias ax='ps ax'
-alias cax='ps cax'
-alias caxl='ps caxl'
-#alias pcpu='ps rcxo pcpu,pid,uid,command'
-#alias pmem='ps mxco pmem,pid,uid,command'
-#alias ptop='ps mcxo pcpu,pmem,pid,uid,command | head -n $(( LINES - 3 ))'
-#alias mem='ps mxco rss,pid,uid,command'
-
-alias 1ping='ping -qc 1 -t 2'
 
 #------------------------------
 # History stuff

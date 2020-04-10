@@ -1,0 +1,7 @@
+#Try this alternate method to switch default sound card.
+#Remove the .asoundrc
+#As root user:
+
+echo "options snd-hda-intel index=1,0" >> /etc/modprobe.d/snd-hda-intel.conf
+
+# Reboot

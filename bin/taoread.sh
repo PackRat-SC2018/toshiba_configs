@@ -1,7 +1,8 @@
 #!/bin/sh
 # a script for outputting a verse of the Tao Te Ching.
 
-tao=$HOME/conky/tao.txt
+#tao=$HOME/bin/tao.txt
+tao=$HOME/bin/tao.txt
 verse=0
 # you can chose between /dev/random which is slow but provides ``more random''
 # numbers than the faster /dev/urandom

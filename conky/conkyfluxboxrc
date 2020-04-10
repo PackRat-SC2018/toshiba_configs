@@ -13,10 +13,10 @@ conky.config = {
 	total_run_times = 0,
 
 	own_window = true,
-	own_window_colour = '#070707',
+	own_window_colour = '#0E0F0F',
 	own_window_transparent = true,
---    own_window_type = 'desktop',
-    own_window_type = 'dock',
+    own_window_type = 'desktop',
+--    own_window_type = 'dock',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_class = 'Conkyfbox',
 	own_window_title = 'Conkyfbox',
@@ -60,7 +60,7 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	default_color = '#DAC79C',
+	default_color = '#B4B4B4',
 	default_shade_color = '#000000',
 	default_outline_color = '#828282',
 	color0 = '#FFFFFF',
@@ -70,7 +70,8 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
-	color7 = '#00CDCD',-- - cyan3
+	-- color7 = '#00CDCD',-- - cyan3
+	color7 = '#B4B4B4',-- - match default
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
@@ -89,7 +90,7 @@ conky.config = {
 };
 
 conky.text = [[
-${goto 12}Uptime:${offset 8}${uptime_short}\
+${goto 20}[${desktop}]${offset 12}Uptime:${offset 8}${uptime_short}\
 ${goto 360}Core0:${offset 8}${if_match ${hwmon 1 temp 1}<=50}${color7}${else}${if_match ${hwmon 1 temp 1}<=70}${color8}${else}${if_match ${hwmon 1 temp 1}>70}${color9}${endif}${endif}${endif}${hwmon 1 temp 1}${offset 2}°C${color}${offset 24} \
 CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 24}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}${offset 24} \
 Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 24} \

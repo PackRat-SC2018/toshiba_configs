@@ -1,22 +1,22 @@
 /dev/cdrom
-/mnt/public/music
+/home/doug
 1
 1
 %N - %A - %T
 %A - %L
 %A - %L
 0
-1
 0
+1
 0
 1
 10
 6
 5
 unused
-716
-625
-1
+766
+828
+0
 1
 0
 10.0.0.1

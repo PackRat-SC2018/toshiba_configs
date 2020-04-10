@@ -57,7 +57,7 @@ smores() (
 )
 
 # customise your favourite editor here; the first one found is used
-for EDITOR in "${EDITOR:-}" jupp jstar mcedit ed vi; do
+for EDITOR in "${EDITOR:-}" jmacs joe vim vi nano; do
 	EDITOR=$(\\builtin whence -p "$EDITOR") || EDITOR=
 	[[ -n $EDITOR && -x $EDITOR ]] && break
 	EDITOR=
@@ -71,10 +71,10 @@ done
 \\builtin export EDITOR HOSTNAME TERM USER
 
 # minimal support for lksh users
-#if [[ $KSH_VERSION = *LEGACY\ KSH* ]]; then
-#	PS1='$USER@${HOSTNAME%%.*}:$PWD>'
-#	\\builtin return 0
-#fi
+if [[ $KSH_VERSION = *LEGACY\ KSH* ]]; then
+	PS1='$USER@${HOSTNAME%%.*}:$PWD>'
+	\\builtin return 0
+fi
 
 # mksh-specific from here
 \: "${MKSH:=$(\\builtin whence -p mksh)}${MKSH:=/bin/mksh}"
@@ -94,6 +94,9 @@ PS4='[$EPOCHREALTIME] '; PS1='#'; (( USER_ID )) && PS1='$'; PS1=$'\001\r''${|
 
 	\\builtin return $e
 } '"$PS1 "
+
+#export PS1=$' \1\r\1\e[7m\1$PWD\1\e[0m\1>> '
+export PS1=$'\033[0;36m\ ┌ ─ \033[1;34m\[$PWD]\1\e[0m\1\n\033[0;36m\ └ ─ \033[0;37m\$ '
 
 # utilities
 \\builtin alias doch='sudo mksh -c "$(\\builtin fc -ln -1)"'
@@ -626,18 +629,7 @@ done
 
 \\builtin unset p
 
-#### user customization
-export EDITOR=vim
-export LESS_TERMCAP_md='[36m'
-export LESSCHARSET=utf-8
-export PAGER='less -M +p'
-
-PS1=$'\e[32m${PWD/#$HOME/~}\e[31m${?/#0/}\e[0m\n$ '
-
-alias emacs='emacs -nw ""'
-alias ls='ls --color'
-#alias t='tmux attach -t - || tmux new -s -'
-
-source $HOME/.bash_aliases
+source ~/.bash_aliases
+source ~/.shell_aliases
 
 \: place customisations above this line

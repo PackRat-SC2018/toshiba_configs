@@ -1,11 +1,12 @@
 [Configuration]
+DropdownKeepOpenDefault=TRUE
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
-MiscDefaultGeometry=100x26
+MiscDefaultGeometry=90x32
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
@@ -26,15 +27,12 @@ MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ScrollingLines=5600
-FontName=Fira Code weight=453 11
-ShortcutsNoMenukey=TRUE
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-BackgroundDarkness=0.940000
-DropdownAlwaysShowTabs=FALSE
-DropdownPositionVertical=17
-DropdownHeight=68
-DropdownKeepOpenDefault=TRUE
 DropdownKeepAbove=FALSE
+DropdownHeight=60
+DropdownPositionVertical=4
+FontName=Monospace 11
+DropdownAlwaysShowTabs=FALSE
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=0.900000
 

@@ -18,7 +18,7 @@
 [encoding] {UTF-8}
       [exec] (Run) {rofi -modi run,drun,window,combi -sidebar-mode -show run}
 [separator]
-      [exec] (Terminal) {urxvt}
+      [exec] (Terminal) {uxterm}
       [exec] (Sublime) {wmctrl -a subl3 || subl3}
       [exec] (File Manager) {thunar}
       [exec] (Firefox) {wmctrl -a firefox || firefox}
@@ -57,21 +57,28 @@
       [exec] (Xcalc) {xcalc}
 [end]
 [submenu] (Graphics)
-###[submenu] (Wallpaper)
-###      [wallpapers] (~/wallpaper) {fbsetbg}
-###[end]
+[submenu] (Wallpaper)
+      [exec] (Sxiv Wallpaper) {sxiv -t "$HOME/wallpaper"}
+      [exec] (Sxiv Images) {sxiv -t "/mnt/public/images/"}
+      [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down "$HOME/wallpaper"}
+      [exec] (Feh Images) {feh -g 800x450 --scale-down "/mnt/public/images"}
+[submenu] (Fluxbox Wallpaper)
+      [wallpapers] (~/wallpaper) {fbsetbg}
+[end]
+[end]
+[submenu] (Screenshots)
+      [exec] (Imagemagick JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
+      [exec] (Imagemagick PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}
+      [exec] (Scrot JPG) {scrot -q 100 '%B_%s.jpg' -e 'mv $f ~/Pictures/'}
+      [exec] (Scrot PNG) {scrot -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Scrot PNG 5 sec.) {scrot -q 100 -cd 5 '%B_%s.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Scrot PNG select) {scrot -s -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Scrot PNG multidisp) {scrot -m -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
+[end]
       [exec] (Gimp) {gimp}
       [exec] (Geeqie) {geeqie}
-      [exec] (Wallpaper) {sxiv -t "$HOME/wallpaper"}
+      [exec] (Gcolor2) {gcolor2}
       [exec] (LXappearance) {lxappearance}
-      ![exec] (Screenshot JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
-      ![exec] (Screenshot PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}
-      [exec] (Screenshot JPG) {scrot -q 100 '%B_%s_$wx$h.jpg' -e 'mv $f ~/Pictures/'}
-      [exec] (Screenshot PNG) {scrot -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Screenshot PNG 5 sec.) {scrot -q 100 -cd 5 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Screenshot PNG select) {scrot -s -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Screenshot PNG multidisp) {scrot -m -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'}
-
 [end]
 [submenu] (Media)
       [exec] (Audacious) {audacious}
@@ -99,6 +106,6 @@
 [end]
       [reconfig] (Reload config)
       [restart] (Restart)
-      [exec] (End Session) {void-logout}
+      [exec] (End Session) {rofi-logout}
 [endencoding]
 [end]

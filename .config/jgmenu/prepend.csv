@@ -1,7 +1,6 @@
-Terminal,sakura,utilities-terminal
+Terminal,uxterm,utilities-terminal
+Editor,subl3,text-editor
 File manager,thunar,system-file-manager
-Editor,subl3,accessories-text-editor
 Browser,firefox,firefox
 Mail,thunderbird,thunderbird
-Gimp,gimp,gimp
 ^sep()

@@ -1,7 +1,0 @@
-#!/bin/sh
-
-sudo modprobe uvcvideo
-
-(sleep 2s && exec guvcview) &
-
-exit 0

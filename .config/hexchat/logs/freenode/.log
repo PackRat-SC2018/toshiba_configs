@@ -1,22 +1,22 @@
-**** BEGIN LOGGING AT Wed Jun 26 18:28:10 2019
+**** BEGIN LOGGING AT Tue Mar 31 13:59:17 2020
 
-Jun 26 18:28:10 *	Connecting to chat.freenode.net (130.239.18.119:6697)
-Jun 26 18:28:11 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Jun 26 18:28:11 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Jun 26 18:28:11 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Jun 26 18:28:11 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Jun 26 18:28:11 *	* Subject: /CN=leguin.freenode.net
-Jun 26 18:28:11 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Jun 26 18:28:12 *	* Certification info:
-Jun 26 18:28:12 *	  Subject:
-Jun 26 18:28:12 *	    CN=leguin.freenode.net
-Jun 26 18:28:12 *	  Issuer:
-Jun 26 18:28:12 *	    C=US
-Jun 26 18:28:12 *	    O=Let's Encrypt
-Jun 26 18:28:12 *	    CN=Let's Encrypt Authority X3
-Jun 26 18:28:12 *	  Public key algorithm: rsaEncryption (4096 bits)
-Jun 26 18:28:12 *	  Sign algorithm sha256WithRSAEncryption
-Jun 26 18:28:12 *	  Valid since Jun 24 05:03:09 2019 GM to Sep 22 05:03:09 2019 GM
-Jun 26 18:28:12 *	* Cipher info:
-Jun 26 18:28:12 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Jun 26 18:28:12 *	Connected. Now logging in.
+Mar 31 13:59:17 *	Connecting to chat.freenode.net (149.56.134.238:6697)
+Mar 31 13:59:18 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 13:59:18 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 13:59:18 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Mar 31 13:59:18 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 13:59:18 *	* Subject: /CN=cherryh.freenode.net
+Mar 31 13:59:18 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Mar 31 13:59:18 *	* Certification info:
+Mar 31 13:59:18 *	  Subject:
+Mar 31 13:59:18 *	    CN=cherryh.freenode.net
+Mar 31 13:59:18 *	  Issuer:
+Mar 31 13:59:18 *	    C=US
+Mar 31 13:59:18 *	    O=Let's Encrypt
+Mar 31 13:59:18 *	    CN=Let's Encrypt Authority X3
+Mar 31 13:59:18 *	  Public key algorithm: rsaEncryption (4096 bits)
+Mar 31 13:59:18 *	  Sign algorithm sha256WithRSAEncryption
+Mar 31 13:59:18 *	  Valid since Feb 10 05:03:00 2020 GM to May 10 05:03:00 2020 GM
+Mar 31 13:59:18 *	* Cipher info:
+Mar 31 13:59:18 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
+Mar 31 13:59:18 *	Connected. Now logging in.

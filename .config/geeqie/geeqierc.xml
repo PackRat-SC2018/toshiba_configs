@@ -55,7 +55,7 @@
             file_ops.confirm_move_to_trash = "true" 
             file_ops.enable_delete_key = "true" 
             file_ops.use_system_trash = "true" 
-            file_ops.safe_delete_enable = "false" 
+            file_ops.safe_delete_enable = "true" 
             file_ops.safe_delete_path = "/home/doug/.local/share/geeqie/trash" 
             file_ops.safe_delete_folder_maxsize = "128" 
             file_ops.no_trash = "false" 
@@ -102,7 +102,7 @@
             fullscreen.disable_saver = "true" 
             fullscreen.above = "false" 
 
-            image_overlay.template_string = "%collection:&lt;i&gt;*&lt;/i&gt;\\n%(%number%/%total%) [%zoom%] &lt;b&gt;%name%&lt;/b&gt;\n%res%|%date%|%size%\n%formatted.Aperture%|%formatted.ShutterSpeed%|%formatted.ISOSpeedRating:ISO *%|%formatted.FocalLength%|%formatted.ExposureBias:* Ev%\n%formatted.Camera:40%|%formatted.Flash%" 
+            image_overlay.template_string = "%collection:&lt;i&gt;*&lt;/i&gt;\\n%(%number%/%total%) [%zoom%] &lt;b&gt;%name%&lt;/b&gt;\n%res%|%date%|%size%\n%formatted.Aperture%|%formatted.ShutterSpeed%|%formatted.ISOSpeedRating:ISO *%|%formatted.FocalLength%|%formatted.ExposureBias:* Ev%\n%formatted.Camera:40%|%formatted.Flash%\n%formatted.star_rating%" 
             image_overlay.x = "10" 
             image_overlay.y = "-10" 
             image_overlay.text_red = "0" 
@@ -198,7 +198,7 @@
             <file_type key = "mpo" enabled = "true" extensions = ".mpo" description = "Stereo multi-image jpeg" file_class = "1" writable = "false" allow_sidecar = "true" />
             <file_type key = "xmp" enabled = "true" extensions = ".xmp" description = "XMP sidecar" file_class = "3" writable = "true" allow_sidecar = "false" />
             <file_type key = "meta" enabled = "true" extensions = ".meta" description = "GQview legacy metadata" file_class = "3" writable = "true" allow_sidecar = "false" />
-            <file_type key = "gqv" enabled = "true" extensions = ".gqv" description = "Geeqie image collection" file_class = "3" writable = "false" allow_sidecar = "false" />
+            <file_type key = "gqv" enabled = "true" extensions = ".gqv" description = "Geeqie image collection" file_class = "5" writable = "false" allow_sidecar = "false" />
             <file_type key = "ufraw" enabled = "true" extensions = ".ufraw" description = "UFRaw ID file" file_class = "3" writable = "false" allow_sidecar = "false" />
             <file_type key = "pto" enabled = "true" extensions = ".pto" description = "Panorama script file" file_class = "3" writable = "false" allow_sidecar = "false" />
             <file_type key = "arw" enabled = "true" extensions = ".arw;.srf;.sr2" description = "Sony raw format" file_class = "2" writable = "false" allow_sidecar = "true" />
@@ -259,20 +259,20 @@
         file_view_type = "0" 
         show_marks = "false" 
         show_file_filter = "false" 
-        show_thumbnails = "true" 
+        show_thumbnails = "false" 
         show_directory_date = "false" 
         home_path = "" 
-        last_path = "/home/doug/images" 
+        last_path = "/home/doug/Pictures" 
         startup_path = "0" 
         exit_on_close = "false" 
 
-        main_window.x = "640" 
-        main_window.y = "104" 
-        main_window.w = "944" 
-        main_window.h = "731" 
+        main_window.x = "528" 
+        main_window.y = "105" 
+        main_window.w = "1056" 
+        main_window.h = "733" 
         main_window.maximized = "false" 
-        main_window.hdivider_pos = "341" 
-        main_window.vdivider_pos = "229" 
+        main_window.hdivider_pos = "238" 
+        main_window.vdivider_pos = "200" 
 
         folder_window.vdivider_pos = "100" 
 

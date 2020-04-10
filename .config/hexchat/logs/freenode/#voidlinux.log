@@ -1,52 +1,9 @@
-**** BEGIN LOGGING AT Tue Aug 20 10:08:16 2019
+**** BEGIN LOGGING AT Tue Mar 31 14:02:52 2020
 
-Aug 20 10:08:16 *	Now talking on #voidlinux
-Aug 20 10:08:16 *	Topic for #voidlinux is: The Void Linux distribution http://www.voidlinux.org || images: http://alpha.de.repo.voidlinux.org/live/current || Getting started: http://www.voidlinux.org/usage/xbps/ && http://www.voidlinux.org/usage/runit
-Aug 20 10:08:16 *	Topic for #voidlinux set by maldridge (Mon Nov 12 23:13:20 2018)
-Aug 20 10:08:18 <TheAnachron>	that was hard to find (for me) :D
-Aug 20 10:08:32 <aedinius[w]>	I didn't even find it
-Aug 20 10:08:53 <aedinius[w]>	Go is weird.
-Aug 20 10:09:44 <TheAnachron>	haha that's true.
-Aug 20 10:09:56 <TheAnachron>	Sadly go is important for me because I use quite a few go tools (daily)
-Aug 20 10:10:49 <aedinius[w]>	Oh don't get me wrong, go is pretty neat and seems like a good language.
-Aug 20 10:10:54 <aedinius[w]>	It's just weird. ;]
-Aug 20 10:10:56 *	sseneca has quit (Remote host closed the connection)
-Aug 20 10:10:57 *	aedinius[w] says the ObjC guy
-Aug 20 10:11:40 *	thePiGrepper has quit (Ping timeout: 258 seconds)
-Aug 20 10:12:06 <TheAnachron>	I hope my PR can be merged soon because I need the new lego version
-Aug 20 10:12:23 <TheAnachron>	https://github.com/void-linux/void-packages/pull/13799
-Aug 20 10:12:44 <TheAnachron>	the acme renewal broke on my DNS provider.
-Aug 20 10:12:54 <TheAnachron>	and the latest version fixes it.
-Aug 20 10:13:33 <TheAnachron>	sadly KDE is taking 90% of the build time these days >.>
-Aug 20 10:15:57 <john55>	aedinius[w], I also hear the crack 6 seconds after I do pulseaudio --start
-Aug 20 10:16:06 <TheAnachron>	dang, I still have other issues :( no module named pygments
-Aug 20 10:16:45 *	thePiGrepper (~nagato@132.191.3.30) has joined
-Aug 20 10:17:40 <TheAnachron>	this is weird. seriously. go requires python modules? o.O
-Aug 20 10:17:49 <john55>	This is what pulseaudio -v tells me roughly half a second before I hear the crack [pulseaudio] core.c: All sinks and sources are suspended, vacuuming memory
-Aug 20 10:18:22 <steinex>	TheAnachron: why would you need to wait on the PR to be merged for that?
-Aug 20 10:18:31 <john55>	The crack can also be heard a second or two after running pulseaudio -k
-Aug 20 10:18:39 <TheAnachron>	steinex I like to use the official source.
-Aug 20 10:18:48 <TheAnachron>	yeah I could build it locally and push it to the VPS too ... you're right
-Aug 20 10:20:09 <john55>	The state also changes from (none) to IDLE, then to SUSPENDED
-Aug 20 10:20:11 <TheAnachron>	wth. why would it build gtkdoc when I try to build lego? why is this stuff so weird. I dont get it.
-Aug 20 10:25:24 <TheAnachron>	ok it seems like when trying to build lego it pulls in git-2.22.0_4 and that needs libglib-devel2.60.5_1 which cant be found. >.>
-Aug 20 10:26:15 <aedinius[w]>	make sure you're rebased up the latest?
-Aug 20 10:26:22 <aedinius[w]>	s/up/on/
-Aug 20 10:26:53 *	porky11 has quit (Read error: Connection reset by peer)
-Aug 20 10:27:19 *	porky11 (~porky11@p200300F843C6AB6EB6D5BDFFFE20A28D.dip0.t-ipconnect.de) has joined
-Aug 20 10:27:23 <TheAnachron>	yeah, that will be it.
-Aug 20 10:27:42 *	jack_rabbit (~jack_rabb@192-241-55-66.ip.ctc.biz) has joined
-Aug 20 10:27:55 <john55>	The issue seems to be with module-suspend-on-idle. It said that it will timeout in 5 seconds after pausing the video, which roughly (if we add the previous messages it spews out) equals the 6 seconds I counted.
-**** ENDING LOGGING AT Tue Aug 20 10:34:45 2019
-
-**** BEGIN LOGGING AT Wed Sep  4 12:45:59 2019
-
-Sep 04 12:45:59 *	Now talking on #voidlinux
-Sep 04 12:45:59 *	Topic for #voidlinux is: The Void Linux distribution http://www.voidlinux.org || images: http://alpha.de.repo.voidlinux.org/live/current || Getting started: http://www.voidlinux.org/usage/xbps/ && http://www.voidlinux.org/usage/runit
-Sep 04 12:45:59 *	Topic for #voidlinux set by maldridge (Mon Nov 12 23:13:20 2018)
-Sep 04 12:46:27 <aedinius[w]>	Do you have kbd-data installed?
-Sep 04 12:46:46 <aedinius[w]>	You should, if you have base-system installed.
-Sep 04 12:46:53 <noob8650>	Nvm, it is there -.- sorry, but thanks for the info, I just got the path wrong. But now I know what to install if it isn´t there!
-Sep 04 12:47:42 FiSHLiM plugin unloaded
-**** ENDING LOGGING AT Wed Sep  4 12:47:42 2019
+Mar 31 14:02:52 *	Now talking on #voidlinux
+Mar 31 14:02:52 *	Topic for #voidlinux is: The Void Linux distribution http://www.voidlinux.org || images: http://alpha.de.repo.voidlinux.org/live/current || Getting started: http://www.voidlinux.org/usage/xbps/ && http://www.voidlinux.org/usage/runit
+Mar 31 14:02:52 *	Topic for #voidlinux set by maldridge (Mon Nov 12 23:13:20 2018)
+Mar 31 14:05:55 *	anthepro has quit (Quit: good riddance)
+Mar 31 14:06:08 FiSHLiM plugin unloaded
+**** ENDING LOGGING AT Tue Mar 31 14:06:08 2020
 

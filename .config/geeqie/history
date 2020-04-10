@@ -7,24 +7,8 @@
 "Collections[path]/home/doug/.local/share/geeqie/collections"
 
 [path_list]
-"/mnt/public/images/light_wallpaper"
-"/mnt/public/images"
-"/home/doug/build/void-mklive/ROOT/etc/skel/wallpaper"
-"/home/doug/wallpaper"
-"/home/doug/temp"
-"/home/doug/pictures/2019-11-16"
 "/home/doug"
-"/home/doug/pictures"
+"/home/doug/wallpaper"
 "/home/doug/Pictures"
-"/home/doug/images"
-
-[bookmarks]
-".[path]/home/doug/temp"
-"Home[path]/home/doug"
-"Desktop[path]/home/doug/Desktop"
-"Collections[path]/home/doug/.local/share/geeqie/collections"
-
-[move_copy]
-"/home/doug/temp"
 
 #end

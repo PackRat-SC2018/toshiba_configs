@@ -1,0 +1,62 @@
+# .Xprofile created 10-30-2019
+# sourced by .xinitrc
+# common items to start with window manager
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# kill some applications that may be resident in memory
+killall -q conky &
+killall -q i3status &
+killall -q slstatus &
+killall -q sxhkd &
+killall -q polybar &
+killall -q juiced &
+
+# Qt5 configuration; Qt apps follow gtk2
+export QT_STYLE_OVERRIDE=GTK+
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_PLATFORMTHEME=gtk2
+export QT_PLATFORM_PLUGIN=gtk2
+
+# load urxvtd
+# exec urxvtd -q -o -f &
+
+# turn on numblock/numberpad by default
+numlockx on &
+
+# screen blanking
+# examples from void wiki
+#xset s off 	#Disable screen saver blanking
+#xset s 3600 3600 	#Change blank time to 1 hour
+#xset -dpms 	#Turn off DPMS
+#xset s off -dpms 	#Disable DPMS and prevent screen from blanking
+#xset dpms force off 	#Turn off screen immediately
+#xset dpms force standby 	#Standby screen
+#xset dpms force suspend 	#Suspend screen 
+#
+
+# bell volume
+xset b 50
+
+# blank screen after an hour
+xset s 3600 3600 &
+
+# dpms - seconds to standby/suspend/off
+# xset -dpms
+xset dpms 5400 6300 7200
+
+# mouse acceleration
+xset m 1/1
+
+# bspwm requires this - can be run from bspwmrc; doesn't seem to matter for rest
+xsetroot -cursor_name left_ptr &
+
+# battery monitor
+(sleep 2s && juiced -d) &
+
+# background
+xsetroot -solid "#130F4B" &
+
+# set wallpaper for all window manager logins; can also use feh, nitrogen etc ..
+# fbsetbg -c -r "$HOME/wallpaper/" &
+

@@ -1,9 +1,6 @@
 ^sep()
+Log Off,killall `wmctrl -m | awk '/Name/ {print tolower($2)}'`,system-log-out
 Lock Screen,slock,system-lock-screen
-Exit,^checkout(exit),system-shutdown
-
-exit,^tag(exit)
-Exit to prompt,session-logout || pkill -15 -t tty"$XDG_VTNR" Xorg,system-log-out
-Suspend,`sudo zzz`,system-log-out
+Sleep,`zzz`,system-lock-screen
 Reboot,`sudo reboot`,system-reboot
-Poweroff,`sudo poweroff`,system-shutdown
+Shutdown,`sudo poweroff`,system-log-out

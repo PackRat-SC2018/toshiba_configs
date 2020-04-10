@@ -1,180 +1,40 @@
-**** BEGIN LOGGING AT Wed Jun 26 18:28:05 2019
+**** BEGIN LOGGING AT Tue Mar 31 13:59:16 2020
 
-Jun 26 18:28:05 Checksum plugin loaded
-Jun 26 18:28:05 FiSHLiM plugin loaded
-Jun 26 18:28:05 Sysinfo plugin loaded
-**** BEGIN LOGGING AT Tue Aug 20 10:01:33 2019
+Mar 31 13:59:16 Sysinfo plugin loaded
+Mar 31 13:59:16 FiSHLiM plugin loaded
+Mar 31 13:59:16 Checksum plugin loaded
+**** BEGIN LOGGING AT Tue Mar 31 14:01:38 2020
 
-Aug 20 10:01:33 Checksum plugin loaded
-Aug 20 10:01:33 FiSHLiM plugin loaded
-Aug 20 10:01:33 Sysinfo plugin loaded
-Aug 20 10:01:33 *	Looking up chat.freenode.net
-Aug 20 10:01:33 *	Connecting to chat.freenode.net (162.213.39.42:6697)
-Aug 20 10:01:34 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:01:34 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:01:34 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:01:34 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:01:34 *	* Subject: /CN=weber.freenode.net
-Aug 20 10:01:34 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:01:34 *	* Certification info:
-Aug 20 10:01:34 *	  Subject:
-Aug 20 10:01:34 *	    CN=weber.freenode.net
-Aug 20 10:01:34 *	  Issuer:
-Aug 20 10:01:34 *	    C=US
-Aug 20 10:01:34 *	    O=Let's Encrypt
-Aug 20 10:01:34 *	    CN=Let's Encrypt Authority X3
-Aug 20 10:01:34 *	  Public key algorithm: rsaEncryption (4096 bits)
-Aug 20 10:01:34 *	  Sign algorithm sha256WithRSAEncryption
-Aug 20 10:01:34 *	  Valid since Aug  5 05:04:27 2019 GM to Nov  3 05:04:27 2019 GM
-Aug 20 10:01:34 *	* Cipher info:
-Aug 20 10:01:34 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Aug 20 10:01:34 *	Connected. Now logging in.
-Aug 20 10:01:34 *	*** Looking up your hostname...
-Aug 20 10:01:34 *	*** Checking Ident
-Aug 20 10:01:34 *	*** Found your hostname
-Aug 20 10:01:41 *	*** No Ident response
-Aug 20 10:01:41 *	Capabilities supported: account-notify extended-join identify-msg multi-prefix sasl
-Aug 20 10:01:41 *	Capabilities requested: account-notify extended-join identify-msg multi-prefix 
-Aug 20 10:01:41 *	Capabilities acknowledged: account-notify extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Tue Aug 20 10:01:41 2019
-
-**** BEGIN LOGGING AT Tue Aug 20 10:05:43 2019
-
-Aug 20 10:05:43 Checksum plugin loaded
-Aug 20 10:05:43 FiSHLiM plugin loaded
-Aug 20 10:05:43 Sysinfo plugin loaded
-Aug 20 10:05:43 *	Looking up chat.freenode.net
-Aug 20 10:05:44 *	Connecting to chat.freenode.net (185.30.166.37:6697)
-Aug 20 10:05:45 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:05:45 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:05:45 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:05:45 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:05:45 *	* Subject: /CN=orwell.freenode.net
-Aug 20 10:05:45 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:05:45 *	* Certification info:
-Aug 20 10:05:45 *	  Subject:
-Aug 20 10:05:45 *	    CN=orwell.freenode.net
-Aug 20 10:05:45 *	  Issuer:
-Aug 20 10:05:45 *	    C=US
-Aug 20 10:05:45 *	    O=Let's Encrypt
-Aug 20 10:05:45 *	    CN=Let's Encrypt Authority X3
-Aug 20 10:05:45 *	  Public key algorithm: rsaEncryption (4096 bits)
-Aug 20 10:05:45 *	  Sign algorithm sha256WithRSAEncryption
-Aug 20 10:05:45 *	  Valid since Jul 15 05:02:57 2019 GM to Oct 13 05:02:57 2019 GM
-Aug 20 10:05:45 *	* Cipher info:
-Aug 20 10:05:45 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Aug 20 10:05:45 *	Connected. Now logging in.
-Aug 20 10:05:45 *	*** Looking up your hostname...
-Aug 20 10:05:45 *	*** Checking Ident
-Aug 20 10:05:45 *	*** Found your hostname
-Aug 20 10:05:50 *	*** No Ident response
-Aug 20 10:05:50 *	Capabilities supported: account-notify extended-join identify-msg multi-prefix sasl
-Aug 20 10:05:50 *	Capabilities requested: account-notify extended-join identify-msg multi-prefix 
-Aug 20 10:05:50 *	Capabilities acknowledged: account-notify extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Tue Aug 20 10:05:50 2019
-
-**** BEGIN LOGGING AT Tue Aug 20 10:07:18 2019
-
-Aug 20 10:07:18 Checksum plugin loaded
-Aug 20 10:07:18 FiSHLiM plugin loaded
-Aug 20 10:07:18 Sysinfo plugin loaded
-Aug 20 10:07:18 *	Looking up chat.freenode.net
-Aug 20 10:07:18 *	Connecting to chat.freenode.net (185.30.166.37:6697)
-Aug 20 10:07:19 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:07:19 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:07:19 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:07:19 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Aug 20 10:07:19 *	* Subject: /CN=orwell.freenode.net
-Aug 20 10:07:19 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Aug 20 10:07:20 *	* Certification info:
-Aug 20 10:07:20 *	  Subject:
-Aug 20 10:07:20 *	    CN=orwell.freenode.net
-Aug 20 10:07:20 *	  Issuer:
-Aug 20 10:07:20 *	    C=US
-Aug 20 10:07:20 *	    O=Let's Encrypt
-Aug 20 10:07:20 *	    CN=Let's Encrypt Authority X3
-Aug 20 10:07:20 *	  Public key algorithm: rsaEncryption (4096 bits)
-Aug 20 10:07:20 *	  Sign algorithm sha256WithRSAEncryption
-Aug 20 10:07:20 *	  Valid since Jul 15 05:02:57 2019 GM to Oct 13 05:02:57 2019 GM
-Aug 20 10:07:20 *	* Cipher info:
-Aug 20 10:07:20 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Aug 20 10:07:20 *	Connected. Now logging in.
-Aug 20 10:07:20 *	*** Looking up your hostname...
-Aug 20 10:07:20 *	*** Checking Ident
-Aug 20 10:07:20 *	*** Found your hostname
-Aug 20 10:07:26 *	*** No Ident response
-Aug 20 10:07:27 *	Capabilities supported: account-notify extended-join identify-msg multi-prefix sasl
-Aug 20 10:07:27 *	Capabilities requested: account-notify extended-join identify-msg multi-prefix 
-Aug 20 10:07:27 *	Capabilities acknowledged: account-notify extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Tue Aug 20 10:07:27 2019
-
-**** BEGIN LOGGING AT Wed Sep  4 12:44:57 2019
-
-Sep 04 12:44:57 Checksum plugin loaded
-Sep 04 12:44:57 FiSHLiM plugin loaded
-Sep 04 12:44:57 Sysinfo plugin loaded
-Sep 04 12:44:57 *	Looking up chat.freenode.net
-Sep 04 12:44:57 *	Connecting to chat.freenode.net (162.213.39.42:6697)
-Sep 04 12:44:59 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Sep 04 12:44:59 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Sep 04 12:44:59 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Sep 04 12:44:59 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Sep 04 12:44:59 *	* Subject: /CN=weber.freenode.net
-Sep 04 12:44:59 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Sep 04 12:44:59 *	* Certification info:
-Sep 04 12:44:59 *	  Subject:
-Sep 04 12:44:59 *	    CN=weber.freenode.net
-Sep 04 12:44:59 *	  Issuer:
-Sep 04 12:44:59 *	    C=US
-Sep 04 12:44:59 *	    O=Let's Encrypt
-Sep 04 12:44:59 *	    CN=Let's Encrypt Authority X3
-Sep 04 12:44:59 *	  Public key algorithm: rsaEncryption (4096 bits)
-Sep 04 12:44:59 *	  Sign algorithm sha256WithRSAEncryption
-Sep 04 12:44:59 *	  Valid since Aug  5 05:04:27 2019 GM to Nov  3 05:04:27 2019 GM
-Sep 04 12:44:59 *	* Cipher info:
-Sep 04 12:44:59 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Sep 04 12:44:59 *	Connected. Now logging in.
-Sep 04 12:44:59 *	*** Looking up your hostname...
-Sep 04 12:44:59 *	*** Checking Ident
-Sep 04 12:44:59 *	*** Found your hostname
-Sep 04 12:45:07 *	*** No Ident response
-Sep 04 12:45:07 *	Capabilities supported: account-notify extended-join identify-msg multi-prefix sasl
-Sep 04 12:45:07 *	Capabilities requested: account-notify extended-join identify-msg multi-prefix 
-Sep 04 12:45:07 *	Capabilities acknowledged: account-notify extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Wed Sep  4 12:45:07 2019
-
-**** BEGIN LOGGING AT Mon Nov  4 09:46:59 2019
-
-Nov 04 09:46:59 Checksum plugin loaded
-Nov 04 09:46:59 FiSHLiM plugin loaded
-Nov 04 09:46:59 Sysinfo plugin loaded
-Nov 04 09:46:59 *	Looking up chat.freenode.net
-Nov 04 09:47:00 *	Connecting to chat.freenode.net (38.229.70.22:6697)
-Nov 04 09:47:01 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Nov 04 09:47:01 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Nov 04 09:47:01 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Nov 04 09:47:01 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
-Nov 04 09:47:01 *	* Subject: /CN=card.freenode.net
-Nov 04 09:47:01 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
-Nov 04 09:47:01 *	* Certification info:
-Nov 04 09:47:01 *	  Subject:
-Nov 04 09:47:01 *	    CN=card.freenode.net
-Nov 04 09:47:01 *	  Issuer:
-Nov 04 09:47:01 *	    C=US
-Nov 04 09:47:01 *	    O=Let's Encrypt
-Nov 04 09:47:01 *	    CN=Let's Encrypt Authority X3
-Nov 04 09:47:01 *	  Public key algorithm: rsaEncryption (4096 bits)
-Nov 04 09:47:01 *	  Sign algorithm sha256WithRSAEncryption
-Nov 04 09:47:01 *	  Valid since Oct  7 05:02:25 2019 GM to Jan  5 05:02:25 2020 GM
-Nov 04 09:47:01 *	* Cipher info:
-Nov 04 09:47:01 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
-Nov 04 09:47:01 *	Connected. Now logging in.
-Nov 04 09:47:01 *	*** Looking up your hostname...
-Nov 04 09:47:01 *	*** Checking Ident
-Nov 04 09:47:01 *	*** Found your hostname
-Nov 04 09:47:09 *	*** No Ident response
-Nov 04 09:47:09 *	Capabilities supported: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix sasl tls
-Nov 04 09:47:09 *	Capabilities requested: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
-Nov 04 09:47:09 *	Capabilities acknowledged: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Mon Nov  4 09:47:09 2019
+Mar 31 14:01:38 Sysinfo plugin loaded
+Mar 31 14:01:38 FiSHLiM plugin loaded
+Mar 31 14:01:38 Checksum plugin loaded
+Mar 31 14:01:38 *	Looking up chat.freenode.net
+Mar 31 14:01:43 *	Connecting to chat.freenode.net (192.186.157.43:6697)
+Mar 31 14:01:43 *	* Subject: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 14:01:43 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 14:01:43 *	* Subject: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Mar 31 14:01:43 *	* Issuer: /O=Digital Signature Trust Co./CN=DST Root CA X3
+Mar 31 14:01:43 *	* Subject: /CN=tepper.freenode.net
+Mar 31 14:01:43 *	* Issuer: /C=US/O=Let's Encrypt/CN=Let's Encrypt Authority X3
+Mar 31 14:01:44 *	* Certification info:
+Mar 31 14:01:44 *	  Subject:
+Mar 31 14:01:44 *	    CN=tepper.freenode.net
+Mar 31 14:01:44 *	  Issuer:
+Mar 31 14:01:44 *	    C=US
+Mar 31 14:01:44 *	    O=Let's Encrypt
+Mar 31 14:01:44 *	    CN=Let's Encrypt Authority X3
+Mar 31 14:01:44 *	  Public key algorithm: rsaEncryption (4096 bits)
+Mar 31 14:01:44 *	  Sign algorithm sha256WithRSAEncryption
+Mar 31 14:01:44 *	  Valid since Mar  3 20:03:16 2020 GM to Jun  1 20:03:16 2020 GM
+Mar 31 14:01:44 *	* Cipher info:
+Mar 31 14:01:44 *	  Version: TLSv1/SSLv3, cipher ECDHE-RSA-AES256-GCM-SHA384 (256 bits)
+Mar 31 14:01:44 *	Connected. Now logging in.
+Mar 31 14:01:44 *	*** Looking up your hostname...
+Mar 31 14:01:44 *	*** Checking Ident
+Mar 31 14:01:44 *	*** Found your hostname
+Mar 31 14:01:50 *	*** No Ident response
+Mar 31 14:01:50 *	Capabilities supported: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix sasl tls
+Mar 31 14:01:50 *	Capabilities requested: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
+Mar 31 14:01:50 *	Capabilities acknowledged: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
+**** ENDING LOGGING AT Tue Mar 31 14:01:51 2020
 

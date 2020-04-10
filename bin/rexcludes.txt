@@ -35,12 +35,14 @@
 .xsession-errors
 Desktop
 build
+Willow
+Bandit
 bandit
+willow
 temp
 pictures
 images
 Pictures
-Downloads
 archlabs
 .config/GIMP
 .config/Thunar
@@ -78,3 +80,6 @@ archlabs
 .config/compton.conf*
 .config/mimeapps.list
 .config/yad.conf
+.config/vivaldi
+.config/opera
+

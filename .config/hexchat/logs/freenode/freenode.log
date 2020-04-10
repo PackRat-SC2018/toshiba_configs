@@ -1,507 +1,164 @@
-**** BEGIN LOGGING AT Wed Jun 26 18:28:12 2019
+**** BEGIN LOGGING AT Tue Mar 31 13:59:18 2020
 
-Jun 26 18:28:12 *	*** Looking up your hostname...
-Jun 26 18:28:12 *	*** Checking Ident
-Jun 26 18:28:12 *	*** Couldn't look up your hostname
-Jun 26 18:28:17 *	*** No Ident response
-Jun 26 18:28:17 *	Capabilities supported: account-notify extended-join identify-msg multi-prefix sasl
-Jun 26 18:28:17 *	Capabilities requested: account-notify extended-join identify-msg multi-prefix 
-Jun 26 18:28:17 *	doug is already in use. Retrying with doug_...
-Jun 26 18:28:18 *	Capabilities acknowledged: account-notify extended-join identify-msg multi-prefix 
-**** ENDING LOGGING AT Wed Jun 26 18:28:18 2019
+Mar 31 13:59:18 *	*** Looking up your hostname...
+Mar 31 13:59:18 *	*** Checking Ident
+Mar 31 13:59:18 *	*** Found your hostname
+Mar 31 13:59:27 *	*** No Ident response
+Mar 31 13:59:27 *	Capabilities supported: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix sasl tls
+Mar 31 13:59:27 *	Capabilities requested: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
+Mar 31 13:59:27 *	Capabilities acknowledged: account-notify away-notify cap-notify chghost extended-join identify-msg multi-prefix 
+**** ENDING LOGGING AT Tue Mar 31 13:59:27 2020
 
-**** BEGIN LOGGING AT Wed Jun 26 18:28:18 2019
+**** BEGIN LOGGING AT Tue Mar 31 13:59:27 2020
 
-Jun 26 18:28:18 *	Welcome to the freenode Internet Relay Chat Network doug_
-Jun 26 18:28:18 *	Your host is leguin.freenode.net[130.239.18.119/6697], running version ircd-seven-1.1.7
-Jun 26 18:28:18 *	This server was created Tue Sep 25 2018 at 13:21:19 UTC
-Jun 26 18:28:18 *	leguin.freenode.net ircd-seven-1.1.7 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
-Jun 26 18:28:18 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Jun 26 18:28:18 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 CPRIVMSG CNOTICE KNOCK :are supported by this server
-Jun 26 18:28:18 *	ETRACE SAFELIST ELIST=CTU WHOX :are supported by this server
-Jun 26 18:28:18 *	There are 105 users and 85605 invisible on 31 servers
-Jun 26 18:28:18 *	32 :IRC Operators online
-Jun 26 18:28:18 *	27 :unknown connection(s)
-Jun 26 18:28:18 *	44351 :channels formed
-Jun 26 18:28:18 *	I have 3706 clients and 1 servers
-Jun 26 18:28:18 *	3706 4132 :Current local users 3706, max 4132
-Jun 26 18:28:18 *	85710 88908 :Current global users 85710, max 88908
-Jun 26 18:28:18 *	Highest connection count: 4133 (4132 clients) (42708 connections received)
-Jun 26 18:28:18 *	- leguin.freenode.net Message of the Day - 
-Jun 26 18:28:18 *	- Welcome to leguin.freenode.net in Umeå, Sweden, EU! Thanks to
-Jun 26 18:28:18 *	- the Academic Computer Club at Umeå University for sponsoring
-Jun 26 18:28:18 *	- this server!
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- LE GUIN, URSULA K. (1929-2018) Born in Berkeley, California,
-Jun 26 18:28:18 *	- Ursula Le Guin was an American author primarily known for
-Jun 26 18:28:18 *	- her Science Fiction and Fantasy. She was awarded the Hugo
-Jun 26 18:28:18 *	- and Nebula awards, and was best known for her Earthsea
-Jun 26 18:28:18 *	- and Hainish series.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- Welcome to freenode - supporting the free and open source
-Jun 26 18:28:18 *	- software communities since 1998.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- By connecting to freenode you indicate that you have read and
-Jun 26 18:28:18 *	- accept our policies and guidelines as set out on https://freenode.net
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- In the event that you observe behaviour that contravenes our policies,
-Jun 26 18:28:18 *	- please notify a volunteer staff member via private message, or send us an
-Jun 26 18:28:18 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Jun 26 18:28:18 *	- situation within a reasonable period of time, and we may request further
-Jun 26 18:28:18 *	- information or, as appropriate, involve other parties such as channel operators 
-Jun 26 18:28:18 *	- Group Contacts representing an on-topic group.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- freenode runs an open proxy scanner.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- If you are looking for assistance, you may be able to find a list of 
-Jun 26 18:28:18 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Jun 26 18:28:18 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Jun 26 18:28:18 *	- any of us at any time. Please note that freenode predominantly provides 
-Jun 26 18:28:18 *	- assistance via private message, and while we have a network channel the 
-Jun 26 18:28:18 *	- primary venue for support requests is via private message to a member 
-Jun 26 18:28:18 *	- of the volunteer staff team.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- From time to time, volunteer staff may send server-wide notices relating to
-Jun 26 18:28:18 *	- the project, or the communities that we host. The majority of such notices
-Jun 26 18:28:18 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Jun 26 18:28:18 *	- do not miss them. Important messages relating to the freenode project, including
-Jun 26 18:28:18 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Jun 26 18:28:18 *	- global notices.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- Representing an on-topic project? Don't forget to register, more information
-Jun 26 18:28:18 *	- can be found on the https://freenode.net website under "Group Registration".
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Jun 26 18:28:18 *	- network going for close to two decades.
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Jun 26 18:28:18 *	- and everyone else who made this year's freenode #live conference amazing.
-Jun 26 18:28:18 *	- https://freenode.net/news/live-2018
-Jun 26 18:28:18 *	-  
-Jun 26 18:28:18 *	- Thank you for using freenode!
-Jun 26 18:28:18 *	End of /MOTD command.
-Jun 26 18:28:18 *	doug_ sets mode +Z on doug_
-Jun 26 18:28:18 *	doug_ sets mode +i on doug_
-Jun 26 18:28:18 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Jun 26 18:28:19 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Jun 26 18:28:19 *	Received a CTCP VERSION from freenode-connect
-Jun 26 18:28:37 Sysinfo plugin unloaded
-Jun 26 18:28:37 FiSHLiM plugin unloaded
-Jun 26 18:28:37 Checksum plugin unloaded
-**** ENDING LOGGING AT Wed Jun 26 18:28:37 2019
+Mar 31 13:59:27 *	Welcome to the freenode Internet Relay Chat Network PackRat
+Mar 31 13:59:27 *	Your host is cherryh.freenode.net[149.56.134.238/6697], running version ircd-seven-1.1.9
+Mar 31 13:59:27 *	This server was created Tue Feb 4 2020 at 21:38:27 UTC
+Mar 31 13:59:27 *	cherryh.freenode.net ircd-seven-1.1.9 DOQRSZaghilopsuwz CFILMPQSbcefgijklmnopqrstuvz bkloveqjfI
+Mar 31 13:59:27 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstuz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
+Mar 31 13:59:27 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 CPRIVMSG CNOTICE SAFELIST :are supported by this server
+Mar 31 13:59:27 *	ELIST=CTU WHOX ETRACE KNOCK :are supported by this server
+Mar 31 13:59:27 *	There are 97 users and 82147 invisible on 30 servers
+Mar 31 13:59:27 *	32 :IRC Operators online
+Mar 31 13:59:27 *	45 :unknown connection(s)
+Mar 31 13:59:27 *	45700 :channels formed
+Mar 31 13:59:27 *	I have 4122 clients and 1 servers
+Mar 31 13:59:27 *	4122 6426 :Current local users 4122, max 6426
+Mar 31 13:59:27 *	82244 88649 :Current global users 82244, max 88649
+Mar 31 13:59:27 *	Highest connection count: 6427 (6426 clients) (554506 connections received)
+Mar 31 13:59:27 *	- cherryh.freenode.net Message of the Day - 
+Mar 31 13:59:27 *	- Welcome to cherryh.freenode.net in Montreal, CA.
+Mar 31 13:59:27 *	- Welcome to freenode - supporting the free and open source
+Mar 31 13:59:27 *	- software communities since 1998.
+Mar 31 13:59:27 *	-  
+Mar 31 13:59:27 *	- By connecting to freenode you indicate that you have read and
+Mar 31 13:59:27 *	- accept our policies and guidelines as set out on https://freenode.net
+Mar 31 13:59:27 *	-  
+Mar 31 13:59:27 *	- In the event that you observe behaviour that contravenes our policies,
+Mar 31 13:59:27 *	- please notify a volunteer staff member via private message, or send us an
+Mar 31 13:59:27 *	- e-mail to complaints@freenode.net -- we will do our best to address the
+Mar 31 13:59:27 *	- situation within a reasonable period of time, and we may request further
+Mar 31 13:59:27 *	- information or, as appropriate, involve other parties such as channel operators 
+Mar 31 13:59:27 *	- Group Contacts representing an on-topic group.
+Mar 31 13:59:27 *	-  
+Mar 31 13:59:27 *	- freenode runs an open proxy scanner.
+Mar 31 13:59:28 *	-  
+Mar 31 13:59:28 *	- If you are looking for assistance, you may be able to find a list of 
+Mar 31 13:59:28 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
+Mar 31 13:59:28 *	- #freenode and using the '/who freenode/staff/*' command. You may message
+Mar 31 13:59:28 *	- any of us at any time. Please note that freenode predominantly provides 
+Mar 31 13:59:28 *	- assistance via private message, and while we have a network channel the 
+Mar 31 13:59:28 *	- primary venue for support requests is via private message to a member 
+Mar 31 13:59:28 *	- of the volunteer staff team.
+Mar 31 13:59:28 *	-  
+Mar 31 13:59:28 *	- From time to time, volunteer staff may send server-wide notices relating to
+Mar 31 13:59:28 *	- the project, or the communities that we host. The majority of such notices
+Mar 31 13:59:28 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
+Mar 31 13:59:28 *	- do not miss them. Important messages relating to the freenode project, including
+Mar 31 13:59:28 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
+Mar 31 13:59:28 *	- global notices.
+Mar 31 13:59:28 *	-  
+Mar 31 13:59:28 *	- Representing an on-topic project? Don't forget to register, more information
+Mar 31 13:59:28 *	- can be found on the https://freenode.net website under "Group Registration".
+Mar 31 13:59:28 *	-  
+Mar 31 13:59:28 *	- Thank you also to our server sponsors for the sustained support in keeping the
+Mar 31 13:59:28 *	- network going for close to two decades.
+Mar 31 13:59:28 *	-  
+Mar 31 13:59:28 *	- Thank you for using freenode!
+Mar 31 13:59:28 *	End of /MOTD command.
+Mar 31 13:59:28 *	PackRat sets mode +Z on PackRat
+Mar 31 13:59:28 *	PackRat sets mode +i on PackRat
+Mar 31 13:59:28 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+Mar 31 13:59:37 *	#voidlinux :Cannot join channel (+r) - you need to be identified with services - see https://freenode.net/kb/answer/registration
+Mar 31 14:00:27 >NickServ<	REGISTER Void73Pass#6 dsd.nevada@gmail.com
+Mar 31 14:00:28 -NickServ-	PackRat is already registered.
+Mar 31 14:00:38 >NickServ<	identify ****
+Mar 31 14:00:39 -NickServ-	Invalid password for packrat.
+Mar 31 14:00:53 No channel joined. Try /join #<channel>
+Mar 31 14:01:10 *	Disconnected ()
+Mar 31 14:01:13 Checksum plugin unloaded
+Mar 31 14:01:13 FiSHLiM plugin unloaded
+Mar 31 14:01:13 Sysinfo plugin unloaded
+**** ENDING LOGGING AT Tue Mar 31 14:01:13 2020
 
-**** BEGIN LOGGING AT Tue Aug 20 10:01:41 2019
+**** BEGIN LOGGING AT Tue Mar 31 14:01:51 2020
 
-Aug 20 10:01:41 *	Welcome to the freenode Internet Relay Chat Network PackRat
-Aug 20 10:01:41 *	Your host is weber.freenode.net[162.213.39.42/6697], running version ircd-seven-1.1.7
-Aug 20 10:01:41 *	This server was created Fri Feb 22 2019 at 19:46:41 UTC
-Aug 20 10:01:41 *	weber.freenode.net ircd-seven-1.1.7 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
-Aug 20 10:01:41 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Aug 20 10:01:41 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 SAFELIST ELIST=CTU KNOCK :are supported by this server
-Aug 20 10:01:41 *	CPRIVMSG CNOTICE WHOX ETRACE :are supported by this server
-Aug 20 10:01:41 *	There are 96 users and 88553 invisible on 27 servers
-Aug 20 10:01:41 *	35 :IRC Operators online
-Aug 20 10:01:41 *	26 :unknown connection(s)
-Aug 20 10:01:41 *	47772 :channels formed
-Aug 20 10:01:41 *	I have 5837 clients and 1 servers
-Aug 20 10:01:41 *	5837 5987 :Current local users 5837, max 5987
-Aug 20 10:01:41 *	88649 94773 :Current global users 88649, max 94773
-Aug 20 10:01:41 *	Highest connection count: 5988 (5987 clients) (1499651 connections received)
-Aug 20 10:01:41 *	- weber.freenode.net Message of the Day - 
-Aug 20 10:01:41 *	- Welcome to weber.freenode.net in California, USA.
-Aug 20 10:01:41 *	- Thanks to https://www.cloudsigma.com/ for sponsoring
-Aug 20 10:01:41 *	- this server!
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- WEBER, DAVID M. (1952-), an American fantasy and scifi
-Aug 20 10:01:41 *	- author. Best known for his 'Honor Harrington' series, his
-Aug 20 10:01:41 *	- works span several genres, including alternate history,
-Aug 20 10:01:41 *	- epic fantasy, military scifi and space opera. He's also
-Aug 20 10:01:41 *	- done wargame design mainly for the StarFire tabletop
-Aug 20 10:01:41 *	- boardgame series, a job which later evolved into the novel,
-Aug 20 10:01:41 *	- 'Insurrection' (collaboration with Steve White, published
-Aug 20 10:01:41 *	- in 1990).
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- Welcome to freenode - supporting the free and open source
-Aug 20 10:01:41 *	- software communities since 1998.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- By connecting to freenode you indicate that you have read and
-Aug 20 10:01:41 *	- accept our policies and guidelines as set out on https://freenode.net
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- In the event that you observe behaviour that contravenes our policies,
-Aug 20 10:01:41 *	- please notify a volunteer staff member via private message, or send us an
-Aug 20 10:01:41 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Aug 20 10:01:41 *	- situation within a reasonable period of time, and we may request further
-Aug 20 10:01:41 *	- information or, as appropriate, involve other parties such as channel operators 
-Aug 20 10:01:41 *	- Group Contacts representing an on-topic group.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- freenode runs an open proxy scanner.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- If you are looking for assistance, you may be able to find a list of 
-Aug 20 10:01:41 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Aug 20 10:01:41 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Aug 20 10:01:41 *	- any of us at any time. Please note that freenode predominantly provides 
-Aug 20 10:01:41 *	- assistance via private message, and while we have a network channel the 
-Aug 20 10:01:41 *	- primary venue for support requests is via private message to a member 
-Aug 20 10:01:41 *	- of the volunteer staff team.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- From time to time, volunteer staff may send server-wide notices relating to
-Aug 20 10:01:41 *	- the project, or the communities that we host. The majority of such notices
-Aug 20 10:01:41 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Aug 20 10:01:41 *	- do not miss them. Important messages relating to the freenode project, including
-Aug 20 10:01:41 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Aug 20 10:01:41 *	- global notices.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- Representing an on-topic project? Don't forget to register, more information
-Aug 20 10:01:41 *	- can be found on the https://freenode.net website under "Group Registration".
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Aug 20 10:01:41 *	- network going for close to two decades.
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Aug 20 10:01:41 *	- and everyone else who made this year's freenode #live conference amazing.
-Aug 20 10:01:41 *	- https://freenode.net/news/live-2018
-Aug 20 10:01:41 *	-  
-Aug 20 10:01:41 *	- Thank you for using freenode!
-Aug 20 10:01:42 *	End of /MOTD command.
-Aug 20 10:01:42 *	PackRat sets mode +Z on PackRat
-Aug 20 10:01:42 *	PackRat sets mode +i on PackRat
-Aug 20 10:01:42 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Aug 20 10:01:42 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Aug 20 10:01:42 *	Received a CTCP VERSION from freenode-connect
-Aug 20 10:04:28 *	Disconnected ()
-Aug 20 10:05:25 Sysinfo plugin unloaded
-Aug 20 10:05:25 Checksum plugin unloaded
-**** ENDING LOGGING AT Tue Aug 20 10:05:25 2019
-
-**** BEGIN LOGGING AT Tue Aug 20 10:05:50 2019
-
-Aug 20 10:05:50 *	Welcome to the freenode Internet Relay Chat Network PackRat
-Aug 20 10:05:50 *	Your host is orwell.freenode.net[185.30.166.37/6697], running version ircd-seven-1.1.7
-Aug 20 10:05:50 *	This server was created Tue Sep 25 2018 at 13:20:41 UTC
-Aug 20 10:05:50 *	orwell.freenode.net ircd-seven-1.1.7 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
-Aug 20 10:05:50 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Aug 20 10:05:50 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 KNOCK CPRIVMSG CNOTICE :are supported by this server
-Aug 20 10:05:50 *	SAFELIST ELIST=CTU ETRACE WHOX :are supported by this server
-Aug 20 10:05:50 *	There are 96 users and 88570 invisible on 27 servers
-Aug 20 10:05:50 *	35 :IRC Operators online
-Aug 20 10:05:50 *	21 :unknown connection(s)
-Aug 20 10:05:50 *	47787 :channels formed
-Aug 20 10:05:50 *	I have 5834 clients and 1 servers
-Aug 20 10:05:50 *	5834 6053 :Current local users 5834, max 6053
-Aug 20 10:05:50 *	88666 91149 :Current global users 88666, max 91149
-Aug 20 10:05:50 *	Highest connection count: 6054 (6053 clients) (918354 connections received)
-Aug 20 10:05:50 *	- orwell.freenode.net Message of the Day - 
-Aug 20 10:05:50 *	- Welcome to orwell.freenode.net in Amsterdam, NL.
-Aug 20 10:05:50 *	- Thanks to http://www.hyperfilter.com/ for sponsoring
-Aug 20 10:05:50 *	- this server!
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- ORWELL, GEORGE [1903 - 1950] Born in India, his mother
-Aug 20 10:05:50 *	- moved him to England when he was one year old, and it
-Aug 20 10:05:50 *	- was in England where he was educated and spent most of
-Aug 20 10:05:50 *	- his life.  Orwell is perhaps best known for his novels
-Aug 20 10:05:50 *	- Nineteen Eighty-Four and Animal Farm.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- Welcome to freenode - supporting the free and open source
-Aug 20 10:05:50 *	- software communities since 1998.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- By connecting to freenode you indicate that you have read and
-Aug 20 10:05:50 *	- accept our policies and guidelines as set out on https://freenode.net
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- In the event that you observe behaviour that contravenes our policies,
-Aug 20 10:05:50 *	- please notify a volunteer staff member via private message, or send us an
-Aug 20 10:05:50 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Aug 20 10:05:50 *	- situation within a reasonable period of time, and we may request further
-Aug 20 10:05:50 *	- information or, as appropriate, involve other parties such as channel operators 
-Aug 20 10:05:50 *	- Group Contacts representing an on-topic group.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- freenode runs an open proxy scanner.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- If you are looking for assistance, you may be able to find a list of 
-Aug 20 10:05:50 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Aug 20 10:05:50 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Aug 20 10:05:50 *	- any of us at any time. Please note that freenode predominantly provides 
-Aug 20 10:05:50 *	- assistance via private message, and while we have a network channel the 
-Aug 20 10:05:50 *	- primary venue for support requests is via private message to a member 
-Aug 20 10:05:50 *	- of the volunteer staff team.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- From time to time, volunteer staff may send server-wide notices relating to
-Aug 20 10:05:50 *	- the project, or the communities that we host. The majority of such notices
-Aug 20 10:05:50 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Aug 20 10:05:50 *	- do not miss them. Important messages relating to the freenode project, including
-Aug 20 10:05:50 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Aug 20 10:05:50 *	- global notices.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- Representing an on-topic project? Don't forget to register, more information
-Aug 20 10:05:50 *	- can be found on the https://freenode.net website under "Group Registration".
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:50 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Aug 20 10:05:50 *	- network going for close to two decades.
-Aug 20 10:05:50 *	-  
-Aug 20 10:05:51 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Aug 20 10:05:51 *	- and everyone else who made this year's freenode #live conference amazing.
-Aug 20 10:05:51 *	- https://freenode.net/news/live-2018
-Aug 20 10:05:51 *	-  
-Aug 20 10:05:51 *	- Thank you for using freenode!
-Aug 20 10:05:51 *	End of /MOTD command.
-Aug 20 10:05:51 *	PackRat sets mode +Z on PackRat
-Aug 20 10:05:51 *	PackRat sets mode +i on PackRat
-Aug 20 10:05:51 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Aug 20 10:05:51 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Aug 20 10:05:51 *	Received a CTCP VERSION from freenode-connect
-Aug 20 10:06:03 *	#voidlinux :Cannot join channel (+r) - you need to be identified with services - see https://freenode.net/kb/answer/registration
-Aug 20 10:06:49 Sysinfo plugin unloaded
-Aug 20 10:06:49 FiSHLiM plugin unloaded
-Aug 20 10:06:49 Checksum plugin unloaded
-**** ENDING LOGGING AT Tue Aug 20 10:06:49 2019
-
-**** BEGIN LOGGING AT Tue Aug 20 10:07:27 2019
-
-Aug 20 10:07:27 *	Welcome to the freenode Internet Relay Chat Network PackRat-2019
-Aug 20 10:07:27 *	Your host is orwell.freenode.net[185.30.166.37/6697], running version ircd-seven-1.1.7
-Aug 20 10:07:27 *	This server was created Tue Sep 25 2018 at 13:20:41 UTC
-Aug 20 10:07:27 *	orwell.freenode.net ircd-seven-1.1.7 DOQRSZaghilopswz CFILMPQSbcefgijklmnopqrstvz bkloveqjfI
-Aug 20 10:07:27 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Aug 20 10:07:27 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 KNOCK CPRIVMSG CNOTICE :are supported by this server
-Aug 20 10:07:27 *	SAFELIST ELIST=CTU ETRACE WHOX :are supported by this server
-Aug 20 10:07:27 *	There are 96 users and 88577 invisible on 27 servers
-Aug 20 10:07:27 *	35 :IRC Operators online
-Aug 20 10:07:27 *	21 :unknown connection(s)
-Aug 20 10:07:27 *	47773 :channels formed
-Aug 20 10:07:27 *	I have 5844 clients and 1 servers
-Aug 20 10:07:27 *	5844 6053 :Current local users 5844, max 6053
-Aug 20 10:07:27 *	88673 91149 :Current global users 88673, max 91149
-Aug 20 10:07:27 *	Highest connection count: 6054 (6053 clients) (918379 connections received)
-Aug 20 10:07:27 *	- orwell.freenode.net Message of the Day - 
-Aug 20 10:07:27 *	- Welcome to orwell.freenode.net in Amsterdam, NL.
-Aug 20 10:07:27 *	- Thanks to http://www.hyperfilter.com/ for sponsoring
-Aug 20 10:07:27 *	- this server!
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- ORWELL, GEORGE [1903 - 1950] Born in India, his mother
-Aug 20 10:07:27 *	- moved him to England when he was one year old, and it
-Aug 20 10:07:27 *	- was in England where he was educated and spent most of
-Aug 20 10:07:27 *	- his life.  Orwell is perhaps best known for his novels
-Aug 20 10:07:27 *	- Nineteen Eighty-Four and Animal Farm.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- Welcome to freenode - supporting the free and open source
-Aug 20 10:07:27 *	- software communities since 1998.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- By connecting to freenode you indicate that you have read and
-Aug 20 10:07:27 *	- accept our policies and guidelines as set out on https://freenode.net
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- In the event that you observe behaviour that contravenes our policies,
-Aug 20 10:07:27 *	- please notify a volunteer staff member via private message, or send us an
-Aug 20 10:07:27 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Aug 20 10:07:27 *	- situation within a reasonable period of time, and we may request further
-Aug 20 10:07:27 *	- information or, as appropriate, involve other parties such as channel operators 
-Aug 20 10:07:27 *	- Group Contacts representing an on-topic group.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- freenode runs an open proxy scanner.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- If you are looking for assistance, you may be able to find a list of 
-Aug 20 10:07:27 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Aug 20 10:07:27 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Aug 20 10:07:27 *	- any of us at any time. Please note that freenode predominantly provides 
-Aug 20 10:07:27 *	- assistance via private message, and while we have a network channel the 
-Aug 20 10:07:27 *	- primary venue for support requests is via private message to a member 
-Aug 20 10:07:27 *	- of the volunteer staff team.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- From time to time, volunteer staff may send server-wide notices relating to
-Aug 20 10:07:27 *	- the project, or the communities that we host. The majority of such notices
-Aug 20 10:07:27 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Aug 20 10:07:27 *	- do not miss them. Important messages relating to the freenode project, including
-Aug 20 10:07:27 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Aug 20 10:07:27 *	- global notices.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- Representing an on-topic project? Don't forget to register, more information
-Aug 20 10:07:27 *	- can be found on the https://freenode.net website under "Group Registration".
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Aug 20 10:07:27 *	- network going for close to two decades.
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Aug 20 10:07:27 *	- and everyone else who made this year's freenode #live conference amazing.
-Aug 20 10:07:27 *	- https://freenode.net/news/live-2018
-Aug 20 10:07:27 *	-  
-Aug 20 10:07:27 *	- Thank you for using freenode!
-Aug 20 10:07:27 *	End of /MOTD command.
-Aug 20 10:07:27 *	PackRat-2019 sets mode +Z on PackRat-2019
-Aug 20 10:07:27 *	PackRat-2019 sets mode +i on PackRat-2019
-Aug 20 10:07:27 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Aug 20 10:07:27 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Aug 20 10:07:27 *	Received a CTCP VERSION from freenode-connect
-Aug 20 10:07:36 *	#voidlinux :Cannot join channel (+r) - you need to be identified with services - see https://freenode.net/kb/answer/registration
-Aug 20 10:07:50 >NickServ<	identify ****
-Aug 20 10:07:51 -NickServ-	You are now identified for PackRat-2019.
-Aug 20 10:34:45 Sysinfo plugin unloaded
-Aug 20 10:34:45 Checksum plugin unloaded
-**** ENDING LOGGING AT Tue Aug 20 10:34:45 2019
-
-**** BEGIN LOGGING AT Wed Sep  4 12:45:07 2019
-
-Sep 04 12:45:07 *	Welcome to the freenode Internet Relay Chat Network PackRat-2019
-Sep 04 12:45:07 *	Your host is weber.freenode.net[162.213.39.42/6697], running version ircd-seven-1.1.7
-Sep 04 12:45:07 *	This server was created Fri Feb 22 2019 at 19:46:41 UTC
-Sep 04 12:45:07 *	weber.freenode.net ircd-seven-1.1.7 DOQRSZaghilopsuwz CFILMPQSbcefgijklmnopqrstuvz bkloveqjfI
-Sep 04 12:45:07 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstuz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Sep 04 12:45:07 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 SAFELIST ELIST=CTU KNOCK :are supported by this server
-Sep 04 12:45:07 *	CPRIVMSG CNOTICE WHOX ETRACE :are supported by this server
-Sep 04 12:45:07 *	There are 102 users and 85723 invisible on 25 servers
-Sep 04 12:45:07 *	37 :IRC Operators online
-Sep 04 12:45:07 *	21 :unknown connection(s)
-Sep 04 12:45:07 *	48319 :channels formed
-Sep 04 12:45:07 *	I have 7954 clients and 1 servers
-Sep 04 12:45:07 *	7954 8086 :Current local users 7954, max 8086
-Sep 04 12:45:07 *	85825 94773 :Current global users 85825, max 94773
-Sep 04 12:45:07 *	Highest connection count: 8087 (8086 clients) (1659179 connections received)
-Sep 04 12:45:07 *	- weber.freenode.net Message of the Day - 
-Sep 04 12:45:07 *	- Welcome to weber.freenode.net in California, USA.
-Sep 04 12:45:07 *	- Thanks to https://www.cloudsigma.com/ for sponsoring
-Sep 04 12:45:07 *	- this server!
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- WEBER, DAVID M. (1952-), an American fantasy and scifi
-Sep 04 12:45:07 *	- author. Best known for his 'Honor Harrington' series, his
-Sep 04 12:45:07 *	- works span several genres, including alternate history,
-Sep 04 12:45:07 *	- epic fantasy, military scifi and space opera. He's also
-Sep 04 12:45:07 *	- done wargame design mainly for the StarFire tabletop
-Sep 04 12:45:07 *	- boardgame series, a job which later evolved into the novel,
-Sep 04 12:45:07 *	- 'Insurrection' (collaboration with Steve White, published
-Sep 04 12:45:07 *	- in 1990).
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- Welcome to freenode - supporting the free and open source
-Sep 04 12:45:07 *	- software communities since 1998.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- By connecting to freenode you indicate that you have read and
-Sep 04 12:45:07 *	- accept our policies and guidelines as set out on https://freenode.net
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- In the event that you observe behaviour that contravenes our policies,
-Sep 04 12:45:07 *	- please notify a volunteer staff member via private message, or send us an
-Sep 04 12:45:07 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Sep 04 12:45:07 *	- situation within a reasonable period of time, and we may request further
-Sep 04 12:45:07 *	- information or, as appropriate, involve other parties such as channel operators 
-Sep 04 12:45:07 *	- Group Contacts representing an on-topic group.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- freenode runs an open proxy scanner.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- If you are looking for assistance, you may be able to find a list of 
-Sep 04 12:45:07 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Sep 04 12:45:07 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Sep 04 12:45:07 *	- any of us at any time. Please note that freenode predominantly provides 
-Sep 04 12:45:07 *	- assistance via private message, and while we have a network channel the 
-Sep 04 12:45:07 *	- primary venue for support requests is via private message to a member 
-Sep 04 12:45:07 *	- of the volunteer staff team.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- From time to time, volunteer staff may send server-wide notices relating to
-Sep 04 12:45:07 *	- the project, or the communities that we host. The majority of such notices
-Sep 04 12:45:07 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Sep 04 12:45:07 *	- do not miss them. Important messages relating to the freenode project, including
-Sep 04 12:45:07 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Sep 04 12:45:07 *	- global notices.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- Representing an on-topic project? Don't forget to register, more information
-Sep 04 12:45:07 *	- can be found on the https://freenode.net website under "Group Registration".
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Sep 04 12:45:07 *	- network going for close to two decades.
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Sep 04 12:45:07 *	- and everyone else who made this year's freenode #live conference amazing.
-Sep 04 12:45:07 *	- https://freenode.net/news/live-2018
-Sep 04 12:45:07 *	-  
-Sep 04 12:45:07 *	- Thank you for using freenode!
-Sep 04 12:45:07 *	End of /MOTD command.
-Sep 04 12:45:07 *	PackRat-2019 sets mode +Z on PackRat-2019
-Sep 04 12:45:07 *	PackRat-2019 sets mode +i on PackRat-2019
-Sep 04 12:45:07 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Sep 04 12:45:08 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Sep 04 12:45:08 *	Received a CTCP VERSION from freenode-connect
-Sep 04 12:45:16 *	#voidlinux :Cannot join channel (+r) - you need to be identified with services - see https://freenode.net/kb/answer/registration
-Sep 04 12:45:48 >NickServ<	identify ****
-Sep 04 12:45:49 -NickServ-	You are now identified for PackRat-2019.
-Sep 04 12:47:42 Sysinfo plugin unloaded
-Sep 04 12:47:42 Checksum plugin unloaded
-**** ENDING LOGGING AT Wed Sep  4 12:47:42 2019
-
-**** BEGIN LOGGING AT Mon Nov  4 09:47:09 2019
-
-Nov 04 09:47:10 *	Welcome to the freenode Internet Relay Chat Network PackRat-2019
-Nov 04 09:47:10 *	Your host is card.freenode.net[38.229.70.22/6697], running version ircd-seven-1.1.8
-Nov 04 09:47:10 *	This server was created Sun Sep 22 2019 at 17:40:02 UTC
-Nov 04 09:47:10 *	card.freenode.net ircd-seven-1.1.8 DOQRSZaghilopsuwz CFILMPQSbcefgijklmnopqrstuvz bkloveqjfI
-Nov 04 09:47:10 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstuz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
-Nov 04 09:47:10 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 KNOCK CPRIVMSG CNOTICE :are supported by this server
-Nov 04 09:47:10 *	WHOX SAFELIST ELIST=CTU ETRACE :are supported by this server
-Nov 04 09:47:10 *	There are 92 users and 86887 invisible on 31 servers
-Nov 04 09:47:10 *	36 :IRC Operators online
-Nov 04 09:47:10 *	25 :unknown connection(s)
-Nov 04 09:47:10 *	50086 :channels formed
-Nov 04 09:47:10 *	I have 7207 clients and 1 servers
-Nov 04 09:47:10 *	7207 7491 :Current local users 7207, max 7491
-Nov 04 09:47:10 *	86979 92608 :Current global users 86979, max 92608
-Nov 04 09:47:10 *	Highest connection count: 7492 (7491 clients) (564882 connections received)
-Nov 04 09:47:10 *	- card.freenode.net Message of the Day - 
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Welcome to card.freenode.net in Washington, DC, US, kindly sponsored by
-Nov 04 09:47:10 *	- Team Cymru (http://www.team-cymru.org).
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- CARD, ORSON SCOTT [1951-]. Born in Richland, Washington, Card grew up in
-Nov 04 09:47:10 *	- California, Arizona, and Utah. He lived in Brazil for two years as an unpaid
-Nov 04 09:47:10 *	- missionary for the Mormon Church. Author of the Ender and Alvin Maker books,
-Nov 04 09:47:10 *	- Card's science fiction and fantasy work is strongly influenced by his Mormon
-Nov 04 09:47:10 *	- cultural background. The first author to win the Hugo and Nebula novel awards
-Nov 04 09:47:10 *	- two years in a row, Card currently lives in Greensboro, North Carolina, US.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Welcome to freenode - supporting the free and open source
-Nov 04 09:47:10 *	- software communities since 1998.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- By connecting to freenode you indicate that you have read and
-Nov 04 09:47:10 *	- accept our policies and guidelines as set out on https://freenode.net
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- In the event that you observe behaviour that contravenes our policies,
-Nov 04 09:47:10 *	- please notify a volunteer staff member via private message, or send us an
-Nov 04 09:47:10 *	- e-mail to complaints@freenode.net -- we will do our best to address the
-Nov 04 09:47:10 *	- situation within a reasonable period of time, and we may request further
-Nov 04 09:47:10 *	- information or, as appropriate, involve other parties such as channel operators 
-Nov 04 09:47:10 *	- Group Contacts representing an on-topic group.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- freenode runs an open proxy scanner.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- If you are looking for assistance, you may be able to find a list of 
-Nov 04 09:47:10 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
-Nov 04 09:47:10 *	- #freenode and using the '/who freenode/staff/*' command. You may message
-Nov 04 09:47:10 *	- any of us at any time. Please note that freenode predominantly provides 
-Nov 04 09:47:10 *	- assistance via private message, and while we have a network channel the 
-Nov 04 09:47:10 *	- primary venue for support requests is via private message to a member 
-Nov 04 09:47:10 *	- of the volunteer staff team.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- From time to time, volunteer staff may send server-wide notices relating to
-Nov 04 09:47:10 *	- the project, or the communities that we host. The majority of such notices
-Nov 04 09:47:10 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
-Nov 04 09:47:10 *	- do not miss them. Important messages relating to the freenode project, including
-Nov 04 09:47:10 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
-Nov 04 09:47:10 *	- global notices.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Representing an on-topic project? Don't forget to register, more information
-Nov 04 09:47:10 *	- can be found on the https://freenode.net website under "Group Registration".
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Thank you also to our server sponsors for the sustained support in keeping the
-Nov 04 09:47:10 *	- network going for close to two decades.
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Thank you to all of our attendees, sponsors, speakers, exhibitors, helpers,
-Nov 04 09:47:10 *	- and everyone else who made this year's freenode #live conference amazing.
-Nov 04 09:47:10 *	- https://freenode.net/news/live-2018
-Nov 04 09:47:10 *	-  
-Nov 04 09:47:10 *	- Thank you for using freenode!
-Nov 04 09:47:10 *	End of /MOTD command.
-Nov 04 09:47:10 *	PackRat-2019 sets mode +Z on PackRat-2019
-Nov 04 09:47:10 *	PackRat-2019 sets mode +i on PackRat-2019
-Nov 04 09:47:10 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
-Nov 04 09:47:10 -freenode-connect-	Welcome to freenode. To protect the network all new connections will be scanned for vulnerabilities. This will not harm your computer, and vulnerable hosts will be notified.
-Nov 04 09:47:10 *	Received a CTCP VERSION from freenode-connect
-Nov 04 09:47:46 Sysinfo plugin unloaded
-Nov 04 09:47:46 FiSHLiM plugin unloaded
-Nov 04 09:47:46 Checksum plugin unloaded
-**** ENDING LOGGING AT Mon Nov  4 09:47:46 2019
+Mar 31 14:01:51 *	Welcome to the freenode Internet Relay Chat Network PackRat-2019
+Mar 31 14:01:51 *	Your host is tepper.freenode.net[192.186.157.43/6697], running version ircd-seven-1.1.9
+Mar 31 14:01:51 *	This server was created Sun Mar 15 2020 at 17:51:04 UTC
+Mar 31 14:01:51 *	tepper.freenode.net ircd-seven-1.1.9 DOQRSZaghilopsuwz CFILMPQSbcefgijklmnopqrstuvz bkloveqjfI
+Mar 31 14:01:51 *	CHANTYPES=# EXCEPTS INVEX CHANMODES=eIbq,k,flj,CFLMPQScgimnprstuz CHANLIMIT=#:120 PREFIX=(ov)@+ MAXLIST=bqeI:100 MODES=4 NETWORK=freenode STATUSMSG=@+ CALLERID=g CASEMAPPING=rfc1459 :are supported by this server
+Mar 31 14:01:51 *	CHARSET=ascii NICKLEN=16 CHANNELLEN=50 TOPICLEN=390 DEAF=D FNC TARGMAX=NAMES:1,LIST:1,KICK:1,WHOIS:1,PRIVMSG:4,NOTICE:4,ACCEPT:,MONITOR: EXTBAN=$,ajrxz CLIENTVER=3.0 ETRACE KNOCK WHOX :are supported by this server
+Mar 31 14:01:51 *	CPRIVMSG CNOTICE SAFELIST ELIST=CTU :are supported by this server
+Mar 31 14:01:51 *	There are 97 users and 82126 invisible on 30 servers
+Mar 31 14:01:51 *	32 :IRC Operators online
+Mar 31 14:01:51 *	33 :unknown connection(s)
+Mar 31 14:01:51 *	45693 :channels formed
+Mar 31 14:01:51 *	I have 4133 clients and 1 servers
+Mar 31 14:01:51 *	4133 4674 :Current local users 4133, max 4674
+Mar 31 14:01:51 *	82223 88649 :Current global users 82223, max 88649
+Mar 31 14:01:51 *	Highest connection count: 4675 (4674 clients) (170129 connections received)
+Mar 31 14:01:51 *	- tepper.freenode.net Message of the Day - 
+Mar 31 14:01:51 *	- Welcome to tepper.freenode.net in Buffalo, NY.
+Mar 31 14:01:51 *	- Thanks to http://www.servermania.com/ for sponsoring
+Mar 31 14:01:51 *	- this server!
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- TEPPER, SHERI S. (1929-), an American science fiction,
+Mar 31 14:01:51 *	- horror and mystery novel author, behind more than thirty
+Mar 31 14:01:51 *	- books, many themed unapologetically eco-feminist. Her
+Mar 31 14:01:51 *	- writing career started composing children's stories, but
+Mar 31 14:01:51 *	- moved to adult fiction in 1982. With the 1991 novel
+Mar 31 14:01:51 *	- 'Beauty' she won the Locus award for Best Fantasy Novel.
+Mar 31 14:01:51 *	- Her other well-known works include 'Grass' (1989, nominated
+Mar 31 14:01:51 *	- for Hugo and Locus Awards in 1990) and 'Gate to Women's
+Mar 31 14:01:51 *	- Country' (1988).
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- Welcome to freenode - supporting the free and open source
+Mar 31 14:01:51 *	- software communities since 1998.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- By connecting to freenode you indicate that you have read and
+Mar 31 14:01:51 *	- accept our policies and guidelines as set out on https://freenode.net
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- In the event that you observe behaviour that contravenes our policies,
+Mar 31 14:01:51 *	- please notify a volunteer staff member via private message, or send us an
+Mar 31 14:01:51 *	- e-mail to complaints@freenode.net -- we will do our best to address the
+Mar 31 14:01:51 *	- situation within a reasonable period of time, and we may request further
+Mar 31 14:01:51 *	- information or, as appropriate, involve other parties such as channel operators 
+Mar 31 14:01:51 *	- Group Contacts representing an on-topic group.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- freenode runs an open proxy scanner.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- If you are looking for assistance, you may be able to find a list of 
+Mar 31 14:01:51 *	- volunteer staff on '/stats p' (shows only on-call staff) or by joining 
+Mar 31 14:01:51 *	- #freenode and using the '/who freenode/staff/*' command. You may message
+Mar 31 14:01:51 *	- any of us at any time. Please note that freenode predominantly provides 
+Mar 31 14:01:51 *	- assistance via private message, and while we have a network channel the 
+Mar 31 14:01:51 *	- primary venue for support requests is via private message to a member 
+Mar 31 14:01:51 *	- of the volunteer staff team.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- From time to time, volunteer staff may send server-wide notices relating to
+Mar 31 14:01:51 *	- the project, or the communities that we host. The majority of such notices
+Mar 31 14:01:51 *	- will be sent as wallops, and you can '/mode <yournick> +w' to ensure that you
+Mar 31 14:01:51 *	- do not miss them. Important messages relating to the freenode project, including
+Mar 31 14:01:51 *	- notices of upcoming maintenance and other scheduled downtime will be issued as
+Mar 31 14:01:51 *	- global notices.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- Representing an on-topic project? Don't forget to register, more information
+Mar 31 14:01:51 *	- can be found on the https://freenode.net website under "Group Registration".
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- Thank you also to our server sponsors for the sustained support in keeping the
+Mar 31 14:01:51 *	- network going for close to two decades.
+Mar 31 14:01:51 *	-  
+Mar 31 14:01:51 *	- Thank you for using freenode!
+Mar 31 14:01:51 *	End of /MOTD command.
+Mar 31 14:01:51 *	PackRat-2019 sets mode +Z on PackRat-2019
+Mar 31 14:01:51 *	PackRat-2019 sets mode +i on PackRat-2019
+Mar 31 14:01:51 -NickServ-	This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify <password>.
+Mar 31 14:02:00 *	#voidlinux :Cannot join channel (+r) - you need to be identified with services - see https://freenode.net/kb/answer/registration
+Mar 31 14:02:17 >NickServ<	identify ****
+Mar 31 14:02:17 -NickServ-	You are now identified for PackRat-2019.
+Mar 31 14:06:08 Checksum plugin unloaded
+Mar 31 14:06:08 Sysinfo plugin unloaded
+**** ENDING LOGGING AT Tue Mar 31 14:06:08 2020
 

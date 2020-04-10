@@ -29,14 +29,13 @@ separator_block_width=15
 markup=none
 
 # Uptime
-#
-#[uptime]
-#label=UP:
-#interval=3
-#min_width=80
-#align=center
-#command=uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
-#separator=false
+[uptime]
+label=UP:
+align=center
+interval=15
+min_width=120
+separator=false
+command=uptime | awk -F, '{sub(".*up ",x,$1);print $1}'
 
 # CPU usage
 #
@@ -44,31 +43,106 @@ markup=none
 # see the script for details.
 [cpu_usage]
 label=CPU:
-interval=3
-min_width=90
 align=center
+interval=3
+#min_width=CPU: 100.00%
+min_width=120
 separator=false
 
-#[cpu_usage]
-#label=CPU
+#[cpu_load]
 #interval=3
-#min_width=80
-#command=/home/doug/bin/Cpuperc
 #align=center
+#min_width=120
 #separator=false
 
-#[loadavg2]
+# load average
+[load_total]
+align=center
+interval=3
+min_width=120
+separator=false
+command=awk '{print $1" "$2" "$3}' < /proc/loadavg
+
+#[coretemp]
 #interval=3
+#align=center
+#min_width=144
+#separator=false
+#command=Coretemp
+
+[core0temp]
+#label=CORE0
+interval=3
+align=center
+min_width=72
+separator=false
+command=sensors | awk '/Core 0/{gsub("+","");print $3}'
+
+[core1temp]
+#label=CORE1
+interval=3
+align=center
+min_width=72
+separator=false
+command=sensors | awk '/Core 1/{gsub("+","");print $3}'
+
+#[pkgtemp]
+#interval=3
+#align=center
+#min_width=100
+#separator=false
+#command=sensors | awk '/Package/{gsub("+","");print $4}'
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+#[memory]
+#label=MEM
+#align=center
 #separator=false
 #min_width=100
-#align=center
-
-#[load_average]
 #interval=3
-#min_width=80
-#align=center
+
+[memperc]
+label=MEM:
+align=center
+separator=false
+#min_width=144
+min_width=100
+interval=3
+command=free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
+
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+#[iface]
+#instance=enp2s0
+#color=#00FF00
+#interval=10
 #separator=false
-#command=awk '{print $1" "$2" "$3}' < /proc/loadavg
+
+#[wifi]
+#instance=wlp3s0
+#interval=10
+#separator=false
+
+[bandwidth]
+label=Net:
+align=center
+instance=enp2s0
+min_width=160
+separator=false
+interval=5
+
+# Date Time
+#
+[time]
+align=center
+min_width=160
+separator=false
+command=date '+%a %e %b %k:%M'
+interval=5
 
 # Temperature
 #
@@ -77,91 +151,20 @@ separator=false
 # see the script for details.
 #[temperature]
 #label=TEMP
-#interval=3
-#separator=false
-#min_width=80
-#align=center
-
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-# displays mem available in G
-#[memory]
-#label=MEM
-#instance=mem
-#separator=false
-#interval=3
-#min_width=90
-#align=center
-
-#[RAM]
-#label=MEM
-#separator=false
-#interval=3
-#command=free | awk '/Mem/{printf("%.0f%"), $3/$2*100}'
-#min_width=90
-#align=center
-
-# same as above, but script/hack in /usr/libexec/i3blocks
-#[mem_perc]
-#label=MEM:
-#separator=false
-#interval=3
-#min_width=90
-#align=center
-
-#[mem_usage]
-#label=MEM:
-#separator=false
-#interval=3
-#min_width=90
-#align=center
-
-# Battery indicator
-#
-# The battery instance defaults to 0.
-[battery]
-label=BATT:
-#label=⚡
-instance=0
-separator=false
-interval=3
-min_width=90
-align=center
-
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-#[iface]
-#instance=wlp1s0
-#color=#00FF00
 #interval=10
-#separator=false
 
-[wifi]
-label=NET:
-instance=wlp1s0
-interval=10
-separator=false
-interval=3
-min_width=90
-align=center
-
-#[bandwidth]
-#instance=wlp1s0
-#interval=5
-#separator=false
-#interval=10
-#min_width=80
-#align=center
-
-# Date Time
+# Key indicators
 #
-[time]
-command=date '+%a %e %b %k:%M'
-interval=3
-separator=false
-interval=3
-min_width=160
-align=center
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#instance=CAPS
+#interval=once
+#signal=11
+
+#[keyindicator]
+#instance=NUM
+#interval=once
+#signal=11

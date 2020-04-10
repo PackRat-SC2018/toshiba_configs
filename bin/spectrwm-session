@@ -1,5 +1,0 @@
-#!/bin/sh
-
-exec startx $HOME/.xinitrc spectrwm
-
-exit 0;

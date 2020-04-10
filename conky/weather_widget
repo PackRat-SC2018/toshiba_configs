@@ -1,1 +1,0 @@
-${font liberation mono:size=9}${execi 100 curl 'wttr.in/paris?0?T?Q'}

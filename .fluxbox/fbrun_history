@@ -1,41 +1,25 @@
-firefox
-yad color
-yad --font
-emacs
-tint2
-xtern -e tmux
-yad --calendar
-vlc
-mate-terminal
-xfce4-screenshooter
-galculator
-sxiv -t ~/wallpaper
-pcmanfm-qt
-filezilla
-xfce4-terminal --drop-down
-xfce4-panel
-pcmanfm
-lxterminal
-asunder
-lxappearance
-caja
-pavucontrol
-caja --no-desktop
-mpd
 thunar
-gsimplecal
-urxvt
-xfce4-power-manager
 uxterm
-conky
+juiced -d
 st
-yad --color
+subl3
+filezilla
+hexchat
+yad --font
+galculator
+xfce4-terminal --pull-down
+xfce4-terminal --drop-down
+graph-bar.sh
+xfce4-terminal
+urxvt
+firefox
+tint2
 audacious
 xterm
+picom -b
 xcalc
-azote
-compton
-sakura
+void-logout
+sxiv /mnt/public/images
+picom
 gcolor2
-slock
-rofi-logout
+sakura

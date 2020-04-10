@@ -83,8 +83,9 @@ Mod4 Shift Tab :PrevTab
 
 # open a terminal
 Mod1 F1 :Exec urxvt
-Mod4 Return :Exec uxterm
-Mod4 Shift Return :Exec sakura -c 100 -r 34
+Mod4 Return :Exec st
+# Mod4 Shift Return :Exec sakura -c 100 -r 34
+Mod4 Shift Return :Exec uxterm
 
 # open a dialog to run programs
 Mod1 F2 :Exec fbrun
@@ -120,23 +121,22 @@ XF86AudioNext :Exec mocp --next
 XF86AudioPrev :Exec mocp --previous
 XF86AudioPlay :Exec mocp --toggle-pause
 
-XF86MonBrightnessUp :Exec `sudo acpilight -inc 5`
-XF86MonBrightnessDown :Exec `sudo acpilight -dec 5`
+XF86MonBrightnessUp :Exec `sudo xbacklight -inc 5`
+XF86MonBrightnessDown :Exec `sudo xbacklight -dec 5`
 
 Menu :Exec thunar
-XF86Calculator :Exec wmctrl -a xcalc || xcalc
+XF86Calculator :Exec wmctrl -a galculator || galculator
 Control Mod4 l :Exec wmctrl -a subl3 || subl3 
 Control Mod4 g :Exec wmctrl -a gimp || gimp
 Control Mod4 p :Exec wmctrl -a libreoffice --calc || libreoffice --calc
 Control Mod4 o :Exec wmctrl -a libreoffice --writer || libreoffice --writer
 Mod4 q :Restart
-Mod4 Shift q :Exec /usr/local/bin/void-logout
+Mod4 Shift q :Exec /usr/local/bin/rofi-logout
 
 Mod4 XF86HomePage :Exec wmctrl -a firefox || firefox
 Mod4 XF86Mail :Exec wmctrl -a thunderbird || thunderbird
-Mod4 Shift XF86HomePage :Exec wmctrl -a vivaldi || vivaldi
 
-Control Mod4 Print :Exec scrot -q 100 -cd 5 'sshot-%T_%F.png' -e 'mv $f /home/doug/images/'
+Control Mod4 Print :Exec scrot -q 100 -cd 5 'sshot-%F_%s.png' -e 'mv $f /home/doug/Pictures/'
 Control Mod4 Pause :Exec /home/doug/bin/ConkyFluxbox.sh
 Control Mod4 b :Exec /home/doug/bin/ConkyTao.sh
 Mod4 Shift p :Exec /home/doug/bin/fboxbar.sh
@@ -201,12 +201,11 @@ Ctrl a Mod4 d :MacroCmd {SetDecor 0x67f} {ResizeTo 75% 80%} {MoveTo 0 0 Center}
 # these macros will tile tint2 and polybar panel
 
 # ArangeWindows
-# Mod4 Shift r :ArrangeWindowsStackRight
-# Mod4 Shift l :ArrangeWindowsStackLeft
-# ArrangeWindowsStackTop
-# ArrangeWindowsStackBottom
+Mod1 Shift r :ArrangeWindowsStackRight
+Mod1 Shift l :ArrangeWindowsStackLeft
+# Mod4 Shift t :ArrangeWindowsStackTop
+# Mod4 Shift b :ArrangeWindowsStackBottom
 
-# Quarter screen decorated
 #===================================================##
 
 Mod1 Shift KP_7 :MoveTo 0 0 UpperLeft
@@ -220,6 +219,28 @@ Mod1 Shift KP_8 :MoveTo 0 0 TopCenter
 Mod1 Shift KP_2 :MoveTo 0 0 BottomCenter
 Mod1 Shift KP_5 :MoveTo 0 0 Center
 Mod1 Shift KP_0 :MacroCmd {SetDecor 0x67f} {ResizeTo 60% 80%} {MoveTo 0 0 Center}
+
+Ctrl Mod1 KP_7 :MoveTo 1% 1% UpperLeft
+Ctrl Mod1 KP_8 :MoveTo 1% 1% TopCenter
+Ctrl Mod1 KP_9 :MoveTo 1% 1% UpperRight
+Ctrl Mod1 KP_4 :MoveTo 1% 1% LeftCenter
+Ctrl Mod1 KP_5 :MoveTo 0 0 Center
+Ctrl Mod1 KP_6 :MoveTo 1% 1% RightCenter
+Ctrl Mod1 KP_1 :MoveTo 1% 1% LowerLeft
+Ctrl Mod1 KP_2 :MoveTo 1% 1% BottomCenter
+Ctrl Mod1 KP_3 :MoveTo 1% 1% LowerRight
+Ctrl Mod1 KP_0 :MoveTo 0 0 Center
+
+Ctrl Mod4 KP_7 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% UpperLeft}
+Ctrl Mod4 KP_8 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% TopCenter}
+Ctrl Mod4 KP_9 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% UpperRight}
+Ctrl Mod4 KP_4 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% LeftCenter}
+Ctrl Mod4 KP_5 :MacroCmd {SetDecor BORDER} {MoveTo 0 0 Center}
+Ctrl Mod4 KP_6 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% RightCenter}
+Ctrl Mod4 KP_1 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% LowerLeft}
+Ctrl Mod4 KP_2 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% BottomCenter}
+Ctrl Mod4 KP_3 :MacroCmd {SetDecor BORDER} {MoveTo 1% 1% LowerRight}
+Ctrl Mod4 KP_0 :MacroCmd {SetDecor BORDER} {ResizeTo 80% 90%} {MoveTo 0 0 Center}
 
 Ctrl a Mod1 KP_7 :MacroCmd {SetDecor 0x67f} {ResizeTo 48% 48%} {MoveTo 1% 1% UpperLeft}
 Ctrl a Mod1 KP_9 :MacroCmd {SetDecor 0x67f} {ResizeTo 48% 48%} {MoveTo 1% 1% UpperRight}
@@ -267,7 +288,17 @@ Ctrl z Mod1 KP_3 :MacroCmd {ResizeTo 40% 50%} {MoveTo -0 -0 LowerRight}
 
 Ctrl z Mod1 KP_6 :MacroCmd {ResizeTo 60% 100%} {MoveTo -0 0 UpperRight}
 Ctrl z Mod1 KP_7 :MacroCmd {ResizeTo 40% 50%} {MoveTo 0 0 UpperLeft}
-Ctrl z Mod1 KP_3 :MacroCmd {ResizeTo 40% 50%} {MoveTo -0 -0 LowerLeft}
+Ctrl z Mod1 KP_1 :MacroCmd {ResizeTo 40% 50%} {MoveTo -0 -0 LowerLeft}
+
+#Ctrl s Mod1 KP_7 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 UpperLeft}
+#Ctrl s Mod1 KP_8 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 TopCenter}
+#Ctrl s Mod1 KP_9 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 UpperRight}
+#Ctrl s Mod1 KP_4 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 LeftCenter}
+#Ctrl s Mod1 KP_5 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 Center}
+#Ctrl s Mod1 KP_6 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 RightCenter}
+#Ctrl s Mod1 KP_1 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 BottomLeft}
+#Ctrl s Mod1 KP_2 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 BottomCenter}
+#Ctrl s Mod1 KP_3 :MacroCmd {ResizeTo 33% 33%} {MoveTo 0 0 BottomRight}
 
 # modes - use ESC to exit mode
 # MoveMode ===========================================##

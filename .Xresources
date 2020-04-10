@@ -6,12 +6,11 @@ Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-!Xft.autohint: 0
 
 ! special
-*.foreground:   #dbdcd9
-*.background:   #0d0e0f
-*.cursorColor:  #dbdcd9
+*.foreground:   #DCDCDC
+*.background:   #0E0F0F
+*.cursorColor:  #CCCCCC
 
 ! black
 *.color0:       #1c1d1e
@@ -42,59 +41,61 @@ Xft.rgba: rgb
 *.color14:      #8abeb7
 
 ! white
-*.color7:       #a9abae
-*.color15:      #e2e5e9
+*.color7:       #C0C1C2
+*.color15:      #E1E2E3
 
 ! URxvt -----------------------------------------------------------------------
 URxvt*termName:          rxvt-256color
+URxvt*geometry:          92x32
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
 
 URxvt*transparent:       false
 
 URxvt*depth:             32
-URxvt.background:        [90]#111112
+URxvt.background:        [90]#0E0F0F
 
-!URxvt.font:              xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
-!URxvt.boldFont:          xft:Inconsolata LGC Markup:size=11:antialias=true:autohint=true
-URxvt.font:              xft:Fira Code:Retina:size=11:antialias=true:autohint=true
-URxvt.boldFont:          xft:Fira Code:Retina:size=11:antialias=true:autohint=true
+!URxvt.font:              -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
+!URxct.boldFont:          -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
+!*antialias:              true
+!*autohint:               true
+
+URxvt.font:              xft:Roboto Mono:Regular:size=11:antialias=true:autohint=true
+URxvt.boldFont:          xft:Roboto Mono:Regular:size=11:antialias=true:autohint=true
 URxvt.letterSpace: 1
 
-*antialias:              true
-*autohint:               true
-
-!URxvt.perl-ext-common: default,matcher,selection-to-clipboard
-!URxvt.url-launcher: firefox
+URxvt.perl-ext-common: default,matcher
+!URxvt.clipboard.autocopy: true
+!URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-v: perl:clipboard:paste
 !URxvt.matcher.button: 1
-URxvt.perl-ext-common:  matcher
 URxvt.urlLauncher:      firefox
 URxvt.tabbed.tabbar-fg: 14
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg:    13
 URxvt.tabbed.tab-bg:    0
 
-
 ! XTerminals ------------------------------------------------------------
-UXterm*termName:            xterm-256color
-!UXTerm*faceName:            xft:Hack:size=11:antialias=true:autohint=true
-UXTerm*faceName:            xft:Roboto Mono:size=11:antialias=true:autohint=true
-UXTerm*utf8:                1
-!UXTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-!UXTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-!UXTerm*background:         #101012
-!UXTerm*foreground:         #E5E5E5
-!UXTerm*cursorColor:        #E5E5E5
-UXTerm*scrollBar:          false
-UXTerm*rightScrollBar:     false
+UXterm*termName:          xterm-256color
+UXTerm*geometry:          96x32
+UXTerm*faceName:          Monospace:regular:size=11:antialias=true:autohint=true
+!UXTerm*faceName:         xft:Roboto Mono:style=regular:size=11:antialias=true:autohint=true
+UXTerm*utf8:              1
+!UXTerm*font:             -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
+!UXTerm*boldFont:         -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
+!UXTerm*background:       #101012
+!UXTerm*foreground:       #E5E5E5
+!UXTerm*cursorColor:      #E5E5E5
+UXTerm*scrollBar:         false
+UXTerm*rightScrollBar:    false
 
 XTerm*termName:           xterm-256color
-!XTerm*background:         #101012
-!XTerm*foreground:         #E5E5E5
-!XTerm*cursorColor:        #E5E5E5
-!XTerm*font:               -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-!XTerm*boldFont:           -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-XTerm*faceName:          xft:Roboto Mono:size=11:antialias=true:autohint=true
+!XTerm*background:        #101012
+!XTerm*foreground:        #E5E5E5
+!XTerm*cursorColor:       #E5E5E5
+!XTerm*font:               -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+!XTerm*boldFont:           -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+XTerm*faceName:           Monospace:regular:size=11:antialias=true:autohint=true
 XTerm*utf8:               1
 XTerm*scrollBar:          false
 XTerm*rightScrollBar:     false
@@ -109,57 +110,64 @@ xpdf*textEncoding:  utf-8
 
 !source: https://wiki.archlinux.org/index.php/X_resources
 !XCalc-----------------------------------------------------------------------
-XCalc*geometry:                        200x275
+XCalc*geometry:                        256x400
 XCalc*ti.bevel.background:             #111111
 XCalc*ti.bevel.screen.background:      #000000
 XCalc*ti.bevel.screen.DEG.background:  #000000
-XCalc*ti.bevel.screen.DEG.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.DEG.foreground:  #1E8C86
 XCalc*ti.bevel.screen.GRAD.background: #000000
-XCalc*ti.bevel.screen.GRAD.foreground: LightSeaGreen
+XCalc*ti.bevel.screen.GRAD.foreground: #1E8C86
 XCalc*ti.bevel.screen.RAD.background:  #000000
-XCalc*ti.bevel.screen.RAD.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.RAD.foreground:  #1E8C86
 XCalc*ti.bevel.screen.INV.background:  #000000
 XCalc*ti.bevel.screen.INV.foreground:  Red
 XCalc*ti.bevel.screen.LCD.background:  #000000
-XCalc*ti.bevel.screen.LCD.foreground:  LightSeaGreen
+XCalc*ti.bevel.screen.LCD.foreground:  #1E8C86
 XCalc*ti.bevel.screen.LCD.shadowWidth: 0
 XCalc*ti.bevel.screen.M.background:    #000000
-XCalc*ti.bevel.screen.M.foreground:    LightSeaGreen
+XCalc*ti.bevel.screen.M.foreground:    #1E8C86
 XCalc*ti.bevel.screen.P.background:    #000000
-XCalc*ti.bevel.screen.P.foreground:    Yellow
-XCalc*ti.Command.foreground:  White
-XCalc*ti.Command.background:  #777777
-XCalc*ti.button5.background:  Orange3
-XCalc*ti.button19.background: #611161
-XCalc*ti.button18.background: #611161
-XCalc*ti.button20.background: #611111
-!uncomment to change label on division and sqrt buttons
-XCalc*ti.button20.label:   /
-XCalc*ti.button3.label:    SQRT
-!
-XCalc*ti.button25.background: #722222
-XCalc*ti.button30.background: #833333
-XCalc*ti.button35.background: #944444
-XCalc*ti.button40.background: #a55555
-XCalc*ti.button22.background: #222262
-XCalc*ti.button23.background: #222262
-XCalc*ti.button24.background: #222272
-XCalc*ti.button27.background: #333373
-XCalc*ti.button28.background: #333373
-XCalc*ti.button29.background: #333373
-XCalc*ti.button32.background: #444484
-XCalc*ti.button33.background: #444484
-XCalc*ti.button34.background: #444484
-XCalc*ti.button37.background: #555595
-XCalc*ti.button38.background: #555595
-XCalc*ti.button39.background: #555595
+XCalc*ti.bevel.screen.P.foreground:    #D9D918
+XCalc*ti.Command.foreground:  #ECECEC
+XCalc*ti.Command.background:  #474747
 XCalc*Cursor:                 hand2
 XCalc*ShapeStyle:             rectangle
-!XCalc*Font:6x13
-XCalc*font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
+!XCalc*Font:       6x13
+XCalc*Font:       -*-terminus-medium-r-normal-*-14-140-*-*-*-*-iso10646-1
 
-!dzen2.font:	-xos4-terminus-medium-r-normal-*-14-140-*-*-*-*-iso8859-1
-dzen2.font:     Liberation Mono:size=11:antialias=true:autohint=true
+! XCalc button colors
+XCalc*ti.button4.background:	#C52934
+XCalc*ti.button5.background:	#911E26
+
+XCalc.ti.button27.background:	#4D175C
+XCalc.ti.button28.background:	#4D175C
+XCalc.ti.button29.background:	#4D175C
+XCalc.ti.button32.background:	#4D175C
+XCalc.ti.button33.background:	#4D175C
+XCalc.ti.button34.background:	#4D175C
+
+XCalc.ti.button35.background:	#2F7A3E
+XCalc.ti.button40.background:	#2F7A3E
+XCalc.ti.button45.background:	#2F7A3E
+XCalc.ti.button50.background:	#2F7A3E
+
+XCalc.ti.button37.background:	#346BA1
+XCalc.ti.button38.background:	#346BA1
+XCalc.ti.button39.background:	#346BA1
+XCalc.ti.button42.background:	#346BA1
+XCalc.ti.button43.background:	#346BA1
+XCalc.ti.button44.background:	#346BA1
+XCalc.ti.button47.background:	#346BA1
+XCalc.ti.button48.background:	#346BA1
+XCalc.ti.button49.background:	#346BA1
+XCalc.ti.button52.background:	#346BA1
+
+XCalc*ti.button53.background:	#998031
+XCalc*ti.button54.background:	#806B29
+XCalc*ti.button55.background:	#665621
+
+!dzen2.font:	-*-terminus-medium-r-normal-*-14-140-*-*-*-*-iso10646-1
+dzen2.font:     Roboto Mono:size=11:antialias=true:autohint=true
 dzen2.foreground: #D2D2D2
 dzen2.background: #191919
 !

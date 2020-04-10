@@ -1,7 +1,3 @@
 #!/bin/sh
-#
-# pgrep conky &>/dev/null; [ $? = 0 ] && killall conky
-#
-conky -d -c /home/doug/conky/taoconky10rc &
-
-exit 0;
+exec conky -p 2 -d -c $HOME/conky/conkytaorc &
+exit 0

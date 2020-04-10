@@ -1,8 +1,6 @@
 ! .Xmodmap file
 ! by default this file does nothing
 !
-!uncomment to  change right alt ctrl key to function keys
-!keysym Alt_R = F13
-!keysym Control_R = F14
+!uncomment to  change right alt ctrl key to function/special keys
 keysym Alt_R = XF86Mail
 keysym Control_R = XF86HomePage

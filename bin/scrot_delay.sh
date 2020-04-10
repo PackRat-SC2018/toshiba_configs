@@ -1,5 +1,5 @@
 #!/bin/sh
 
-exec scrot -q 100 -cd 5 'sshot-%T_%F.png' -e 'mv $f /home/doug/images/' &
+exec scrot -q 100 -c -d 4 '%B_%s_$wx$h.jpg' -e 'mv $f ~/pictures' &
 
-exit 0
+exit 0;
