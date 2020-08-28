@@ -1,0 +1,45 @@
+######
+# 6: Window Decor
+#
+# Buttons Locations: [1 3 5 7 9  TTTTT  0 8 6 4 2]
+#
+#   1 - WindowOps Menu
+#   2 - Close
+#   4 - Maximize
+#   6 - Minimize
+###########
+
+DestroyDecor VectorDecor
+AddToDecor   VectorDecor
+
+# DefaultFont "xft:Fira Sans:regular:size=10:antialias=True:hintstyle=slight"
+
+Colorset 35  fg #D9D9D9, bg #262926, hi #464646, sh #060606, Plain, NoShape
+Colorset 36  fg #D9D9D9, bg #927E3E, hi #B89E4E, sh #5C4F27, Plain, NoShape
+
+TitleStyle Centered Height 20 -- Raised
+
+Style * Colorset 35
+Style * HilightColorset 36
+Style * BorderColorset 35, HilightBorderColorset 36
+Style * BorderWidth 3, HandleWidth 3, MWMButtons, MWMBorder, FirmBorder
+BorderStyle Active -- Flat HiddenHandles NoInset
+BorderStyle Inactive -- Flat HiddenHandles NoInset
+#BorderStyle Active -- Flat
+#BorderStyle Inactive -- Flat
+
+ButtonStyle All -- Raised
+
+# vector button decor
+ButtonStyle All ActiveUp Vector 5 40x25@1 60x25@1 60x75@0 40x75@0 40x25@1 -- Raised
+
+ButtonStyle All ToggledActiveUp Vector 14 20x20@1 20x70@1 70x70@0 70x20@0 20x20@1 \
+                                60x60@0 60x50@0 60x60@0 50x60@0 60x60@0 60x80@0 80x80@0 80x60@0 60x60@0 -- Raised
+
+ButtonStyle All ActiveDown Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1 -- Flat
+
+ButtonStyle All ToggledActiveDown Vector 3 50-2px50+1p@0 50+1px50+1p@0 50+1px50-2p@0 -- Flat
+
+ButtonStyle All ToggledInactive Vector 3 50-2px50+1p@0 50+1px50+1p@0 50+1px50-2p@0 -- Flat
+
+ButtonStyle All Inactive Vector 5 40x25@1 60x25@1 60x75@0 40x75@0 40x25@1

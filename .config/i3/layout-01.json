@@ -1,0 +1,95 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.6,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 876,
+               "width": 1600,
+               "x": 0,
+               "y": 24
+            },
+            "name": "untitled - Sublime Text",
+            "percent": null,
+            "swallows": [
+               {
+                "class": "^Subl3$",
+                "instance": "^subl3$",
+                "title": "^untitled\\ \\-\\ Sublime\\ Text$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.4,
+    "type": "con",
+    "nodes": [
+        {
+            // splitv split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 1,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 580,
+                       "width": 868,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "uxterm",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^UXTerm$",
+                        "instance": "^xterm$",
+                        "title": "^uxterm$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 580,
+                       "width": 868,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "uxterm",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                        "class": "^UXTerm$",
+                        "instance": "^xterm$",
+                        "title": "^uxterm$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}

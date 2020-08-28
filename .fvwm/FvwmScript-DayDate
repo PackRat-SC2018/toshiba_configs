@@ -1,0 +1,56 @@
+# FvwmScript-DayDate
+# Display the day and date in a window.  
+# Suitable to then be swallowed by FvwmButtons.
+
+# Modified by DMM
+# Based on a script by "TF" posted 2006-11-13 to
+# http://www.fvwmforums.org/phpBB3/viewtopic.php?f=7&t=1616
+
+# Prerequisites: 
+#   ttf-linux-libertine (for LinuxBiolinum font, or change the font).
+#   Xft (part of font-config, itself a prerequisit for many things)
+
+# Note:  For reasons I don't understand, setting ForeColor and BackColor
+#        here doesn't seem to work.  But setting FvwmScript: DefaultFore
+#        and FvwmScript: DefaultBack in .fvwm2rc does.
+
+WindowTitle {DayDate}   # MUST use same title ("DayDate") when swallowing
+WindowSize  100 52      # 100 pixels wide to match my FvwmButtons group
+Colorset 31
+
+Init
+   Begin
+      Set $day  = (GetOutput {exec date +%A""} 1 -1)
+      Set $date = (GetOutput {date "+%m-%d-%Y"} 1 -1)
+      ChangeTitle 1 $day 
+      ChangeTitle 2 $date
+   End
+
+PeriodicTasks
+Begin
+  If (RemainderOfDiv (GetTime) 60)==0 Then
+      Begin
+         Set $day  = (GetOutput {exec date +%A""} 1 -1)
+         Set $date = (GetOutput {date "+%m-%d-%Y"} 1 -1)
+         ChangeTitle 1 $day 
+         ChangeTitle 2 $date
+      End
+   End
+
+Widget 1
+   Property
+      Size 100 26
+      Position 0 0
+      Font "xft:Roboto:size=11:regular:antialias=true:autohint=true"
+      Type ItemDraw
+      Flags NoReliefString
+   End
+
+Widget 2
+   Property
+      Size 100 26
+      Position 0 26
+      Font "xft:Roboto:size=11:regular:antialias=true:autohint=true"
+      Type ItemDraw
+      Flags NoReliefString
+   End

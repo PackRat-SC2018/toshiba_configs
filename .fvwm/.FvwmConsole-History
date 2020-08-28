@@ -1,0 +1,100 @@
+KillModule FvwmButtons SysClock
+Read Modules
+Module FvwmButtons SysClock
+KillModule FvwmButtons SysClock
+Read Modules
+KillModule FvwmButtons DeskTopClock
+Module FvwmButtons DeskTopClock
+KillModule FvwmButtons DeskTopClock
+Read Modules
+KillModule FvwmButtons SysClock
+KillModule FvwmButtons SysClock
+Module FvwmButtons SysClock
+KillModule FvwmButtons SysClock
+Read Modules
+Module FvwmButtons SysClock
+KillModule FvwmButtons SysClock
+Read Modules
+Module FvwmButtons SysClock
+KillModule FvwmButtons SysClock
+Read Modules
+Module FvwmButtons SysClock
+KillModule FvwmButtons DeskTopPanel
+KillModule FvwmButtons FvwmAppBar
+Module FvwmButtons FvwmTaskBar
+KillModule FvwmButtons FvwmTaskBar
+Module FvwmButtons FvwmButtonsMenu
+KillModule FvwmButtons FvwmButtonsMenu
+Read Modules
+Read Modules
+Module FvwmButtons FvwmSysBar
+KillModule FvwmButtons FvwmSysBar
+Read Modules
+KillModule FvwmButtons FvwmSysbar
+Module FvwmButtons FvwmSysbar
+Style FvwmSysbar* !Title, BorderWidth 1, HandelWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop, !Iconifiable
+Style FvwmSysbar !Title, BorderWidth 1, HandelWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop, !Iconifiable
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar
+KillModule FvwmButtons FvwmSysbar
+Read Modules
+Module FvwmButtons FvwmSysbar

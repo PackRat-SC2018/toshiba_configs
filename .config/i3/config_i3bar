@@ -9,10 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# Wallpaper
-# exec nitrogen --restore &
-# exec $HOME/.fehbg &
-exec fbsetbg -c -r $HOME/wallpaper/ &
+# kill running applications
+exec pkill -x sxhkd &
+
+# set wallpaper
+exec fbsetbg -c -r "$HOME/wallpaper/" &
 
 set $mod Mod4
 set $alt Mod1
@@ -46,10 +47,10 @@ default_floating_border pixel 2
 font pango: Roboto Regular 10, Roboto Regular 10
 
 # window colours:         border    background  text
-client.focused            #1D1E1F   #32363B     #DDDDDD
-client.unfocused          #1D1E1F   #1D1E1F     #979797
-client.focused_inactive   #2D3033   #2D3033     #979797
-client.urgent             #B11E26   #B11E26     #EAEAEA
+client.focused            #5E5946   #5E5946     #FFFFFF
+client.unfocused          #313538   #313538     #A7A7A7
+client.focused_inactive   #313538   #313538     #9FA2A6
+client.urgent             #E01B30   #E01B30     #FFFFFF
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
@@ -305,11 +306,11 @@ bar {
         status_command slstatus -s
         separator_symbol " "
         colors {
-          background            #131414
-          statusline            #DDDDDD
-          focused_workspace     #32363B     #32363B     #DDDDDD
-          active_workspace      #32363B     #32363B     #979797
-          inactive_workspace    #131414     #131414     #979797
-          urgent_workspace      #D92B2B     #D92B2B     #EAEAEA
+          background            #212426
+          statusline            #9FA2A6
+          focused_workspace     #5E5946     #5E5946     #FFFFFF
+          active_workspace      #313538     #313538     #A7A7A7
+          inactive_workspace    #212426     #212426     #9FA2A6
+          urgent_workspace      #E01B30     #E01B30     #FFFFFF
      }
 }

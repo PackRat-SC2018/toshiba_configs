@@ -1,0 +1,97 @@
+#############
+# Styles    #
+#############
+
+# Cursor and Application Styles
+
+## Cursor styles
+##
+# lean style
+#CursorStyle root left_ptr
+#CursorStyle default left_ptr 
+#CursorStyle position left_ptr
+#CursorStyle sys left_ptr 
+#CursorStyle menu left_ptr
+#CursorStyle title left_ptr
+#CursorStyle resize fleur
+#CursorStyle stroke cross
+#CursorStyle select draped_box
+#CursorStyle destroy pirate	#000000 white
+
+# detailed style
+CursorStyle ROOT            left_ptr                black    white
+CursorStyle TITLE           left_ptr                black    white
+CursorStyle DEFAULT         left_ptr                black    white
+CursorStyle SYS             hand2                   black    white
+CursorStyle MENU            left_ptr                black    white
+CursorStyle POSITION        top_left_corner         black    white
+CursorStyle MOVE            fleur                   black    white
+CursorStyle RESIZE          sizing                  black    white
+CursorStyle WAIT            watch                   black    white
+CursorStyle SELECT          crosshair               black    white
+CursorStyle DESTROY         pirate                  black    white
+CursorStyle TOP             top_side                black    white
+CursorStyle RIGHT           right_side              black    white
+CursorStyle BOTTOM          bottom_side             black    white
+CursorStyle LEFT            left_side               black    white
+CursorStyle TOP_LEFT        top_left_corner         black    white
+CursorStyle TOP_RIGHT       top_right_corner        black    white
+CursorStyle BOTTOM_LEFT     bottom_left_corner      black    white
+CursorStyle BOTTOM_RIGHT    bottom_right_corner     black    white
+CursorStyle TOP_EDGE        top_side                black    white
+CursorStyle RIGHT_EDGE      right_side              black    white
+CursorStyle BOTTOM_EDGE     bottom_side             black    white
+CursorStyle LEFT_EDGE       left_side               black    white
+CursorStyle STROKE          plus                    black    white
+
+# Application styles
+#
+Style XTerm	Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+Style UXTerm Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+Style XTerm MiniIcon xterm16.png, Icon xterm64.png
+Style UXTerm MiniIcon xterm16.png, Icon xterm64.png
+
+Style *Rxvt		Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+Style *XCalc    Icon /usr/share/icons/gnome/48x48/apps/accessories-calculator.png
+Style *st-256color Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+Style Lxterminal Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+Style LXTerminal Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+
+Style URxvt ResizeHintOverride, PositionPlacement Center
+Style *XTerm ResizeHintOverride, PositionPlacement Center
+Style Sakura ResizeHintOverride, PositionPlacement Center
+Style Lxterminal ResizeHintOverride, PositionPlacement Center
+
+Style Polybar !Title, !Handles, !Borders, CirculateSkip, WindowListSkip, NeverFocus
+Style Xfce4-panel !Title, !Handles, !Borders, StaysOnTop, WindowListSkip, CirculateSkip
+Style Tint2 !Title, !Handles, !Borders, ResizeHintOverride, StaysOnBottom, WindowListSkip, CirculateSkip, PositionPlacement 0 -0
+Style *tray !Title, !Handles, !Borders, StaysOnBottom, WindowListSkip, CirculateSkip
+
+Style Void_Exit_Session ResizeHintOverride, PositionPlacement Center
+Style Void-logout ResizeHintOverride, PositionPlacement Center
+
+Style Subl3 ResizeHintOverride, PositionPlacement Center
+Style Firefox* ResizeHintOverride, PositionPlacement Center
+Style Thunderbird* ResizeHintOverride, PositionPlacement Center
+# Style Firefox* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 0
+# Style Thunderbird* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 0
+#Style Gimp* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 0, StartsOnPage 1 0
+#Style Audacious* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 0, StartsOnPage 3 2
+#Style Vlc* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 0, StartsOnPage 3 2
+
+Style Gimp* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 1
+Style Vlc* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 3
+Style Deadbeef* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 3
+
+Style FvwmForm-RunCommand* BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, StaysOnTop, CirculateSkip, PositionPlacement Center
+
+Style *Clock !Title, BorderWidth 5, HandleWidth 5, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
+Style XOsview !Title, BorderWidth 5, HandleWidth 5, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
+# Style Dclock !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, NeverFocus, !Iconifiable
+# Style XOsview !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable
+
+Style FvwmScript-Quit !Title, BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, CirculateSkip, !Iconifiable, PositionPlacement Center
+Style FvwmScript-ConfirmQuit BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, CirculateSkip, !Iconifiable, PositionPlacement Center
+Style Kalende* BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, NeverFocus, CirculateSkip, !Iconifiable, PositionPlacement 1130px 130px
+
+Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6

@@ -1,25 +1,49 @@
 thunar
-uxterm
-juiced -d
-st
 subl3
 filezilla
 hexchat
-yad --font
-galculator
 xfce4-terminal --pull-down
-xfce4-terminal --drop-down
 graph-bar.sh
-xfce4-terminal
 urxvt
 firefox
-tint2
 audacious
-xterm
-picom -b
-xcalc
 void-logout
 sxiv /mnt/public/images
+juiced -d
+mc
+xfce4-terminal --drop-down
+yad --font
+tint2
+cherrytree
+emacs
+geany
+slock
+sakura -t terminal
+xiate
+lxterminal
+lxappearance
+qterminal
+killall -q conky
+galcilator
+alacritty -d 120 32
+polybar fluxbox-bar
+deadbeef
+xcalc
 picom
-gcolor2
+alacritty
+kitty
+xfce4-terminal
+mrxvt
+fluxbox-bar.sh
+terminator
+roxterm
 sakura
+uxterm
+xterm
+thunderbird
+tilix
+st
+variety
+galculator
+gcolor2
+picom -b

@@ -1,0 +1,279 @@
+#######
+# Menus
+###########
+MenuStyle * Fvwm
+MenuStyle * MenuColorset 22, ActiveColorset 25, GreyedColorset 19, TitleColorset 25
+MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
+MenuStyle * TrianglesSolid, TrianglesUseFore
+MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
+MenuStyle * Font "xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+MenuStyle * VerticalItemSpacing 4 4 , VerticalTitleSpacing 4 4, VerticalMargins 1 1
+MenuStyle * Animation, AutomaticHotkeysOff, DoubleClickTime
+MenuStyle * BorderWidth 1, SidePic, SideColor
+MenuStyle * PopupDelayed, PopupDelay 200, PopdownDelayed, PopdownDelay 150
+MenuStyle * PopupOffset 4 100, TitleWarpOff
+
+# Generate XDGMenu
+PipeRead "fvwm-menu-desktop -e --title FvwmXDG"
+
+# Generate Xlock menu
+# PipeRead 'fvwm-menu-xlock --name MenuSSaver --title "Lock Screen" --special-first -- -nice 19'
+
+# Root Menu
+#
+# the root menu will popup with a click on root window - left mouse on desktop
+# MOD4 + Space keybinding will popup root menu
+#
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot "Fvwm" Title
++ "Run ...." Exec exec $[infostore.roficmd]
++ "" Nop
++ "Terminal" Exec exec $[infostore.terminal]
++ "Editor" Exec exec $[infostore.editor]
++ "File Manager" Exec exec $[infostore.filemgr]
++ "Firefox" Exec exec $[infostore.browser]
++ "Thunderbird" Exec exec $[infostore.mail]
++ "" Nop
++ "Applications" Popup FvwmXDG
++ "Preferences"  Popup MenuFvwmPref
++ "Bookmarks"    Popup MenuFvwmBookmarks
++ "" Nop
++ "Fvwm&Console" Module FvwmConsole -terminal xterm -fg rgb:ee/ee/ee -bg #131E30
++ "FvwmPrompt" Exec exec `xterm -e FvwmPrompt`
++ "M&an Pages" Popup MenuFvwmManPages
+# + "&Logout" Module FvwmForm FvwmForm-QuitVerify
+# + "&Quit" Module FvwmScript FvwmScript-ConfirmQuit
++ "" Nop
++ "Calendar" Exec exec yad --calendar --class=FvwmCal --title="`date "+%x %R"`" --width=368 --height=240 --skip-taskbar --sticky --text ""
++ "Re&fresh" Refresh
++ "&Restart" Restart
++ "&Quit" Module FvwmScript $[FVWM_USERDIR]/FvwmScript-Quit
+
+# Programs Menu
+#
+# This test for some common programs and adds them to the menu.
+# When adding programs you don't need to use the Test (x foo)
+# lines as this is only to help make this menu portable.
+DestroyMenu MenuPrograms
+AddToMenu   MenuPrograms "Programs" Title
+Test (x uxterm) + "Terminal" Exec uxterm
+Test (x st) + "Terminal" Exec st
+Test (x thunar) + "File Manager" Exec thunar
+Test (x subl3) + "Sublime" Exec wmctrl -a subl3 || subl3
++ "" Nop
+Test (x firefox) + "Firefox" Exec wmctrl -a firefox || firefox
+Test (x thunderbird) + "Thunderbird" Exec wmctrl -a thunderbird || thunderbird
+Test (x gimp) + "Gimp" Exec wmctrl -a gimp || gimp
+Test (x deadbeef) + "Deadbeef" Exec exec deadbeef
+Test (x vlc) + "Vlc" Exec exec vlc
++ "XDG Menu" Popup XDGMenu
++ "" Nop
++ "Re&fresh" Refresh
++ "&Restart" Restart
++ "&Quit" Module FvwmScript $[FVWM_USERDIR]/FvwmScript-Quit
++ "" Nop
+Test (x fvwm3-logout) + "Exit Session" Exec exec fvwm3-logout
+
+# Background Menu
+#
+# Backgrounds are located in ~/.fvwm/images/background/
+# Menu icons are located in ~/.fvwm/images/bgicons/
+DestroyMenu BGMenu
+AddToMenu   BGMenu "Backgrounds" Title
++ "Floral%bgicons/bg1.png%" SetBG bg1.png
++ "Circles%bgicons/bg2.png%" SetBG bg2.png
++ "Space%bgicons/bg3.png%" SetBG bg3.png
+
+# Window Operations Menus
+DestroyMenu MenuWindowOps
+AddToMenu   MenuWindowOps
++ "Move"      Move
++ "Resize"    Resize
++ "Iconify"   Iconify
++ "Maximize"  Maximize
++ "Shade"     WindowShade
++ "Stick"     Stick
++ "" Nop
++ "Close"     Close
++ "More..."   Menu MenuWindowOpsLong This 0 0
+
+DestroyMenu MenuWindowOpsLong
+AddToMenu   MenuWindowOpsLong
++ "Move"                Move
++ "Resize"              Resize
++ "(De)Iconify"         Iconify
++ "(Un)Maximize"        Maximize
++ "(Un)Shade"           WindowShade
++ "(Un)Sticky"		Stick
++ "(No)TitleBar"	Pick (CirculateHit) ToggleTitle
++ "Send To"             Popup MenuSendTo
++ "" Nop
++ "Close"               Close
++ "Destroy"             Destroy
++ "" Nop
++ "Raise"		Raise
++ "Lower"		Lower
++ "" Nop
++ "StaysOnTop"          Pick (CirculateHit) Layer 0 6
++ "StaysPut"            Pick (CirculateHit) Layer 0 4
++ "StaysOnBottom"       Pick (CirculateHit) Layer 0 2
++ "" Nop
++ "Identify"            Module FvwmIdent
+
+DestroyMenu MenuIconOps
+AddToMenu   MenuIconOps
++ "(De)Iconify"         Iconify
++ "(Un)Maximize"        Maximize
++ "(Un)Shade"           WindowShade
++ "(Un)Sticky"		Stick
++ "(No)TitleBar"	Pick (CirculateHit) ToggleTitle
++ "Send To"             Popup MenuSendTo
++ "" Nop
++ "Close"               Close
++ "Destroy"             Destroy
++ "" Nop
++ "Raise"		Raise
++ "Lower"		Lower
++ "" Nop
++ "StaysOnTop"          Pick (CirculateHit) Layer 0 6
++ "StaysPut"            Pick (CirculateHit) Layer 0 4
++ "StaysOnBottom"       Pick (CirculateHit) Layer 0 2
++ "" Nop
++ "Identify"            Module FvwmIdent
+
+DestroyMenu MenuSendTo
+AddToMenu MenuSendTo
++ "Current" MoveToCurrent
++ "Page" PopUp MenuSendToPage
++ "Desk" PopUp MenuSendToDesk
+
+DestroyMenu MenuSendToDesk
+AddToMenu   MenuSendToDesk
++ "Desk 0"	MoveToDesk 0 0
++ "Desk 1"	MoveToDesk 0 1
+
+DestroyMenu MenuSendToPage
+AddToMenu   MenuSendToPage
+# 2x2
+#+ "Page (0,0)"	MoveToPage 0 0
+#+ "Page (0,1)"	MoveToPage 0 1
+#+ "Page (1,0)"	MoveToPage 1 0
+#+ "Page (1,1)"	MoveToPage 1 1
+# 3x3
++ "Page (0,0)" MoveToPage 0 0
++ "Page (1,0)" MoveToPage 1 0
++ "Page (2,0)" MoveToPage 2 0
++ "Page (0,1)" MoveToPage 0 1
++ "Page (1,1)" MoveToPage 1 1
++ "Page (2,1)" MoveToPage 2 1
++ "Page (0,2)" MoveToPage 0 2
++ "Page (1,2)" MoveToPage 1 2
++ "Page (2,2)" MoveToPage 2 2
+
+
+# Fvwm Man Pages (Help) Menu
+DestroyMenu MenuFvwmManPages
+AddToMenu   MenuFvwmManPages "Help" Title
++ "fvwm"                ViewManPage fvwm
++ "FvwmAnimate"         ViewManPage FvwmAnimate
++ "FvwmAuto"            ViewManPage FvwmAuto
++ "FvwmBacker"          ViewManPage FvwmBacker
++ "FvwmBanner"          ViewManPage FvwmBanner
++ "FvwmButtons"         ViewManPage FvwmButtons
++ "FvwmCommand"         ViewManPage FvwmCommand
++ "FvwmConsole"         ViewManPage FvwmConsole
++ "FvwmEvent"           ViewManPage FvwmEvent
++ "FvwmForm"            ViewManPage FvwmForm
++ "FvwmIconMan"         ViewManPage FvwmIconMan
++ "FvwmIdent"           ViewManPage FvwmIdent
++ "FvwmPager"           ViewManPage FvwmPager
++ "FvwmPerl"            ViewManPage FvwmPerl
++ "FvwmProxy"           ViewManPage FvwmProxy
++ "FvwmRearrange"       ViewManPage FvwmRearrange
++ "FvwmScript"          ViewManPage FvwmScript
++ "" Nop
++ "fvwm-root"	        ViewManPage fvwm-root
++ "fvwm-menu-desktop"   ViewManPage fvwm-menu-desktop
++ "fvwm-menu-directory" ViewManPage fvwm-menu-directory
++ "fvwm-menu-headlines" ViewManPage fvwm-menu-headlines
++ "fvwm-menu-xlock"     ViewManPage fvwm-menu-xlock
++ "fvwm-config"         ViewManPage fvwm-config
+
+#DestroyMenu MenuFvwmConfig
+#AddToMenu MenuFvwmConfig
+#+ MissingSubmenuFunction WallpaperBrowser
+#+ %widget_buttons.png%"Configure FvwmForm" Module FvwmForm FvwmForm-Form
+#+ %cursor.png%"Configure Cursor" Module FvwmForm FvwmForm-RootCursor
+#+ %television.png%"Screensaver Settings" Exec exec xscreensaver-demo
+#+ %hardware_mouse.png%"Mouse Settings" Module FvwmScript FvwmScript-PointerSetup
+#+ %hardware_keyboard.png%"Keyboard Settings" Module FvwmScript FvwmScript-KeyboardSetup
+#+ %audio.png%"Configure Bell" Module FvwmScript FvwmScript-BellSetup
+#+ %tool_wrench.png%"General Settings" Module FvwmScript FvwmScript-BaseConfig
+#+ %tools.png%"Edit fvwm2rc..." Exec exec gvim -geom 139x56 $[FVWM_USERDIR]/.fvwm2rc
+#+ %plug.png%"Fvwm Modules" Popup MenuFvwmModules
+#+ %graphics_convert_polaroid.png%"Browse Wallpaper" Popup $[fvwm_wallpaper_dir]
+#+ %document_view.png%"$Revision: 1.43 $" Title
+#+ %book_help_baloon.png%"Fvwm Information..." Exec exec xmessage "$(fvwm --version)"
+#+ %computer_x11.png%"X Information..." Exec exec xmessage "$(xdpyinfo)"
+
+SetEnv fvwm_wallpaper_dir /home/doug/wallpaper
+
+DestroyMenu MenuFvwmPref
+AddToMenu MenuFvwmPref "Preferences" Title
++ MissingSubmenuFunction WallpaperBrowser
++ "Browse Wallpaper" Popup $[fvwm_wallpaper_dir]
++ "&Backgrounds" Popup BGMenu
++ "" Nop
+Test (x nitrogen) + "Nitrogen" Exec exec nitrogen
+Test (x sxiv) + "Wallpaper" Exec exec sxiv -t "$HOME/wallpaper/"
+Test (x sxiv) + "Images" Exec exec sxiv -t "/mnt/public/images/"
+Test (x sxiv) + "Tiles" Exec exec sxiv -t "/mnt/public/images/tiles/"
+#Test (x feh) + "Feh" Exec exec feh ~/wallpaper -g 640x360 --scale-down
+#Test (x fbsetbg) + "Wallpaper Tiled" Exec exec fbsetbg -t -r "/mnt/public/images/tiles/"
+Test (x lxappearance) + "LXappearance" Exec exec lxappearance
++ ""
+Test (x scrot) + "Screenshot PNG" Exec exec scrot -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'
+Test (x scrot) + "Screenshot PNG 5 sec." Exec exec scrot -q 100 -cd 5 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'
+Test (x scrot) + "Screenshot PNG select" Exec exec scrot -s -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'
+Test (x scrot) + "Screenshot PNG multidisp" Exec exec scrot -m -q 100 '%B_%s_$wx$h.png' -e 'mv $f ~/Pictures/'
+
+DestroyMenu MenuFvwmUtility
+AddToMenu MenuFvwmUtility "Utilities" Title
++ "Date & Time" Module FvwmScript $[FVWM_USERDIR]/FvwmScript-Date
++ "Time" Module FvwmScript $[FVWM_USERDIR]/scripts/Chrono/Chrono
++ "Calendar" Module FvwmScript $[FVWM_USERDIR]/scripts/Kalende/Kalende
++ "Day & Date" Module FvwmScript $[FVWM_USERDIR]/FvwmScript-DayDate
++ "" Nop
++ "&Logout" Module FvwmForm FvwmForm-QuitVerify
++ "&Quit" Module FvwmScript FvwmScript-ConfirmQuit
+
+DestroyMenu MenuFvwmBookmarks
+AddToMenu MenuFvwmBookmarks
++ "Forums" Popup MenuFvwmForums
++ "News" Popup MenuFvwmNews
++ "Sports" Popup MenuFvwmSports
+
+DestroyMenu MenuFvwmForums
+AddToMenu MenuFvwmForums
++ "Void Linux Forum" Exec firefox --new-tab https://www.reddit.com/r/voidlinux/
++ "ArchLabs Forum" Exec firefox --new-tab https://forum.archlabslinux.com/
++ "ArchWiki" Exec firefox --new-tab https://wiki.archlinux.org/
++ "BunsenLabs" Exec firefox --new-tab https://forums.bunsenlabs.org/index.php
++ "VSIDO" Exec firefox --new-tab https://www.vsido.org
++ "Fvwm" Exec firefox --new-tab https://fvwmforums.org/
++ "ArchWiki" Exec firefox --new-tab https://wiki.archlinux.org/
+
+DestroyMenu MenuFvwmNews
+AddToMenu MenuFvwmNews
++ "One America News" Exec firefox --new-tab https://www.oann.com/
++ "Fox News" Exec firefox --new-tab https://www.foxnews.com
++ "Reuters" Exec firefox --new-tab https://https://www.reuters.com/
++ "Treehouse" Exec firefox --new-tab https://theconservativetreehouse.com/
+
+DestroyMenu MenuFvwmSports
+AddToMenu MenuFvwmSports
++ "Baseball" Exec firefox --new-tab https://www.mlb.com/
++ "Football" Exec firefox --new-tab https://www.nfl.com/
++ "ESPN" Exec firefox --new-tab https://www.espn.com/
+
+

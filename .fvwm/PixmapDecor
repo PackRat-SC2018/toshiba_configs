@@ -1,0 +1,24 @@
+# Titles and borders
+#TitleStyle ActiveUp solid #454749 -- Flat
+#TitleStyle ActiveDown solid #454749 -- Flat
+#TitleStyle Inactive solid #454749 -- Flat
+#TitleStyle Centered Height 24
+#BorderStyle Inactive -- HiddenHandles NoInset
+#BorderStyle Active -- HiddenHandles NoInset
+
+TitleStyle Centered Height 20 -- Raised
+BorderStyle -- HiddenHandles
+Style "*" BorderWidth 5, HandleWidth 5, MWMButtons, MwmBorder, FirmBorder, MWMFunctions, MWMDecor
+
+# Default Font
+DefaultFont "xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+Style * Colorset 1, HilightColorset 24
+Style * BorderColorset 3, HilightBorderColorset 24
+
+# Active/inactive window titlebar button images
+ButtonStyle All ActiveUp Pixmap button.png -- Flat
+ButtonStyle All Inactive Pixmap button-unfocused.png -- Flat
+# Pressed close/iconify/maxmimize button
+ButtonStyle 1 ActiveDown Pixmap button-close.png -- Flat
+ButtonStyle 3 ActiveDown Pixmap button-iconify.png -- Flat
+ButtonStyle 5 ActiveDown Pixmap button-maximize.png -- Flat

@@ -1,0 +1,158 @@
+# launcher
+super + p
+    dmenu_run
+
+# terminal
+super + shift + Return
+    kitty
+
+super + Return
+    sakura
+
+alt + F1
+    st
+
+# program launcher
+alt + F2
+    rofi -show run
+
+super + ctrl + l
+    subl3
+
+Menu
+    thunar
+
+super + ctrl + g
+    gimp
+
+super + ctrl + p
+    libreoffice --calc
+
+super + ctrl + o
+    libreoffice --writer
+
+super + XF86HomePage
+    firefox
+
+super + XF86Mail
+    thunderbird
+
+XF86AudioPrev
+    mocp -r
+
+XF86AudioPlay
+    mocp -G
+
+XF86AudioNext
+    mocp -f
+
+super + ctrl + Print
+    ~/bin/scrnshot
+
+XF86AudioRaiseVolume
+    amixer -q sset PCM 2%+ unmute
+
+XF86AudioLowerVolume
+    amixer -q sset PCM 2%- unmute
+
+XF86AudioMute
+    amixer sset Master,0 toggle
+
+super + shift + q
+    rofi-logout
+
+# reload sxhkd
+alt + shift + x
+    pkill -USR1 -x sxhkd
+
+super + Escape
+    pkill -USR1 -x sxhkd
+
+#*****************************#
+#********* wm binds **********#
+#*****************************#
+
+# quit yaxwm
+# alt + shift + q
+super + shift + q
+    yaxwm -c wm exit
+
+super + shift + e
+    yaxwm -c wm exit
+
+# reload yaxwmrc
+alt + shift + r
+    yaxwm -c wm reload
+
+# restart yaxwm
+alt + ctrl + shift + r
+    yaxwm -c wm restart
+
+super + q
+    yaxwm -c wm restart
+
+# focus next or previous window
+alt + {j,k}
+    yaxwm -c win focus {next,prev}
+
+alt + Tab
+    yaxwm -c win focus next
+
+alt + shift + Tab
+    yaxwm -c win focus prev
+
+# close window, swap tiled window in/out of master, cycle tiled windows in place
+alt + {F4,space,c}
+    yaxwm -c win {kill,swap,cycle}
+
+#alt + F4
+#    yaxwm -c win kill
+
+# toggle fullscreen and fake fullscreen (enable manipulating fullscreen window)
+{_,alt + }F11
+    yaxwm -c win {full,fakefull}
+
+# toggle floating or sticky
+alt + shift + {space,s}
+    yaxwm -c win {float,stick}
+
+# move window, signed (+/-) for relative changes
+alt + shift + {h,j,k,l}
+    yaxwm -c win resize {x=-10,y=+10,y=-10,x=+10}
+
+# resize window, signed (+/-) for relative changes
+alt + ctrl + {h,j,k,l}
+    yaxwm -c win resize {w=-10,h=+10,h=-10,w=+10}
+
+# view, send, or follow to a workspace (by number)
+alt + {_,shift + ,ctrl + }{1-9,0}
+    yaxwm -c ws {view,send,follow} {1-9,10}
+
+# view, send, or follow to the next, previous, last active,
+# next non-empty, or prev non-empty workspace
+alt + {_,shift + ,ctrl + }{bracketleft,bracketright,BackSpace,Left,Right}
+    yaxwm -c ws {view,send,follow} {prev,next,last,prevne,nextne}
+
+# view, send, or follow to the next, previous, or last active monitor
+alt + {_,shift + ,ctrl + }{comma,period,backslash}
+    yaxwm -c mon {view,send,follow} {prev,next,last}
+
+# change active workspace layout
+alt + {t,m,g,s,d,f}
+    yaxwm -c set layout {tile,mono,grid,spiral,dwindle,none}
+
+# change number of windows in master or first stack
+alt + {_,shift + }{i,d}
+    yaxwm -c set {master,stack} {+1,-1}
+
+# change gap width
+alt + {equal,minus}
+    yaxwm -c set gap width {+5,-5}
+
+# change border width (total)
+alt + ctrl + {equal,minus}
+    yaxwm -c set border width {+1,-1}
+
+# change outer border width (double border)
+alt + ctrl + shift + {equal,minus}
+    yaxwm -c set border outer_width {+1,-1}

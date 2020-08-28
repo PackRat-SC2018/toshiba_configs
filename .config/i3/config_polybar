@@ -58,7 +58,7 @@ client.urgent             #B11E26   #B11E26     #EAEAEA
 floating_modifier $alt
 
 # start a terminal
-bindsym $alt+F1 exec urxvt
+bindsym $alt+F1 exec uxterm
 bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec uxterm
 

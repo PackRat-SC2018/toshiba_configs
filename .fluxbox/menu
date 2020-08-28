@@ -18,7 +18,7 @@
 [encoding] {UTF-8}
       [exec] (Run) {rofi -modi run,drun,window,combi -sidebar-mode -show run}
 [separator]
-      [exec] (Terminal) {uxterm}
+      [exec] (Terminal) {lxterminal}
       [exec] (Sublime) {wmctrl -a subl3 || subl3}
       [exec] (File Manager) {thunar}
       [exec] (Firefox) {wmctrl -a firefox || firefox}
@@ -28,10 +28,13 @@
 [submenu] (Terminals)
       [exec] (UXTerm) {uxterm}
       [exec] (XTerm) {xterm}
+      [exec] (Terminator) {terminator}
       [exec] (Simple Terminal) {st}
+      [exec] (Kitty) {kitty}
       [exec] (URxvt) {urxvt}
       [exec] (Tmux) {urxvt -e tmux}
-      [exec] (Sakura) {sakura}
+      [exec] (Sakura) {sakura -c 100 -r 34}
+      [exec] (LXTerminal) {lxterminal}
       [exec] (Xfce4 Terminal) {xfce4-terminal}
       [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
 [end]
@@ -60,8 +63,8 @@
 [submenu] (Wallpaper)
       [exec] (Sxiv Wallpaper) {sxiv -t "$HOME/wallpaper"}
       [exec] (Sxiv Images) {sxiv -t "/mnt/public/images/"}
-      [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down "$HOME/wallpaper"}
-      [exec] (Feh Images) {feh -g 800x450 --scale-down "/mnt/public/images"}
+!      [exec] (Feh Wallpaper) {feh -g 800x450 --scale-down "$HOME/wallpaper"}
+!      [exec] (Feh Images) {feh -g 800x450 --scale-down "/mnt/public/images"}
 [submenu] (Fluxbox Wallpaper)
       [wallpapers] (~/wallpaper) {fbsetbg}
 [end]
@@ -69,21 +72,20 @@
 [submenu] (Screenshots)
       [exec] (Imagemagick JPG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).jpg}
       [exec] (Imagemagick PNG) {import -window root -quality 100 ~/pictures/screen-import-$(date +%A_%s).png}
-      [exec] (Scrot JPG) {scrot -q 100 '%B_%s.jpg' -e 'mv $f ~/Pictures/'}
-      [exec] (Scrot PNG) {scrot -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Scrot PNG 5 sec.) {scrot -q 100 -cd 5 '%B_%s.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Scrot PNG select) {scrot -s -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
-      [exec] (Scrot PNG multidisp) {scrot -m -q 100 '%B_%s.png' -e 'mv $f ~/Pictures/'}
+      [exec] (Screenshot JPG) {maim -u ~/Pictures/$(date +%F_%s).jpg}
+      [exec] (Screenshot PNG) {maim -u ~/Pictures/$(date +%F_%s).png}
+      [exec] (Screenshot PNG 5 sec.) {maim -u -d 5 ~/Pictures/$(date +%F_%s).png}
+      [exec] (Screenshot PNG select) {maim -u -s ~/Pictures/$(date +%F_%s).png}
 [end]
       [exec] (Gimp) {gimp}
-      [exec] (Geeqie) {geeqie}
+      [exec] (Ristretto) {ristretto}
       [exec] (Gcolor2) {gcolor2}
       [exec] (LXappearance) {lxappearance}
 [end]
 [submenu] (Media)
-      [exec] (Audacious) {audacious}
+      [exec] (Deadbeef) {deadbeef}
       [exec] (Vlc) {vlc}
-      [exec] (Asunder) {asunder}
+!      [exec] (Asunder) {asunder}
       [exec] (Brasero) {brasero}
       [exec] (Guvcview) {guvcview}
 [end]

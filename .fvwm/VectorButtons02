@@ -1,0 +1,46 @@
+#ButtonStyle 1 (MiniIcon -- Flat)
+#ButtonStyle 1 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+#ButtonStyle 1 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 1 ActiveDown (5 01x01@0 99x01@0 99x99@1 01x99@1 01x01@0)
+
+ButtonStyle 1 ActiveUp (2 01x01@1 01x01@1) -- Flat
+ButtonStyle 1 ActiveDown (2 01x01@1 01x01@1) -- Flat
+ButtonStyle 1 Inactive (2 01x01@1 01x01@1) -- Flat
+
+
+# Button 2: delete
+#delete now
+#ButtonStyle 2 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+#ButtonStyle 2 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 2 ActiveUp (13 20x20@0 80x80@0 85x80@0 25x20@0 30x20@0 90x80@0 50x50@0 20x80@0 80x20@0 85x20@0 25x80@0 30x80@0 90x20@0) -- Flat
+AddButtonStyle 2 ActiveDown (13 20x20@1 80x80@1 85x80@1 25x20@1 30x20@1 90x80@1 50x50@1 20x80@1 80x20@1 85x20@1 25x80@1 30x80@1 90x20@1) -- Flat
+AddButtonStyle 2 Inactive (13 20x20@0 80x80@0 85x80@0 25x20@0 30x20@0 90x80@0 50x50@0 20x80@0 80x20@0 85x20@0 25x80@0 30x80@0 90x20@0) -- Flat
+
+# Button 6: Minimize (image of large window being shrunk down)
+# ButtonStyle 6 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+# ButtonStyle 6 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 6 ActiveUp (4 25x80@0 85x80@0 85x75@0 25x75@0 25x70@0 85x70@0) -- Flat
+AddButtonStyle 6 ActiveDown (4 25x80@1 85x80@1 85x75@1 25x75@1 25x70@1 85x70@1) -- Flat
+AddButtonStyle 6 Inactive (4 25x80@0 85x80@0 85x75@0 25x75@0 25x70@0 85x70@0) -- Flat
+
+#Button 4:  Maximize
+#ButtonStyle 4 (VGradient 128 2 royalblue1 50 royalblue3 50 royalblue4)-- Flat
+#ButtonStyle 4 Inactive (VGradient 128 2 grey85 50 grey70 50 grey50) -- Flat
+AddButtonStyle 4 ActiveUp (7 20x20@0 90x20@0 90x25@0 20x25@0 20x80@0 90x80@0 90x20@0) -- Flat
+AddButtonStyle 4 ActiveDown (7 20x20@1 90x20@1 90x25@1 20x25@1 20x80@1 90x80@1 90x20@1) -- Flat
+AddButtonStyle 4 Inactive (7 20x20@0 90x20@0 90x25@0 20x25@0 20x80@0 90x80@0 90x20@0) -- Flat
+
+#ButtonStyle 4 ActiveUp (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+#ButtonStyle 4 ActiveDown (8 01x50@1 50x01@1 99x50@1 80x50@1 80x90@1 20x90@1 20x50@1 01x50@1) -- Flat
+#ButtonStyle 4 Inactive (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+
+ButtonStyle 1 (13 50x50@0 01x20@1 20x01@1 50x50@0 80x01@0 99x20@0 50x50@0 99x80@0 80x99@0 50x50@0 20x99@0 01x80@0 50x50@0) -- Flat
+ButtonStyle 1 (13 20x50@0 01x20@0 20x01@0 50x20@0 80x01@0 99x20@0 80x50@0 99x80@0 80x99@0 50x80@0 20x99@0 01x80@0 20x50@0) -- Flat
+ButtonStyle 1 (13 20x50@0 01x20@0 20x01@1 50x20@1 80x01@1 99x20@1 80x50@0 99x80@1 80x99@0 50x80@0 20x99@0 01x80@0 20x50@1) -- Flat
+
+#ButtonStyle 1 (8 01x50@0 50x01@0 99x50@0 80x50@0 80x99@0 20x99@0 20x50@0 01x50@0) -- Flat
+#ButtonStyle 1 (13 01x50@1 50x01@1 99x50@1 80x50@0 80x60@0 99x60@1 99x99@1 01x99@0 01x60@1 20x60@1 20x50@1 01x50@0 01x50@1) -- Flat
+#ButtonStyle 1 (8 01x50@1 50x99@01 99x50@0 80x50@0 80x01@0 20x01@1 20x50@1 01x50@1) -- Flat
+#ButtonStyle 1 (8 01x50@0 50x01@0 99x50@0 80x50@0 80x90@0 20x90@0 20x50@0 01x50@0) -- Flat
+# croix
+#ButtonStyle 2 ActiveUp (13 20x50@0 01x20@0 20x01@1 50x20@1 80x01@1 99x20@1 80x50@0 99x80@1 80x99@0 50x80@0 20x99@0 01x80@0 20x50@1) -- Flat

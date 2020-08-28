@@ -66,10 +66,10 @@ execp_font_color = #DFDFDF 100
 execp_background_id = 0
 execp_centered = 1
 execp_padding = 8 0 0
-# execp_command = psuinfo -Cukcta -N -S3
-execp_command = psuinfo -Cua -N -S3
+execp_command = psuinfo -Cukca -N -S3
+# execp_command = psuinfo -Cua -N -S3
 execp_interval = 3
-execp_rclick_command = urxvt -e htop --sort-key PERCENT_CPU
+execp_rclick_command = uxterm -e htop --sort-key PERCENT_CPU
 
 # executor load
 execp = new
@@ -79,18 +79,6 @@ execp_background_id = 0
 execp_centered = 1
 execp_padding = 8 0 0
 execp_command = awk '{print $1" "$2" "$3}' < /proc/loadavg
-execp_interval = 3
-execp_rclick_command = urxvt -e htop --sort-key PERCENT_CPU
-
-# executor sysinfo
-execp = new
-execp_font = Office Code Pro Regular 11
-execp_font_color = #DFDFDF 100
-execp_background_id = 0
-execp_centered = 1
-execp_padding = 8 0 0
-# execp_command = psuinfo -Cukcta -N -S3
-execp_command = psuinfo -Cck -N -S3
 execp_interval = 3
 execp_rclick_command = urxvt -e htop --sort-key PERCENT_CPU
 
@@ -114,7 +102,7 @@ button_rclick_command = session-exit
 #button_dwheel_command = text
 
 # Panel
-panel_items = P:T:SBC
+panel_items = P:T:EBC
 panel_monitor = all
 panel_position = bottom center horizontal
 panel_size = 0 30

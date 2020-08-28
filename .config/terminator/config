@@ -1,0 +1,31 @@
+[global_config]
+  handle_size = 10
+  inactive_color_offset = 0.45
+  title_transmit_bg_color = "#555753"
+[keybindings]
+  cycle_next = <Primary>bracketright
+  cycle_prev = <Primary>bracketleft
+  split_horiz = <Shift><Super>v
+  split_vert = <Shift><Super>h
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#131314"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_blink = False
+    cursor_color = "#aaaaaa"
+    font = Roboto Mono 11
+    foreground_color = "#dcdcdc"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

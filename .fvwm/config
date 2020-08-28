@@ -1,0 +1,183 @@
+###########################################################
+#  ____________________________
+# (   _________________________)
+#  ) (__  _  _  _    _
+# (   __)( \/ )( \/\/ )/\/\
+#  ) (    \  /  \    //    \
+# (___)    \/    \/\/(_/\/\_) 3.0
+#
+#
+# fvwm3 configuration file created 08-25-2020
+# by PackRat
+#
+###########################################################
+
+ImagePath $[FVWM_USERDIR]/icons:+/buttons:+/appicons
+
+# InfoStoreAdd can be used to store variable data internal to fvwm.
+# The variable can then be used in the configuration as $[infostore.name].
+#
+# You can also use environment variables but for data internal to fvwm
+# use InfoStore variables instead.
+#
+# The following is used in various menus and also sets the terminal
+# that FvwmConsole uses. Change this to your terminal of choice
+
+InfoStoreAdd terminal lxterminal
+InfoStoreAdd browser firefox
+InfoStoreAdd mail thunderbird
+InfoStoreAdd filemgr thunar
+InfoStoreAdd editor subl3
+
+InfoStoreAdd dmenucmd "dmenu_run -nb '#111111' -nf '#cccccc' -sb '#2b4e5e' -sf '#ffffff'"
+InfoStoreAdd roficmd "rofi -modi run,drun,window,combi -sidebar-mode -show run"
+
+# Desktops and Pages
+#
+# Fvwm has both Virtual Desktops and Pages. Each Desktop is built from
+# a grid of Pages. The following sets the name of four Desktops and then
+# divides each Desktop into a 2x2 grid of Pages that are positioned as
+#
+#   +---+---+
+#   |   |   |
+#   +---+---+
+#   |   |   |
+#   +---+---+
+#
+DesktopName 0 1
+DesktopName 1 2
+DesktopName 2 3
+DesktopName 3 4
+
+DesktopSize 1x1
+# DesktopSize 3x3
+# DesktopSize 2x2
+
+Emulate Fvwm
+
+# EdgeScroll will move the view port between the Pages when the mouse
+# moves to the edge of the screen. This set the amount of distance to
+# scroll at 100% (full page) and the EdgeResistance which is a timer
+# for how long the mouse as at the edge before it scrolls.
+#
+# Set EdgeScroll 0 0 and/or EdgeResistance -1 to disable.
+EdgeScroll 100 100
+EdgeResistance 1200
+EdgeThickness 1
+Style * EdgeMoveDelay 350, EdgeMoveResistance 350
+
+# EwmhBaseStruts [left] [right] [top] [bottom]
+# Reserves space along the edge(s) of the Screen that will not
+# be covered when maximizing or placing windows.
+EwmhBaseStruts 4 4 4 28
+
+# This sets the ClickTime and MoveThreshold used to determine
+# Double Clicks, Hold and Move for the mouse.
+ClickTime 250
+MoveThreshold 3
+
+# Sets the focus style to SloppyFocus and a mouse click
+# in a window will Raise it.
+# Style * SloppyFocus, MouseFocusClickRaises
+
+# Set focus to click-to-focus and mouse click raises window
+Style * ClickToFocus, MouseFocusClickRaises
+ColorMapFocus  FollowsMouse
+
+# Window Placement
+!Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
+Style * MinOverlapPlacement, GrabFocus, !UsePPosition
+
+# Sets all windows to OpaqueMove (vs a wired frame) and  windows will
+# snap to each other and the edge of the screen.
+OpaqueMoveSize unlimited
+Style * ResizeOpaque, SnapAttraction 5 SameType ScreenAll, SnapGrid
+
+# Transient Windows (such as open file windows)
+Style * DecorateTransient, DontLowerTransient, StackTransientParent
+Style * !FPGrabFocusTransient, FPReleaseFocusTransient
+
+# WindowShade
+Style * WindowShadeScrolls, WindowShadeSteps 10
+
+# Ignore Numlock and other modifiers for bindings
+# See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
+IgnoreModifiers L25
+
+
+##################################
+#
+# Start the Show
+#
+####################################
+
+Read Colorsets
+
+Read DefaultDecor
+# other decor
+# Read MidnightDecor
+# Read VectorDecor
+# Read AmazonDecor
+# Read IslandDecor
+
+Read Styles
+Read Functions
+Read Modules
+Read Menu
+Read Keys
+Read Mouse
+
+# Start Function
+#
+# The start function is run right after fvwm is done reading
+# the config file. This function run after each restart
+# so using Test (Init) or Test (Restart) can further control
+# actions that are run during the first time run (Init) or
+# actions that are run after a restart.
+
+DestroyFunc StartFunction
+AddToFunc   StartFunction
+
+# pagers and dekstop id
++ I Module FvwmEvent EventNewDesk
+# + I Module FvwmButtons DeskTopPanel
+
+# full taskbars
+# + I Module FvwmButtons FvwmAppBar
++ I Module FvwmButtons FvwmSysbar
+
+# xosview
++ I Test (Init) Exec exec xosview -captions -geometry 160x124+1432+2
++ I Test (Restart) Exec exec xosview -captions -geometry 160x124+1432+2
+
+# clock
+# + I Test (Init) Exec sleep 2; exec xclock -geom 100x100-0-0
+# + I Test (Restart) Exec exec xclock -geom 100x100-0-0
+
+# + I Test (Init) Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -geom 144x32-728+4 -face xft:monospace:size=11 -padding 8
+# + I Test (Restart) Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -geom 144x32-728+4 -face xft:monospace:size=11 -padding 8
+
+# system tray ========================================
+# + I Test (Init) Exec sleep 2; exec stalonetray
+# + I Test (Restart) Exec exec stalonetray
+
+# + I Test (Init) Exec sleep 3; "$HOME/bin/fvwm-bar.sh"
+# + I Test (Restart) Exec exec "$HOME/bin/fvwm-bar.sh"
+
+# + I Test (Init) Exec exec "$HOME/bin/ConkyFvwm.sh"
+# + I Test (Restart) Exec exec "$HOME/bin/ConkyFvwm.sh"
+
+# + I Test (Init) Exec exec fbsetbg -c -r /mnt/public/images/dark
+
+DestroyFunc ExitFunction
+AddToFunc   ExitFunction
++ I Test (!ToRestart) Exec exec rm -f $[HOME]/.fvwm/icon.tmp.*
++ I Test (!ToRestart) Exec exec rm -f $[FVWM_USERDIR]/temp/*icon*
++ I Exec exec killall -q conky
++ I Exec exec killall -q xclock
++ I Exec exec killall -q xosview
++ I Exec exec killall -q dclock
++ I Exec exec killall -q stalonetray
++ I Exec exec killall -q polybar
++ I Exec exec killall -q tint2
++ I Exec exec killall -q xfce4-panel

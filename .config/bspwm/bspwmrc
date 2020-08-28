@@ -1,0 +1,70 @@
+#! /bin/sh
+
+# change mouse from an "X"
+xsetroot -cursor_name left_ptr
+
+# sxhkd &
+pkill sxhkd; sxhkd -c ~/.config/bspwm/sxhkdrc &
+
+# polybar
+pkill polybar ; polybar bspwm-bar &
+
+# bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+bspc config border_width        2
+bspc config window_gap          2
+bspc config left_padding        2
+bspc config right_padding       2
+bspc config top_padding         22
+bspc config bottom_padding      2
+
+bspc config split_ratio          0.55
+bspc config borderless_monocle   false
+bspc config gapless_monocle      true
+bspc config paddingless_monocle  true
+
+bspc config pointer_modifier	mod1
+bspc config click_to_focus	true
+bspc configpointer_action1	move
+bspc config pointer_action2	resize_side
+bspc config pointer_action3	resize_corner
+
+bspc desktop 2 -l monocle
+bspc desktop 3 -l monocle
+bspc desktop 4 -l monocle
+
+bspc rule -a Firefox desktop='^2' follow=on state=tiled
+bspc rule -a Thunderbird desktop='^3' follow=on state=tiled
+bspc rule -a Gimp desktop='^4' follow=on state=tiled
+bspc rule -a Vlc desktop='^9' follow=on  state=tiled
+bspc rule -a Audacious desktop='^9' follow=on  state=floating
+bspc rule -a Asunder desktop='^9' follow=on  state=floating
+bspc rule -a Deadbeef desktop='^9' follow=on state=floating
+bspc rule -a XClock state=floating layer=below
+bspc rule -a Xfce4-screenshooter state=floating
+bspc rule -a Sxiv state=floating
+bspc rule -a Galculator state=floating
+bspc rule -a feh state=floating
+bspc rule -a Void_Exit_Session state=floating layer=above
+bspc rule -a Exit_Session state=floating layer=above
+bspc rule -a XCalc state=floating
+bspc rule -a Void_Exit_Session state=floating
+bspc rule -a Xfce4-appfinder state=floating
+bspc rule -a Xfce4-panel state=floating
+bspc rule -a '*:libreoffice-writer' state=tiled
+bspc rule -a '*:libreoffice-calc' state=tiled
+bspc rule -a '*:libreoffice-startcenter' state=tiled
+bspc rule -a libreoffice-* state=tiled
+bspc rule -a Soffice state=tiled
+bspc rule -a Yad state=floating layer=above
+
+bspc config normal_border_color     '#171717'
+bspc config focused_border_color    '#313E47'
+bspc config active_border_color     '#24262C'
+bspc config presel_border_color     '#171717'
+bspc config urgent_border_color     '#A52A2A'
+
+bspc config active_locked_border_color      '#ff9e24'
+bspc config focused_locked_border_color     '#ff9e24'
+bspc config normal_locked_border_color      '#31aeff'

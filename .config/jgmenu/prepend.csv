@@ -1,4 +1,4 @@
-Terminal,uxterm,utilities-terminal
+Terminal,st,utilities-terminal
 Editor,subl3,text-editor
 File manager,thunar,system-file-manager
 Browser,firefox,firefox

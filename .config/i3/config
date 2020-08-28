@@ -9,13 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# Wallpaper
-# exec nitrogen --restore &
-# exec $HOME/.fehbg &
-exec fbsetbg -c -r $HOME/wallpaper/ &
+# kill running applications
+exec pkill -x sxhkd &
 
-# panel
-exec $HOME/bin/i3wm-bar.sh &
+# set wallpaper
+# exec fbsetbg -c -r "$HOME/wallpaper/" &
 
 set $mod Mod4
 set $alt Mod1
@@ -26,7 +24,7 @@ focus_follows_mouse no
 hide_edge_borders smart
 
 # default_border normal/none/pixel
-default_border pixel 2
+default_border pixel 1
 
 # default_floating_border normal/none/pixel
 default_floating_border pixel 2
@@ -49,18 +47,18 @@ default_floating_border pixel 2
 font pango: Roboto Regular 10, Roboto Regular 10
 
 # window colours:         border    background  text
-client.focused            #1D1E1F   #32363B     #DDDDDD
-client.unfocused          #1D1E1F   #1D1E1F     #979797
-client.focused_inactive   #2D3033   #2D3033     #979797
-client.urgent             #B11E26   #B11E26     #EAEAEA
+client.focused            #2C2D2E   #3B4149     #FFFFFF
+client.unfocused          #2C2D2E   #2C2D2E     #999999
+client.focused_inactive   #2C2D2E   #2C2D2E     #999999
+client.urgent             #E01B30   #E01B30     #FFFFFF
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
 # start a terminal
-bindsym $alt+F1 exec urxvt
-bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec uxterm
+bindsym $alt+F1 exec lxterminal
+bindsym $mod+Return exec uxterm
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 # bindsym $mod+Shift+q kill
@@ -82,15 +80,21 @@ bindsym $mod+XF86Mail exec thunderbird
 bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
-bindsym $mod+Control+Print exec "$HOME/bin/scrot_delay.sh"
+bindsym $mod+Control+Print exec "maim -u -d 5 ~/Pictures/$(date +%F_%s).png"
+bindsym Control+Print exec "maim -u | xclip -selection clipboard -t image/png"
 bindsym XF86Calculator exec galculator
 
 bindsym XF86AudioRaiseVolume exec "amixer -q sset PCM  5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset PCM 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
 
-bindsym XF86MonBrightnessUp exec "sudo xbacklight -inc 5"
-bindsym XF86MonBrightnessDown exec "sudo xbacklight -dec 5"
+#bindsym XF86MonBrightnessUp exec "sudo xbacklight -inc 5"
+#bindsym XF86MonBrightnessDown exec "sudo xbacklight -dec 5"
+
+bindsym XF86MonBrightnessUp exec "brillo -A 10"
+bindsym XF86MonBrightnessDown exec "brillo -U 10"
+bindsym $alt+XF86MonBrightnessUp exec "brillo -S 95"
+bindsym $alt+XF86MonBrightnessDown exec "brillo -S 40"
 
 bindsym XF86AudioPrev exec "mocp -r"
 bindsym XF86AudioPlay exec "mocp -G"
@@ -98,6 +102,11 @@ bindsym XF86AudioNext exec "mocp -f"
 
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
+
+# i3-msg 'workspace 5; append_layout ~/.config/i3/layout-01.json'
+bindsym $mod+Shift+1 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-01.json'"
+bindsym $mod+Shift+2 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-10.json'"
+
 
 # floating windows 2px border
 for_window [class="XFontsel"] floating enable
@@ -293,3 +302,26 @@ mode "move" {
 }
 
 bindsym $mod+m mode "move"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        position top
+        workspace_buttons yes
+        tray_output primary
+        bindsym --release button3 exec jgmenu --config-file=/home/doug/.config/jgmenu/jgi3menurc
+        bindsym --release button2 exec --no-startup-id import -window root -quality 100 ~/pictures/i3_screen-import-$(date +%F_%s).png
+        font pango: Roboto Mono Regular 10
+        # status_command $HOME/.config/i3/i3conkybar.sh
+        # status_command i3blocks
+        status_command slstatus -s
+        separator_symbol " "
+        colors {
+          background            #191A1A
+          statusline            #BFBFBF
+          focused_workspace     #3B4149     #3B4149     #FFFFFF
+          active_workspace      #191A1A     #191A1A     #999999
+          inactive_workspace    #191A1A     #191A1A     #999999
+          urgent_workspace      #E01B30     #E01B30     #FFFFFF
+     }
+}

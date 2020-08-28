@@ -4,8 +4,13 @@
 #
 # Lines starting with a '#' are ignored.
 
+# kill running apps
+pkill sxhkd &
+pkill slstatus &
+pkill polybar &
+
 # Change your keymap:
-# xmodmap "/home/doug/.Xmodmap"
+# xmodmap "$HOME/.Xmodmap"
 
 # Applications you want to run with fluxbox.
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
@@ -16,7 +21,7 @@
 # idesk &
 
 # wallpaper
-fbsetbg -c -r "$HOME/wallpaper/" &
+# fbsetbg -c -r "$HOME/wallpaper/" &
 
 # systemtray items
 # cmst -w 3 -m -i Vibrantly-Simple-Dark &
@@ -24,16 +29,15 @@ fbsetbg -c -r "$HOME/wallpaper/" &
 ## panels
 
 # conky
-conky -p3 -dc "$HOME/conky/conkysysinforc" &
+# pkill conky ; conky -p3 -dc "$HOME/conky/conkysysinforc" &
+# "$HOME/bin/ConkyFluxbox.sh" &
 
 # polybar
-# graph-bar.sh
-# fluxbox-bar.sh
+# (slep 2s && graph-bar.sh) &
+# (sleep 2s && fluxbox-bar.sh) &
 
-# tint2
-tint2 &
+# tint2 &
 # tint2 -c $HOME/.config/tint2/tint2fluxboxrc &
-
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

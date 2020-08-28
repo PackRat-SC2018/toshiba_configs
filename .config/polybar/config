@@ -15,9 +15,10 @@ include-file = /home/doug/.config/polybar/modules.conf
 [bar/fluxbox-bar]
 inherit = bar/master
 
-modules-left = jgmenu fluxbox
-modules-center =
-modules-right = uptime coreavg load cputemp memory battery wireless-network bit-rate date
+modules-left = jgmenu
+;modules-center = uptime coreavg load cputemp memory battery wireless-network
+modules-center = coreavg cputemp memory battery wireless-network
+modules-right = date
 
 ;;;;;; Tray is commented out ;;;;;;;;
 ;tray-position = center
@@ -29,13 +30,14 @@ modules-right = uptime coreavg load cputemp memory battery wireless-network bit-
 ;; openbox
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[bar/openbox-bar]
+[bar/fvwm-bar]
 inherit = bar/master
 
-modules-left = appmenu workspaces
+modules-left = jgmenu
 ;modules-center = uptime coreavg load core0temp memory battery wireless-network bit-rate 
-modules-center =
-modules-right = coregraph ramgraph battgraph wifi-net chronos
+modules-center = coreavg cputemp memory battery wireless-network
+;modules-right = coregraph ramgraph battgraph wifi-net chronos
+modules-right = clock
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -134,7 +136,7 @@ inherit = bar/master
 
 modules-left = jgmenu bspwm
 modules-center = 
-modules-right = coreavg memory battery wireless-network bit-rate clock
+modules-right = coreavg cputemp memory battery wireless-network clock
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -175,15 +177,14 @@ tray-padding = 1
 tray-scale = 1.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; awesome
+;; yaxwm bar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[bar/awesome-bar]
+[bar/yaxwm-bar]
 inherit = bar/master
 
-modules-left = appmenu workspaces
-modules-center =  
-; modules-right = uptime coreavg load memory battery wireless-network clock
+modules-left = appmenu yaxwm-desktops
+modules-center = 
 modules-right = coregraph ramgraph battgraph wifi-net chronos
 
 ; Position of the system tray window

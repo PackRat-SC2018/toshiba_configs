@@ -1,0 +1,603 @@
+############
+# 7: Modules
+#############
+
+# FvwmBanner
+#
+# This displays the Fvwm Logo for 5 seconds. This is displayed
+# when fvwm starts.
+
+DestroyModuleConfig FvwmBanner:*
+*FvwmBanner: NoDecor
+*FvwmBanner: Timeout 5
+
+# FvwmScript
+#
+# FvwmScript is a module that allows one to write custom desktop
+# widgets and various other tools. This config uses two FvwmScripts.
+#   - DateTime - uses the output of "date" to display the date/time
+#     on the RightPanel.
+#   - Quit - This is a popup that asks for quit confirmation before
+#     quitting fvwm.
+
+DestroyModuleConfig FvwmScript:*
+*FvwmScript: DefaultColorset 21
+
+# FvwmForm
+#
+# FvwmForm is a module that can be used to build a GUI
+# form. Used with fvwm-menu-desktop-config.fpl.
+# This sets the default colorsets.
+*FvwmFormDefault: Colorset 10
+*FvwmFormDefault: ItemColorset 13
+
+##  The fvwm animate module.
+DestroyModuleConfig FvwmAnimate: *
+*FvwmAnimate: Effect Frame
+*FvwmAnimate: Iterations 100
+*FvwmAnimate: Width 5
+*FvwmAnimate: Twist 1
+*FvwmAnimate: Delay 4
+*FvwmAnimate: Color gray50
+
+##  The Fvwm identify-window module - an xwininfo replacement.
+
+Style FvwmIdent WindowListSkip
+DestroyModuleConfig FvwmIdent: *
+# *FvwmIdent: Font -*-terminus-bold-*-*--14-*-*-*-*-*-*-*
+*FvwmIdent: Font xft:Fira Sans:Regular:size=9:antialias=true:hintstyle=slight
+*FvwmIdent: Colorset 5
+
+#======FvwmIconBox specs [l t r b]===============#
+
+# SetEnv fvwm_icon_size 56
+# SetEnv fvwm_icon_size 93
+
+# uncomment for icons
+Style * IconSize 64 64 64 64, IconBox screen c 1 1 -1 -1, IconFill top left
+
+Style * StickyIcon
+Style * IconTitleFormat %i
+Style * IconTitleRelief 1
+Style * IconBackgroundRelief 1
+Style * IconBackgroundPadding 2
+Style * IconFont "Shadow=0 0 SE:xft:Sans:Regular:size=9:antialias=True:hintstyle=slight"
+Style * IconBackgroundColorset 20
+Style * IconTitleColorset 20
+Style * HilightIconTitleColorset 20
+# Style * IndexedWindowName
+Style * Icon unknown1.xpm
+
+# Position of IconBox
+
+# top left
+# Style "*" IconBox 2 64 240 512, IconGrid 12 12, IconFill left top
+Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
+# Style "*" IconBox 8 64 800 128, IconGrid 24 24, IconFill left top
+# Style "*" IconBox 8 8 200 800, IconGrid 8 8, IconFill left top
+#
+# top center
+# Style * IconBox 512 8 1066 256, IconGrid 24 24, IconFill left top
+#
+# bottom center
+# Style * IconBox  512 836 1066 1078, IconGrid 12 12 , IconFill left top
+#
+# top right
+# Style * IconBox 1250 48 1360 640, IconGrid 24 24, IconFill left top
+#
+# bottom left
+# Style * IconBox screen c 4 844 1500 898, IconGrid 12 12 , IconFill left top
+#
+# middle right
+# Style * Iconbox 1224 300 1360 600, IconGrid 36 36, IconFill left top
+#
+# middle left
+# Style * Iconbox 16 48 256 600, IconGrid 24 24, IconFill left top
+#
+# thumbnails
+# Style * IconBox screen c 4 4 532 640, IconGrid 12 12 , IconFill left top
+# Style "*" Iconbox screen c 8 32 336 800, IconGrid 12 12, IconFill left top
+# Style "*" Iconbox 4 540 288 1044, IconGrid 16 16, IconFill left bottom
+# Style "*" Iconbox 230 1014 1690 1072, IconGrid 20 20, IconFill left top
+
+# Uncomment to remove IconBox configurations
+# Style * !Icon
+Style * !IconTitle
+
+# FvwmPager
+#
+# This module displays the location of the windows on the various Pages
+# and Desks. This is setup to show only the Pages on the current Desk.
+
+Style FvwmPager* !Title, BorderWidth 3, HandleWidth 3, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig FvwmPager:*
+*FvwmPager: DeskTopScale 36
+*FvwmPager: Geometry +711-0
+# *FvwmPager: Geometry -2-2
+# *FvwmPager: Geometry +2-2
+*FvwmPager: NoStartIconic
+*FvwmPager: Font None
+#*FvwmPager: Font "xft:sans:regular:size=11:antialias=true:"
+#*FvwmPager: SmallFont "xft:sans:regular:size=8:antialias=true:"
+*FvwmPager: WindowBorderWidth 1
+# *FvwmPager: !Window3dBorders
+*FvwmPager: !MiniIcons
+*FvwmPager: UseSkipList
+*FvwmPager: Colorset * 15
+*FvwmPager: HilightColorset * 16
+*FvwmPager: BalloonColorset * 0
+*FvwmPager: WindowColorsets 29 30
+*FvwmPager: Balloons
+*FvwmPager: BalloonFont "xft:Sans:regular:size=10:antialias=True"
+*FvwmPager: BallonYOffset +2
+*FvwmPager: BalloonColorset 0
+
+# FvwmIconMan
+#
+# FvwmIconMan is a powerful tool to list and manage windows. This
+# is used as the window list in the panel or taskbar.
+
+Style FvwmIconMan* !Title, BorderWidth 3, HandleWidth 3, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig FvwmIconMan:*
+*FvwmIconMan: UseWinList true
+*FvwmIconMan: ButtonGeometry 120x20
+*FvwmIconMan: ManagerGeometry 1x1
+*FvwmIconMan: Background #003c3c
+*FvwmIconMan: Foreground #ffffff
+*FvwmIconMan: FocusColorset 11
+*FvwmIconMan: IconColorset 14
+*FvwmIconMan: FocusAndSelectColorset 12
+*FvwmIconMan: SelectColorset 12
+*FvwmIconMan: IconAndSelectColorset 12
+*FvwmIconMan: DrawIcons always
+*FvwmIconMan: ReliefThickness 0
+*FvwmIconMan: Format "%t"
+*FvwmIconMan: Font "xft:Sans:Bold:size=8:antialias=True"
+*FvwmIconMan: Action Mouse 0 A ret
+*FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
+*FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
+*FvwmIconMan: Resolution global
+*FvwmIconMan: Tips needed
+*FvwmIconMan: Sort id
+
+# Function: ChangeDesk
+#
+# This function is called by FvwmEvent every time the Desk is changed.
+DestroyFunc ChangeDesk
+AddToFunc   ChangeDesk
++ I SendToModule FvwmButtons ChangeButton desk0 Colorset 10
++ I SendToModule FvwmButtons ChangeButton desk1 Colorset 10
++ I SendToModule FvwmButtons ChangeButton desk2 Colorset 10
++ I SendToModule FvwmButtons ChangeButton desk3 Colorset 10
++ I SendToModule FvwmButtons ChangeButton desk$0 Colorset 11
+
+# FvwmEvent
+#
+# FvwmEvent is a module that can run an action or function
+# on specific events. This instance changes which desk number
+# is highlighted when the desk is changed.
+DestroyModuleConfig EventNewDesk:*
+*EventNewDesk: PassID
+*EventNewDesk: new_desk ChangeDesk
+
+Style DeskTopPanel !Title, BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, NeverFocus, StaysOnBottom
+
+# FvwmButtons - DeskTopPanel
+#
+# FvwmButtons is a powerful module that can be used to build custom
+# panels and docks. This config uses FvwmButtons to build the DeskTopPanel.
+# The panel contains buttons to switch desks, FvwmPager, a system tray,
+# FvwmIconMan (list of running windows), and a clock.
+#
+# Note - To use the system tray you must have "stalonetray" installed.
+DestroyModuleConfig DeskTopPanel:*
+*DeskTopPanel: Geometry 100x24+2+2
+*DeskTopPanel: Colorset 22
+*DeskTopPanel: Rows 1
+*DeskTopPanel: Columns 4
+*DeskTopPanel: Frame 1
+*DeskTopPanel: Font "xft:Roboto:Regular:size=9:antialias=true:autohint=true"
+*DeskTopPanel: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 1)
+*DeskTopPanel: (1x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 1)
+*DeskTopPanel: (1x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 1)
+*DeskTopPanel: (1x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 1)
+
+#### Same as above but transparent
+#
+# Function: SwitchDesktop
+#
+# This function is called by FvwmEvent every time the Desk is changed.
+DestroyFunc SwitchDesktop
+AddToFunc   SwitchDesktop
++ I SendToModule FvwmButtons ChangeButton desk0 Colorset 32
++ I SendToModule FvwmButtons ChangeButton desk1 Colorset 32
++ I SendToModule FvwmButtons ChangeButton desk2 Colorset 32
++ I SendToModule FvwmButtons ChangeButton desk3 Colorset 32
++ I SendToModule FvwmButtons ChangeButton desk$0 Colorset 34
+
+# FvwmEvent
+#
+# FvwmEvent is a module that can run an action or function
+# on specific events. This instance changes which desk number
+# is highlighted when the desk is changed.
+DestroyModuleConfig EventSwitchDesk:*
+*EventSwitchDesk: PassID
+*EventSwitchDesk: new_desk SwitchDesktop
+
+Style DeskTopIdent !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus, StaysOnBottom
+
+# FvwmButtons - DeskTopIdent
+#
+# FvwmButtons is a powerful module that can be used to build custom
+# panels and docks. This config uses FvwmButtons to build the DeskTopIdent.
+# The panel contains buttons to switch desks, FvwmPager, a system tray,
+# FvwmIconMan (list of running windows), and a clock.
+#
+# Note - To use the system tray you must have "stalonetray" installed.
+DestroyModuleConfig DeskTopIdent:*
+*DeskTopIdent: Geometry 160x32+2-2
+*DeskTopIdent: Colorset 32
+*DeskTopIdent: Rows 1
+*DeskTopIdent: Columns 5
+*DeskTopIdent: Frame 0
+*DeskTopIdent: Font "xft:Fira Code:Retina:size=10:antialias=true:autohint=true"
+*DeskTopIdent: (1x1, Title "", Icon "ninja-cat-small.png", Action (Mouse 1) Menu XDGMenu root +4p +330p, Frame 0)
+*DeskTopIdent: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 34, ActiveColorset 33, Frame 0)
+*DeskTopIdent: (1x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 33, Frame 0)
+*DeskTopIdent: (1x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 33, Frame 0)
+*DeskTopIdent: (1x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 33, Frame 0)
+
+#
+## taksbars and panels
+#
+#
+
+# FvwmButtons - RightPanel
+#
+# FvwmButtons is a powerful module that can be used to build custom
+# panels and docks. This config uses FvwmButtons to build the RightPanel.
+# The panel contains buttons to switch desks, FvwmPager, a system tray,
+# FvwmIconMan (list of running windows), and a clock.
+#
+# Note - To use the system tray you must have "stalonetray" installed.
+
+Style RightPanel !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocus
+
+DestroyModuleConfig RightPanel:*
+*RightPanel: Geometry 120x$[vp.height]-0+0
+*RightPanel: Colorset 10
+*RightPanel: Rows $[vp.height]
+*RightPanel: Columns 120
+*RightPanel: Frame 0
+*RightPanel: Font "xft:Fira Sans:regular:size=10:antialias=True"
+*RightPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
+*RightPanel: (120x5, Frame 0)
+*RightPanel: (10x20, Frame 0)
+*RightPanel: (25x20, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*RightPanel: (25x20, Id desk1, Title "1", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+*RightPanel: (25x20, Id desk2, Title "2", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+*RightPanel: (25x20, Id desk3, Title "3", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+*RightPanel: (10x20, Frame 0)
+*RightPanel: (5x80, Frame 0)
+*RightPanel: (110x80, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
+*RightPanel: (5x80, Frame 0)
+*RightPanel: (120x5, Frame 0)
+Test (x stalonetray) *RightPanel: (120x20, Swallow(NoClose,UseOld) \
+    stalonetray 'Exec exec stalonetray --config \
+    "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
+Test (x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-225)), \
+    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+Test (!x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-205)),\
+    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+*RightPanel: (120x45, Swallow DateTime 'Module FvwmScript FvwmScript-DateTime',\
+    Frame 0)
+*RightPanel: (120x5, Frame 0)
+
+# Xclock and date
+
+Style DeskTopClock !Title, BorderWidth 5, HandleWidth 5, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig DeskTopClock:*
+*DeskTopClock: Geometry 102x164-2+2
+*DeskTopClock: Colorset 22
+*DeskTopClock: Rows 80
+*DeskTopClock: Columns 1
+*DeskTopClock: Frame 0
+*DeskTopClock: Padding 1
+*DeskTopClock: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*DeskTopClock: (1x50, Swallow(NoClose,UseOld) XClock 'Exec xclock &', Frame 0)
+*DeskTopClock: (1x30, Swallow(NoClose,UseOld) DayDate 'Module FvwmScript $[FVWM_USERDIR]/FvwmScript-DayDate', Action (Mouse 3) 'PipeRead 'yad --calendar --class=FvwmCal --title="`date "+%F %R"`" --width=368 --height=240 --skip-taskbar --sticky --text ""', Frame 0)
+
+# typical taskbar
+
+Style FvwmTaskBar !Title, BorderWidth 1, HandleWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop
+Style TaskBarIcons !Title, !Borders, !Handles, WindowListSkip, CirculateSkip, StaysOnBottom, NeverFocus, Sticky
+
+DestroyModuleConfig TaskBarIcons:*
+*TaskBarIcons: NumManagers        1
+*TaskBarIcons: Title              ""
+*TaskBarIcons: Resolution         global
+*TaskBarIcons: Font               "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*TaskBarIcons: ButtonGeometry     120x24
+*TaskBarIcons: MaxButtonWidth     224
+*TaskBarIcons: Format             "%c: %i"
+# *TaskBarIcons: ManagerGeometry    0x1+0-0
+*TaskBarIcons: ManagerGeometry    1x1
+*TaskBarIcons: DrawIcons          False
+*TaskBarIcons: ShowOnlyIcons      False
+*TaskBarIcons: ShowNoIcons        False
+*TaskBarIcons: ShowTransient      True
+*TaskBarIcons: ShowOnlyFocused    False
+*TaskBarIcons: UseWinList         True
+*TaskBarIcons: DontShow           Conky, XClock
+*TaskBarIcons: ReliefThickness    1
+*TaskBarIcons: PlainButton        Flat
+*TaskBarIcons: IconButton         Flat
+*TaskBarIcons: FocusButton        Flat
+*TaskBarIcons: FocusAndSelectButton    Flat
+*TaskBarIcons: SelectButton            Flat
+#*TaskBarIcons: Background         #2B303B
+#*TaskBarIcons: Foreground         #2B303B
+*TaskBarIcons: Colorset                 22
+*TaskBarIcons: PlainColorset            22
+*TaskBarIcons: IconColorset             22
+*TaskBarIcons: FocusColorset            25
+*TaskBarIcons: FocusAndSelectColorset   26
+*TaskBarIcons: SelectColorset           26
+*TaskBarIcons: IconAndSelectColorset    26
+*TaskBarIcons: Shape                    true
+*TaskBarIcons: Tips needed
+*TaskBarIcons: TipsDelays 500 100
+*TaskBarIcons: TipsColorset 0
+*TaskBarIcons: TipsBorderWidth 1
+*TaskBarIcons: TipsPlacement updown
+*TaskBarIcons: TipsJustification left
+*TaskBarIcons: TipsOffsets 2 4
+*TaskBarIcons: TipsFont "Shadow=0 0 SE:xft:DejaVu Sans:Book:size=10:antialias=True:hintstyle=slight"
+*TaskBarIcons: Sort id
+*TaskBarIcons: Font "xft:Roboto:Regular:size=11:antialias=True"
+*TaskBarIcons: Action Mouse 0 A ret
+*TaskBarIcons: Action Mouse 1 A sendcommand IconManClick
+*TaskBarIcons: Action Mouse 3 A sendcommand "Menu MenuIconOps"
+*TaskBarIcons: Resolution global
+*TaskBarIcons: Tips needed
+*TaskBarIcons: Sort id
+
+DestroyModuleConfig FvwmTaskBar:*
+*FvwmTaskBar: Geometry 1598x24+0-0
+*FvwmTaskBar: Font "xft:Roboto:Regular:size=9:antialias=True"
+*FvwmTaskBar: Colorset 22
+*FvwmTaskBar: Rows 1
+*FvwmTaskBar: Columns 160
+*FvwmTaskBar: Frame 0
+*FvwmTaskBar: Padding 0 0
+*FvwmTaskBar: (4x1, Title "", Icon "ninja-cat-small.png", Action `Exec jgmenu --config-file="$HOME/.config/jgmenu/jgfvwmrc"`, Frame 0)
+#*FvwmTaskBar: (4x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 25, Frame 0)
+#*FvwmTaskBar: (4x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 25, Frame 0)
+#*FvwmTaskBar: (4x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 25, Frame 0)
+#*FvwmTaskBar: (4x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 25, Frame 0)
+*FvwmTaskBar: (16x1, Swallow FvwmPager 'Module FvwmPager 0 3', Frame 0)
+*FvwmTaskBar: (120x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan TaskBarIcons', Frame 0, Padding 0 0)
+*FvwmTaskBar: (12x1, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray --config "$HOME/.fvwmtrayrc"', Frame 0, Padding 0 0)
+*FvwmTaskBar: (8x1, Swallow DateTime 'Module FvwmScript $[FVWM_USERDIR]/FvwmScript-Clock', Frame 0, Padding 0 0)
+
+# popup menu and some app launchers
+#
+Style FvwmLaunchBar* !Title, BorderWidth 1, HandleWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig FvwmLaunchBar:*
+*FvwmLaunchBar: Geometry 224x32+0-0
+*FvwmLaunchBar: Colorset 22
+*FvwmLaunchBar: Rows 1
+*FvwmLaunchBar: Columns 5
+*FvwmLaunchBar: Frame 0
+*FvwmLaunchBar: Font "Shadow=0 0 SE:xft:Roboto Mono:Regular:size=9:antialias=True:hintstyle=slight"
+*FvwmLaunchBar: (1x1, Title "", Icon "ninja-cat-small.png", Action (Mouse 1) Menu MenuFvwmRoot root +4p +428p, Frame 0)
+*FvwmLaunchBar: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*FvwmLaunchBar: (1x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+*FvwmLaunchBar: (1x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+*FvwmLaunchBar: (1x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+
+# popup menu and launchers - text only
+#
+Style FvwmAppBar* !Title, BorderWidth 3, HandleWidth 3, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig FvwmAppBar:*
+*FvwmAppBar: Geometry 320x24+0-0
+*FvwmAppBar: Colorset 22
+*FvwmAppBar: Rows 1
+*FvwmAppBar: Columns 32
+*FvwmAppBar: Frame 0
+*FvwmAppBar: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*FvwmAppBar: (8x1, Title "Menu", Icon "", Action (Mouse 1) Menu MenuFvwmRoot root +8p +400p, Frame 1)
+*FvwmAppBar: (8x1, Title "Xterm", Icon "", Action `Exec lxterminal`, Frame 1)
+*FvwmAppBar: (8x1, Title "Editor", Icon "", Action `Exec subl3`, Frame 1)
+*FvwmAppBar: (8x1, Title "Web", Icon "", Action `Exec firefox`, Frame 1)
+
+# popup menus for menu panels
+#
+Style FvwmButtonsMenu !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style Apps !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style Web !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style Media !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style Office !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style WinOps !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+Style Tools !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnTop
+
+DestroyModuleConfig FvwmButtonsMenu: *
+#*FvwmButtonsMenu: Fore Black
+#*FvwmButtonsMenu: Back rgb:90/80/90
+*FvwmButtonsMenu: Colorset 22
+*FvwmButtonsMenu: Geometry 1598x24+0-0
+*FvwmButtonsMenu: Rows 1
+*FvwmButtonsMenu: Columns 82
+*FvwmButtonsMenu: BoxSize smart
+# *FvwmButtonsMenu: Font -*-helvetica-medium-r-*-*-12-*
+*FvwmButtonsMenu: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*FvwmButtonsMenu: Padding 1 1
+*FvwmButtonsMenu: Frame 0
+###===============================
+# *FvwmButtonsMenu: (4x1, Title "", Icon "tiny-logo.png", Action `Exec jgmenu --config-file="$HOME/.config/jgmenu/jgfvwmrc"`, Frame 0)
+# *FvwmButtonsMenu: (4x1, Title Apps, Panel Apps "Module FvwmButtons -transientpanel Apps")
+# *FvwmButtonsMenu: (4x1, Title Web, Panel Web "Module FvwmButtons -transientpanel Web")
+# *FvwmButtonsMenu: (4x1, Title Office, Panel Office "Module FvwmButtons -transientpanel Office")
+# *FvwmButtonsMenu: (4x1, Title Media, Panel Media "Module FvwmButtons -transientpanel Media")
+# *FvwmButtonsMenu: (4x1, Title WinOps, Panel WinOps "Module FvwmButtons -transientpanel WinOps")
+# *FvwmButtonsMenu: (4x1, Title Tools, Panel Tools "Module FvwmButtons -transientpanel Tools")
+#
+*FvwmButtonsMenu: (4x1, Title "", Icon /home/doug/.fvwm/icons/tiny-logo.png, Action (Mouse 1) Menu MenuPrograms root +4p +55)
+*FvwmButtonsMenu: (4x1, Title Web, Icon "", Action (Mouse 1) Popup MenuFvwmBookmarks root +83p +786p)
+*FvwmButtonsMenu: (4x1, Title Prefs, Icon "", Action (Mouse 1) Popup MenuFvwmPref root +164p +575p)
+#
+*FvwmButtonsMenu: (50x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan TaskBarIcons', Frame 0, Padding 1 1)
+*FvwmButtonsMenu: (8x1, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray --config "$HOME/.fvwmtrayrc"', Frame 0, Padding 0 0)
+*FvwmButtonsMenu: (8x1, Swallow FvwmPager 'Module FvwmPager 0 3', Frame 0)
+*FvwmButtonsMenu: (4x1, Swallow DateTime 'Module FvwmScript $[FVWM_USERDIR]/FvwmScript-Clock', Frame 0, Padding 0 0)
+
+### *FvwmTaskBar: StartMenu MenuFvwmRoot Root +1p +27p
+
+########## PANEL Apps
+DestroyModuleConfig Apps: *
+#*Apps: Back gray75
+#*Apps: Fore #111111
+*Apps: Colorset 22
+*Apps: ActiveColorset 11
+*Apps: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*Apps: Geometry +2+2
+*Apps: Columns 1
+*Apps: BoxSize smart
+*Apps: Frame 0
+*Apps: Padding 1 1
+*Apps: (Title Terminal, Icon "", Action Exec uxterm)
+*Apps: (Title Thunar, Icon "", Action Exec thunar)
+*Apps: (Title Sublime, Icon "", Action Exec subl3)
+*Apps: (Title Exit, Icon "", Action Exec rofi-logout)
+
+########## PANEL Web
+DestroyModuleConfig Web: *
+#*Web: Back gray75
+#*Web: Fore #111111
+*Web: Colorset 22
+*Web: ActiveColorset 11
+*Web: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*Web: Geometry +2+2
+*Web: Columns 1
+*Web: BoxSize smart
+*Web: Frame 0
+*Web: Padding 1 1
+*Web: (Title Firefox, Icon "", Action Exec firefox)
+*Web: (Title Thunderbird, Icon "", Action Exec thunderbird)
+*Web: (Title ArchLabs, Icon "", Action Exec firefox https://forum.archlabslinux.com/)
+*Web: (Title BunsenLabs, Icon "", Action Exec firefox https://forums.bunsenlabs.org/index.php)
+*Web: (Title Void Linux, Icon "", Action Exec firefox https://www.reddit.com/r/voidlinux/)
+*Web: (Title OANN, Action Exec firefox https://www.oann.com/)
+*Web: (Title MLB, Action Exec firefox https://www.mlb.com/)
+
+########## PANEL Media
+DestroyModuleConfig Media: *
+#*Media: Back gray75
+#*Media: Fore #111111
+*Media: Colorset 22
+*Media: ActiveColorset 11
+*Media: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*Media: Geometry +2+2
+*Media: Columns 1
+*Media: BoxSize smart
+*Media: Frame 0
+*Media: Padding 1 1
+*Media: (Title Gimp, Icon "", Action Exec gimp)
+*Media: (Title Deadbeef, Icon "", Action Exec deadbeef)
+*Media: (Title Vlc, Icon "", Action Exec vlc)
+*Media: (Title Asunder, Icon "", Action Exec Asunder)
+
+########## PANEL Office
+DestroyModuleConfig Office: *
+#*Office: Back gray75
+#*Office: Fore #111111
+*Office: Colorset 22
+*Office: ActiveColorset 11
+*Office: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*Office: Geometry +2+2
+*Office: Columns 1
+*Office: BoxSize smart
+*Office: Frame 0
+*Office: Padding 1 1
+*Office: (Title Document, Icon "", Action Exec "libreoffice --document")
+*Office: (Title Spreadsheet, Icon "", Action Exec "libreoffice --calc")
+*Office: (Title Calculator, Icon "", Action Exec galculator)
+
+########## PANEL WinOps
+DestroyModuleConfig WinOps: *
+#*WinOps: Back bisque2
+*WinOps: Colorset 22
+*WinOps: ActiveColorset 11
+*WinOps: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*WinOps: Geometry -3-3
+*WinOps: Columns 1
+*WinOps: (Title Resize, Icon resize.xpm,	 Action Resize)
+*WinOps: (Title Move,   Icon arrows2.xpm, Action Move  )
+*WinOps: (Title Lower,  Icon Down,	 Action Lower )
+*WinOps: (Title Raise,  Icon Up,		 Action Raise )
+*WinOps: (Title Kill,    Icon bomb.xpm,	 Action Destroy)
+
+########## PANEL Tools
+DestroyModuleConfig Tools: *
+# *Tools: Back bisque2
+*Tools: Colorset 22
+*Tools: ActiveColorset 11
+*Tools: Font "xft:Sans:regular:size=10:antialias=true:autohint=on"
+*Tools: Geometry -1-1
+*Tools: Columns 1
+*Tools: (Title CUPS,    Icon bomb.xpm,	 Action Exec firefox http://localhost:631/)
+*Tools: (Title LXappearance, Action Exec lxappearance)
+*Tools: (Title Wallpaper, Action Exec sxiv -t "$HOME/wallpaper/")
+*Tools: (Title Images, Action Exec sxiv -t "/mnt/public/images/")
+
+DestroyModuleConfig Preferences: *
+*Preferences: Colorset 22
+*Preferences: ActiveColorset 11
+*Preferences: Font "xft:Roboto:regular:size=11:antialias=true:autohint=on"
+*Preferences: Geometry -3-3
+*Preferences: Columns 1
+*Preferences: Title "", Icon "", Action Popup MenuFvwmPref
+
+DestroyModuleConfig WebSites
+*Preferences: Colorset 22
+*Preferences: ActiveColorset 11
+*Preferences: Font "xft:Roboto:regular:size=11:antialias=true:autohint=on"
+*Preferences: Geometry -3-3
+*Preferences: Columns 1
+*Preferences: Title "", Icon "", Action Popup MenuFvwmBookmarks
+
+# taskbar with spacers - apps, pager, systemtray
+#
+Style FvwmSysbar !Title, BorderWidth 1, HandleWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop, !Iconifiable
+
+DestroyModuleConfig FvwmSysbar:*
+*FvwmSysbar: Geometry 1598x24+0-0
+*FvwmSysbar: Colorset 22
+*FvwmSysbar: Rows 1
+*FvwmSysbar: Columns 1600
+*FvwmSysbar: Frame 0
+*FvwmSysbar: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*FvwmSysbar: (60x1, Title "Menu", Icon "", Action (Mouse 1) Menu MenuFvwmRoot root +4p +400p, Frame 1)
+*FvwmSysbar: (30x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 1)
+*FvwmSysbar: (30x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 1)
+*FvwmSysbar: (30x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 1)
+*FvwmSysbar: (30x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 1)
+*FvwmSysbar: (1120x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan TaskBarIcons', Frame 1, Padding 0 0)
+*FvwmSysbar: (150x1, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray --config "$HOME/.fvwmtrayrc"', Frame 1, Padding 1 1)
+*FvwmSysbar: (150x1, Swallow(NoClose,UseOld) xclock `Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -face xft:monospace:size=11`, Frame 1, Padding 1 1)
+
+DestroyModuleConfig SysClock:*
+*SysClock: Geometry 200x300+744+8
+*SysClock: Colorset 22
+*SysClock: Rows 300
+*SysClock: Columns 2
+*SysClock: Frame 1
+*SysClock: Padding 1
+*SysClock: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*SysClock: (1x50, Swallow(NoClose,UseOld) XClock 'Exec xclock &', Frame 1)
+*SysClock: (2x150, Swallow(NoClose,UseOld) Xosview 'Exec xosview -captions -geom 200x150', Frame 1)

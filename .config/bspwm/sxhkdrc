@@ -1,0 +1,213 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+   uxterm
+
+super + shift + Return
+	kitty
+
+alt + F1
+	st
+
+# program launcher
+# super + @space
+alt + F2
+	rofi -show run
+
+super + p
+	dmenu_run
+
+super + ctrl + l
+	subl3
+
+Menu
+	thunar
+
+super + ctrl + g
+	gimp
+
+super + ctrl + p
+	libreoffice --calc
+
+super + ctrl + o
+	libreoffice --writer
+
+super + XF86HomePage
+	firefox
+
+super + XF86Mail
+	thunderbird
+
+XF86AudioPrev
+	mocp -r
+
+XF86AudioPlay
+	mocp -G
+
+XF86AudioNext
+	mocp -f
+
+super + ctrl + Print
+	~/bin/screenshot.sh full
+
+XF86AudioRaiseVolume
+	amixer -q sset PCM 5%+ unmute 
+
+XF86AudioLowerVolume
+	amixer -q sset PCM 5%- unmute
+
+XF86AudioMute
+	amixer sset Master,0 toggle
+
+XF86Calculator
+	galculator
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# restart / quit bspwm normally
+super + shift + r
+	bspc wm -r
+
+super + q
+	bspc wm -r
+
+super + shift + e
+	bspc quit
+
+super + shift + q
+	rofi-logout
+
+# close and kill
+#super + {_,shift + }w
+#	bspc node -{c,k}
+
+alt + F4
+	bspc node -c
+
+alt + shift + F4
+	bspc node -k
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+
+# if the current node is automatic, send it to the last manual, otherwise pull the last leaf
+super + y
+	bspc query -N -n focused.automatic && bspc node -n last.!automatic || bspc node last.leaf -n focused
+
+# swap the current node and the biggest node
+super + g
+	bspc node -s biggest
+
+#
+# state/flags
+#
+
+# set the window state
+# super + {t,shift + t,s,f}
+#	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + t
+	bspc node -t tiled
+
+super + s
+    bspc node -t pseudo_tiled
+
+super + f
+	bspc node -t floating
+
+alt + F11
+	bspc node -t fullscreen
+
+# set the node flags
+super + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,north,south,east}
+
+# swap nodes
+super + {Up,Down,Right,Left}
+	bspc node -s {north,south,east,west} --follow
+
+# focus the node for the given path jump
+# super + {p,b,comma,period}
+#	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node
+alt + {_,shift + }Tab
+	bspc node -f {next,prev}
+
+# focus the next/previous desktop
+# super + bracket{left,right}
+alt + ctrl + {Left,Right}
+	bspc desktop -f {prev,next}
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+# super + alt + {h,j,k,l}
+super + shift + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+alt + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Rotate the stack 90/180/270
+#super + shift + v
+#	bspc 

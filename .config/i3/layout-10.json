@@ -1,0 +1,97 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.60,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 1,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 876,
+               "width": 1600,
+               "x": 0,
+               "y": 24
+            },
+            "name": "untitled - Sublime Text",
+            "percent": null,
+            "swallows": [
+               {
+                  "class": "^Subl3$",
+                  "instance": "^subl3$",
+                  "title": "^untitled\\ \\-\\ Sublime\\ Text$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.40,
+    "type": "con",
+    "nodes": [
+        {
+            // splitv split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": null,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 644,
+                       "width": 814,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "st",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^st\\-256color$",
+                          "instance": "^st\\-256color$",
+                          "title": "^st$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 1,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 644,
+                       "width": 814,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "st",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^st\\-256color$",
+                          "instance": "^st\\-256color$",
+                          "title": "^st$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+

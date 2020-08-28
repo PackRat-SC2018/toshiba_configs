@@ -1,6 +1,7 @@
 ^sep()
-Log Off,killall `wmctrl -m | awk '/Name/ {print tolower($2)}'`,system-log-out
 Lock Screen,slock,system-lock-screen
-Sleep,`zzz`,system-lock-screen
+Suspend,`loginctl suspend`,system-lock-screen
 Reboot,`sudo reboot`,system-reboot
 Shutdown,`sudo poweroff`,system-log-out
+^sep()
+Log Off,killall `wmctrl -m | awk '/Name/ {print tolower($2)}'`,system-log-out
