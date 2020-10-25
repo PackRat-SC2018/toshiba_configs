@@ -5,8 +5,8 @@
 umask 022
 
 # set editor
-export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'nano'; fi)"
-export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'nano'; fi)"
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'emacs'; fi)"
+export VISUAL="$(if [[ -n $DISPLAY ]]; then echo 'subl3'; else echo 'emacs'; fi)"
 
 if [ -n "$DISPLAY" ]; then
     export BROWSER=firefox
@@ -43,8 +43,8 @@ fi
 
 # set shell
 # . "$HOME/.mkshrc"
-. "$HOME/.bashrc"
-# . "$HOME/.zshrc"
+# . "$HOME/.bashrc"
+. "$HOME/.zshrc"
 
 # autologin on tty1 remove the exec if tty1 on wm exit required
 # if [ -z "$DISPLAY" ] && [ "$(fgconsole)" -eq 1 ]; then

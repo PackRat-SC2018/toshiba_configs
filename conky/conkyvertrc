@@ -4,7 +4,7 @@ conky.config = {
 --#############################################
 	background = true,
 	use_xft = true,
-	font = 'Inconsolata LGC Markup:regular:size=11',
+	font = 'Roboto Mono:regular:size=9',
 	xftalpha = 1.0,
 	update_interval = 3.0,
 	update_interval_on_battery = 30.0,
@@ -49,8 +49,8 @@ conky.config = {
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = false,
-	border_inner_margin = 1,
-	border_outer_margin = 1,
+	border_inner_margin = 4,
+	border_outer_margin = 4,
 
 	-- default_color = '#B4B5AA',
 	default_color = '#DAC79C',
@@ -68,27 +68,30 @@ conky.config = {
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
-	minimum_width = 400, minimum_height = 0,
-	maximum_width = 400,
+	minimum_width = 256, minimum_height = 0,
+	maximum_width = 256,
 	alignment = 'top_left',
 	gap_x = 16,
-	gap_y = 8,
+	gap_y = 16,
 
 -- -- doesn't seem to work when docked in the slit --#
---	lua_load = '~/conky/transbg.lua',
---	lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x191A1C 0.75',
+-- lua_load = '~/conky/transbg.lua',
+-- lua_draw_hook_pre = 'draw_bg 8 0 0 0 0 0x000000 0.15',
 
 -- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 32}\
 
 -- ${goto 264}Core0:${offset 8}${if_match ${hwmon 0 temp1}<=50}${color7}${else}${if_match ${hwmon 0 temp1}<=70}${color8}${else}${if_match ${hwmon 0 temp1}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp1}${offset 2}°C${color}${offset 16} \
 -- Core1:${offset 8}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}${offset 16} \
+-- ${goto 70}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${goto 164}D:${offset 8}${downspeedf wlp1s0}${endif}${color}
 
 };
 
 conky.text = [[
-Uptime:${offset 8}${uptime_short}
-${voffset 5}Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
-${voffset 5}CPU:${offset 8}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${offset 16}${loadavg 1}${offset 8}${loadavg 2}${offset 8}${loadavg 3}
-${voffset 5}Batt:${offset 8}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${offset 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
-${voffset 5}Net:${if_up wlp1s0}${offset 8}${wireless_bitrate wlp1s0}${endif}${offset 16}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}${offset 16}${if_up wlp1s0}U:${offset 8}${upspeedf wlp1s0}${offset 24}D:${offset 8}${downspeedf wlp1s0}${endif}${color}
+${font Roboto Mono:regular:size=11}${alignc}${time %R}
+${font Roboto Mono:regular:size=10}${alignc}${time %x}${font}${voffset 12}
+Uptime:${goto 70}${uptime_short}
+${voffset 5}Mem:${goto 70}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
+${voffset 5}CPU:${goto 70}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}${goto 120}${loadavg}
+${voffset 5}Batt:${goto 70}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${goto 156}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
+${voffset 5}Net:${if_up wlp1s0}${goto 70}${wireless_bitrate wlp1s0}${endif}${goto 156}${if_match ${wireless_link_qual_perc wlp1s0}<=30}${color9}${blink ${wireless_link_qual_perc wlp1s0}%}${color}${else}${if_match ${wireless_link_qual_perc wlp1s0}<=50}${color8}${wireless_link_qual_perc wlp1s0}%${else}${if_match ${wireless_link_qual_perc wlp1s0}>50}${color7}${wireless_link_qual_perc wlp1s0}%${endif}${endif}${endif}${color}
 ]];

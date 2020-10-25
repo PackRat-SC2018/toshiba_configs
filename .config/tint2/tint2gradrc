@@ -1,0 +1,182 @@
+# Gradient Definitions
+
+# Gradient 1: dark gray, tasks
+gradient = vertical
+start_color = #505050 90
+end_color = #383838 90
+#color_stop = 60 #2E2E2E 90
+
+# Gradient 2: dark red, urgent tasks
+gradient = vertical
+start_color = #C93D3D 90
+end_color = #B33636 90
+#color_stop = 60 #B32F2F 90
+
+# Background definitions
+
+# ID 1: Panel
+rounded = 0
+border_width = 0
+background_color = #333333 95
+border_color = #121212 95
+
+# ID 2: Tasks
+rounded = 2
+border_width = 1
+border_sides = TBLR
+border_color = #141414 50
+background_color = #333333 90
+gradient_id = 1
+
+# ID 3: Active Tasks
+rounded = 2
+border_width = 1
+border_sides = TBLR
+border_color = #A4A4A4 50
+background_color = #333333 90
+gradient_id = 1
+
+# ID 4: Urgent Tasks
+rounded = 2
+border_width = 1
+border_sides = TBLR
+border_color = #141414 90
+background_color = #333333 90
+gradient_id = 2
+
+# ID 5: Tool Tips
+rounded = 2
+border_width = 1
+background_color = #B7B7B7 95
+border_color = #121212 95
+
+# Seperators
+
+# Executors
+
+# Buttons
+# buttons P
+button = new
+button_icon = /home/doug/.config/tint2/void-trlogo.png
+#button_icon = void_logo.svg
+#button_text =
+button_tooltip = Application Menu
+#button_font =
+button_font_color = #FFFFFF 100
+button_background_id = 0
+button_centered = 1
+button_padding = 4 1 1
+button_max_icon_size = 64
+button_lclick_command = jgmenu --config-file=/home/doug/.config/jgmenu/jgtintrc
+# button_lclick_command = jgmenu_run
+# button_mclick_command = text
+button_rclick_command = session-exit
+#button_uwheel_command = text
+#button_dwheel_command = text
+
+# Panel
+panel_window_name = TintPanel
+panel_items = PTSC
+panel_monitor = all
+panel_position = bottom center horizontal
+panel_size = 0 32
+panel_margin = 0 0
+panel_padding = 0 0 0
+panel_dock = 0
+wm_menu = 1
+panel_layer = normal
+panel_background_id = 1
+
+# Panel Autohide
+autohide = 0
+autohide_show_timeout = 0.7
+autohide_hide_timeout = 1.5
+autohide_height = 2
+## strut_policy = follow_size/minimum/none
+strut_policy = follow_size
+
+# Taskbar
+taskbar_mode = multi_desktop
+# taskbar_mode = single_desktop
+taskbar_padding = 1 3 9
+taskbar_background_id = 0
+taskbar_active_background_id = 0
+taskbar_hide_if_empty = 0
+taskbar_distribute_size = 0
+taskbar_hide_inactive_tasks = 0
+taskbar_sort_order = none
+task_align = left
+taskbar_name = 0
+taskbar_name_padding = 0 0 0
+taskbar_name_background_id = 0
+taskbar_name_font = Sans 10
+taskbar_name_font_color = #CCCCCC 100
+taskbar_name_active_background_id = 0
+taskbar_name_active_font_color = #CCCCCC 100
+
+# Tasks
+urgent_nb_of_blink = 7
+task_icon = 1
+task_text = 1
+task_centered = 0
+task_tooltip = 1
+task_thumbnail = 0
+task_thumbnail_size = 100
+task_maximum_size = 128 32
+task_padding = 8 1 8
+task_background_id = 2
+task_iconified_background_id = 2
+task_active_background_id = 3
+task_urgent_background_id = 4
+
+# Task Icons
+task_icon_asb = 100 0 0
+task_active_icon_asb = 100 0 0
+task_urgent_icon_asb = 100 0 0
+task_iconified_icon_asb = 70 0 0
+
+# Fonts
+task_font = Roboto Regular 10
+task_font_color = #CCCCCC 80
+task_active_font_color = #CCCCCC 80
+task_urgent_font_color = #FFFFFF 100
+task_iconified_font_color = #CCCCCC 80
+font_shadow = 0
+
+# Tooltips
+tooltip_padding = 2 2
+tooltip_show_timeout = 0.8
+tooltip_hide_timeout = 0.3
+tooltip_background_id = 5
+tooltip_font = Sans 10
+tooltip_font_color = #141414 100
+
+# Mouse
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify
+
+# System Tray
+systray = 1
+systray_padding = 1 0 4
+systray_sort = ascending
+systray_background_id = 0
+systray_icon_size = 24
+systray_icon_asb = 100 0 0
+
+# Clock
+time1_format = %a %e %b  %k:%M
+time1_font = Roboto Mono 11
+time2_format =
+time2_font =
+clock_font_color = #CCCCCC 100
+clock_tooltip = 
+clock_padding = 12 0
+clock_background_id = 0
+clock_rclick_command = yad --calendar --width 320 --height 160 --class Ycal-X --title Calendar""
+time1_timezone = :US/Eastern
+time2_timezone = 
+
+# End of config

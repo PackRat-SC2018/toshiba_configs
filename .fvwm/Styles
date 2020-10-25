@@ -46,10 +46,13 @@ CursorStyle STROKE          plus                    black    white
 
 # Application styles
 #
-Style XTerm	Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
-Style UXTerm Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
-Style XTerm MiniIcon xterm16.png, Icon xterm64.png
-Style UXTerm MiniIcon xterm16.png, Icon xterm64.png
+#Style XTerm	Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+#Style XTerm	Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+#Style UXTerm Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
+#Style XTerm MiniIcon xterm16.png, Icon xterm64.png
+#Style UXTerm MiniIcon xterm16.png, Icon xterm64.png
+
+# Style xterm	Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
 
 Style *Rxvt		Icon /usr/share/icons/gnome/48x48/apps/utilities-terminal.png
 Style *XCalc    Icon /usr/share/icons/gnome/48x48/apps/accessories-calculator.png
@@ -61,6 +64,7 @@ Style URxvt ResizeHintOverride, PositionPlacement Center
 Style *XTerm ResizeHintOverride, PositionPlacement Center
 Style Sakura ResizeHintOverride, PositionPlacement Center
 Style Lxterminal ResizeHintOverride, PositionPlacement Center
+Style Xfce4-terminal ResizeHintOverride, PositionPlacement Center
 
 Style Polybar !Title, !Handles, !Borders, CirculateSkip, WindowListSkip, NeverFocus
 Style Xfce4-panel !Title, !Handles, !Borders, StaysOnTop, WindowListSkip, CirculateSkip
@@ -85,10 +89,9 @@ Style Deadbeef* ResizeHintOverride, PositionPlacement Center, StartsOnDesk 3
 
 Style FvwmForm-RunCommand* BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, StaysOnTop, CirculateSkip, PositionPlacement Center
 
-Style *Clock !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
-Style XOsview !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
+Style *Clock !Title, BorderWidth 2, HandleWidth 2, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
+Style XOsview !Title, BorderWidth 2, HandleWidth 2, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable, NeverFocus
 # Style Dclock !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, NeverFocus, !Iconifiable
-# Style XOsview !Title, BorderWidth 3, HandleWidth 3, Sticky, StaysOnBottom, WindowListSkip, CirculateSkip, !Iconifiable
 
 Style FvwmScript-Quit !Title, BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, CirculateSkip, !Iconifiable, PositionPlacement Center
 Style FvwmScript-ConfirmQuit BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, CirculateSkip, !Iconifiable, PositionPlacement Center
@@ -96,4 +99,4 @@ Style Kalende* BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, NeverFocus,
 
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 
-Style FvwmCal BorderWidth 3, HandleWidth 3, WindowListSkip, StaysOnBottom, CirculateSkip, Sticky, PositionPlacement 1200px 440px
+Style FvwmCal BorderWidth 3, HandleWidth 3, WindowListSkip, CirculateSkip, Sticky, PositionPlacement 1200px 440px

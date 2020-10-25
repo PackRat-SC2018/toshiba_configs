@@ -64,7 +64,7 @@ Style Lxterminal ResizeHintOverride, PositionPlacement Center
 
 Style Polybar !Title, !Handles, !Borders, CirculateSkip, WindowListSkip, NeverFocus
 Style Xfce4-panel !Title, !Handles, !Borders, StaysOnTop, WindowListSkip, CirculateSkip
-Style Tint2 !Title, !Handles, !Borders, ResizeHintOverride, StaysOnBottom, WindowListSkip, CirculateSkip, PositionPlacement 0 -0
+Style Tint2 !Title, !Handles, !Borders, ResizeHintOverride, StaysOnTop, WindowListSkip, CirculateSkip, PositionPlacement 0 -0
 Style *tray !Title, !Handles, !Borders, StaysOnBottom, WindowListSkip, CirculateSkip
 
 Style Void_Exit_Session ResizeHintOverride, PositionPlacement Center

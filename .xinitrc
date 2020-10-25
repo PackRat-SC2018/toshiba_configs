@@ -44,10 +44,11 @@ export WM="$session"
 
 # do NOT put commands below the exec lines
 case $session in
-    fluxbox)    exec dbus-launch --sh-syntax --exit-with-session startfluxbox ;;
-    i3)         exec dbus-launch --sh-syntax --exit-with-session i3 ;;
-    spectrwm)   exec dbus-launch --sh-syntax --exit-with-session startspectrwm ;;
-    xfce4)		exec startxfce4 ;;
+    fluxbox)    exec dbus-run-session startfluxbox ;;
+    i3)         exec dbus-run-session i3 ;;
+    fvwm)       exec dbus-run-session fvwm ;;
+    dwm)        exec dbus-run-session startdwm ;;
+    dk)         exec dbus-run-session dk ;;
     *)          exec "$session" # Unknown, try running it
 esac
 

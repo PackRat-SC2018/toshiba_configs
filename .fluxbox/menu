@@ -18,7 +18,7 @@
 [encoding] {UTF-8}
       [exec] (Run) {rofi -modi run,drun,window,combi -sidebar-mode -show run}
 [separator]
-      [exec] (Terminal) {lxterminal}
+      [exec] (Terminal) {uxterm}
       [exec] (Sublime) {wmctrl -a subl3 || subl3}
       [exec] (File Manager) {thunar}
       [exec] (Firefox) {wmctrl -a firefox || firefox}
@@ -28,20 +28,20 @@
 [submenu] (Terminals)
       [exec] (UXTerm) {uxterm}
       [exec] (XTerm) {xterm}
-      [exec] (Terminator) {terminator}
+      [exec] (Xfce4 Terminal) {xfce4-terminal}
+      [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
       [exec] (Simple Terminal) {st}
       [exec] (Kitty) {kitty}
       [exec] (URxvt) {urxvt}
+      [exec] (Terminator) {terminator}
       [exec] (Tmux) {urxvt -e tmux}
       [exec] (Sakura) {sakura -c 100 -r 34}
       [exec] (LXTerminal) {lxterminal}
-      [exec] (Xfce4 Terminal) {xfce4-terminal}
-      [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
 [end]
 [submenu] (Editors)
       [exec] (Geany) {wmctrl -a geany || geany}
       [exec] (Emacs) {emacs}
-      [exec] (Mousepad) {mousepad}
+      [exec] (Gtkedit) {gtkedit}
 [end]
 [submenu] (Network)      
       [exec] (Firefox) {wmctrl -a firefox || firefox}
@@ -84,9 +84,8 @@
 [end]
 [submenu] (Media)
       [exec] (Deadbeef) {deadbeef}
-      [exec] (Vlc) {vlc}
-!      [exec] (Asunder) {asunder}
-      [exec] (Brasero) {brasero}
+      [exec] (Asunder) {asunder}
+      [exec] (XCDroast) {xcdroast}
       [exec] (Guvcview) {guvcview}
 [end]
 [separator]

@@ -1,0 +1,74 @@
+# jgmenurc
+
+stay_alive           = 0
+#hide_on_startup     = 0
+csv_cmd              = pmenu
+tint2_look           = 0
+# position_mode        = pointer
+terminal_exec        = uxterm
+terminal_args        = -e
+#monitor             = 0
+#hover_delay	     = 100
+#hide_back_items     = 1
+#columns             = 1
+
+menu_margin_x        = 8
+menu_margin_y        = 30
+menu_width           = 200
+#menu_height_min     = 0
+#menu_height_max     = 0
+#menu_height_mode    = static
+menu_padding_top     = 4
+menu_padding_right   = 2
+menu_padding_bottom  = 4
+menu_padding_left    = 2
+menu_radius          = 2
+menu_border          = 1
+menu_halign          = left
+menu_valign          = top
+
+#sub_spacing         = 1
+#sub_padding_top     = auto
+#sub_padding_right   = auto
+#sub_padding_bottom  = auto
+#sub_padding_left    = auto
+sub_hover_action     = 1
+
+#item_margin_x       = 3
+item_margin_y        = 5
+item_height          = 24
+item_padding_x       = 8
+item_radius          = 2
+item_border          = 0
+#item_halign         = left
+
+sep_height           = 5
+#sep_halign          = left
+#sep_markup          =
+
+font                 = Roboto 10
+font_fallback        = xdg
+icon_size            = 0
+icon_text_spacing    = 10
+icon_theme           = Papirus-Grey
+icon_theme_fallback  = xdg
+
+arrow_string         = ▸
+arrow_width          = 18
+
+color_menu_bg        = #161617 95
+color_menu_border    = #17181A 55
+
+color_norm_bg        = #161617 0
+color_norm_fg        = #CCCCCC 100
+
+color_sel_bg         = #2b303b 80
+color_sel_fg         = #FFFFFF 100
+color_sel_border     = #2b303b 55
+
+color_sep_fg         = #202326 55
+
+#csv_name_format     = %n (%g)
+csv_name_format     = %n\n<span size="x-small">%g</span>
+csv_single_window   = 0
+csv_no_dirs         = 0

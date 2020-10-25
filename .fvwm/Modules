@@ -54,7 +54,8 @@ DestroyModuleConfig FvwmIdent: *
 # SetEnv fvwm_icon_size 93
 
 # uncomment for icons
-Style * IconSize 64 64 64 64, IconBox screen c 1 1 -1 -1, IconFill top left
+# Style * IconSize 56 56 56 56, IconBox screen c 1 1 -1 -1, IconFill top left
+# Style * IconSize 56 56 56 56
 
 Style * StickyIcon
 Style * IconTitleFormat %i
@@ -72,8 +73,8 @@ Style * Icon unknown1.xpm
 
 # top left
 # Style "*" IconBox 2 64 240 512, IconGrid 12 12, IconFill left top
-Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
-# Style "*" IconBox 8 64 800 128, IconGrid 24 24, IconFill left top
+# Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
+# Style "*" IconBox 12 2 320 720, IconGrid 12 12, IconFill left top
 # Style "*" IconBox 8 8 200 800, IconGrid 8 8, IconFill left top
 #
 # top center
@@ -86,7 +87,7 @@ Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
 # Style * IconBox 1250 48 1360 640, IconGrid 24 24, IconFill left top
 #
 # bottom left
-# Style * IconBox screen c 4 844 1500 898, IconGrid 12 12 , IconFill left top
+###### Style * IconBox 4 832 1200 898, IconGrid 12 12 , IconFill left top
 #
 # middle right
 # Style * Iconbox 1224 300 1360 600, IconGrid 36 36, IconFill left top
@@ -95,10 +96,10 @@ Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
 # Style * Iconbox 16 48 256 600, IconGrid 24 24, IconFill left top
 #
 # thumbnails
-# Style * IconBox screen c 4 4 532 640, IconGrid 12 12 , IconFill left top
+Style * IconBox screen c 4 4 532 640, IconGrid 12 12 , IconFill left top
 # Style "*" Iconbox screen c 8 32 336 800, IconGrid 12 12, IconFill left top
 # Style "*" Iconbox 4 540 288 1044, IconGrid 16 16, IconFill left bottom
-# Style "*" Iconbox 230 1014 1690 1072, IconGrid 20 20, IconFill left top
+# Style "*" Iconbox 200 816 1400 890, IconGrid 20 20, IconFill left top
 
 # Uncomment to remove IconBox configurations
 # Style * !Icon
@@ -109,13 +110,13 @@ Style * !IconTitle
 # This module displays the location of the windows on the various Pages
 # and Desks. This is setup to show only the Pages on the current Desk.
 
-Style FvwmPager* !Title, BorderWidth 3, HandleWidth 3, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+Style FvwmPager* !Title, BorderWidth 2, HandleWidth 2, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
 
 DestroyModuleConfig FvwmPager:*
-*FvwmPager: DeskTopScale 36
-*FvwmPager: Geometry +711-0
+*FvwmPager: DeskTopScale 28
+# *FvwmPager: Geometry +669+2
 # *FvwmPager: Geometry -2-2
-# *FvwmPager: Geometry +2-2
+*FvwmPager: Geometry +4-4
 *FvwmPager: NoStartIconic
 *FvwmPager: Font None
 #*FvwmPager: Font "xft:sans:regular:size=11:antialias=true:"
@@ -319,9 +320,8 @@ DestroyModuleConfig TaskBarIcons:*
 *TaskBarIcons: NumManagers        1
 *TaskBarIcons: Title              ""
 *TaskBarIcons: Resolution         global
-*TaskBarIcons: Font               "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
 *TaskBarIcons: ButtonGeometry     120x24
-*TaskBarIcons: MaxButtonWidth     224
+*TaskBarIcons: MaxButtonWidth     240
 *TaskBarIcons: Format             "%c: %i"
 # *TaskBarIcons: ManagerGeometry    0x1+0-0
 *TaskBarIcons: ManagerGeometry    1x1
@@ -333,11 +333,11 @@ DestroyModuleConfig TaskBarIcons:*
 *TaskBarIcons: UseWinList         True
 *TaskBarIcons: DontShow           Conky, XClock
 *TaskBarIcons: ReliefThickness    1
-*TaskBarIcons: PlainButton        Flat
-*TaskBarIcons: IconButton         Flat
-*TaskBarIcons: FocusButton        Flat
-*TaskBarIcons: FocusAndSelectButton    Flat
-*TaskBarIcons: SelectButton            Flat
+*TaskBarIcons: PlainButton        Up
+*TaskBarIcons: IconButton         Up
+*TaskBarIcons: FocusButton        Up
+*TaskBarIcons: FocusAndSelectButton    Up
+*TaskBarIcons: SelectButton            Up
 #*TaskBarIcons: Background         #2B303B
 #*TaskBarIcons: Foreground         #2B303B
 *TaskBarIcons: Colorset                 22
@@ -571,33 +571,74 @@ DestroyModuleConfig WebSites
 *Preferences: Columns 1
 *Preferences: Title "", Icon "", Action Popup MenuFvwmBookmarks
 
-# taskbar with spacers - apps, pager, systemtray
-#
-Style FvwmSysbar !Title, BorderWidth 1, HandleWidth 1, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop, !Iconifiable
+Style PanelIconMan !Title, !Borders, !Handles, WindowListSkip, CirculateSkip, StaysOnBottom, NeverFocus, Sticky
 
-DestroyModuleConfig FvwmSysbar:*
-*FvwmSysbar: Geometry 1598x24+0-0
-*FvwmSysbar: Colorset 22
-*FvwmSysbar: Rows 1
-*FvwmSysbar: Columns 1600
-*FvwmSysbar: Frame 0
-*FvwmSysbar: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
-*FvwmSysbar: (60x1, Title "Menu", Icon "", Action (Mouse 1) Menu MenuFvwmRoot root +4p +400p, Frame 1)
-*FvwmSysbar: (30x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 1)
-*FvwmSysbar: (30x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 1)
-*FvwmSysbar: (30x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 1)
-*FvwmSysbar: (30x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 1)
-*FvwmSysbar: (1120x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan TaskBarIcons', Frame 1, Padding 0 0)
-*FvwmSysbar: (150x1, Swallow(NoClose,UseOld) stalonetray 'Exec exec stalonetray --config "$HOME/.fvwmtrayrc"', Frame 1, Padding 1 1)
-*FvwmSysbar: (150x1, Swallow(NoClose,UseOld) xclock `Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -face xft:monospace:size=11`, Frame 1, Padding 1 1)
+DestroyModuleConfig PanelIconMan:*
+*PanelIconMan: NumManagers        1
+*PanelIconMan: Title              ""
+*PanelIconMan: Resolution         global
+*PanelIconMan: Font               "Shadow=0 0 SE:xft:Roboto:Regular:size=10:antialias=True:hintstyle=slight"
+*PanelIconMan: ButtonGeometry     232x24
+*PanelIconMan: MaxButtonWidth     232
+*PanelIconMan: Format             "%c: %i"
+# *PanelIconMan: ManagerGeometry    0x1+0-0
+*PanelIconMan: ManagerGeometry    1x1
+*PanelIconMan: DrawIcons          False
+*PanelIconMan: ShowOnlyIcons      False
+*PanelIconMan: ShowNoIcons        False
+*PanelIconMan: ShowTransient      True
+*PanelIconMan: ShowOnlyFocused    False
+*PanelIconMan: UseWinList         True
+*PanelIconMan: DontShow           Conky, XClock
+*PanelIconMan: ReliefThickness    1
+*PanelIconMan: PlainButton        Up
+*PanelIconMan: IconButton         Up
+*PanelIconMan: FocusButton        Up
+*PanelIconMan: FocusAndSelectButton    Up
+*PanelIconMan: SelectButton            Up
+#*PanelIconMan: Background         #2B303B
+#*PanelIconMan: Foreground         #2B303B
+*PanelIconMan: Colorset                 22
+*PanelIconMan: PlainColorset            22
+*PanelIconMan: IconColorset             22
+*PanelIconMan: FocusColorset            25
+*PanelIconMan: FocusAndSelectColorset   26
+*PanelIconMan: SelectColorset           26
+*PanelIconMan: IconAndSelectColorset    26
+*PanelIconMan: Shape                    true
+*PanelIconMan: Tips needed
+*PanelIconMan: TipsDelays 500 100
+*PanelIconMan: TipsColorset 0
+*PanelIconMan: TipsBorderWidth 1
+*PanelIconMan: TipsPlacement updown
+*PanelIconMan: TipsJustification left
+*PanelIconMan: TipsOffsets 2 4
+*PanelIconMan: TipsFont "Shadow=0 0 SE:xft:Roboto:Regular:size=9:antialias=True:hintstyle=slight"
+*PanelIconMan: Sort id
+*PanelIconMan: Action Mouse 0 A ret
+*PanelIconMan: Action Mouse 1 A sendcommand IconManClick
+*PanelIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
+*PanelIconMan: Resolution global
+*PanelIconMan: Tips needed
+*PanelIconMan: Sort id
 
-DestroyModuleConfig SysClock:*
-*SysClock: Geometry 200x300+744+8
-*SysClock: Colorset 22
-*SysClock: Rows 300
-*SysClock: Columns 2
-*SysClock: Frame 1
-*SysClock: Padding 1
-*SysClock: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
-*SysClock: (1x50, Swallow(NoClose,UseOld) XClock 'Exec xclock &', Frame 1)
-*SysClock: (2x150, Swallow(NoClose,UseOld) Xosview 'Exec xosview -captions -geom 200x150', Frame 1)
+Style FvwmTaskPanel* !Title, !Borders, !Handles, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig FvwmTaskPanel:*
+*FvwmTaskPanel: Geometry $[vp.width]x24+0-0
+*FvwmTaskPanel: Font "xft:Roboto:Regular:size=9:antialias=True:hintstyle=slight"
+*FvwmTaskPanel: Colorset 22
+*FvwmTaskPanel: Rows 1
+*FvwmTaskPanel: Columns $[vp.width]
+*FvwmTaskPanel: Frame 1
+*FvwmTaskPanel: Padding 0 0
+*FvwmTaskPanel: (36x1, Title "", Icon "ninja-cat-small.png", Action `Exec jgmenu --config-file="$HOME/.config/jgmenu/jgfvwmrc"`, Frame 1)
+*FvwmTaskPanel: (1160x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan PanelIconMan', Frame 1, Padding 0 0)
+*FvwmTaskPanel: (124x1, Swallow(NoClose,UseOld) stalonetray `Exec exec stalonetray --config "$HOME/.fvwmtrayrc"`, Frame 1, Padding 0 0)
+*FvwmTaskPanel: (128x1, Swallow FvwmPager 'Module FvwmPager 0 3', Frame 1, Padding 0 0)
+*FvwmTaskPanel: (152x1), Swallow(NoClose,UseOld) xclock `Exec exec xclock -digital -strftime ' %a %e %b %R ' -face "Roboto Mono:regular:size=10:antialias=True:hintstyle=slight" -padding 3`, Frame 1, Padding 0 0)
+
+
+## xclock -digital -strftime '%a  %e %b  %R' -geom 156x24+722+2 -face monospace:pixelsize=11 -padding 3
+## yad --calendar --class="fbox_cal" --title="`date "+%A %e %B %Y   %k:%M"`" --width=368 --height=240 --skip-taskbar --sticky --text ""
+## Action     Mouse     3 N sendcommand "Module FvwmIdent FvwmIdent"

@@ -36,7 +36,7 @@ AddToFunc MoveToCurrent
 # and is used with the help menu.
 DestroyFunc ViewManPage
 AddToFunc   ViewManPage
-+ I Exec exec $[infostore.terminal] -g 80x40 -n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
++ I Exec exec $[infostore.xterminal] -g 96x44 -n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
 
 # Function: SetBG $0
 #
@@ -95,20 +95,6 @@ AddToFunc   ShowDesktop
 + I TestRc (Match) Break
 + I All (CurrentPage, !Iconic, !State 1) ThisWindow State 1 True
 + I All (CurrentPage, !Iconic, State 1) Iconify
-
-# Scroll Desktops Open Ended
-#Key    Right   A   CM  GotoDesk    1 0
-#Key    Left    A   CM  GotoDesk    -1 0
-
-# 4 desktops
-Key  Right  A   CM   GotoDesk   1 0 3
-Key  Left   A   CM   GotoDesk  -1 0 3
-
-# Scroll Pages
-Key Right   A   C4  Scroll +100 0
-Key Left    A   C4  Scroll -100 0
-Key Up      A   C4  Scroll +0 -100
-Key Down    A   C4  Scroll +0 +100
 
 #***********************************************************************
 # 7.4.1 Common FvwmEvents
@@ -252,8 +238,8 @@ AddToFunc   PrevWindow
 + I Current WarpToWindow 5 5
 # ============================================
 
-DestroyFunc CenterWindow
-AddToFunc   CenterWindow
+DestroyFunc FvwmCenterWindow
+AddToFunc   FvwmCenterWindow
 + I ThisWindow Piperead "echo Move \
     $(( $[vp.width]/2-$[w.width]/2 ))p \
     $(( $[vp.height]/2-$[w.height]/2 ))p"
@@ -264,131 +250,16 @@ AddToFunc ResizeCenter
 + I ThisWindow WindowStyle CenterPlacement
 + I UpdateStyles
 
-DestroyFunc FvwmCenterWindow
-AddToFunc FVwmCenterWindow
-+ I Resize 70 80
-+ I Move 50-50w 50-50w
+##  Drag move window with motion + alt + lclick inside window|titlebar.
+DestroyFunc  ClickDragMove
+AddToFunc    ClickDragMove
++ I DebugEcho ClickDragMove
++ M ThisWindow (AcceptsFocus) Move
 
-## Tiling functions
-
-DestroyFunc TileUpperLeft
-AddToFunc TileUpperLeft
-+ I Resize 48 43
-+ I AnimatedMove 1 1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc TileUpperRight
-AddToFunc TileUpperRight
-+ I Resize 48 43
-+ I AnimatedMove -1 1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc TileLowerRight
-AddToFunc TileLowerRight
-+ I Resize 48 43
-+ I AnimatedMove -1 -1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc TileLowerLeft
-AddToFunc TileLowerLeft
-+ I Resize 48 43
-+ I AnimatedMove 1 -1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc MaxTile
-AddToFunc MaxTile
-+ I Maximize 100 100
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc HalfMaxLeft
-AddToFunc HalfMaxLeft
-+ I Resize 48 95
-+ I AnimatedMove 1 1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc HalfMaxRight
-AddToFunc HalfMaxRight
-+ I Resize 48 95
-+ I AnimatedMove -1 1
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc MaxTop
-AddToFunc MaxTop
-+ I Resize 60 44
-+ I AnimatedMove 294px 4px
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-DestroyFunc MaxBottom
-AddToFunc MaxBottom
-+ I Resize 60 40
-+ I AnimatedMove 294px -28px
-+ I ThisWindow
-+ I Focus
-+ I Current Raise
-
-# Function: Window Tiling
-#
-# This function tiles active windows with specified keybindings.
-DestroyFunc TileLeft
-AddToFunc TileLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 100
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileRight
-AddToFunc TileRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 100
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
-
-DestroyFunc TileTop
-AddToFunc TileTop
-+ I ThisWindow (!Shaded, !Iconic) Maximize 100 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileBottom
-AddToFunc TileBottom
-+ I ThisWindow (!Shaded, !Iconic) Maximize 100 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
-
-DestroyFunc TileTopLeft
-AddToFunc TileTopLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
-
-DestroyFunc TileTopRight
-AddToFunc TileTopRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
-
-DestroyFunc TileBottomLeft
-AddToFunc TileBottomLeft
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
-
-DestroyFunc TileBottomRight
-AddToFunc TileBottomRight
-+ I ThisWindow (!Shaded, !Iconic) Maximize 49 49
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
-
-DestroyFunc MoveToCenter
-AddToFunc MoveToCenter
-+ I ThisWindow (!Shaded, !Iconic) Maximize 80 80
-+ I ThisWindow (Maximized, !Shaded, !Iconic) Move 50-50w 50-50w
+DestroyFunc CenterWindow
+AddToFunc CenterWindow
++ I Maximize 70 80
++ I Maximize 50-50w 50-50w
 
 #-----------------------------------------------------------------------
 # Wallpaper Browser by Taviso.
@@ -512,39 +383,47 @@ DestroyModuleConfig  FvwmForm-RunCommand: *
 # To force that all pending changes are applied immediately, use the
 # UpdateStyles, Refresh or RefreshWindow commands.
 
-DestroyFunc NodecorBottomLeft
-AddToFunc NodecorBottomLeft
-+ I ToggleTitle
+## Tiling functions
+
+DestroyFunc TileBottomLeft
+AddToFunc TileBottomLeft
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow Schedule 10 Move +0 -0
 
-DestroyFunc NodecorBottomRight
-AddToFunc NodecorBottomRight
-+ I ToggleTitle
+DestroyFunc TileBottomRight
+AddToFunc TileBottomRight
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow Schedule 10 Move -0 -0
-# + I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
 
-DestroyFunc NodecorUpperLeft
-AddToFunc NodecorUpperLeft
-+ I ToggleTitle
+DestroyFunc TileUpperLeft
+AddToFunc TileUpperLeft
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow Schedule 10 Move +0 +0
 
-DestroyFunc NodecorUpperRight
-AddToFunc NodecorUpperRight
-+ I ToggleTitle
+DestroyFunc TileUpperRight
+AddToFunc TileUpperRight
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow Schedule 10 Move -0 +0
 
-DestroyFunc NodecorMaxLeft
-AddToFunc NodecorMaxLeft
-+ I ToggleTitle
+DestroyFunc TileMaxLeft
+AddToFunc TileMaxLeft
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 100
 + I ThisWindow Schedule 20 Move +0 +0
 
-DestroyFunc NodecorMaxRight
-AddToFunc NodecorMaxRight
-+ I ToggleTitle
+DestroyFunc TileMaxRight
+AddToFunc TileMaxRight
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 100
 + I ThisWindow Schedule 20 Move -0 +0
+
+DestroyFunc TileTop
+AddToFunc TileTop
++ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
++ I ThisWindow Schedule 20 Move +0 +0
+
+DestroyFunc TileBottom
+AddToFunc TileBottom
++ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
++ I ThisWindow Schedule 20 Move +0 -0
+
+
+

@@ -7,7 +7,7 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="1"/>
-          <property name="last-image" type="string" value="/home/doug/wallpaper/fog-island-79934-2560x1600.jpg"/>
+          <property name="last-image" type="string" value="/home/doug/wallpaper/tree_lake-4377408_1920.png"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>
@@ -33,5 +33,9 @@
       <property name="show-filesystem" type="bool" value="false"/>
       <property name="show-trash" type="bool" value="false"/>
     </property>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="638"/>
+    <property name="window-height" type="int" value="576"/>
   </property>
 </channel>

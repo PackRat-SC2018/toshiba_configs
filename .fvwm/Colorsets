@@ -45,7 +45,7 @@ Colorset 13 fg #D9D9D9, bg #006C6C, hi, sh, Plain, NoShape
 Colorset 14 fg #0E0E0E, bg #D2D7E3, hi, sh, Plain, NoShape
 
 # FvwmPager
-Colorset 15 fg #222222, bg #313131, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 15 fg #141516, bg #313131, hi #aaaaaa, sh #999999, Plain, NoShape, RootTransparent, Buffer, Tint #313131 50
 Colorset 16 fg #6D767A, bg #6D767A, hi #aaaaaa, sh #999999, Plain, NoShape
 
 # Root Menu
@@ -60,7 +60,7 @@ Colorset 20 fg #BFBFBF, bg #262926, hi #323632, sh #191A19, Plain NoShape, RootT
 Colorset 21 fg #ECD14A, bg #232649, hi, sh, Plain, NoShape
 
 # FvwmTaskBar
-Colorset 22 fg #D9D9D9, bg #1F2024, hi #2C2D33, sh #121214, Plain, NoShape
+Colorset 22 fg #D9D9D9, bg #1A1B1C, hi #212224, sh #111112, Plain, NoShape
 Colorset 23 fg #D9D9D9, bg #5C7EA1, hi #404040, sh #202020, Plain, NoShape
 Colorset 24 fg #D9D9D9, bg #3A594F, hi #4B7366, sh #253832, Plain, NoShape
 
@@ -81,4 +81,6 @@ Colorset 32  fg #000000, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, Roo
 Colorset 33  fg #000000, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #CCCCCC 45
 Colorset 34  fg #FFFFFF, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #18191A 80
 
-# Colorsets 35, 36 37, 38 for window decor files
+# Colorsets 35, 36, 37, 38, 39 for window decor files
+
+Colorset 40  fg #FFFFFF, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #0F1112 100

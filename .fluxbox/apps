@@ -440,29 +440,6 @@
   [Layer]	{8}
   [Alpha]	{255}
 [end]
-[app] (name=deadbeef) (class=Deadbeef)
-  [Dimensions]	{55% 67%}
-  [Position]	(UPPERLEFT)	{42% 30%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=deadbeef) (class=Deadbeef)
-  [Position]	(UPPERLEFT)	{2% 6%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
 [transient] (name=Mailnews) (class=Thunderbird) (role=accountmanager)
   [Position]	(UPPERLEFT)	{20% 10%}
   [Shaded]	{no}
@@ -502,42 +479,6 @@
   [Position]	(UPPERLEFT)	{10% 2%}
   [Shaded]	{no}
   [Deco]	{0x5e0}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[app] (name=xfce4-terminal) (class=Xfce4-terminal)
-  [Position]	(UPPERLEFT)	{22% 5%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[group]  (workspace=[current])
- [app] (name=mate-terminal) (class=Mate-terminal)
-  [Dimensions]	{63% 77%}
-  [Position]	(UPPERLEFT)	{18% 2%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[group]  (workspace=[current])
- [app] (name=urxvt) (class=URxvt)
-  [Dimensions]	{58% 77%}
-  [Position]	(UPPERLEFT)	{21% 2%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -650,18 +591,6 @@
   [Layer]	{8}
   [Alpha]	{255}
 [end]
-[app] (name=kitty) (class=kitty)
-  [Dimensions]	{98% 98%}
-  [Position]	(UPPERLEFT)	{1% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
 [app] (name=cmst) (class=CMST - Connman System Tray)
   [Position]	(UPPERLEFT)	{26% 10%}
   [Shaded]	{no}
@@ -673,217 +602,8 @@
   [Layer]	{8}
   [Alpha]	{255}
 [end]
-[app] (name=gimp) (class=Gimp) (role=gimp-image-window-1)
-  [Workspace]	{1}
-  [Dimensions]	{57% 86%}
-  [Position]	(UPPERLEFT)	{14% 7%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{yes}
-  [Fullscreen]	{no}
-  [Jump]	{yes}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp) (class=Gimp) (role=gimp-file-open)
-  [Dimensions]	{77% 85%}
-  [Position]	(UPPERLEFT)	{11% 7%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp) (class=Gimp) (role=gimp-image-scale)
-  [Dimensions]	{24% 50%}
-  [Position]	(UPPERLEFT)	{38% 25%}
-  [Shaded]	{no}
-  [Deco]	{0x66f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp) (class=Gimp) (role=gimp-file-export)
-  [Dimensions]	{77% 85%}
-  [Position]	(UPPERLEFT)	{12% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=file-jpeg) (class=Gimp) (role=file-jpeg)
-  [Dimensions]	{20% 69%}
-  [Position]	(UPPERLEFT)	{40% 15%}
-  [Shaded]	{no}
-  [Deco]	{0x66f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=file-png) (class=Gimp) (role=file-png)
-  [Dimensions]	{21% 74%}
-  [Position]	(UPPERLEFT)	{40% 13%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp) (class=Gimp) (role=gimp-file-save)
-  [Dimensions]	{77% 85%}
-  [Position]	(UPPERLEFT)	{12% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp) (class=Gimp) (role=gimp-message-dialog)
-  [Dimensions]	{27% 28%}
-  [Position]	(UPPERLEFT)	{37% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-window-1)
-  [Workspace]	{1}
-  [Dimensions]	{66% 86%}
-  [Position]	(UPPERLEFT)	{18% 7%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{yes}
-  [Fullscreen]	{no}
-  [Jump]	{yes}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-scale)
-  [Dimensions]	{24% 50%}
-  [Position]	(UPPERLEFT)	{38% 25%}
-  [Shaded]	{no}
-  [Deco]	{0x66f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-export)
-  [Dimensions]	{77% 85%}
-  [Position]	(UPPERLEFT)	{12% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=file-jpeg) (class=Gimp-2.10) (role=file-jpeg)
-  [Dimensions]	{20% 69%}
-  [Position]	(UPPERLEFT)	{40% 15%}
-  [Shaded]	{no}
-  [Deco]	{0x66f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=file-png) (class=Gimp-2.10) (role=file-png)
-  [Dimensions]	{21% 74%}
-  [Position]	(UPPERLEFT)	{40% 13%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-save)
-  [Dimensions]	{77% 93%}
-  [Position]	(UPPERLEFT)	{12% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-message-dialog)
-  [Dimensions]	{27% 28%}
-  [Position]	(UPPERLEFT)	{37% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
 [app] (name=thunderbird) (class=Thunderbird)
   [Position]	(UPPERLEFT)	{30% 18%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[app] (name=Alacritty) (class=Alacritty)
-  [Dimensions]	{66% 75%}
-  [Position]	(UPPERLEFT)	{18% 1%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[group]  (workspace=[current])
- [app] (name=terminator) (class=Terminator)
-  [Dimensions]	{66% 80%}
-  [Position]	(UPPERLEFT)	{18% 1%}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}
@@ -905,34 +625,9 @@
   [Layer]	{8}
   [Alpha]	{255}
 [end]
-[app] (name=gimp) (class=Gimp) (role=gimp-toolbox-color-dialog)
-  [Dimensions]	{27% 48%}
-  [Position]	(UPPERLEFT)	{10% 19%}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[group]  (workspace=[current])
- [app] (name=sakura) (class=Sakura)
-  [Dimensions]	{75% 90%}
-  [Position]	(CENTER)	{0 0}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
 [group]  (workspace=[current])
  [app] (name=xterm) (class=UXTerm)
-  [Dimensions]	{75% 90%}
+  [Dimensions]	{80% 90%}
   [Position]	(CENTER)	{0 0}
   [Shaded]	{no}
   [Deco]	{0x67f}
@@ -956,9 +651,37 @@
   [Layer]	{8}
   [Alpha]	{255}
 [end]
-[app] (name=gimp) (class=Gimp) (role=gimp-image-new)
-  [Dimensions]	{26% 39%}
-  [Position]	(UPPERLEFT)	{18% 9%}
+[app] (name=xarchiver) (class=Xarchiver)
+  [Deco]	{0x67f}
+[end]
+[app] (name=xosview) (class=XOsview)
+  [Position]	(UPPERLEFT)	{79% 1%}
+  [Shaded]	{no}
+  [Deco]	{BORDER}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=deadbeef) (class=Deadbeef)
+  [Workspace]	{3}
+  [Dimensions]	{65% 78%}
+  [Position]	(UPPERLEFT)	{1% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Jump]	{yes}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=deadbeef) (class=Deadbeef) (role=GtkFileChooserDialog)
+  [Dimensions]	{44% 60%}
+  [Position]	(UPPERLEFT)	{28% 20%}
   [Shaded]	{no}
   [Deco]	{0x66f}
   [Sticky]	{no}
@@ -967,4 +690,434 @@
   [Fullscreen]	{no}
   [Layer]	{8}
   [Alpha]	{255}
+[end]
+[transient] (name=firefox) (class=Firefox)
+  [Dimensions]	{39% 64%}
+  [Position]	(UPPERLEFT)	{30% 18%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Alpha]	{255}
+[end]
+[group]  (workspace=[current])
+ [app] (name=urxvt) (class=URxvt)
+  [Dimensions]	{70% 88%}
+  [Position]	(UPPERLEFT)	{15% 2%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=lxappearance) (class=Lxappearance)
+  [Dimensions]	{26% 55%}
+  [Position]	(UPPERLEFT)	{37% 24%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[group]  (workspace=[current])
+ [app] (name=xfce4-terminal) (class=Xfce4-terminal)
+  [Dimensions]	{68% 86%}
+  [Position]	(UPPERLEFT)	{17% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-window-1)
+  [Workspace]	{1}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{yes}
+  [Fullscreen]	{no}
+  [Jump]	{yes}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-open)
+  [Dimensions]	{77% 85%}
+  [Position]	(UPPERLEFT)	{11% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-color-profile-import)
+  [Dimensions]	{39% 39%}
+  [Position]	(UPPERLEFT)	{31% 30%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-scale)
+  [Dimensions]	{24% 43%}
+  [Position]	(UPPERLEFT)	{38% 28%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-save)
+  [Position]	(UPPERLEFT)	{11% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-file-export)
+  [Dimensions]	{77% 85%}
+  [Position]	(UPPERLEFT)	{11% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-png) (class=Gimp-2.10) (role=file-png)
+  [Dimensions]	{18% 58%}
+  [Position]	(UPPERLEFT)	{41% 21%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-toolbox-color-dialog)
+  [Dimensions]	{26% 47%}
+  [Position]	(UPPERLEFT)	{10% 17%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-preferences)
+  [Dimensions]	{48% 85%}
+  [Position]	(UPPERLEFT)	{26% 8%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-image-new)
+  [Dimensions]	{24% 35%}
+  [Position]	(UPPERLEFT)	{18% 9%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-message-dialog)
+  [Dimensions]	{24% 26%}
+  [Position]	(UPPERLEFT)	{37% 32%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-webp) (class=Gimp-2.10) (role=file-webp)
+  [Dimensions]	{19% 37%}
+  [Position]	(UPPERLEFT)	{40% 31%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp) (class=Gimp) (role=gimp-image-window-1)
+  [Workspace]	{1}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{yes}
+  [Fullscreen]	{no}
+  [Jump]	{yes}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp) (class=Gimp) (role=gimp-image-new)
+  [Dimensions]	{24% 35%}
+  [Position]	(UPPERLEFT)	{18% 9%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp) (class=Gimp) (role=gimp-file-export)
+  [Dimensions]	{77% 88%}
+  [Position]	(UPPERLEFT)	{11% 7%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-png) (class=Gimp) (role=file-png)
+  [Dimensions]	{18% 58%}
+  [Position]	(UPPERLEFT)	{41% 21%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp) (class=Gimp) (role=gimp-file-save)
+  [Dimensions]	{77% 88%}
+  [Position]	(UPPERLEFT)	{11% 6%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp) (class=Gimp) (role=gimp-file-open)
+  [Dimensions]	{77% 88%}
+  [Position]	(UPPERLEFT)	{11% 6%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp) (class=Gimp) (role=gimp-image-color-profile-import)
+  [Dimensions]	{27% 39%}
+  [Position]	(UPPERLEFT)	{37% 30%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-webp) (class=Gimp) (role=file-webp)
+  [Dimensions]	{19% 37%}
+  [Position]	(UPPERLEFT)	{40% 31%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp) (class=Gimp) (role=gimp-image-scale)
+  [Dimensions]	{24% 43%}
+  [Position]	(UPPERLEFT)	{38% 28%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp) (class=Gimp)
+  [Dimensions]	{25% 29%}
+  [Position]	(UPPERLEFT)	{38% 17%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-jpeg) (class=Gimp) (role=file-jpeg)
+  [Dimensions]	{18% 58%}
+  [Position]	(UPPERLEFT)	{41% 21%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=file-tiff) (class=Gimp) (role=gimp-file-tiff-save)
+  [Dimensions]	{18% 54%}
+  [Position]	(UPPERLEFT)	{41% 23%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp) (class=Gimp) (role=gimp-toolbox-color-dialog)
+  [Position]	(UPPERLEFT)	{9% 8%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=Browser) (class=Firefox) (role=page-info)
+  [Position]	(UPPERLEFT)	{31% 17%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=Browser) (class=Firefox) (role=SiteDataRemoveSelected)
+  [Position]	(UPPERLEFT)	{34% 18%}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[group]  (workspace=[current])
+ [app] (name=kitty) (class=kitty)
+  [Position]	(CENTER)	{0% 0%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{yes}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[group]  (workspace=[current])
+ [app] (name=terminator) (class=Terminator)
+  [Position]	(CENTER)	{0 0}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{yes}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=asunder) (class=Asunder) (role=GtkFileChooserDialog)
+  [Dimensions]	{62% 84%}
+  [Position]	(UPPERLEFT)	{19% 8%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=asunder) (class=Asunder)
+  [Position]	(UPPERLEFT)	{42% 41%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=xcdroast) (class=Xcdroast)
+  [Position]	(UPPERLEFT)	{19% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=xcdroast) (class=Xcdroast)
+  [Position]	(CENTER)	{0 0}
+  [Deco]	{0x67f}
 [end]

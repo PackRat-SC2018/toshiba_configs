@@ -1,0 +1,70 @@
+Style LeftIconMan* !Title, BorderWidth 3, HandleWidth 3, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+
+# LeftIconMan
+#
+# LeftIconMan is a powerful tool to list and manage windows. This
+# is used as the window list in the panel or taskbar.
+DestroyModuleConfig LeftIconMan:*
+*LeftIconMan: UseWinList true
+*LeftIconMan: ButtonGeometry 120x24
+*LeftIconMan: ManagerGeometry 1x1
+*LeftIconMan: Background #26282B
+*LeftIconMan: Foreground #ffffff
+*LeftIconMan: PlainColorset 10
+*LeftIconMan: FocusColorset 25
+*LeftIconMan: IconColorset 10
+*LeftIconMan: FocusAndSelectColorset 12
+*LeftIconMan: SelectColorset 12
+*LeftIconMan: IconAndSelectColorset 12
+*LeftIconMan: DrawIcons never
+*LeftIconMan: ReliefThickness 1
+*LeftIconMan: Format "%t"
+*LeftIconMan: Font "xft:DejaVuSans:Book:size=9:antialias=True:hintstyle=slight"
+*LeftIconMan: Action Mouse 0 A ret
+*LeftIconMan: Action Mouse 1 A sendcommand IconManClick
+*LeftIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
+*LeftIconMan: Resolution global
+*LeftIconMan: Tips needed
+*LeftIconMan: Sort id
+
+# FvwmButtons - LeftPanel
+#
+# FvwmButtons is a powerful module that can be used to build custom
+# panels and docks. This config uses FvwmButtons to build the LeftPanel.
+# The panel contains buttons to switch desks, FvwmPager, a system tray,
+# LeftIconMan (list of running windows), and a clock.
+#
+# Note - To use the system tray you must have "stalonetray" installed.
+
+Style LeftPanel !Title, BorderWidth 2, HandleWidth 2, Sticky, WindowListSkip, NeverFocus, CirculateSkip, NeverFocus, StaysOnBottom
+
+DestroyModuleConfig LeftPanel:*
+*LeftPanel: Geometry 120x470+0+0
+*LeftPanel: Colorset 10
+*LeftPanel: Rows 470
+*LeftPanel: Columns 120
+*LeftPanel: Frame 0
+*LeftPanel: Font "xft:DejaVu Sans Mono:Book:size=10:antialias=true:hintstyle=slight"
+*LeftPanel: (30x20, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x20, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x20, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+*LeftPanel: (30x20, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+*LeftPanel: (120x60, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
+*LeftPanel: (120x240, Swallow FvwmIconMan 'Module FvwmIconMan LeftIconMan', Frame 0)
+*LeftPanel: (120x90, Swallow(NoClose,UseOld) XClock 'Exec xclock &', Frame 0)
+
+# Xclock and date
+
+Style DeskTopClock !Title, BorderWidth 5, HandleWidth 5, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+
+DestroyModuleConfig DeskTopClock:*
+*DeskTopClock: Geometry 102x164-2+2
+*DeskTopClock: Colorset 22
+*DeskTopClock: Rows 80
+*DeskTopClock: Columns 1
+*DeskTopClock: Frame 0
+*DeskTopClock: Padding 1
+*DeskTopClock: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+*DeskTopClock: (1x50, Swallow(NoClose,UseOld) XClock 'Exec xclock &', Frame 0)
+*DeskTopClock: (1x30, Swallow(NoClose,UseOld) DayDate 'Module FvwmScript $[FVWM_USERDIR]/FvwmScript-DayDate', Action (Mouse 3) 'PipeRead 'yad --calendar --class=FvwmCal --title="`date "+%F %R"`" --width=368 --height=240 --skip-taskbar --sticky --text ""', Frame 0)

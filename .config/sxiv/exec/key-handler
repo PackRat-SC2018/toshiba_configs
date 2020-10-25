@@ -12,6 +12,8 @@ do
                 feh --bg-center "$file" ;;
         "C-h")
                 hsetroot -center "$file" ;;
+        "C-t")
+                hsetroot -tile "$file" ;;
         "C-d")
                 display -window root "$file" ;;
         esac

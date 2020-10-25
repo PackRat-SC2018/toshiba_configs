@@ -17,6 +17,7 @@ exec pkill -x sxhkd &
 
 set $mod Mod4
 set $alt Mod1
+set $lock slock
 
 default_orientation horizontal
 workspace_layout tabbed
@@ -27,7 +28,7 @@ hide_edge_borders smart
 default_border pixel 1
 
 # default_floating_border normal/none/pixel
-default_floating_border pixel 2
+default_floating_border pixel 1
 
 # Container fonts
 # Font for window titles. Will also be used by the bar unless a different font
@@ -47,17 +48,17 @@ default_floating_border pixel 2
 font pango: Roboto Regular 10, Roboto Regular 10
 
 # window colours:         border    background  text
-client.focused            #2C2D2E   #3B4149     #FFFFFF
-client.unfocused          #2C2D2E   #2C2D2E     #999999
-client.focused_inactive   #2C2D2E   #2C2D2E     #999999
-client.urgent             #E01B30   #E01B30     #FFFFFF
+client.focused            #242529   #242529     #CFCFCF
+client.unfocused          #1C1C1C   #1C1C1C     #606060
+client.focused_inactive   #242529   #242529     #606060
+client.urgent             #E01B30   #E01B30     #CFCFCF
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
 # start a terminal
-bindsym $alt+F1 exec lxterminal
-bindsym $mod+Return exec uxterm
+bindsym $alt+F1 exec st
+bindsym $mod+Return exec terminator
 bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
@@ -75,7 +76,7 @@ bindsym $mod+d exec "rofi -combi -modi drun,run,window -show run -display-drun '
 bindsym $alt+F2 exec "rofi -combi -modi run,drun,window -show run"
 bindsym $mod+p exec dmenu_run
 
-bindsym $mod+XF86HomePage exec firefox
+bindsym $mod+XF86HomePage exec "wmctrl -a firefox || firefox"
 bindsym $mod+XF86Mail exec thunderbird
 bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
@@ -107,6 +108,8 @@ bindsym $mod+Control+o exec "libreoffice --writer"
 bindsym $mod+Shift+1 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-01.json'"
 bindsym $mod+Shift+2 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-10.json'"
 
+bindsym $mod+Shift+Delete exec "sleep 1; xset dpms force off && slock"
+bindsym $alt+Shift+Delete exec i3lock --color=#060633
 
 # floating windows 2px border
 for_window [class="XFontsel"] floating enable
@@ -127,12 +130,14 @@ for_window [class="WmanExit"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="Audacious"] floating enable
+for_window [class="Deadbeef"] floating enable
 for_window [class="Asunder"] floating enable
 for_window [class="Lxappearance"] floating enable
 
 # application settings
 assign [class="Gimp"] 4
 assign [class="Audacious"] 10
+assign [class="Deadbeef"] 10
 assign [class="Asunder"] 10
 assign [class="vlc"] 10
 
@@ -309,19 +314,19 @@ bar {
         position top
         workspace_buttons yes
         tray_output primary
-        bindsym --release button3 exec jgmenu --config-file=/home/doug/.config/jgmenu/jgi3menurc
+        bindsym --release button3 exec jgmenu --config-file=/home/doug/.config/jgmenu/jgmenui3rc
         bindsym --release button2 exec --no-startup-id import -window root -quality 100 ~/pictures/i3_screen-import-$(date +%F_%s).png
         font pango: Roboto Mono Regular 10
+        # font pango: Hack Regular 10
         # status_command $HOME/.config/i3/i3conkybar.sh
-        # status_command i3blocks
-        status_command slstatus -s
+	    status_command slstatus -s
         separator_symbol " "
         colors {
-          background            #191A1A
-          statusline            #BFBFBF
-          focused_workspace     #3B4149     #3B4149     #FFFFFF
-          active_workspace      #191A1A     #191A1A     #999999
-          inactive_workspace    #191A1A     #191A1A     #999999
-          urgent_workspace      #E01B30     #E01B30     #FFFFFF
+	    background            #0E0F0F
+	    statusline            #C7C7C7
+	    focused_workspace     #242529     #242529     #CFCFCF
+	    active_workspace      #242529     #242529     #CFCFCF
+	    inactive_workspace    #1C1C1C     #1C1C1C     #606060
+	    urgent_workspace      #E01B30     #E01B30     #CFCFCF
      }
 }

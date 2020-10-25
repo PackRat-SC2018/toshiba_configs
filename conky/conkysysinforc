@@ -53,7 +53,7 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	-- default_color = 'FAFAFA',
+	-- default_color = '#121212',
 	default_color = '#DAC79C',
 	default_shade_color = '#090909',
 	default_outline_color = '#828282',
@@ -65,28 +65,29 @@ conky.config = {
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
 	color7 = '#DAC79C',
-	-- color7 = '#F3F3FF', -- - match default
+	-- color7 = '#121212', -- - match default
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
 	minimum_width = 180, minimum_height = 0,
 	maximum_width = 180,
-	alignment = 'br',
+	alignment = 'bottom_right',
 	gap_x = 12,
 	gap_y = 36,
 
 -- -- doesn't work when docked in the slit or as panel --#
-	 -- lua_load = '~/conky/transbg.lua',
-	 -- lua_draw_hook_pre = 'draw_bg 6 0 0 0 0 0x111112 0.72',
+	  -- lua_load = '~/conky/transbg.lua',
+	  -- lua_draw_hook_pre = 'draw_bg 4 0 0 0 0 0x242424 0.22',
 
+    -- ${voffset 6}Mem:${goto 60}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
 	-- ${voffset 4}${battery_bar 4,116 BAT0}
 	-- CPU:${goto 64}${cpu cpu0}%${goto 116}Mem:${alignr 8}${memperc}%
+	-- ${voffset 6}UP:${goto 60}${uptime_short}
 };
 
 conky.text = [[
-${voffset 6}UP:${goto 60}${uptime_short}
 ${voffset 6}CPU:${goto 60}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}\
 ${alignr 8}${execpi 5 /home/doug/bin/cpu-temp.pl | cut -c1-7}
-${voffset 6}Mem:${goto 60}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
+${voffset 6}BAT:${goto 60}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${alignr 8}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
 ${voffset 6}NET:${goto 60}${wireless_bitrate wlp1s0}${alignr 8}${wireless_link_qual_perc wlp1s0}%${voffset 6}
 ]];

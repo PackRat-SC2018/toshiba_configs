@@ -1,8 +1,13 @@
-##############
+#############################
+# Fvwm Keys file
+# created 10-15-2020
 #
-# Key Bindings
-#
-###################
+#############################
+
+# Restart and Exit Fvwm
+Key	q    A    4    Restart
+Key	q    A    S4   Exec exec rofi-logout
+
 
 # typical alt-tab window switching behaviors
 # fluxbox style
@@ -10,127 +15,122 @@ Key	Tab	A	M	FuncFvwmNextWindow
 Key	Tab	A	MS	FuncFvwmPrevWindow
 
 # openbox/xfce style
-# Silent Key Tab A M WindowList Root c c NoDeskSort, SelectOnRelease Meta_L
+# from man page
+# Key Tab A 4 WindowList
+Silent Key Tab A 4 WindowList Root c c NoDeskSort, SelectOnRelease Meta_L
 
+# Switch desktop
+Silent Key 1 A 4 GotoDesk 0 0
+Silent Key 2 A 4 GotoDesk 0 1
+Silent Key 3 A 4 GotoDesk 0 2
+Silent Key 4 A 4 GotoDesk 0 3
+
+# Scroll desktop - 4 desktops
+Key  Right  A   CM   GotoDesk   1 0 3
+Key  Left   A   CM   GotoDesk  -1 0 3
+
+# Scroll Pages
+Key Right   A   C4  Scroll +100 0
+Key Left    A   C4  Scroll -100 0
+Key Up      A   C4  Scroll +0 -100
+Key Down    A   C4  Scroll +0 +100
+
+# Menus
 Key	Space	A	4	Menu MenuFvwmRoot Nop
 Key	Space	A	CM	Menu MenuWindowOps Close
 
-Key	r	A	SM	RaiseToTop
-Key	l	A	SM	LowerToBottom
+# Alt + Function keys
+Key	F1    A    M    Exec exec $[infostore.terminal]
+Key F2    A    M    Exec exec $[infostore.roficmd]
+# Key F3    A    M    unused
+Key	F4    A    M    Close
+Key	F5    A    M    Move 50-50w 50-50w
+Key	F6    A    M    RaiseLower
+Key	F7    A    M    Maximize 0 100
+Key F8    A    M    Maximize 100 0
+Key	F9    A    M    Destroy
+Key	F10   A    M    Maximize 100 100
+Key F11   A    M    Maximize Fullscreen
+Key F12   A    M    ToggleTitle
+Key F12   A    MS   ShowDesktop
 
-Key	F4	A	M	Close
-Key	F5	A	M	Move 50-50w 50-50w
-Key	F5	A	MS	FvwmCenterWindow
-Key	F6	A	M	Iconify
-# Key	F6	A	M	Thumbnail
-# Key	F6	A	MS	RaiseLower
-# Key	F7	A	M	Maximize 0 100
-Key F7  A   M   RaiseLower
-Key	F8	A	M	Maximize 100 0
-Key	F9	A	M	Destroy
-Key	F10	A	M	Maximize 100 100
-Key F11  A  M   Maximize Fullscreen
-Key F7	A   SM  Move
-Key F8  A   SM  Resize
+# Move and Resize Windows
+Key	Right    A    SM    MoveRight
+Key	Left     A    SM    MoveLeft
+Key	Up       A    SM    MoveUp
+Key	Down     A    SM    MoveDown
 
-Key	Right	A	SM	MoveRight
-Key	Left	A	SM	MoveLeft
-Key	Up		A	SM	MoveUp
-Key	Down	A	SM	MoveDown
+Key	Right    A    S4    GrowEast
+Key	Left     A    S4    ShrinkEast
+Key	Up       A    S4    ShrinkSouth
+Key	Down     A    S4    GrowSouth
 
-Key	Right	A	S4	GrowEast
-Key	Left	A	S4	ShrinkEast
-Key	Up	    A	S4	ShrinkSouth
-Key	Down	A	S4	GrowSouth
-Key T       A   S4  ToggleTitle
-Key d       A   S4  ShowDesktop
+Key	KP_1    A    MS    AnimatedMove +0 -0
+Key KP_2    A    MS    Move 50-50w -0
+Key KP_3    A    MS    AnimatedMove -0 -0
+Key KP_4    A    MS    Move +0 50-50w
+Key KP_5    A    MS    Move 50-50w 50-50w
+Key KP_6    A    MS    Move -0 50-50w
+Key	KP_7    A    MS    AnimatedMove +0 +0
+Key	KP_8    A    MS    AnimatedMove 50-50w +0
+Key	KP_9    A    MS    AnimatedMove -0 +0
+# Key KP_0    A    MS    Unused
 
 # Tiling and Window movement with number pad
 #
-Key	KP_7	A	4S	TileTopLeft
-Key	KP_9	A	4S	TileTopRight
-Key	KP_1	A	4S	TileBottomLeft
-Key	KP_3	A	4S	TileBottomRight
-Key KP_5    A   4S  Maximize
-Key KP_4    A   4S  TileLeft
-Key KP_6    A   4S  TileRight
-Key KP_8    A   4S  TileTop
-Key KP_2    A   4S  TileBottom
-Key KP_0    A   4S  MoveToCenter
+Key	KP_1    A    S4    TileBottomLeft
+Key	KP_2    A    S4    TileBottom
+Key	KP_3    A    S4    TileBottomRight
+Key	KP_4    A    S4    TileMaxLeft 
+Key KP_5    A    S4    Maximize
+Key KP_6    A    S4    TileMaxRight
+Key KP_7    A    S4    TileUpperLeft
+Key KP_8    A    S4    TileTop
+Key KP_9    A    S4    TileUpperRight
+Key KP_0    A    S4    FvwmCenterWindow
 
-Key	KP_1	A	MS  AnimatedMove +0 -0
-Key KP_2	A   MS  Move 50-50w -0
-Key KP_3	A	MS  AnimatedMove -0 -0
-Key KP_4	A   MS  Move +0 50-50w
-Key KP_5	A   MS  Move 50-50w 50-50w
-Key KP_6	A   MS  Move -0 50-50w
-Key	KP_7	A   MS  AnimatedMove +0 +0
-Key	KP_8	A   MS  AnimatedMove 50-50w +0
-Key	KP_9	A	MS  AnimatedMove -0 +0
-
-# ================
 # Applications
-# ================
+#
+Key Return    A    4    Exec exec xfce4-terminal
+Key Return    A    S4   Exec exec kitty
+Key p         A    4    Exec exec $[infostore.dmenucmd]
+Key Delete    A    S4   Exec exec $[infostore.screenlock]
+Key	Menu             A    A    Exec exec $[infostore.filemgr]
+Key	XF86HomePage     A    4    Exec exec $[infostore.browser]
+Key	XF86Mail         A    4    Exec exec $[infostore.mail]
+# Key XF86Calculator   A    A    Exec exec galculator
+Key	l    A    C4    Exec exec $[infostore.editor]
+Key	g    A    C4    Exec exec gimp
+Key	p    A    C4    Exec exec libreoffice --calc
+Key	o    A    C4    Exec exec libreoffice --writer
+Key	b    A    C4    Exec exec "$HOME/bin/ConkyTao.sh"
+Key Print    A    C4    Exec exec "$HOME/bin/scrnshot"
+Key Print    A    C     Exec exec `maim -u | xclip -selection clipboard -t image/png`
+Key	Pause    A    C4    Exec exec "$HOME/bin/ConkyFvwm.sh"
 
-Key	F1      A  M    Exec exec $[infostore.terminal]
-Key Return  A  S4   Exec exec kitty
-Key Return  A  4    Exec exec st
-Key	F2	    A  M    Exec exec $[infostore.roficmd]
-Silent Key p A 4    Exec exec $[infostore.dmenucmd]
-
-Key	Menu				A	A	Exec exec $[infostore.filemgr]
-Key	XF86HomePage		A	4	Exec exec $[infostore.browser]
-Key	XF86Mail			A	4	Exec exec $[infostore.mail]
-Key XF86Calculator		A	A	Exec exec galculator
-
-## alsa
-Key	XF86AudioMute			A	A	Exec exec amixer set Master toggle -q &
-Key	XF86AudioRaiseVolume	A	A	Exec exec amixer -q sset PCM 5%+ unmute
-Key	XF86AudioLowerVolume	A	A	Exec exec amixer -q sset PCM 5%- unmute
+Key	XF86AudioMute           A    A    Exec exec $[infostore.mute]
+Key	XF86AudioRaiseVolume    A    A    Exec exec $[infostore.volumeup]
+Key	XF86AudioLowerVolume    A    A    Exec exec $[infostore.volumedown]
 
 ## pulseaudio
-#Key	XF86AudioMute			A	A	Exec exec pamixer -t
-#Key	XF86AudioRaiseVolume	A	A	Exec exec pamixer -i 2
-#Key	XF86AudioLowerVolume	A	A	Exec exec pamixer -d 2
+#Key	XF86AudioMute    A    A    Exec exec pamixer -t
+#Key	XF86AudioRaiseVolume    A    A    Exec exec pamixer -i 2
+#Key	XF86AudioLowerVolume    A    A    Exec exec pamixer -d 2
 
-Key XF86AudioPlay A    A  Exec exec mocp -G
-Key XF86AudioPrev A    A  Exec exec mocp -r
-Key XF86AudioNext A    A  Exec exec mocp -f
+Key XF86AudioPlay    A    A    Exec exec mocp -G
+Key XF86AudioPrev    A    A    Exec exec mocp -r
+Key XF86AudioNext    A    A    Exec exec mocp -f
 
-Key	l	A	C4	Exec exec $[infostore.editor]
-Key	g	A	C4	Exec exec gimp
-Key	p	A	C4	Exec exec libreoffice --calc
-Key	o	A	C4	Exec exec libreoffice --writer
+#Key XF86MonBrightnessDown    A    A    Exec xbacklight -dec 5
+#Key XF86MonBrightnessDown    A    M    Exec xbacklight -dec 10
+#Key XF86MonBrightnessDown    A    4    Exec xbacklight -set 15
+#Key XF86MonBrightnessUp      A    A    Exec xbacklight -inc 5
+#Key XF86MonBrightnessUp      A    M    Exec xbacklight -inc 10
+#Key XF86MonBrightnessUp      A    4    Exec xbacklight -set 15
 
-Key	Print	A	C4	Exec exec "$HOME/bin/scrnshot"
-Key	Pause	A	C4	Exec exec "$HOME/bin/ConkyFvwm.sh"
-Key	b	A	C4	Exec exec "$HOME/bin/ConkyTao.sh"
-
-#Key XF86MonBrightnessDown	A	A	Exec xbacklight -dec 5
-#Key XF86MonBrightnessDown	A	M	Exec xbacklight -dec 10
-#Key XF86MonBrightnessDown	A	4	Exec xbacklight -set 15
-#Key XF86MonBrightnessUp		A	A	Exec xbacklight -inc 5
-#Key XF86MonBrightnessUp		A	M	Exec xbacklight -inc 10
-#Key XF86MonBrightnessUp		A	4	Exec xbacklight -set 15
-
+Key XF86MonBrightnessUp      A    A    Exec brillo -A 10
+Key XF86MonBrightnessUp      A    M    Exec brillo -S 96
 Key XF86MonBrightnessDown    A    A    Exec brillo -U 10
-Key XF86MonBrightnessDown    A    M    Exec brillo -S 50
+Key XF86MonBrightnessDown    A    M    Exec brillo -S 33
 
-Key XF86MonBrightnessUp    A    A    Exec brillo -A 10
-Key XF86MonBrightnessUp    A    M    Exec brillo -S 95
 
-Key	q	A	4	Restart
-# Key	q	A	S4	Exec exec void-logout
-Key	q	A	S4	Exec exec fvwm-logout
-
-# from man page
-Key Tab A 4 WindowList
-
-Key KP_1    A   4S  NodecorBottomLeft
-Key KP_3    A   4S  NodecorBottomRight
-Key KP_7    A   4S  NodecorUpperLeft
-Key KP_9    A   4S  NodecorUpperRight
-Key KP_4    A   4S  NodecorMaxLeft
-Key KP_6    A   4S  NodecorMaxRight
-
-# EOF

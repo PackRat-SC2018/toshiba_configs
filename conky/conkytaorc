@@ -1,0 +1,76 @@
+conky.config = {
+--#############################################
+-- Settings
+--#############################################
+	background = true,
+--font terminus-10
+	use_xft = true,
+	font = 'Aller:regular:size=12',
+	xftalpha = 1.0,
+	update_interval = 1,
+	total_run_times = 0,
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_colour = '#0F0F0F',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+        own_window_class = 'Conkytao',
+        own_window_title = 'Conkytao',
+--#############################################
+-- Compositing tips:
+-- Conky can play strangely when used with
+-- different compositors. I have found the
+-- following to work well, but your mileage
+-- may vary. Comment/uncomment to suit.
+--#############################################
+--#
+--own_window_argb_visual = true,
+--own_window_argb_value 2
+
+--# xcompmgr
+--own_window_type override
+--own_window_argb_visual yes
+
+--# cairo-compmgr
+--own_window_type desktop
+--own_window_argb_visual yes
+--#############################################
+
+	if_up_strictness = 'address',
+	double_buffer = true,
+	minimum_width = 388, minimum_height = 4,
+	maximum_width = 388,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	-- default_color = '#DECB9F',
+	default_color = '#E6E6E6',
+	-- default_shade_color = '#000000',
+	default_outline_color = '#828282',
+	alignment = 'tl',
+	gap_x = 8,
+	gap_y = 64,
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+	short_units = true,
+	imlib_cache_size = 128,
+	pad_percents = 1,
+	max_user_text = 3000,
+	text_buffer_size = 1024,
+	no_buffers = true,
+	uppercase = false,
+	border_inner_margin = 2,
+	border_outer_margin = 0,
+
+	-- lua_load = '$HOME/conky/lua_wide.lua',
+	
+	-- ${voffset 12}${lua_parse tao {4,0,0,0,0,0x131313,0.02,"Sans",9,"regular:regular","$HOME/bin/taoread.sh",40 600}}
+
+};
+
+conky.text = [[
+   ${voffset 12}${lua_parse tao {4,0,0,0,0,0x131313,0.02,"Sans",9,"regular:regular","$HOME/bin/taoread.sh",40 600}}
+]];

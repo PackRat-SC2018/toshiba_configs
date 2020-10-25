@@ -10,7 +10,7 @@ killall -q i3status &
 killall -q slstatus &
 killall -q sxhkd &
 killall -q polybar &
-killall -q juiced &
+# killall -q juiced &
 
 # Qt5 configuration; Qt apps follow gtk2
 export QT_STYLE_OVERRIDE=GTK+
@@ -52,11 +52,12 @@ xset m 1/1
 xsetroot -cursor_name left_ptr &
 
 # battery monitor
-(sleep 2s && juiced -d) &
+# (sleep 2s && juiced -d) &
+pkill juiced; juiced -d &
 
 # background
-xsetroot -solid "#130F4B" &
+xsetroot -solid "#0C2730" &
 
 # set wallpaper for all window manager logins; can also use feh, nitrogen etc ..
-# fbsetbg -c -r "$HOME/wallpaper/" &
+fbsetbg -c -r "$HOME/wallpaper/" &
 

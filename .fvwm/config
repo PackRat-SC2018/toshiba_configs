@@ -7,7 +7,7 @@
 # (___)    \/    \/\/(_/\/\_) 3.0
 #
 #
-# fvwm3 configuration file created 08-25-2020
+# fvwm configuration file created 08-25-2020
 # by PackRat
 #
 ###########################################################
@@ -23,14 +23,19 @@ ImagePath $[FVWM_USERDIR]/icons:+/buttons:+/appicons
 # The following is used in various menus and also sets the terminal
 # that FvwmConsole uses. Change this to your terminal of choice
 
-InfoStoreAdd terminal lxterminal
+InfoStoreAdd terminal uxterm
 InfoStoreAdd browser firefox
 InfoStoreAdd mail thunderbird
 InfoStoreAdd filemgr thunar
 InfoStoreAdd editor subl3
-
+InfoStoreAdd screenlock i3lock-fancy
 InfoStoreAdd dmenucmd "dmenu_run -nb '#111111' -nf '#cccccc' -sb '#2b4e5e' -sf '#ffffff'"
 InfoStoreAdd roficmd "rofi -modi run,drun,window,combi -sidebar-mode -show run"
+
+## alsa
+InfoStoreAdd volumeup "amixer -q sset PCM 5%+ unmute"
+InfoStoreAdd volumedown "amixer -q sset PCM 5%- unmute"
+InfoStoreAdd mute "amixer set Master toggle -q"
 
 # Desktops and Pages
 #
@@ -46,8 +51,8 @@ InfoStoreAdd roficmd "rofi -modi run,drun,window,combi -sidebar-mode -show run"
 #
 DesktopName 0 1
 DesktopName 1 2
-DesktopName 2 3
-DesktopName 3 4
+#DesktopName 2 3
+#DesktopName 3 4
 
 DesktopSize 1x1
 # DesktopSize 3x3
@@ -69,7 +74,7 @@ Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 # EwmhBaseStruts [left] [right] [top] [bottom]
 # Reserves space along the edge(s) of the Screen that will not
 # be covered when maximizing or placing windows.
-EwmhBaseStruts 4 4 4 28
+EwmhBaseStruts 0 0 0 0
 
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -85,20 +90,21 @@ Style * ClickToFocus, MouseFocusClickRaises
 ColorMapFocus  FollowsMouse
 
 # Window Placement
-!Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
-Style * MinOverlapPlacement, GrabFocus, !UsePPosition
+Style * MinOverlapPlacement, !UsePPosition
+Style * FPGrabFocus, FPReleaseFocus.
+
+# Transient Windows (such as open file windows)
+Style * DecorateTransient, DontLowerTransient, StackTransientParent
+Style * FPGrabFocusTransient, OverrideGrabFocus
+Style * FPReleaseFocus, FPReleaseFocusTransient, FPOverrideReleaseFocus.
 
 # Sets all windows to OpaqueMove (vs a wired frame) and  windows will
 # snap to each other and the edge of the screen.
 OpaqueMoveSize unlimited
 Style * ResizeOpaque, SnapAttraction 5 SameType ScreenAll, SnapGrid
 
-# Transient Windows (such as open file windows)
-Style * DecorateTransient, DontLowerTransient, StackTransientParent
-Style * !FPGrabFocusTransient, FPReleaseFocusTransient
-
 # WindowShade
-Style * WindowShadeScrolls, WindowShadeSteps 10
+Style * WindowShadeScrolls, WindowShadeSteps 64
 
 # Ignore Numlock and other modifiers for bindings
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
@@ -113,12 +119,13 @@ IgnoreModifiers L25
 
 Read Colorsets
 
-Read DefaultDecor
+# Read DefaultDecor
 # other decor
 # Read MidnightDecor
 # Read VectorDecor
 # Read AmazonDecor
 # Read IslandDecor
+Read DarkDecor
 
 Read Styles
 Read Functions
@@ -142,30 +149,39 @@ AddToFunc   StartFunction
 + I Module FvwmEvent EventNewDesk
 # + I Module FvwmButtons DeskTopPanel
 
+# + I Module FvwmPager 0 3
+# + I Module FvwmPager *
+# + I Module FvwmIconMan TaskBarIcons
+
 # full taskbars
 # + I Module FvwmButtons FvwmAppBar
-+ I Module FvwmButtons FvwmSysbar
+# + I Module FvwmButtons FvwmTaskPanel
 
 # xosview
-+ I Test (Init) Exec exec xosview -captions -geometry 160x124+1432+2
-+ I Test (Restart) Exec exec xosview -captions -geometry 160x124+1432+2
+#+ I Test (Init) Exec exec xosview -captions -load -net -geometry 156x100+1436+2
+#+ I Test (Restart) Exec exec xosview -captions -load -net -geometry 156x100+1436+2
 
 # clock
-# + I Test (Init) Exec sleep 2; exec xclock -geom 100x100-0-0
-# + I Test (Restart) Exec exec xclock -geom 100x100-0-0
+#+ I Test (Init) Exec sleep 2; exec xclock -geom 100x100-0-0
+#+ I Test (Restart) Exec exec xclock -geom 100x100-0-0
 
-# + I Test (Init) Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -geom 144x32-728+4 -face xft:monospace:size=11 -padding 8
-# + I Test (Restart) Exec exec xclock -digital -strftime ' %a  %e %b  %R ' -geom 144x32-728+4 -face xft:monospace:size=11 -padding 8
+#+ I Test (Init) Exec exec xclock -digital -strftime '%a  %e %b  %R' -geom 156x24+722+2 -face monospace:pixelsize=11 -padding 3
+#+ I Test (Restart) Exec exec xclock -digital -strftime '%a  %e %b  %R' -geom 156x24+722+2 -face monospace:pixelsize=11 -padding 3
 
 # system tray ========================================
-# + I Test (Init) Exec sleep 2; exec stalonetray
-# + I Test (Restart) Exec exec stalonetray
+#+ I Test (Init) Exec sleep 2; exec stalonetray
+#+ I Test (Restart) Exec exec stalonetray
 
-# + I Test (Init) Exec sleep 3; "$HOME/bin/fvwm-bar.sh"
-# + I Test (Restart) Exec exec "$HOME/bin/fvwm-bar.sh"
+## polybar
+#+ I Test (Init) Exec sleep 2; "$HOME/bin/fvwm-bar.sh"
+#+ I Test (Restart) Exec exec "$HOME/bin/fvwm-bar.sh"
 
-# + I Test (Init) Exec exec "$HOME/bin/ConkyFvwm.sh"
-# + I Test (Restart) Exec exec "$HOME/bin/ConkyFvwm.sh"
+## tint2
++ I Test (Init) Exec sleep 2; "$HOME/bin/tint2-bar.sh"
++ I Test (Restart) Exec exec "$HOME/bin/tint2-bar.sh"
+
+#+ I Test (Init) Exec exec "$HOME/bin/ConkyFvwm.sh"
+#+ I Test (Restart) Exec exec "$HOME/bin/ConkyFvwm.sh"
 
 # + I Test (Init) Exec exec fbsetbg -c -r /mnt/public/images/dark
 

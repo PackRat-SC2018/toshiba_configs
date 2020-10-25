@@ -6,28 +6,33 @@ conky.config = {
 	net_avg_samples = 2,
 	no_buffers = true,
 	out_to_stderr = false,
-	update_interval = 1.0,
+	update_interval = 3.0,
 	uppercase = false,
 	use_spacer = 'none',
 
 };
 
 -- # JSON for i3bar #
+-- # { "full_text" : "Up:  ${uptime_short}  " , "color" : "\#CDCDCD" }, #
+-- # { "full_text" : "${loadavg}  " , "color" : "\#CDCDCD" }, #
+-- # { "full_text" : "${execpi 3 /home/doug/bin/cpu-temp.pl | cut -c1-7}  ", "color" : "\#CDCDCD" },
 
 conky.text = [[
 
 [
 
-	{ "full_text" : "Up:  ${uptime_short}  " , "color" : "\#CDCDCD" },
-	
-	{ "full_text" : "CPU:  ${cpu}%    ${loadavg}  " , "color" :
-		${if_match ${cpu}>=40}"\#FF2828"${else}"\#CDCDCD"${endif} },
-	
-	{ "full_text" : "MEM:  ${memperc}%  " , "color" :
-		${if_match ${memperc}>=40}"\#FF2828"${else}${if_match ${memperc}>=25}"\#E0DC8C"${else}"\#CDCDCD"${endif}${endif} },
+	{ "full_text" : "CPU:  ${cpu}%  " , "color" :
+		${if_match ${cpu}>=50}"\#FF2828"${else}${if_match ${cpu}>=25}"\#D9D921"${else}"\#CDCDCD"${endif}${endif} },
 
-	{ "full_text" : "NET (U/D):  ${upspeed enp2s0}    ${downspeed enp2s0}  " , "color" :
-		${if_match ${downspeedf enp2s0}<=500}"\#CDCDCD"${else}"\#00CCB1"${endif} },
+	{ "full_text" : "${exec cpu_temp.pl}  ", "color" : "\#CDCDCD" },
+
+	{ "full_text" : "MEM:  ${memperc}%  " , "color" :
+		${if_match ${memperc}>=40}"\#FF2828"${else}${if_match ${memperc}>=25}"\#D9D921"${else}"\#CDCDCD"${endif}${endif} },
+
+	{ "full_text" : "BAT0:  ${battery_percent BAT0}%  ", "color" :
+	    ${if_match ${battery_percent BAT0}<=15}"\#FF2828"${else}${if_match ${battery_percent BAT0}<=25}"\#D9D921"${else}"\#CDCDCD"${endif}${endif} },
+
+	{ "full_text" : "NET:  ${upspeed wlp1s0}    ${downspeed wlp1s0}  " , "color" : "\#CDCDCD" },
 
 	{ "full_text" : "${time %a %e %b  %k:%M}  " , "color" : "\#CDCDCD" }
 

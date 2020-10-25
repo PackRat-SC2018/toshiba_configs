@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+ 
+# autorun file for awesome, called in rc.lua
+ 
+function run {
+  if ! pgrep $1 ;
+  then
+    $@&
+  fi
+}
+
+# status bar
+pkill -x polybar &
+(sleep 1s && polybar graph-bar) &
+
+exit 0;

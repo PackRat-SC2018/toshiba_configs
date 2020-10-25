@@ -6,12 +6,12 @@ conky.config = {
 	use_xft = true,
 	font = 'Roboto Mono:regular:size=10',
 	xftalpha = 1.0,
-	update_interval = 3.0,
-	update_interval_on_battery = 10.0,
+	update_interval = 1.0,
+	update_interval_on_battery = 3.0,
 	total_run_times = 0,
 
 	own_window = true,
-	own_window_colour = '#111112',
+	own_window_colour = '#131313',
 	own_window_transparent = true,
 	-- own_window_type = 'normal/desktop/override/panel/dock'
     own_window_type = 'desktop',
@@ -27,14 +27,13 @@ conky.config = {
 -- may vary. Comment/uncomment to suit.
 --#############################################
 
-   -- -- compton/xfce transparency change own_window_transparent to false.
-   -- own_window_argb_visual = true,
-   -- own_window_argb_value = 180,
+ -- own_window_argb_visual = true,
+ --own_window_argb_value 2
 
 --#############################################
 
 	no_buffers = true,
-	uppercase = true,
+	uppercase = false,
 	cpu_avg_samples = 2,
 	override_utf8_locale = true,
 	short_units = true,
@@ -50,10 +49,10 @@ conky.config = {
 	draw_outline = false,
 	draw_borders = false,
 	draw_graph_borders = false,
-	border_inner_margin = 1,
-	border_outer_margin = 1,
+	border_inner_margin = 4,
+	border_outer_margin = 4,
 
-	-- default_color = 'FAFAFA',
+	-- default_color = '#B4B5AA',
 	default_color = '#DAC79C',
 	default_shade_color = '#090909',
 	default_outline_color = '#828282',
@@ -64,29 +63,27 @@ conky.config = {
 	color4 = '#0000FF',-- - blue
 	color5 = '#00FF00',-- - green
 	color6 = '#FFA500',-- - orange
+	-- color7 = '#00CDCD',-- - cyan3
 	color7 = '#DAC79C',
-	-- color7 = '#F3F3FF', -- - match default
 	color8 = '#FFD700',-- - gold
 	color9 = '#F00F16',-- - reddish
 
-	minimum_width = 176, minimum_height = 0,
-	maximum_width = 176,
-	alignment = 'br',
-	gap_x = 8,
-	gap_y = 40,
+	minimum_width = 144, minimum_height = 0,
+	maximum_width = 144,
+	alignment = 'top_right',
+	gap_x = 24,
+	gap_y = 8,
 
--- -- doesn't work when docked in the slit or as panel --#
-	 -- lua_load = '~/conky/transbg.lua',
-	 -- lua_draw_hook_pre = 'draw_bg 6 0 0 0 0 0x111112 0.72',
+-- -- doesn't seem to work when docked in the slit --#
+-- lua_load = '~/conky/transbg.lua',
+-- lua_draw_hook_pre = 'draw_bg 8 0 0 0 0 0x000000 0.15',
 
-	-- ${voffset 4}${battery_bar 4,116 BAT0}
-	-- CPU:${goto 64}${cpu cpu0}%${goto 116}Mem:${alignr 8}${memperc}%
 };
 
 conky.text = [[
-${voffset 6}CPU:${goto 60}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}
-${voffset 6}Mem:${goto 60}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
-${voffset 6}UP:${goto 60}${uptime_short}
-${voffset 6}Batt:${goto 60}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${alignr 8}${if_match ${battery_percent BAT0}<=15}${color9}${battery_percent BAT0}%${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
-${voffset 6}NET:${goto 60}${wireless_bitrate wlp1s0}${alignr 8}${wireless_link_qual_perc wlp1s0}%${voffset 6}
+${font Roboto Mono:regular:size=14}${alignc}${time %R}${font}
+${alignc}${time %a %e %b}
+${voffset 15}Mem:${alignr 4}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}
+${voffset 5}CPU:${alignr 4}${if_match ${cpu}<=50}${color7}${else}${if_match ${cpu}<=70}${color8}${else}${if_match ${cpu}>70}${color9}${endif}${endif}${endif}${cpu cpu0}%${color}
+${voffset 5}BAT:${goto 72}${execpi 60 acpi -b | awk '/Battery 0/ {print $3}' | cut -c1-4}${alignr 4}${if_match ${battery_percent BAT0}<=15}${color9}${blink ${battery_percent BAT0}%}${color}${else}${if_match ${battery_percent BAT0}<=33}${color8}${battery_percent BAT0}%${else}${if_match ${battery_percent BAT0}>33}${color7}${battery_percent BAT0}%${endif}${endif}${endif}${color}
 ]];

@@ -1,0 +1,36 @@
+DestroyFunc NodecorBottomLeft
+AddToFunc NodecorBottomLeft
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow Schedule 10 Move +0 -0
+
+DestroyFunc NodecorBottomRight
+AddToFunc NodecorBottomRight
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow Schedule 10 Move -0 -0
+# + I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
+
+DestroyFunc NodecorUpperLeft
+AddToFunc NodecorUpperLeft
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow Schedule 10 Move +0 +0
+
+DestroyFunc NodecorUpperRight
+AddToFunc NodecorUpperRight
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow Schedule 10 Move -0 +0
+
+DestroyFunc NodecorMaxLeft
+AddToFunc NodecorMaxLeft
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
++ I ThisWindow Schedule 20 Move +0 +0
+
+DestroyFunc NodecorMaxRight
+AddToFunc NodecorMaxRight
++ I ToggleTitle
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
++ I ThisWindow Schedule 20 Move -0 +0

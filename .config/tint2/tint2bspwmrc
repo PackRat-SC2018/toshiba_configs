@@ -1,0 +1,382 @@
+#========================================================================================#
+#
+# tint2 configuration -- https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md
+# created 03-03-2020
+# by PackRat
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details see <http://www.gnu.org/licenses/>.
+#
+#========================================================================================#
+
+# Backgrounds and gradients
+
+# Background 1 - panel
+rounded = 0
+border_width = 1
+border_sides = T
+border_color = #111111 100
+border_color_hover = #111111 100
+border_color_pressed = #111111 100
+background_color = #141414 100
+background_color_hover = #141414 100
+background_color_pressed = #141414 100
+# Color mixing values must be between 0 (no mixing) and 100 (fully replaces the color)
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+
+# Background 2 - button, taskbar, systemtray, battery
+rounded = 0
+border_width = 1
+border_sides = R
+border_color = #282828 55
+border_color_hover = #282828 55
+border_color_pressed = #282828 55
+background_color = #141414 100
+background_color_hover = #141414 100
+background_color_pressed = #141414 100
+border_color_pressed = #313842 100
+# Color mixing values must be between 0 (no mixing) and 100 (fully replaces the color)
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+
+# Background 3 - active taskbar
+rounded = 0
+border_width = 0
+border_sides = LRTB
+border_color = #22272E 100
+border_color_hover = #22272E 100
+border_color_pressed = #22272E 100
+background_color = #26292E 100
+background_color_hover = #26292E 100
+background_color_pressed = #26292E 100
+# Color mixing values must be between 0 (no mixing) and 100 (fully replaces the color)
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+
+# Background 4 - urgent tasks
+rounded = 0
+border_width = 1
+#border_sides = T  #LRTB
+border_color = #C12A2A 100
+border_color_hover = #C12A2A 100
+border_color_pressed = #C12A2A 100
+background_color = #C12A2A 100
+background_color_hover = #C12A2A 100
+background_color_pressed = #C12A2A 100
+border_color_pressed = #C12A2A 100
+# Color mixing values must be between 0 (no mixing) and 100 (fully replaces the color)
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+
+# Background 5 - tooltips
+rounded = 0
+border_width = 1
+border_sides = T  #LRTB
+border_color = #111111 100
+border_color_hover = #111111 100
+border_color_pressed = #111111 100
+background_color = #E2DDCD 100
+background_color_hover = #E2DDCD 100
+background_color_pressed = #E2DDCD 100
+border_color_pressed = #E2DDCD 100
+# Color mixing values must be between 0 (no mixing) and 100 (fully replaces the color)
+border_content_tint_weight = 0
+background_content_tint_weight = 0
+
+# Previous desktop
+button = new
+button_icon = ~/.local/share/icons/go-prev.png
+button_text = 
+button_tooltip = 
+button_font = Roboto Regular 8
+button_font_color = #888888 100
+button_background_id = 0
+button_centered = 0
+button_padding = 0 0 0
+button_max_icon_size = 32
+button_lclick_command = xdotool key ctrl+alt+Left
+# button_mclick_command = 
+button_rclick_command = xdotool key ctrl+alt+Left
+#button_uwheel_command =
+#button_dwheel_command = 
+
+# Push Buttons for launching applications
+button = new
+button_icon = ~/.local/share/icons/void-small.png
+# button_text = Menu
+button_tooltip = 
+button_font = Roboto Regular 11
+button_font_color = #8888888 100
+button_background_id = 0
+button_centered = 0
+button_padding = 0 0 0
+button_max_icon_size = 32
+button_lclick_command = jgmenu_run
+# button_mclick_command = 
+button_rclick_command = jgmenu_run
+#button_uwheel_command =
+#button_dwheel_command = 
+
+# next desktop
+button = new
+button_icon = ~/.local/share/icons/go-next.png
+button_text = 
+button_tooltip = 
+button_font = Roboto Regular 8
+button_font_color = #888888 100
+button_background_id = 0
+button_centered = 0
+button_padding = 0 0 0
+button_max_icon_size = 32
+button_lclick_command = xdotool key ctrl+alt+Right
+# button_mclick_command = 
+button_rclick_command = xdotool key ctrl+alt+Right
+#button_uwheel_command =
+#button_dwheel_command = 
+
+# Panel
+
+# L shows the Launcher
+# T shows the Taskbar
+# S shows the Systray (also called notification area)
+# B shows the Battery status
+# C shows the Clock
+# F adds an extensible spacer (freespace). You can specify more than one. Has no effect if T is also present. (since 0.12)
+# E adds an executor plugin. You can specify more than one. (since 0.12.4)
+# P adds a push button. You can specify more than one. (since 0.14)
+# : adds a separator. You can specify more than one. (since 0.13.0)
+
+# panel_items = PPP:TSEEB:C
+panel_items = PPPFE:E:E:BFSC
+panel_window_name = tint2_panel
+panel_monitor = all
+primary_monitor_first = 0
+panel_position = top left horizontal
+panel_size = 0 24
+# scale_relative_to_dpi = 
+# scale_relative_to_screen_height = 
+panel_shrink = 0
+panel_margin = 0 0
+panel_padding = 0 0 0
+font_shadow = 0
+panel_background_id = 1
+wm_menu = 0
+panel_dock = 0
+panel_layer = normal
+strut_policy = follow_size
+# panel_pivot_struts = 0
+disable_transparency = 1
+mouse_effects = 1
+# mouse_hover_icon_asb = alpha (0 to 100) saturation (-100 to 100) brightness (-100 to 100)
+# mouse_pressed_icon_asb = alpha (0 to 100) saturation (-100 to 100) brightness (-100 to 100)
+autohide = boolean 0
+autohide_show_timeout = 0.7
+autohide_hide_timeout = 1.5
+autohide_height = 2
+
+# Taskbar
+taskbar_mode = multi_desktop
+taskbar_hide_if_empty = 0
+taskbar_distribute_size = 0
+taskbar_padding = 1 1 6
+taskbar_background_id = 2
+taskbar_active_background_id = 3
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_sort_order = none
+task_align = left
+taskbar_name = 0
+taskbar_name_padding = 4
+taskbar_name_background_id = 0
+taskbar_name_font = Roboto Regular 11
+taskbar_name_font_color = #DDDDDD 100
+taskbar_name_active_background_id = 0
+taskbar_name_active_font_color = #FF00FF
+
+task_background_id = 0
+task_active_background_id = 0
+task_iconified_background_id = 0
+task_urgent_background_id = 4
+task_icon = 1
+task_text = 0
+task_centered = 0
+task_maximum_size = 28
+task_tooltip = 1
+task_thumbnail = 0
+task_thumbnail_size = 64
+task_padding = 4 1 8
+urgent_nb_of_blink = 10
+task_font = Roboto Regular 10
+task_font_color = #DDDDDD 100
+task_active_font_color = #DDDDDD 100
+task_iconified_font_color = #797979 100
+task_icon_asb = 100 0 0
+task_active_icon_asb = 100 0 0
+task_urgent_icon_asb = 100 0 0
+task_iconified_icon_asb = 70 0 0
+
+# systemtray
+systray_padding = 4 1 4
+systray_background_id = 0
+systray_sort = right2left
+systray_icon_size = 18
+systray_icon_asb = 100 0 0
+systray_monitor = primary
+#systray_name_filter = string
+
+# Battery
+battery_hide = never
+battery_low_status = 10
+battery_low_cmd = notify-send "Battery Low <10%"
+battery_full_cmd = notify-send "Battery Full"
+bat1_font = Roboto Mono Regular 9
+#bat2_font = Roboto Regular 9
+# battery_font_color = #AAAAAA 100
+# battery_font_color = #CC8029 100
+battery_font_color = #bfbfbf 100
+bat1_format = BAT: %p
+#bat2_format = %s
+#
+#%s: State (charging, discharging, full, unknown).
+#%m: Minutes left until completely charged/discharged (estimated).
+#%h: Hours left until completely charged/discharged (estimated).
+#%t: Time left. Shows "hrs:mins" when charging/discharging, or "Ful" when full.
+#%p: Percentage. Includes the % sign.
+#%P: Percentage. Without the % sign.
+#
+battery_padding = 2 0
+battery_background_id = 0
+battery_tooltip_enabled = 1
+ac_connected_cmd = notify-send "AC Connected"
+ac_disconnected_cmd = notify-send "AC Disconnected"
+#battery_lclick_command = text
+#battery_rclick_command = text
+#battery_mclick_command = text
+#battery_uwheel_command = text
+#battery_dwheel_command = text
+
+# Clock
+time1_format = %k:%M
+time1_timezone = :US/Eastern
+time1_font = Roboto Mono Regular 9
+# time2_format = %A %d %B
+# time2_timezone = :Europe/Berlin
+# time2_font = [FAMILY-LIST] [STYLE-OPTIONS] [SIZE]
+clock_font_color = #bfbfbf 100
+clock_padding = 8 0
+clock_background_id = 0
+clock_tooltip = %x %R
+#clock_tooltip_timezone = :UTC
+clock_tooltip_timezone =:US/Eastern
+clock_rclick_command = yad --class="fbox_cal" --title="Fbox_Calendar" --width 320 --calendar --text ""
+#clock_lclick_command =
+#clock_mclick_command =
+#clock_uwheel_command = text : Command to execute on wheel scroll up. (since 0.12.1)
+#clock_dwheel_command = text : Command to execute on wheel scroll down. (since 0.12.1)
+
+# Mouse
+mouse_left = toggle_iconify
+mouse_middle = maximize_restore
+mouse_right = close
+#mouse_scroll_up = toggle
+#mouse_scroll_down = iconify
+
+# Tooltips
+tooltip_padding = 4 1
+tooltip_show_timeout = 0.8
+tooltip_hide_timeout = 0.3
+tooltip_background_id = 5
+tooltip_font = Roboto Regular 9
+tooltip_font_color = #131313 100
+
+# separators
+separator = new
+separator_background_id = 0
+separator_color = #282828 0
+# separator_style = [empty | line | dots]
+separator_style = line
+separator_size = 1
+separator_padding = 16 0
+
+# separators
+separator = new
+separator_background_id = 0
+separator_color = #282828 0
+# separator_style = [empty | line | dots]
+separator_style = line
+separator_size = 1
+separator_padding = 16 0
+
+# separators
+separator = new
+separator_background_id = 0
+separator_color = #282828 0
+# separator_style = [empty | line | dots]
+separator_style = line
+separator_size = 1
+separator_padding = 16 0
+
+execp = new
+execp_command = xprop -root -spy | awk '/^_NET_CURRENT_DESKTOP/ { print "WS " ($3 + 1) ; fflush(); }'
+execp_interval = 1
+execp_continuous = 1
+execp_font = Roboto Mono Regular 10
+execp_font_color = #bfbfbf 100
+execp_markup = 0
+execp_background_id = 0
+execp_centered = 1
+execp_padding = 2 0 0
+
+# Executor
+execp = new
+execp_command = psuinfo -Cukca -N -S4
+execp_interval = 3
+execp_continuous = 0
+execp_has_icon = 0
+execp_cache_icon = 0
+execp_icon_w = 0
+execp_icon_h = 0
+execp_tooltip =
+execp_font = Roboto Mono Regular 10
+execp_font_color = #bfbfbf 100
+execp_markup = 0
+execp_background_id = 0
+execp_centered = 1
+execp_padding = 2 0 0
+#execp_lclick_command = 
+#execp_mclick_command = 
+#execp_rclick_command = 
+#execp_uwheel_command = 
+#execp_dwheel_command =
+
+# Executor
+execp = new
+execp_command = cpu-temp.pl
+execp_interval = 3
+execp_continuous = 0
+execp_has_icon = 0
+execp_cache_icon = 0
+execp_icon_w = 0
+execp_icon_h = 0
+execp_tooltip =
+execp_font = Roboto Mono Regular 10
+execp_font_color = #bfbfbf 100
+execp_markup = 0
+execp_background_id = 0
+execp_centered = 1
+execp_padding = 2 0 0
+#execp_lclick_command = 
+#execp_mclick_command = 
+#execp_rclick_command = 
+#execp_uwheel_command = 
+#execp_dwheel_command =

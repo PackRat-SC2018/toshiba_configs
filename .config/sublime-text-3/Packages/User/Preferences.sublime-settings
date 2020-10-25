@@ -1,10 +1,10 @@
 // Settings in here override those in "Default/Preferences.sublime-settings",
 // and are overridden in turn by syntax-specific settings.
 {
-    "font_face": "Fira Code",
-    "font_size": 11,
+    "font_face": "Roboto Mono",
+    "font_size": 10,
 
-	"word_wrap": "false",
+    "word_wrap": "auto",
+    "wrap_width": 320,
 
-	"wrap_width": 256,   	
 }

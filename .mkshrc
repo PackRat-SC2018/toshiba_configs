@@ -629,7 +629,12 @@ done
 
 \\builtin unset p
 
-source ~/.bash_aliases
-source ~/.shell_aliases
+if [ -f $HOME/.bash_aliases ] ; then
+. $HOME/.bash_aliases
+fi
+
+if [ -f $HOME/.shell_aliases ] ; then
+. $HOME/.shell_aliases
+fi
 
 \: place customisations above this line

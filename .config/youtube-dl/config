@@ -1,0 +1,11 @@
+# youtube-dl config options
+#
+
+# Do not copy the mtime
+--no-mtime
+
+# restrict filenames
+--restrict-filenames
+
+# save to /mnt/public/videos
+-o /mnt/public/video/%(title)s.%(ext)s

@@ -13,7 +13,7 @@ DestroyDecor DefaultDecor
 AddToDecor   DefaultDecor
 
 TitleStyle Centered Height 20 -- Raised
-Style "*" BorderWidth 7, HandleWidth 7, MWMButtons, MwmBorder, FirmBorder, MWMFunctions, MWMDecor
+Style "*" BorderWidth 3, HandleWidth 3, MWMButtons, MwmBorder, FirmBorder, MWMFunctions, MWMDecor
 BorderStyle -- HiddenHandles
 
 # Default Font

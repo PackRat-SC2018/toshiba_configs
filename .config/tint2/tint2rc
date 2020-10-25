@@ -93,14 +93,14 @@ background_content_tint_weight = 0
 
 # Previous desktop
 button = new
-button_icon = /home/doug/.icons/prev-desk.svg
+button_icon = ~/.local/share/icons/go-prev.png
 button_text = 
 button_tooltip = 
 button_font = Roboto Regular 8
 button_font_color = #888888 100
 button_background_id = 0
 button_centered = 0
-button_padding = 1 1 1
+button_padding = 0 0 0
 button_max_icon_size = 32
 button_lclick_command = xdotool key ctrl+alt+Left
 # button_mclick_command = 
@@ -110,14 +110,14 @@ button_rclick_command = xdotool key ctrl+alt+Left
 
 # Push Buttons for launching applications
 button = new
-button_icon = /home/doug/.icons/void-159.png
+button_icon = ~/.local/share/icons/void-small.png
 # button_text = Menu
 button_tooltip = 
 button_font = Roboto Regular 11
-button_font_color = #888888 100
+button_font_color = #8888888 100
 button_background_id = 0
 button_centered = 0
-button_padding = 2 1 1
+button_padding = 0 0 0
 button_max_icon_size = 32
 button_lclick_command = jgmenu_run
 # button_mclick_command = 
@@ -127,14 +127,14 @@ button_rclick_command = jgmenu_run
 
 # next desktop
 button = new
-button_icon = /home/doug/.icons/next-desk.svg
+button_icon = ~/.local/share/icons/go-next.png
 button_text = 
 button_tooltip = 
 button_font = Roboto Regular 8
 button_font_color = #888888 100
 button_background_id = 0
 button_centered = 0
-button_padding = 1 1 1
+button_padding = 0 0 0
 button_max_icon_size = 32
 button_lclick_command = xdotool key ctrl+alt+Right
 # button_mclick_command = 
@@ -154,8 +154,8 @@ button_rclick_command = xdotool key ctrl+alt+Right
 # P adds a push button. You can specify more than one. (since 0.14)
 # : adds a separator. You can specify more than one. (since 0.13.0)
 
-# panel_items = PPP:TEEB:SC
-panel_items = PPP:TSBC
+panel_items = PPP:TSEEB:C
+# panel_items = PPP:TSBC
 panel_window_name = tint2_panel
 panel_monitor = all
 primary_monitor_first = 0
@@ -241,6 +241,7 @@ battery_low_cmd = notify-send "Battery Low <10%"
 battery_full_cmd = notify-send "Battery Full"
 bat1_font = Roboto Mono Regular 10
 #bat2_font = Roboto Regular 9
+# battery_font_color = #AAAAAA 100
 # battery_font_color = #CC8029 100
 battery_font_color = #636663 100
 bat1_format = BAT: %p
@@ -271,7 +272,7 @@ time1_font = Roboto Mono Regular 10
 # time2_format = %A %d %B
 # time2_timezone = :Europe/Berlin
 # time2_font = [FAMILY-LIST] [STYLE-OPTIONS] [SIZE]
-clock_font_color = #AAAAAA 100
+clock_font_color = #DADBDE 100
 clock_padding = 12 1
 clock_background_id = 0
 clock_tooltip = %x %R

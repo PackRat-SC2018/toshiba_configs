@@ -36,7 +36,7 @@ pkill polybar &
 # (slep 2s && graph-bar.sh) &
 # (sleep 2s && fluxbox-bar.sh) &
 
-# tint2 &
+# pkill tint2 ; tint2 &
 # tint2 -c $HOME/.config/tint2/tint2fluxboxrc &
 
 # And last but not least we start fluxbox.

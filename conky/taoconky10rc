@@ -5,19 +5,19 @@ conky.config = {
 	background = true,
 --font terminus-10
 	use_xft = true,
-	font = 'Source Sans Pro:Regular:size=11',
+	font = 'Paprika:Regular:size=9',
 	xftalpha = 1.0,
-	update_interval = 1,
-	-- update_interval_on_battery = 600.0,
+	update_interval = 60.0,
+	update_interval_on_battery = 600.0,
 	total_run_times = 0,
-	own_window = true,
+	own_window = false,
 	own_window_type = 'desktop',
 	own_window_colour = '#0F0F0F',
 	own_window_transparent = true,
 	own_window_hints = undecorated,below,sticky,skip_taskbar,skip_pager,
 	-- own_window_hints = 'sticky,skip_taskbar,skip_pager',
-	own_window_class = 'ConkyTao',
-	own_window_title = 'ConkyTao',
+	own_window_class = 'Conky',
+	own_window_title = 'Conky',
 --#############################################
 -- Compositing tips:
 -- Conky can play strangely when used with
@@ -47,8 +47,8 @@ conky.config = {
 	draw_borders = false,
 	draw_graph_borders = false,
 	-- default_color = '#030303',
-	default_color = '#F7F7F7',
-	-- default_color = '#D1BF64',
+	-- default_color = '#EAEAEA',
+	default_color = '#DAC79C',
 	default_shade_color = '#010101',
 	default_outline_color = '#828282',
 	alignment = 'bottom_left',
@@ -69,10 +69,8 @@ conky.config = {
 	border_inner_margin = 1,
 	border_outer_margin = 1,
 
-	lua_load = '$HOME/conky/lua_wide.lua',
-
 };
 
 conky.text = [[
-${voffset 12}${lua_parse tao {6,0,0,0,0,0x131313,0.00,"Paprika",9,"Regular","$HOME/bin/taoread.sh",60,1200}}
+${voffset 4}${execpi 1800 "$HOME/bin/taoread.sh"}
 ]];
