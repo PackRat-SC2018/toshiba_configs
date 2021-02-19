@@ -91,7 +91,7 @@ Key KP_0    A    S4    FvwmCenterWindow
 
 # Applications
 #
-Key Return    A    4    Exec exec xfce4-terminal
+Key Return    A    4    Exec exec st
 Key Return    A    S4   Exec exec kitty
 Key p         A    4    Exec exec $[infostore.dmenucmd]
 Key Delete    A    S4   Exec exec $[infostore.screenlock]
@@ -104,7 +104,7 @@ Key	g    A    C4    Exec exec gimp
 Key	p    A    C4    Exec exec libreoffice --calc
 Key	o    A    C4    Exec exec libreoffice --writer
 Key	b    A    C4    Exec exec "$HOME/bin/ConkyTao.sh"
-Key Print    A    C4    Exec exec "$HOME/bin/scrnshot"
+Key Print    A    C4    Exec exec `maim -u -d 5 ~/Pictures/$(date +%F_%s).png`
 Key Print    A    C     Exec exec `maim -u | xclip -selection clipboard -t image/png`
 Key	Pause    A    C4    Exec exec "$HOME/bin/ConkyFvwm.sh"
 
@@ -117,9 +117,13 @@ Key	XF86AudioLowerVolume    A    A    Exec exec $[infostore.volumedown]
 #Key	XF86AudioRaiseVolume    A    A    Exec exec pamixer -i 2
 #Key	XF86AudioLowerVolume    A    A    Exec exec pamixer -d 2
 
-Key XF86AudioPlay    A    A    Exec exec mocp -G
-Key XF86AudioPrev    A    A    Exec exec mocp -r
-Key XF86AudioNext    A    A    Exec exec mocp -f
+Key XF86AudioPlay    A    A    Exec exec deadbeef --toggle-pause
+Key XF86AudioPrev    A    A    Exec exec deadbeef --prev
+Key XF86AudioNext    A    A    Exec exec deadbeef --next
+
+Key XF86AudioNext    A    4    Exec exec mocp --next
+Key XF86AudioPrev    A    4    Exec exec mocp --previous
+Key XF86AudioPlay    A    4    Exec exec mocp --toggle-pause
 
 #Key XF86MonBrightnessDown    A    A    Exec xbacklight -dec 5
 #Key XF86MonBrightnessDown    A    M    Exec xbacklight -dec 10

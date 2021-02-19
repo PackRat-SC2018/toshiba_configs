@@ -62,7 +62,7 @@ URxvt.cutchars:          "'*,<>[]{}|-_@:/()│"
 
 URxvt*transparent:       false
 URxvt*depth:             32
-URxvt.background:        [95]#121314
+URxvt.background:        [96]#121314
 URxvt*fading:            55
 URxvt*highlightColor:    #D1C384
 URxvt*highlightTextColor:  #0D0D0D
@@ -72,8 +72,8 @@ URxvt*highlightTextColor:  #0D0D0D
 !*antialias:              true
 !*autohint:               true
 
-URxvt.font:              xft:Roboto Mono:Regular:size=10:antialias=true:autohint=true
-URxvt.boldFont:          xft:Roboto Mono:Regular:size=10:antialias=true:autohint=true
+URxvt.font:              xft:Fira Code:Regular:size=10:antialias=true:autohint=true
+URxvt.boldFont:          xft:Fira Code:Regular:size=10:antialias=true:autohint=true
 URxvt.letterSpace: 1
 
 URxvt.perl-ext-common: default,matcher
@@ -88,38 +88,62 @@ URxvt.tabbed.tab-fg:    7
 URxvt.tabbed.tab-bg:    0
 
 ! XTerminals ------------------------------------------------------------
-UXterm*termName:          xterm-256color
-UXTerm*geometry:          96x32
-!UXTerm*font:             -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-!UXTerm*boldFont:         -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-1
-UXTerm*faceName:          xft:DejaVu Markup:Book:size=10:antialias=true:autohint=true
-!UXTerm*faceName:          xft:roboto mono:style=regular:size=11:antialias=true:autohint=true
-UXTerm*utf8:              1
-!UXTerm*background:       #101012
-!UXTerm*foreground:       #E5E5E5
-!UXTerm*cursorColor:      #E5E5E5
-UXTerm*scrollBar:         false
-UXTerm*rightScrollBar:    false
 
-XTerm*termName:           xterm-256color
-XTerm*geometry:           96x32
-!XTerm*background:        #101012
-!XTerm*foreground:        #E5E5E5
-!XTerm*cursorColor:       #E5E5E5
-!XTerm*font:               -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
-!XTerm*boldFont:           -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
-XTerm*faceName:           xft:DejaVu Markup:Book:size=10:antialias=true:autohint=true
-! --- spleen font
-!xterm*faceName: spleen:pixelsize=8:antialias=false
-!xterm*faceName: spleen:pixelsize=12:antialias=false
-!xterm*faceName: spleen:pixelsize=16:antialias=false
-!xterm*faceName: spleen:pixelsize=24:antialias=false
-!xterm*faceName: spleen:pixelsize=32:antialias=false
-!xterm*faceName: spleen:pixelsize=64:antialias=false
-! -----
-XTerm*utf8:               1
-XTerm*scrollBar:          false
-XTerm*rightScrollBar:     false
+UXTerm.termName: UXTerm-256color
+!UXTerm.vt100..locale: true
+UXTerm.vt100..locale: false
+UXTerm.vt100..utf8: true
+UXTerm.vt100.saveLines: 4096
+UXTerm.vt100.scrollBar:          false
+UXTerm.vt100.rightScrollBar:     false
+UXTerm.vt100.geometry:           96x32
+!UXTerm.vt100.background:        #101012
+!UXTerm.vt100.foreground:        #E5E5E5
+!UXTerm.vt100.cursorColor:       #E5E5E5
+!UXTerm.vt100.font:               -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+!UXTerm.vt100.boldFont:           -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+UXTerm.vt100.faceName:           xft:DejaVu Markup:size=10:antialias=true:autohint=true
+!UXTerm.vt100.faceName:          xft:Fira Code:style=regular:size=10:antialias=true:autohint=true
+
+UXTerm.vt100.metaSendsEscape: true
+UXTerm.vt100.backarrowKey: false
+UXTerm.ttyModes: erase ^?
+
+UXTerm.vt100.translations: #override \n\
+    Ctrl <Key>M: maximize() \n\
+    Ctrl <Key>R: restore()
+
+UXTerm*VT100.Translations: #override \
+     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+     Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+
+XTerm.termName: xterm-256color
+!XTerm.vt100..locale: true
+XTerm.vt100..locale: false
+XTerm.vt100..utf8: true
+XTerm.vt100.saveLines: 4096
+XTerm.vt100.scrollBar:          false
+XTerm.vt100.rightScrollBar:     false
+XTerm.vt100.geometry:           96x32
+!XTerm.vt100.background:        #101012
+!XTerm.vt100.foreground:        #E5E5E5
+!XTerm.vt100.cursorColor:       #E5E5E5
+!XTerm.vt100.font:               -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+!XTerm.vt100.boldFont:           -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso8859-1
+XTerm.vt100.faceName:           xft:DejaVu Markup:Book:size=10:antialias=true:autohint=true
+!XTerm.vt100.faceName:          xft:Fira Code:style=regular:size=10:antialias=true:autohint=true
+
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+
+XTerm.vt100.translations: #override \n\
+    Ctrl <Key>M: maximize() \n\
+    Ctrl <Key>R: restore()
+
+XTerm*VT100.Translations: #override \
+     Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+     Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
 
 ! X-11 Apps------------------------------------------------------------------
 xpdf*Background:    #CFC6BE
@@ -300,3 +324,4 @@ XClock*minuteColor: #BBBBBB
 XClock*secondColor: #5C7EA1
 XClock*majorColor: #AAAAAA
 XClock*minorColor: #AAAAAA
+

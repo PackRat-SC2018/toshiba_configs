@@ -13,4 +13,5 @@ conky.config = {
 };
 
 conky.text = [[
-Uptime: ${uptime_short}  |  CPU%: ${cpu cpu0}%  ${loadavg}  |  Mem: ${memperc}%  | Net: Down - ${downspeedf enp2s0} kb/s  Up - ${upspeedf enp2s0} kb/s ]];
+Uptime: ${uptime_short}  CPU%: ${cpu cpu0}% ${loadavg}  Mem: ${memperc}%  BAT0: ${battery_percent BAT0}%  Net: ${upspeedf wlp1s0} kb/s ${downspeedf wlp1s0} kb/s
+]];

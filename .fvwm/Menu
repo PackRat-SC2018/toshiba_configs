@@ -6,7 +6,7 @@ MenuStyle * MenuColorset 22, ActiveColorset 25, GreyedColorset 19, TitleColorset
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+MenuStyle * Font "xft:Fira Sans:Regular:size=10:antialias=True:hintstyle=slight"
 MenuStyle * VerticalItemSpacing 4 4 , VerticalTitleSpacing 4 4, VerticalMargins 1 1
 MenuStyle * Animation, AutomaticHotkeysOff, DoubleClickTime
 MenuStyle * BorderWidth 1, SidePic, SideColor

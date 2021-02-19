@@ -24,6 +24,7 @@ ImagePath $[FVWM_USERDIR]/icons:+/buttons:+/appicons
 # that FvwmConsole uses. Change this to your terminal of choice
 
 InfoStoreAdd terminal uxterm
+InfoStoreAdd xterminal uxterm
 InfoStoreAdd browser firefox
 InfoStoreAdd mail thunderbird
 InfoStoreAdd filemgr thunar
@@ -51,8 +52,8 @@ InfoStoreAdd mute "amixer set Master toggle -q"
 #
 DesktopName 0 1
 DesktopName 1 2
-#DesktopName 2 3
-#DesktopName 3 4
+DesktopName 2 3
+DesktopName 3 4
 
 DesktopSize 1x1
 # DesktopSize 3x3
@@ -74,7 +75,7 @@ Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 # EwmhBaseStruts [left] [right] [top] [bottom]
 # Reserves space along the edge(s) of the Screen that will not
 # be covered when maximizing or placing windows.
-EwmhBaseStruts 0 0 0 0
+EwmhBaseStruts 0 0 0 28
 
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -110,6 +111,8 @@ Style * WindowShadeScrolls, WindowShadeSteps 64
 # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
 IgnoreModifiers L25
 
+DefaultFont "Shadow=0 0 SE:xft:Sans:Regular:size=9:antialias=True:hintstyle=slight"
+
 
 ##################################
 #
@@ -124,8 +127,8 @@ Read Colorsets
 # Read MidnightDecor
 # Read VectorDecor
 # Read AmazonDecor
-# Read IslandDecor
-Read DarkDecor
+Read IslandDecor
+# Read DarkDecor
 
 Read Styles
 Read Functions
@@ -147,7 +150,7 @@ AddToFunc   StartFunction
 
 # pagers and dekstop id
 + I Module FvwmEvent EventNewDesk
-# + I Module FvwmButtons DeskTopPanel
+#+ I Module FvwmButtons DeskTopIdent
 
 # + I Module FvwmPager 0 3
 # + I Module FvwmPager *
@@ -155,7 +158,7 @@ AddToFunc   StartFunction
 
 # full taskbars
 # + I Module FvwmButtons FvwmAppBar
-# + I Module FvwmButtons FvwmTaskPanel
++ I Module FvwmButtons FvwmTaskPanel
 
 # xosview
 #+ I Test (Init) Exec exec xosview -captions -load -net -geometry 156x100+1436+2
@@ -169,19 +172,19 @@ AddToFunc   StartFunction
 #+ I Test (Restart) Exec exec xclock -digital -strftime '%a  %e %b  %R' -geom 156x24+722+2 -face monospace:pixelsize=11 -padding 3
 
 # system tray ========================================
-#+ I Test (Init) Exec sleep 2; exec stalonetray
+#+ I Test (Init) Exec exec stalonetray
 #+ I Test (Restart) Exec exec stalonetray
 
 ## polybar
-#+ I Test (Init) Exec sleep 2; "$HOME/bin/fvwm-bar.sh"
-#+ I Test (Restart) Exec exec "$HOME/bin/fvwm-bar.sh"
+#+ I Test (Init) Exec sleep 2; "$HOME/bin/graph-bar.sh"
+#+ I Test (Restart) Exec exec "$HOME/bin/graph-bar.sh"
 
 ## tint2
-+ I Test (Init) Exec sleep 2; "$HOME/bin/tint2-bar.sh"
-+ I Test (Restart) Exec exec "$HOME/bin/tint2-bar.sh"
+# + I Test (Init) Exec sleep 2; "$HOME/bin/tint2-bar.sh"
+# + I Test (Restart) Exec exec "$HOME/bin/tint2-bar.sh"
 
-#+ I Test (Init) Exec exec "$HOME/bin/ConkyFvwm.sh"
-#+ I Test (Restart) Exec exec "$HOME/bin/ConkyFvwm.sh"
++ I Test (Init) Exec exec "$HOME/bin/ConkyFvwm.sh"
++ I Test (Restart) Exec exec "$HOME/bin/ConkyFvwm.sh"
 
 # + I Test (Init) Exec exec fbsetbg -c -r /mnt/public/images/dark
 

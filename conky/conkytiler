@@ -72,15 +72,9 @@ conky.config = {
 
 	minimum_width = 400, minimum_height = 0,
 	maximum_width = 400,
-	alignment = 'top_right',
-	gap_x = 8,
-	gap_y = 16,
-
--- -- doesn't seem to work when docked in the slit --#
-	lua_load = '~/conky/transbg.lua',
-	lua_draw_hook_pre = 'draw_bg 0 0 0 0 0 0x191A1C 0.15',
-
--- Mem:${offset 8}${if_match ${memperc}<=50}${color7}${else}${if_match ${memperc}<=70}${color8}${else}${if_match ${memperc}>70}${color9}${endif}${endif}${endif}${memperc}%${color}${offset 32}\
+	alignment = 'top_left',
+	gap_x = 12,
+	gap_y = 24,
 
 -- ${goto 264}Core0:${offset 8}${if_match ${hwmon 0 temp1}<=50}${color7}${else}${if_match ${hwmon 0 temp1}<=70}${color8}${else}${if_match ${hwmon 0 temp1}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp1}${offset 2}°C${color}${offset 16} \
 -- Core1:${offset 8}${if_match ${hwmon 0 temp 4}<=50}${color7}${else}${if_match ${hwmon 0 temp 4}<=70}${color8}${else}${if_match ${hwmon 0 temp 4}>70}${color9}${endif}${endif}${endif}${hwmon 0 temp 4}${offset 2}°C${color}${offset 16} \

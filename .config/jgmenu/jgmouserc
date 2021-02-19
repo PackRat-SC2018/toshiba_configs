@@ -56,15 +56,15 @@ icon_theme_fallback  = xdg
 arrow_string         = ▸
 arrow_width          = 18
 
-color_menu_bg        = #1E2021 100
-color_menu_border    = #191919 8
+color_menu_bg        = #1E2021 90
+color_menu_border    = #1B1C1C 33
 
 color_norm_bg        = #1E2021 0
 color_norm_fg        = #DADBDE 100
 
-color_sel_bg         = #53514D 75
-color_sel_fg         = #DADBDE 100
-color_sel_border     = #191919 8
+color_sel_bg         = #313336 75
+color_sel_fg         = #DADBDE 90
+color_sel_border     = #D51251 100
 
 color_sep_fg         = #99ACBF 40
 

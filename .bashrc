@@ -47,6 +47,10 @@ if [ -f $HOME/.shell_aliases ] ; then
 . $HOME/.shell_aliases
 fi
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
 # colored man pages
 export PAGER="less"
 

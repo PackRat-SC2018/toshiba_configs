@@ -65,6 +65,7 @@ Style *XTerm ResizeHintOverride, PositionPlacement Center
 Style Sakura ResizeHintOverride, PositionPlacement Center
 Style Lxterminal ResizeHintOverride, PositionPlacement Center
 Style Xfce4-terminal ResizeHintOverride, PositionPlacement Center
+Style st-256color ResizeHintOverride, PositionPlacement 260px 40px
 
 Style Polybar !Title, !Handles, !Borders, CirculateSkip, WindowListSkip, NeverFocus
 Style Xfce4-panel !Title, !Handles, !Borders, StaysOnTop, WindowListSkip, CirculateSkip

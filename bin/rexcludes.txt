@@ -24,6 +24,7 @@
 .oracle_jre_usage
 .sane
 .subversion
+.ssh
 .themes
 .thumbnails
 .asunder
@@ -34,6 +35,8 @@
 .Xauthority
 .xsession-errors
 Desktop
+Downloads
+PDF
 build
 Willow
 Bandit
@@ -82,4 +85,4 @@ archlabs
 .config/yad.conf
 .config/vivaldi
 .config/opera
-
+.config/cmst

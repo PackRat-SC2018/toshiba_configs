@@ -50,6 +50,10 @@ else
         print "Note: ~/.zsh/zshfunctions is unavailable."
 fi
 
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
 #------------------------------
 # History stuff
 #------------------------------

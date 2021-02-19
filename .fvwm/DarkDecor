@@ -12,15 +12,15 @@
 DestroyDecor DarkDecor
 AddToDecor   DarkDecor
 
-Colorset 35  fg #636663, bg #292D31, hi #3E444A, sh #131517, Plain, NoShape
-Colorset 36  fg #DADBDE, bg #292D31, hi #3E444A, sh #131517, Plain, NoShape
+Colorset 35  fg #757575, bg #2E313B, hi #464A59, sh #1E2026, Plain, NoShape
+Colorset 36  fg #DFDFDF, bg #333742, hi #515769, sh #18191F, Plain, NoShape
 
 TitleStyle Centered Height 20 -- Raised
 Style "*" BorderWidth 3, HandleWidth 3, MWMButtons, MwmBorder, FirmBorder, MWMFunctions, MWMDecor
 BorderStyle -- HiddenHandles
 
 # Default Font
-DefaultFont "xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
+DefaultFont "xft:Fira Sans:Regular:size=10:antialias=True:hintstyle=slight"
 Style * Colorset 35, HilightColorset 36
 Style * BorderColorset 35, HilightBorderColorset 36
 

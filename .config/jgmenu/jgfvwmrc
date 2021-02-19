@@ -13,7 +13,7 @@ terminal_args        = -e
 #columns             = 1
 
 menu_margin_x        = 4
-menu_margin_y        = 28
+menu_margin_y        = 32
 menu_width           = 172
 #menu_height_min     = 0
 #menu_height_max     = 0
@@ -48,9 +48,9 @@ sep_height           = 5
 
 font                 = Roboto 10
 font_fallback        = xdg
-icon_size            = 0
+icon_size            = 24
 icon_text_spacing    = 10
-icon_theme           = Obsidian-Sand
+icon_theme           = Moka
 icon_theme_fallback  = xdg
 
 arrow_string         = ▸

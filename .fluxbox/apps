@@ -34,8 +34,8 @@
 [end]
 [group]  (workspace=[current])
  [app] (name=st-256color) (class=st-256color)
-  [Dimensions]	{51% 77%}
-  [Position]	(UPPERLEFT)	{1% 1%}
+  [Dimensions]	{55% 80%}
+  [Position]	(CENTER)	{0 0}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}
@@ -592,9 +592,10 @@
   [Alpha]	{255}
 [end]
 [app] (name=cmst) (class=CMST - Connman System Tray)
-  [Position]	(UPPERLEFT)	{26% 10%}
+  [Dimensions]	{47% 77%}
+  [Position]	(UPPERLEFT)	{26% 6%}
   [Shaded]	{no}
-  [Deco]	{0x7e7}
+  [Deco]	{0x67f}
   [Sticky]	{no}
   [Minimized]	{no}
   [Maximized]	{no}
@@ -629,19 +630,6 @@
  [app] (name=xterm) (class=UXTerm)
   [Dimensions]	{80% 90%}
   [Position]	(CENTER)	{0 0}
-  [Shaded]	{no}
-  [Deco]	{0x67f}
-  [Sticky]	{no}
-  [Minimized]	{no}
-  [Maximized]	{no}
-  [Fullscreen]	{no}
-  [Layer]	{8}
-  [Alpha]	{255}
-[end]
-[group]  (workspace=[current])
- [app] (name=tilix) (class=Tilix)
-  [Dimensions]	{75% 85%}
-  [Position]	(UPPERLEFT)	{13% 1%}
   [Shaded]	{no}
   [Deco]	{0x67f}
   [Sticky]	{no}
@@ -1120,4 +1108,89 @@
 [transient] (name=xcdroast) (class=Xcdroast)
   [Position]	(CENTER)	{0 0}
   [Deco]	{0x67f}
+[end]
+[app] (name=vivaldi-stable) (class=Vivaldi-stable) (role=browser)
+  [Position]	(UPPERLEFT)	{1% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{yes}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=vivaldi-stable) (class=Vivaldi-stable) (role=pop-up)
+  [Position]	(UPPERLEFT)	{20% 2%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=Mailnews) (class=Thunderbird) (role=junkmailinfo)
+  [Position]	(UPPERLEFT)	{35% 37%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=pavucontrol) (class=Pavucontrol)
+  [Dimensions]	{38% 60%}
+  [Position]	(UPPERLEFT)	{60% 1%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[app] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-message-dialog)
+  [Position]	(UPPERLEFT)	{17% 21%}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=gimp-2.10) (class=Gimp-2.10) (role=gimp-operation-tool)
+  [Position]	(UPPERLEFT)	{26% 28%}
+  [Deco]	{0x67f}
+[end]
+[app] (name=tilix) (class=Tilix) (role=quake)
+  [Shaded]	{no}
+  [Deco]	{0x5e0}
+  [Sticky]	{yes}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{2}
+  [Alpha]	{255}
+[end]
+[app] (name=tilix) (class=Tilix)
+  [Dimensions]	{98% 98%}
+  [Position]	(CENTER)	{0 0}
+  [Shaded]	{no}
+  [Deco]	{0x67f}
+  [Sticky]	{no}
+  [Minimized]	{no}
+  [Maximized]	{no}
+  [Fullscreen]	{no}
+  [Layer]	{8}
+  [Alpha]	{255}
+[end]
+[transient] (name=Thunderbird) (class=Thunderbird) (role=Dialog)
+  [Deco]	{NORMAL}
 [end]

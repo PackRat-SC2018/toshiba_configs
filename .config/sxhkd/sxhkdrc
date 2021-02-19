@@ -3,14 +3,14 @@
 
 # launcher
 super + p
-	dmenu_run
+    dmenu_run
 
 alt + F2
     rofi -show run
 
 # terminal
 super + shift + Return
-	st
+    kitty
 
 super + Return
     uxterm
@@ -38,13 +38,34 @@ super + control + Print
 
 # dedicated volume keys
 XF86AudioRaiseVolume
-	amixer -q sset PCM  5%+ unmute
+     amixer -q sset Master  5%+ unmute
+     #pamixer -i 5
 
 XF86AudioLowerVolume
-    amixer -q sset PCM  5%- unmute
+    amixer -q sset Master  5%- unmute
+    #pamixer -d 5
 
 XF86AudioMute
     amixer sset Master,0 toggle
+    #pamixer -t
+
+XF86AudioPrev
+    deadbeef --prev
+
+XF86AudioPlay
+    deadbeef --toggle-pause
+
+XF86AudioNext
+    deadbeef --next
+
+super + XF86AudioPrev
+    mocp -r
+
+super + XF86AudioPlay
+    mocp -G
+
+super + XF86AudioNext
+    mocp -f
 
 # dedicated backlight keys
 #{XF86MonBrightnessUp,XF86MonBrightnessDown}
@@ -71,7 +92,7 @@ super + shift + q
 	rofi-logout
 
 super + shift + e
-	dkcmd exit
+	dkcmd quit
 
 # reload dkrc
 super + shift + r
@@ -125,7 +146,7 @@ alt + {_,shift + ,ctrl + }{comma,period,backslash}
 	dkcmd mon {view,send,follow} {prev,next,last}
 
 # change active workspace layout
-alt + {t,m,g,s,w,f}
+alt + {t,m,g,s,d,f}
 	dkcmd set layout {tile,mono,grid,spiral,dwindle,none}
 
 # change number of windows in master or first stack

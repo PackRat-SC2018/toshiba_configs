@@ -8,9 +8,9 @@ print_date() {
 	# The date is printed to the status bar by default.
 	# To print the date through this script, set clock_enabled to 0
 	# in spectrwm.conf.  Uncomment "print_date" below.
-	FORMAT="%a %e %b %R  "
+	FORMAT="%a %e %b %k:%M"
 	DATE=`date "+${FORMAT}"`
-	echo -n "${DATE}     "
+	echo -n "${DATE}   "
 }
 
 print_mem() {
@@ -24,8 +24,8 @@ print_memperc() {
 }
 
 _print_cpu() {
-	printf "CPU: %3d%% User %3d%% Nice %3d%% Sys %3d%% Idle  " $1 $2 $3 $6
-	#printf "CPU: %2d%%   " $1
+	#printf "CPU: %3d%% User %3d%% Nice %3d%% Sys %3d%% Idle  " $1 $2 $3 $6
+	printf "CPU: %2d%%   " $1
 }
 
 print_cpu() {
@@ -115,15 +115,15 @@ while :; do
 	if [ $I -eq 0 ]; then
 		ACPI_DATA=`/usr/bin/acpi -a 2>/dev/null; /usr/bin/acpi -b 2>/dev/null`
 	fi
-	print_uptime
+	# print_uptime
 	print_memperc
 	# print_mem
 	print_cpu $IOSTAT_DATA
-	print_load
+	# print_load
 	# print_cpuspeed
 	print_bat $ACPI_DATA
 	print_signal
-	print_bitrate
+	# print_bitrate
 	print_date
 	echo ""
 	I=$(( ( ${I} + 1 ) % 11 ))

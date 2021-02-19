@@ -17,41 +17,71 @@ if hash sxhkd >/dev/null 2>&1; then
 fi
 
 # polybar
-pkill polybar ; polybar graph-bar &
+pkill polybar ; polybar dkwm-bar &
 
 { # compound command to redirect all output
 
 	# workspace settings
 	# ------------------------
+
 	# initialize 10 workspaces (1-10)
 	dkcmd set numws=10
 
-	# default workspace values used when allocating new workspaces
-	# can be applied to all existing workspaces when passed 'apply' after ws=default
-	dkcmd set ws=default apply layout=tile master=1 stack=4 gap=0 msplit=0.55 ssplit=0.55
+	# default workspace '_' values used when allocating new workspaces
+	# can be applied to all existing workspaces when passed 'apply' after ws=_
+	dkcmd set ws=_ apply layout=tile master=1 stack=3 gap=0 msplit=0.5 ssplit=0.5
 
 	# change workspace names
-	# dkcmd set ws=1 name="term" ws=2 name="web"
+	dkcmd set \
+		ws=1  name="1" \
+		ws=2  name="2" \
+		ws=3  name="3" \
+		ws=4  name="4" \
+		ws=5  name="5" \
+		ws=6  name="6" \
+		ws=7  name="7" \
+		ws=8  name="8" \
+		ws=9  name="9" \
+		ws=10 name="10"
 
 	# change workspace layouts
+	# tile,mono,grid,spiral,dwindle,
+	dkcmd set ws=1 layout = tile
+	dkcmd set ws=2 layout = tile
+	dkcmd set ws=3 layout = mono
+	dkcmd set ws=4 layout = mono
+	dkcmd set ws=5 layout = mono
+	dkcmd set ws=6 layout = tile
+	dkcmd set ws=7 layout = dwindle
+	dkcmd set ws=8 layout = spiral
+	dkcmd set ws=9 layout = none 
 	dkcmd set ws=10 layout=grid
 
-	# # use static workspaces (not default)
-	# dkcmd set static_ws=true
-	# # assign workspaces to monitors (requires static_ws=true)
+	# use grid layout, padding, and gaps on workspace 10
+	dkcmd set ws=10 layout=grid pad left=10 right=10 top=10 bottom=10 gap width=5
+
+	# use static workspaces (not default)
+	dkcmd set static_ws=false
+
+	# assign workspaces to monitors (requires static_ws=true)
 	# mon1='DisplayPort-0'
 	# mon2='HDMI-A-0'
-	# dkcmd set ws=1 mon=$mon1 ws=2 mon=$mon1 ws=3 mon=$mon1 ws=4 mon=$mon1 ws=5 mon=$mon1
-	# dkcmd set ws=6 mon=$mon2 ws=7 mon=$mon2 ws=8 mon=$mon2 ws=9 mon=$mon2 ws=10 mon=$mon2
-
-	# use some padding and gaps on the last workspace
-	last=$(awk '/^numws:/ {print $2}' "$DKSTAT")
-	dkcmd set ws="$last" pad left=5 right=5 top=5 bottom=5
-	dkcmd set ws="$last" gap width=5
+	# dkcmd set \
+	# 	ws=1  mon=$mon1 \
+	# 	ws=2  mon=$mon1 \
+	# 	ws=3  mon=$mon1 \
+	# 	ws=4  mon=$mon1 \
+	# 	ws=5  mon=$mon1 \
+	# 	ws=6  mon=$mon2 \
+	# 	ws=7  mon=$mon2 \
+	# 	ws=8  mon=$mon2 \
+	# 	ws=9  mon=$mon2 \
+	# 	ws=10 mon=$mon2
 
 
 	# global settings
 	# ---------------------
+
 	# focus windows when receiving activation and enable focus-follows-mouse
 	dkcmd set focus_open=true focus_urgent=true focus_mouse=false
 
@@ -70,24 +100,33 @@ pkill polybar ; polybar graph-bar &
 
 	# borders
 	# ---------
+
 	# set border width and colour for each window state
 	# dkcmd set border width=1 colour focus='#6699cc' unfocus='#000000' urgent='#ee5555'
 
 	# alternatively, enable split borders and colours
-	dkcmd set border width=5 outer=3 colour \
-		focus='#576657' unfocus='#191A19' urgent='#D62929' \
-		outer_focus='#191A19' outer_unfocus='#191A19' outer_urgent='#191A19'
+	dkcmd set border width=3 outer_width=1 \
+		colour \
+		focus='#3A3D42' \
+		unfocus='#1B1C1F' \
+		urgent='#C21A45' \
+		outer_focus='#0E0F0F' \
+		outer_unfocus='#0E0F0F' \
+		outer_urgent='#0E0F0F'
 
 
 	# window rules
 	# --------------
+
 	# rule class, instance, and title regexes are always case insensitive
 
 	# open window(s) on a specific workspace (assigned monitor)
-	dkcmd rule class="^gimp$" ws=2
-
-	# open window(s) on a monitor by number or name (active workspace on monitor)
-	dkcmd rule class="^chromium$" mon="HDMI-A-0"
+	# focus window and workspace on opening focus=true	
+	dkcmd rule class="^firefox$" ws=3 focus=true
+	dkcmd rule class="^thunderbird$" ws=3 focus=true
+	dkcmd rule class="^gimp$" ws=4 focus=true
+	dkcmd rule class="^vlc$" ws=5
+	dkcmd rule class="^deadbeef$" ws=9 float=true focus=true
 
 	# open window(s) and use a callback function (defined in config.h)
 	# eg. mpv --x11-name=albumart /path/to/media
@@ -102,15 +141,11 @@ pkill polybar ; polybar graph-bar &
 	# open window(s) with sticky and floating enabled to view on all workspaces.
 	dkcmd rule class="^stickyterm$" stick=true float=true w=1280 h=720
 
-	# focus window and workspace on opening
-	dkcmd rule class="^firefox$" ws=1 focus=true
-
-	# update or remove an existing rule with the same match patterns
-	dkcmd rule class="^firefox$" mon="HDMI-A-0"
-	dkcmd rule remove class="^firefox$"
-
 	# apply current rule set to all existing windows
-	dkcmd rule apply all
+	dkcmd rule apply '*'
+
+	# delete all rules
+	# dkcmd rule remove '*'
 
 } >> "$logfile" 2>&1 # append responses
 

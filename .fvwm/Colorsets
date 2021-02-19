@@ -23,34 +23,35 @@
 #      13 - FvwmPager Active Page
 #      14 - FvwmIconMan Iconified Button
 ###########
-Colorset 0  fg #000000, bg #CCCCCC, hi #BFBFBF, sh #7F7F7F, Plain, NoShape
-Colorset 1  fg #aaaaaa, bg #2e2e2e, hi, sh, Plain, NoShape
-Colorset 2  fg #ffffff, bg #2b4e5e, hi, sh, Plain, NoShape
-Colorset 3  fg #0F0F0F, bg #272727, hi #323232, sh #101010, Plain, NoShape
-Colorset 4  fg #0F0F0F, bg #272727, hi #323232, sh #101010, Plain, NoShape
-Colorset 5  fg #000000, bg #D9D9D9, hi, sh, Plain, NoShape
-Colorset 6  fg #D9D9D9, bg #2d2d2d, hi, sh, Plain, NoShape
-Colorset 7  fg grey30, bg #D9D9D9, hi, sh, Plain, NoShape
-Colorset 8  fg #D9D9D9, bg #003c3c, hi, sh, Plain, NoShape
+
+Colorset 0  fg #131313, bg #CCCCCC, hi #BFBFBF, sh #7F7F7F, Plain, NoShape
+Colorset 1  fg #A8A8A8, bg #2e2e2e, hi, sh, Plain, NoShape
+Colorset 2  fg #E6E6E6, bg #2b4e5e, hi, sh, Plain, NoShape
+Colorset 3  fg #131313, bg #272727, hi #323232, sh #101010, Plain, NoShape
+Colorset 4  fg #131313, bg #272727, hi #323232, sh #101010, Plain, NoShape
+Colorset 5  fg #131313, bg #E6E6E6, hi, sh, Plain, NoShape
+Colorset 6  fg #E6E6E6, bg #2d2d2d, hi, sh, Plain, NoShape
+Colorset 7  fg grey30, bg #E6E6E6, hi, sh, Plain, NoShape
+Colorset 8  fg #E6E6E6, bg #003c3c, hi, sh, Plain, NoShape
 
 ### Light
-# Colorset 10 fg #0F0F0F, bg #CCCCCC, hi #404040, sh #202020, Plain, NoShape
-# Colorset 11 fg #0F0F0F, bg #949494, hi #402A37, sh #22161D, NoShape
+# Colorset 10 fg #131313, bg #CCCCCC, hi #404040, sh #202020, Plain, NoShape
+# Colorset 11 fg #131313, bg #949494, hi #402A37, sh #22161D, NoShape
 ### Dark
-Colorset 10 fg #D9D9D9, bg #26282B, hi #404040, sh #202020, Plain, NoShape
-Colorset 11 fg #D9D9D9, bg #3E3E3E, hi #444444, sh #242424, Plain, NoShape
+Colorset 10 fg #E6E6E6, bg #26282B, hi #404040, sh #202020, Plain, NoShape
+Colorset 11 fg #E6E6E6, bg #3E3E3E, hi #444444, sh #242424, Plain, NoShape
 
-Colorset 12 fg #0E0E0E, bg #83878A, hi #404040, sh #202020, Plain, NoShape
-Colorset 13 fg #D9D9D9, bg #006C6C, hi, sh, Plain, NoShape
-Colorset 14 fg #0E0E0E, bg #D2D7E3, hi, sh, Plain, NoShape
+Colorset 12 fg #131313, bg #83878A, hi #404040, sh #202020, Plain, NoShape
+Colorset 13 fg #E6E6E6, bg #006C6C, hi, sh, Plain, NoShape
+Colorset 14 fg #131313, bg #D2D7E3, hi, sh, Plain, NoShape
 
 # FvwmPager
-Colorset 15 fg #141516, bg #313131, hi #aaaaaa, sh #999999, Plain, NoShape, RootTransparent, Buffer, Tint #313131 50
-Colorset 16 fg #6D767A, bg #6D767A, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 15 fg #141516, bg #313131, hi #A8A8A8, sh #999999, Plain, NoShape, RootTransparent, Buffer, Tint #313131 100
+Colorset 16 fg #6D767A, bg #6D767A, hi #A8A8A8, sh #999999, Plain, NoShape
 
 # Root Menu
-Colorset 17 fg #D9D9D9, bg #26282B, hi, sh, Plain, NoShape
-Colorset 18 fg #D9D9D9, bg #171315, hi, sh, Plain, NoShape
+Colorset 17 fg #E6E6E6, bg #26282B, hi, sh, Plain, NoShape
+Colorset 18 fg #E6E6E6, bg #171315, hi, sh, Plain, NoShape
 Colorset 19 fg #505050, bg #26282B, hi, sh, Plain, NoShape
 
 # IconBox
@@ -60,27 +61,27 @@ Colorset 20 fg #BFBFBF, bg #262926, hi #323632, sh #191A19, Plain NoShape, RootT
 Colorset 21 fg #ECD14A, bg #232649, hi, sh, Plain, NoShape
 
 # FvwmTaskBar
-Colorset 22 fg #D9D9D9, bg #1A1B1C, hi #212224, sh #111112, Plain, NoShape
-Colorset 23 fg #D9D9D9, bg #5C7EA1, hi #404040, sh #202020, Plain, NoShape
-Colorset 24 fg #D9D9D9, bg #3A594F, hi #4B7366, sh #253832, Plain, NoShape
+Colorset 22 fg #E6E6E6, bg #1A1B1C, hi #212124, sh #080809, Plain, NoShape
+Colorset 23 fg #E6E6E6, bg #5C7EA1, hi #404040, sh #202020, Plain, NoShape
+Colorset 24 fg #E6E6E6, bg #3A594F, hi #4B7366, sh #253832, Plain, NoShape
 
-Colorset 25 fg #D9D9D9, bg #3E3E3E, hi #444444, sh #242424, Plain, NoShape
-Colorset 26 fg #D9D9D9, bg #303030, hi #444444, sh #242424, Plain, NoShape
+Colorset 25 fg #E6E6E6, bg #3E3E3E, hi #444444, sh #242424, Plain, NoShape
+Colorset 26 fg #E6E6E6, bg #303030, hi #444444, sh #242424, Plain, NoShape
 
 # light theme colors
-Colorset 27 fg #0F0F0F, bg #CCCCCC, hi, sh, Plain, NoShape
-Colorset 28 fg #0F0F0F, bg #949494, hi, sh, Plain, NoShape
+Colorset 27 fg #131313, bg #CCCCCC, hi, sh, Plain, NoShape
+Colorset 28 fg #131313, bg #949494, hi, sh, Plain, NoShape
 
 Colorset 29 fg #313138, bg #313138, hi, sh, Plain, NoShape
 Colorset 30 fg #4D5157, bg #4D5157, hi, sh, Plain, NoShape
-Colorset 31 fg #AAAAAA, bg #1F2024, hi #303030, sh #202020, Plain, NoShape
+Colorset 31 fg #A8A8A8, bg #1F2024, hi #303030, sh #202020, Plain, NoShape
 
 ### transparent SwitchDesktop function
 ###
-Colorset 32  fg #000000, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #CCCCCC 25
-Colorset 33  fg #000000, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #CCCCCC 45
-Colorset 34  fg #FFFFFF, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #18191A 80
+Colorset 32  fg #131313, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #CCCCCC 25
+Colorset 33  fg #131313, bg #DDDDDD, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #CCCCCC 45
+Colorset 34  fg #E6E6E6, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #18191A 80
 
 # Colorsets 35, 36, 37, 38, 39 for window decor files
 
-Colorset 40  fg #FFFFFF, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #0F1112 100
+Colorset 40  fg #E6E6E6, bg #18191A, hi #2C2C2C, sh #2C2C2C, Plain, NoShape, RootTransparent, Buffer, Tint #0F1112 100

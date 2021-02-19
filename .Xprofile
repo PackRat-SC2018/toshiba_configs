@@ -10,13 +10,12 @@ killall -q i3status &
 killall -q slstatus &
 killall -q sxhkd &
 killall -q polybar &
-# killall -q juiced &
 
 # Qt5 configuration; Qt apps follow gtk2
-export QT_STYLE_OVERRIDE=GTK+
-export QT_QPA_PLATFORMTHEME=gtk2
-export QT_PLATFORMTHEME=gtk2
-export QT_PLATFORM_PLUGIN=gtk2
+#export QT_STYLE_OVERRIDE=GTK+
+#export QT_QPA_PLATFORMTHEME=gtk2
+#export QT_PLATFORMTHEME=gtk2
+#export QT_PLATFORM_PLUGIN=gtk2
 
 # load urxvtd
 # exec urxvtd -q -o -f &
@@ -59,5 +58,4 @@ pkill juiced; juiced -d &
 xsetroot -solid "#0C2730" &
 
 # set wallpaper for all window manager logins; can also use feh, nitrogen etc ..
-fbsetbg -c -r "$HOME/wallpaper/" &
-
+fbsetbg -C -R "$HOME/wallpaper/" &

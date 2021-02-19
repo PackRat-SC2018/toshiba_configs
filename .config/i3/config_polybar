@@ -9,16 +9,18 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-# Wallpaper
-# exec nitrogen --restore &
-# exec $HOME/.fehbg &
-exec fbsetbg -c -r $HOME/wallpaper/ &
+# kill running applications
+exec pkill -x sxhkd &
 
-# panel
-exec $HOME/bin/i3wm-bar.sh &
+# set wallpaper
+# exec fbsetbg -c -r "$HOME/wallpaper/" &
+
+# start polybar
+exec --no-startup-id "$HOME/bin/i3wm-bar.sh"
 
 set $mod Mod4
 set $alt Mod1
+set $lock slock
 
 default_orientation horizontal
 workspace_layout tabbed
@@ -26,10 +28,10 @@ focus_follows_mouse no
 hide_edge_borders smart
 
 # default_border normal/none/pixel
-default_border pixel 2
+default_border pixel 1
 
 # default_floating_border normal/none/pixel
-default_floating_border pixel 2
+default_floating_border pixel 1
 
 # Container fonts
 # Font for window titles. Will also be used by the bar unless a different font
@@ -49,10 +51,10 @@ default_floating_border pixel 2
 font pango: Roboto Regular 10, Roboto Regular 10
 
 # window colours:         border    background  text
-client.focused            #1D1E1F   #32363B     #DDDDDD
-client.unfocused          #1D1E1F   #1D1E1F     #979797
-client.focused_inactive   #2D3033   #2D3033     #979797
-client.urgent             #B11E26   #B11E26     #EAEAEA
+client.focused            #3D3D3D   #3D3D3D     #E6E6E6
+client.unfocused          #333436   #333436     #8A8A8A
+client.focused_inactive   #3D3D3D   #3D3D3D     #CCCCCC
+client.urgent             #E01B30   #E01B30     #E6E6E6
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
@@ -60,7 +62,7 @@ floating_modifier $alt
 # start a terminal
 bindsym $alt+F1 exec uxterm
 bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec uxterm
+bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
 # bindsym $mod+Shift+q kill
@@ -77,27 +79,53 @@ bindsym $mod+d exec "rofi -combi -modi drun,run,window -show run -display-drun '
 bindsym $alt+F2 exec "rofi -combi -modi run,drun,window -show run"
 bindsym $mod+p exec dmenu_run
 
-bindsym $mod+XF86HomePage exec firefox
+bindsym $mod+XF86HomePage exec "wmctrl -a firefox || firefox"
 bindsym $mod+XF86Mail exec thunderbird
 bindsym $mod+Control+l exec subl3
 bindsym Menu exec thunar
 bindsym $mod+Control+g exec gimp
-bindsym $mod+Control+Print exec "$HOME/bin/scrot_delay.sh"
+bindsym $mod+Control+Print exec "maim -u -d 5 ~/Pictures/$(date +%F_%s).png"
+bindsym Control+Print exec "maim -u | xclip -selection clipboard -t image/png"
 bindsym XF86Calculator exec galculator
 
+# alsa
 bindsym XF86AudioRaiseVolume exec "amixer -q sset PCM  5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset PCM 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
 
-bindsym XF86MonBrightnessUp exec "sudo xbacklight -inc 5"
-bindsym XF86MonBrightnessDown exec "sudo xbacklight -dec 5"
+# pulseaudio
+#bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+#bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+#bindsym XF86AudioMute exec "pamixer -t"
 
-bindsym XF86AudioPrev exec "mocp -r"
-bindsym XF86AudioPlay exec "mocp -G"
-bindsym XF86AudioNext exec "mocp -f"
+#bindsym XF86MonBrightnessUp exec "sudo xbacklight -inc 5"
+#bindsym XF86MonBrightnessDown exec "sudo xbacklight -dec 5"
+
+bindsym XF86MonBrightnessUp exec "brillo -A 10"
+bindsym XF86MonBrightnessDown exec "brillo -U 10"
+bindsym $alt+XF86MonBrightnessUp exec "brillo -S 95"
+bindsym $alt+XF86MonBrightnessDown exec "brillo -S 40"
+
+bindsym $mod+XF86AudioPrev exec "mocp -r"
+bindsym $mod+XF86AudioPlay exec "mocp -G"
+bindsym $mod+XF86AudioNext exec "mocp -f"
+
+bindsym XF86AudioPrev exec "deadbeef --prev"
+bindsym XF86AudioPlay exec "deadbeef --toggle-pause"
+bindsym XF86AudioNext exec "deadbeef --next"
 
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
+
+# i3-msg 'workspace 5; append_layout ~/.config/i3/layout-01.json'
+bindsym $mod+Shift+1 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-01.json'"
+bindsym $mod+Shift+2 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~/.config/i3/layout-10.json'"
+
+bindsym $mod+Shift+Delete exec "sleep 1; xset dpms force off && slock"
+bindsym $alt+Shift+Delete exec i3lock --color=#060633
+
+# enable floating mode and move container to workspace 4
+# for_window [class="^evil-app$"] floating enable, move container to workspace 4
 
 # floating windows 2px border
 for_window [class="XFontsel"] floating enable
@@ -118,12 +146,14 @@ for_window [class="WmanExit"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="Audacious"] floating enable
+for_window [class="Deadbeef"] floating enable
 for_window [class="Asunder"] floating enable
 for_window [class="Lxappearance"] floating enable
 
 # application settings
 assign [class="Gimp"] 4
 assign [class="Audacious"] 10
+assign [class="Deadbeef"] 10
 assign [class="Asunder"] 10
 assign [class="vlc"] 10
 
@@ -293,3 +323,4 @@ mode "move" {
 }
 
 bindsym $mod+m mode "move"
+

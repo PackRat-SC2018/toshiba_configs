@@ -15,6 +15,9 @@ exec pkill -x sxhkd &
 # set wallpaper
 # exec fbsetbg -c -r "$HOME/wallpaper/" &
 
+# start polybar
+exec --no-startup-id "$HOME/bin/i3wm-bar.sh"
+
 set $mod Mod4
 set $alt Mod1
 set $lock slock
@@ -48,17 +51,17 @@ default_floating_border pixel 1
 font pango: Roboto Regular 10, Roboto Regular 10
 
 # window colours:         border    background  text
-client.focused            #242529   #242529     #CFCFCF
-client.unfocused          #1C1C1C   #1C1C1C     #606060
-client.focused_inactive   #242529   #242529     #606060
-client.urgent             #E01B30   #E01B30     #CFCFCF
+client.focused            #3D3D3D   #3D3D3D     #E6E6E6
+client.unfocused          #333436   #333436     #8A8A8A
+client.focused_inactive   #3D3D3D   #3D3D3D     #CCCCCC
+client.urgent             #E01B30   #E01B30     #E6E6E6
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $alt
 
 # start a terminal
-bindsym $alt+F1 exec st
-bindsym $mod+Return exec terminator
+bindsym $alt+F1 exec uxterm
+bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec kitty
 
 # kill focused window
@@ -85,9 +88,15 @@ bindsym $mod+Control+Print exec "maim -u -d 5 ~/Pictures/$(date +%F_%s).png"
 bindsym Control+Print exec "maim -u | xclip -selection clipboard -t image/png"
 bindsym XF86Calculator exec galculator
 
+# alsa
 bindsym XF86AudioRaiseVolume exec "amixer -q sset PCM  5%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset PCM 5%- unmute"
 bindsym XF86AudioMute exec "amixer sset Master,0 toggle"
+
+# pulseaudio
+#bindsym XF86AudioRaiseVolume exec "pamixer -i 5"
+#bindsym XF86AudioLowerVolume exec "pamixer -d 5"
+#bindsym XF86AudioMute exec "pamixer -t"
 
 #bindsym XF86MonBrightnessUp exec "sudo xbacklight -inc 5"
 #bindsym XF86MonBrightnessDown exec "sudo xbacklight -dec 5"
@@ -97,9 +106,13 @@ bindsym XF86MonBrightnessDown exec "brillo -U 10"
 bindsym $alt+XF86MonBrightnessUp exec "brillo -S 95"
 bindsym $alt+XF86MonBrightnessDown exec "brillo -S 40"
 
-bindsym XF86AudioPrev exec "mocp -r"
-bindsym XF86AudioPlay exec "mocp -G"
-bindsym XF86AudioNext exec "mocp -f"
+bindsym $mod+XF86AudioPrev exec "mocp -r"
+bindsym $mod+XF86AudioPlay exec "mocp -G"
+bindsym $mod+XF86AudioNext exec "mocp -f"
+
+bindsym XF86AudioPrev exec "deadbeef --prev"
+bindsym XF86AudioPlay exec "deadbeef --toggle-pause"
+bindsym XF86AudioNext exec "deadbeef --next"
 
 bindsym $mod+Control+p exec "libreoffice --calc"
 bindsym $mod+Control+o exec "libreoffice --writer"
@@ -110,6 +123,9 @@ bindsym $mod+Shift+2 exec --no-startup-id "i3-msg 'workspace 10; append_layout ~
 
 bindsym $mod+Shift+Delete exec "sleep 1; xset dpms force off && slock"
 bindsym $alt+Shift+Delete exec i3lock --color=#060633
+
+# enable floating mode and move container to workspace 4
+# for_window [class="^evil-app$"] floating enable, move container to workspace 4
 
 # floating windows 2px border
 for_window [class="XFontsel"] floating enable
@@ -308,25 +324,3 @@ mode "move" {
 
 bindsym $mod+m mode "move"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        position top
-        workspace_buttons yes
-        tray_output primary
-        bindsym --release button3 exec jgmenu --config-file=/home/doug/.config/jgmenu/jgmenui3rc
-        bindsym --release button2 exec --no-startup-id import -window root -quality 100 ~/pictures/i3_screen-import-$(date +%F_%s).png
-        font pango: Roboto Mono Regular 10
-        # font pango: Hack Regular 10
-        # status_command $HOME/.config/i3/i3conkybar.sh
-	    status_command slstatus -s
-        separator_symbol " "
-        colors {
-	    background            #0E0F0F
-	    statusline            #C7C7C7
-	    focused_workspace     #242529     #242529     #CFCFCF
-	    active_workspace      #242529     #242529     #CFCFCF
-	    inactive_workspace    #1C1C1C     #1C1C1C     #606060
-	    urgent_workspace      #E01B30     #E01B30     #CFCFCF
-     }
-}

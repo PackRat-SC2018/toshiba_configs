@@ -23,9 +23,6 @@ pkill polybar &
 # wallpaper
 # fbsetbg -c -r "$HOME/wallpaper/" &
 
-# systemtray items
-# cmst -w 3 -m -i Vibrantly-Simple-Dark &
-
 ## panels
 
 # conky
@@ -37,11 +34,21 @@ pkill polybar &
 # (sleep 2s && fluxbox-bar.sh) &
 
 # pkill tint2 ; tint2 &
-# tint2 -c $HOME/.config/tint2/tint2fluxboxrc &
+
+# systemtray items
+# cmst -w 3 -m -i Obsidian-Sand &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 
 # exec fluxbox
+
+# for 3rd party panels like tint2
+# exec fluxbox -no-toolbar
+
 # or if you want to keep a log:
 exec fluxbox -log "/home/doug/.fluxbox/log"
+# exec fluxbox -no-toolbar -log "$HOME/.fluxbox/logfile"
+
+exit 0;
+

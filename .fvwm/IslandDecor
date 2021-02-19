@@ -12,17 +12,17 @@
 DestroyDecor IslandDecor
 AddToDecor   IslandDecor
 
-DefaultFont "xft:DejaVu Sans:regular:size=11:antialias=True:hintstyle=slight"
+DefaultFont "Shadow=0 0 SE:xft:Fira Sans:Regular:size=10:antialias=True:hintstyle=slight"
 
-Colorset 35 fg #000000, bg #93325b, hi, sh, Plain, NoShape
-Colorset 36 fg #000000, bg #d88c59, hi, sh, Plain, NoShape
+Colorset 35 fg #A8A8A8, bg #1A1B1C, hi #212124, sh #080809, Plain, NoShape
+Colorset 36 fg #E6E6E6, bg #A5432A, hi #B93F2F, sh #68231A, Plain, NoShape
 
 TitleStyle Centered Height 20 -- Raised
 
 Style * Colorset 35
 Style * HilightColorset 36
 Style * BorderColorset 35, HilightBorderColorset 36
-Style * BorderWidth 5, HandleWidth 5, MWMButtons, MWMBorder, FirmBorder
+Style * BorderWidth 2, HandleWidth 2, MWMButtons, MWMBorder, FirmBorder
 
 ButtonStyle All -- Raised
 

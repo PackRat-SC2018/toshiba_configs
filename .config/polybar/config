@@ -16,26 +16,60 @@ include-file = /home/doug/.config/polybar/modules.conf
 inherit = bar/master
 
 modules-left = jgmenu workspaces
-;modules-center = uptime coreavg load cputemp memory battery wireless-network
-modules-center = coreavg cputemp memory battery wireless-network
+modules-center = uptime coreavg load cputemp memory battery wireless-network
+;modules-center = coreavg cputemp memory battery wireless-network
 modules-right = date
 
-;;;;;; Tray is commented out ;;;;;;;;
-;tray-position = center
-;tray-padding = 10
-;tray-background = ${colors.background}
-;tray-offset-x = 20%
+; Position of the system tray window
+; If empty or undefined, tray support will be disabled
+; NOTE: A center aligned tray will cover center aligned modules
+;
+; Available positions:
+;   left
+;   center
+;   right
+; tray-position = right
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; fvwm
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; If true, the bar will not shift its
+; contents when the tray changes
+; tray-detached = false
 
-[bar/fvwm-bar]
+; Tray icon max size
+; tray-maxsize = 16
+
+; Enable pseudo transparency
+; Will automatically be enabled if a fully transparent
+; background color is defined using `tray-background`
+; tray-transparent = false
+
+; Background color for the tray container
+; By default the tray container will use the bar
+; background color.
+; Note: 32 bit alpha blending is not supported.
+; tray-background = ${colors.background}
+
+; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+; tray-offset-x = 0
+; tray-offset-y = 0
+
+; Pad the sides of each tray icon
+; tray-padding = 1
+
+; Scale factor for tray clients
+; tray-scale = 1.0
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                 ;;
+;; wired connection                ;;
+;;                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[bar/wired-bar]
 inherit = bar/master
 
-modules-left = jgmenu
-modules-center = coreavg cputemp memory battery wireless-network
-modules-right = clock
+modules-left = jgmenu workspaces
+modules-center = uptime coreavg load cputemp memory battery wired-network
+modules-right = date
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -82,10 +116,10 @@ modules-right = clock
 [bar/i3-bar]
 inherit = bar/master
 
-modules-left = appmenu i3 
+modules-left = jgmenu i3 
 modules-center = 
-;modules-right = uptime coreavg memory battery wireless-network bit-rate clock
-modules-right = coregraph ramgraph battgraph wifi-net chronos
+modules-right =  coreavg cputemp memory battery wireless-network clock
+; modules-right = coregraph i3cputemp ramgraph battgraph wifi-net chronos
 
 ; Position of the system tray window
 ; If empty or undefined, tray support will be disabled
@@ -175,13 +209,58 @@ tray-padding = 1
 tray-scale = 1.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; yaxwm bar
+;; graph bar
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[bar/yaxwm-bar]
+[bar/graph-bar]
 inherit = bar/master
 
-modules-left = appmenu yaxwm-desktops
+modules-left = appmenu
+modules-center = 
+modules-right = coregraph ramgraph battgraph wifi-net chronos
+
+; Position of the system tray window
+; If empty or undefined, tray support will be disabled
+; NOTE: A center aligned tray will cover center aligned modules
+;
+; Available positions:
+;   left
+;   center
+;   right
+;;tray-position = right
+
+; If true, the bar will not shift its
+; contents when the tray changes
+;tray-detached = false
+
+; Tray icon max size
+;;tray-maxsize = 18
+
+; Enable pseudo transparency
+; Will automatically be enabled if a fully transparent
+; background color is defined using `tray-background`
+; tray-transparent = false
+
+; Background color for the tray container
+; By default the tray container will use the bar
+; background color.
+; Note: 32 bit alpha blending is not supported.
+;;tray-background = ${colors.background}
+
+; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
+;;tray-offset-x = 0
+;;tray-offset-y = 0
+
+; Pad the sides of each tray icon
+;;tray-padding = 1
+
+; Scale factor for tray clients
+;;tray-scale = 1.0
+
+[bar/dkwm-bar]
+inherit = bar/master
+
+modules-left = appmenu workspaces layouts
 modules-center = 
 modules-right = coregraph ramgraph battgraph wifi-net chronos
 
@@ -222,47 +301,3 @@ tray-padding = 1
 
 ; Scale factor for tray clients
 ;tray-scale = 1.0
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; graphical bar
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[bar/graph-bar]
-inherit = bar/master
-
-modules-left = appmenu workspaces
-modules-center = 
-modules-right = coregraph ramgraph battgraph wifi-net chronos
-
-; Position of the system tray window
-; If empty or undefined, tray support will be disabled
-; NOTE: A center aligned tray will cover center aligned modules
-;
-; Available positions:
-;   left
-;   center
-;   right
-tray-position = right
-
-; If true, the bar will not shift its
-; contents when the tray changes
-tray-detached = false
-
-; Tray icon max size
-tray-maxsize = 18
-
-; Background color for the tray container
-; By default the tray container will use the bar
-; background color.
-; Note: 32 bit alpha blending is not supported.
-tray-background = ${colors.background}
-
-; Tray offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
-;tray-offset-x = 0
-;tray-offset-y = 0
-
-; Pad the sides of each tray icon
-tray-padding = 1
-
-; Scale factor for tray clients
-tray-scale = 1.0

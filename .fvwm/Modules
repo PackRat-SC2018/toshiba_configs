@@ -54,14 +54,14 @@ DestroyModuleConfig FvwmIdent: *
 # SetEnv fvwm_icon_size 93
 
 # uncomment for icons
-# Style * IconSize 56 56 56 56, IconBox screen c 1 1 -1 -1, IconFill top left
+Style * IconSize 32 32 48 48, IconBox screen c 1 1 -1 -1, IconFill top left
 # Style * IconSize 56 56 56 56
 
 Style * StickyIcon
 Style * IconTitleFormat %i
 Style * IconTitleRelief 1
 Style * IconBackgroundRelief 1
-Style * IconBackgroundPadding 2
+Style * IconBackgroundPadding 4
 Style * IconFont "Shadow=0 0 SE:xft:Sans:Regular:size=9:antialias=True:hintstyle=slight"
 Style * IconBackgroundColorset 20
 Style * IconTitleColorset 20
@@ -75,7 +75,7 @@ Style * Icon unknown1.xpm
 # Style "*" IconBox 2 64 240 512, IconGrid 12 12, IconFill left top
 # Style "*" IconBox 12 12 288 600, IconGrid 12 12, IconFill left top
 # Style "*" IconBox 12 2 320 720, IconGrid 12 12, IconFill left top
-# Style "*" IconBox 8 8 200 800, IconGrid 8 8, IconFill left top
+Style "*" IconBox 8 8 200 800, IconGrid 8 8, IconFill left top
 #
 # top center
 # Style * IconBox 512 8 1066 256, IconGrid 24 24, IconFill left top
@@ -87,7 +87,7 @@ Style * Icon unknown1.xpm
 # Style * IconBox 1250 48 1360 640, IconGrid 24 24, IconFill left top
 #
 # bottom left
-###### Style * IconBox 4 832 1200 898, IconGrid 12 12 , IconFill left top
+# Style * IconBox 4 840 1200 898, IconGrid 8 8 , IconFill left top
 #
 # middle right
 # Style * Iconbox 1224 300 1360 600, IconGrid 36 36, IconFill left top
@@ -96,7 +96,7 @@ Style * Icon unknown1.xpm
 # Style * Iconbox 16 48 256 600, IconGrid 24 24, IconFill left top
 #
 # thumbnails
-Style * IconBox screen c 4 4 532 640, IconGrid 12 12 , IconFill left top
+# Style * IconBox screen c 4 4 532 640, IconGrid 12 12 , IconFill left top
 # Style "*" Iconbox screen c 8 32 336 800, IconGrid 12 12, IconFill left top
 # Style "*" Iconbox 4 540 288 1044, IconGrid 16 16, IconFill left bottom
 # Style "*" Iconbox 200 816 1400 890, IconGrid 20 20, IconFill left top
@@ -116,7 +116,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: DeskTopScale 28
 # *FvwmPager: Geometry +669+2
 # *FvwmPager: Geometry -2-2
-*FvwmPager: Geometry +4-4
+*FvwmPager: Geometry -4-4
 *FvwmPager: NoStartIconic
 *FvwmPager: Font None
 #*FvwmPager: Font "xft:sans:regular:size=11:antialias=true:"
@@ -183,7 +183,7 @@ DestroyModuleConfig EventNewDesk:*
 *EventNewDesk: PassID
 *EventNewDesk: new_desk ChangeDesk
 
-Style DeskTopPanel !Title, BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip, NeverFocus, StaysOnBottom
+Style DeskTopPanel !Title, BorderWidth 1, HandleWidth 1, Sticky, WindowListSkip, NeverFocus, StaysOnBottom
 
 # FvwmButtons - DeskTopPanel
 #
@@ -194,13 +194,13 @@ Style DeskTopPanel !Title, BorderWidth 3, HandleWidth 3, Sticky, WindowListSkip,
 #
 # Note - To use the system tray you must have "stalonetray" installed.
 DestroyModuleConfig DeskTopPanel:*
-*DeskTopPanel: Geometry 100x24+2+2
-*DeskTopPanel: Colorset 22
+*DeskTopPanel: Geometry 100x24+4+24
+*DeskTopPanel: Colorset 15
 *DeskTopPanel: Rows 1
 *DeskTopPanel: Columns 4
 *DeskTopPanel: Frame 1
 *DeskTopPanel: Font "xft:Roboto:Regular:size=9:antialias=true:autohint=true"
-*DeskTopPanel: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 1)
+*DeskTopPanel: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 15, ActiveColorset 12, Frame 1)
 *DeskTopPanel: (1x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 1)
 *DeskTopPanel: (1x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 1)
 *DeskTopPanel: (1x1, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 1)
@@ -238,13 +238,12 @@ Style DeskTopIdent !Title, !Borders, !Handles, Sticky, WindowListSkip, NeverFocu
 #
 # Note - To use the system tray you must have "stalonetray" installed.
 DestroyModuleConfig DeskTopIdent:*
-*DeskTopIdent: Geometry 160x32+2-2
+*DeskTopIdent: Geometry 160x32-720-0
 *DeskTopIdent: Colorset 32
 *DeskTopIdent: Rows 1
-*DeskTopIdent: Columns 5
+*DeskTopIdent: Columns 4
 *DeskTopIdent: Frame 0
 *DeskTopIdent: Font "xft:Fira Code:Retina:size=10:antialias=true:autohint=true"
-*DeskTopIdent: (1x1, Title "", Icon "ninja-cat-small.png", Action (Mouse 1) Menu XDGMenu root +4p +330p, Frame 0)
 *DeskTopIdent: (1x1, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 34, ActiveColorset 33, Frame 0)
 *DeskTopIdent: (1x1, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 33, Frame 0)
 *DeskTopIdent: (1x1, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 33, Frame 0)
@@ -412,7 +411,7 @@ DestroyModuleConfig FvwmAppBar:*
 *FvwmAppBar: Frame 0
 *FvwmAppBar: Font "Shadow=0 0 SE:xft:Fira Sans:Regular:size=11:antialias=True:hintstyle=slight"
 *FvwmAppBar: (8x1, Title "Menu", Icon "", Action (Mouse 1) Menu MenuFvwmRoot root +8p +400p, Frame 1)
-*FvwmAppBar: (8x1, Title "Xterm", Icon "", Action `Exec lxterminal`, Frame 1)
+*FvwmAppBar: (8x1, Title "Xterm", Icon "", Action `Exec xterm`, Frame 1)
 *FvwmAppBar: (8x1, Title "Editor", Icon "", Action `Exec subl3`, Frame 1)
 *FvwmAppBar: (8x1, Title "Web", Icon "", Action `Exec firefox`, Frame 1)
 
@@ -577,9 +576,9 @@ DestroyModuleConfig PanelIconMan:*
 *PanelIconMan: NumManagers        1
 *PanelIconMan: Title              ""
 *PanelIconMan: Resolution         global
-*PanelIconMan: Font               "Shadow=0 0 SE:xft:Roboto:Regular:size=10:antialias=True:hintstyle=slight"
-*PanelIconMan: ButtonGeometry     232x24
-*PanelIconMan: MaxButtonWidth     232
+*PanelIconMan: Font               "Shadow=0 0 SE:xft:Fira Sans:Regular:size=10:antialias=True:hintstyle=slight"
+*PanelIconMan: ButtonGeometry     192x28
+*PanelIconMan: MaxButtonWidth     192
 *PanelIconMan: Format             "%c: %i"
 # *PanelIconMan: ManagerGeometry    0x1+0-0
 *PanelIconMan: ManagerGeometry    1x1
@@ -613,7 +612,7 @@ DestroyModuleConfig PanelIconMan:*
 *PanelIconMan: TipsPlacement updown
 *PanelIconMan: TipsJustification left
 *PanelIconMan: TipsOffsets 2 4
-*PanelIconMan: TipsFont "Shadow=0 0 SE:xft:Roboto:Regular:size=9:antialias=True:hintstyle=slight"
+*PanelIconMan: TipsFont "Shadow=0 0 SE:xft:Sans:Regular:size=8:antialias=True:hintstyle=slight"
 *PanelIconMan: Sort id
 *PanelIconMan: Action Mouse 0 A ret
 *PanelIconMan: Action Mouse 1 A sendcommand IconManClick
@@ -622,10 +621,10 @@ DestroyModuleConfig PanelIconMan:*
 *PanelIconMan: Tips needed
 *PanelIconMan: Sort id
 
-Style FvwmTaskPanel* !Title, !Borders, !Handles, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnBottom, !Iconifiable
+Style FvwmTaskPanel* !Title, !Borders, !Handles, Sticky, CirculateSkip, WindowListSkip, NeverFocus, StaysOnTop, !Iconifiable
 
 DestroyModuleConfig FvwmTaskPanel:*
-*FvwmTaskPanel: Geometry $[vp.width]x24+0-0
+*FvwmTaskPanel: Geometry $[vp.width]x28+0-0
 *FvwmTaskPanel: Font "xft:Roboto:Regular:size=9:antialias=True:hintstyle=slight"
 *FvwmTaskPanel: Colorset 22
 *FvwmTaskPanel: Rows 1
@@ -633,9 +632,9 @@ DestroyModuleConfig FvwmTaskPanel:*
 *FvwmTaskPanel: Frame 1
 *FvwmTaskPanel: Padding 0 0
 *FvwmTaskPanel: (36x1, Title "", Icon "ninja-cat-small.png", Action `Exec jgmenu --config-file="$HOME/.config/jgmenu/jgfvwmrc"`, Frame 1)
-*FvwmTaskPanel: (1160x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan PanelIconMan', Frame 1, Padding 0 0)
+*FvwmTaskPanel: (1152x1, Top, Swallow FvwmIconMan 'Module FvwmIconMan PanelIconMan', Frame 1, Padding 0 0)
 *FvwmTaskPanel: (124x1, Swallow(NoClose,UseOld) stalonetray `Exec exec stalonetray --config "$HOME/.fvwmtrayrc"`, Frame 1, Padding 0 0)
-*FvwmTaskPanel: (128x1, Swallow FvwmPager 'Module FvwmPager 0 3', Frame 1, Padding 0 0)
+*FvwmTaskPanel: (136x1, Swallow FvwmPager 'Module FvwmPager 0 3', Frame 1, Padding 0 0)
 *FvwmTaskPanel: (152x1), Swallow(NoClose,UseOld) xclock `Exec exec xclock -digital -strftime ' %a %e %b %R ' -face "Roboto Mono:regular:size=10:antialias=True:hintstyle=slight" -padding 3`, Frame 1, Padding 0 0)
 
 

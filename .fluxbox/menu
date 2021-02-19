@@ -28,15 +28,15 @@
 [submenu] (Terminals)
       [exec] (UXTerm) {uxterm}
       [exec] (XTerm) {xterm}
-      [exec] (Xfce4 Terminal) {xfce4-terminal}
-      [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
       [exec] (Simple Terminal) {st}
       [exec] (Kitty) {kitty}
+      [exec] (Tilix) {tilix}
       [exec] (URxvt) {urxvt}
-      [exec] (Terminator) {terminator}
-      [exec] (Tmux) {urxvt -e tmux}
+      [exec] (Tmux) {xterm -e tmux}
       [exec] (Sakura) {sakura -c 100 -r 34}
       [exec] (LXTerminal) {lxterminal}
+      [exec] (Xfce4 Terminal) {xfce4-terminal}
+      [exec] (Xfce4 Terminal drop down) {xfce4-terminal --drop-down}
 [end]
 [submenu] (Editors)
       [exec] (Geany) {wmctrl -a geany || geany}
